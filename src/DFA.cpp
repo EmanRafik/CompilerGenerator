@@ -1,17 +1,18 @@
 #include <iostream>
 #include "DFA.h"
 
-DFA::DFA(int number_of_states, int number_of_inputs, int acceptStates[]) {
+DFA::DFA(int number_of_states, int number_of_inputs, map<int, Token> accept_states) {
     this->number_of_states = number_of_states;
     this->number_of_inputs = number_of_inputs;
-    this->accept_states = acceptStates;
+    this->accept_states = accept_states;
     //initialize table 2D array
     this->table = new int *[number_of_states];
     for (int i = 0; i < number_of_states; i++)
         this->table[i] = new int[number_of_inputs];
 
-    for (int i = 0; i < 3; i++) {
-        cout << this->accept_states[i] << endl;
+    map<int, Token>::iterator itr;
+    for (itr =  accept_states.begin(); itr !=  accept_states.end(); ++itr) {
+        cout  << itr->first << endl;
     }
 }
 
@@ -43,11 +44,12 @@ void DFA::setTable(int **table) {
     DFA::table = table;
 }
 
-int *DFA::getAcceptStates() const {
+ map<int, Token> DFA::getAcceptStates() {
     return accept_states;
 }
 
-void DFA::setAcceptStates(int *acceptStates) {
+void DFA::setAcceptStates(const map<int, Token> acceptStates) {
     accept_states = acceptStates;
 }
+
 
