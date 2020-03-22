@@ -1,5 +1,4 @@
 #include "Lexical_analyzer_generator.h"
-#include <map>
 #include "NFA.h"
 #include <vector>
 Lexical_analyzer_generator::Lexical_analyzer_generator()

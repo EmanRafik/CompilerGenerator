@@ -1,7 +1,10 @@
 #ifndef LEXICAL_ANALYZER_GENERATOR_H
 #define LEXICAL_ANALYZER_GENERATOR_H
 #include "Token.h"
+#include "NFA.h"
 #include <vector>
+
+using namespace std;
 
 class Lexical_analyzer_generator
 {

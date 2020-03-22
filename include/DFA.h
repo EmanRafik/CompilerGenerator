@@ -18,7 +18,7 @@ class DFA {
         void setNumberOfInputs(int numberOfInputs);
 
         map<int, Token> getAcceptStates();
-        void setAcceptStates(map<int, Token> acceptStates);
+        void addAcceptState(int state,Token token);
 
         int **getTable() const;
         void setTable(int **table);
