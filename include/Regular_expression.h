@@ -2,6 +2,9 @@
 #define REGULAR_EXPRESSION_H
 
 #include"NFA.h"
+#include"Regular_definition.h"
+#include<string>
+#include<vector>
 
 using namespace std;
 

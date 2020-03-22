@@ -1,0 +1,59 @@
+# depslib dependency file v1.0
+1584893050 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\main.cpp
+	<iostream>
+
+1584558135 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\dfa.cpp
+	"DFA.h"
+
+1584558135 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\dfa.h
+
+1584559024 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\files_manager.cpp
+	"Files_manager.h"
+
+1584559024 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\files_manager.h
+
+1584558946 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\identifier.cpp
+	"Identifier.h"
+
+1584558946 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\identifier.h
+	<Token.h>
+
+1584558416 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\token.h
+
+1584558963 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\keyword.cpp
+	"Keyword.h"
+
+1584558963 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\keyword.h
+	<Token.h>
+
+1584558505 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexical_analyzer.cpp
+	"Lexical_analyzer.h"
+
+1584558505 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\lexical_analyzer.h
+
+1584558157 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\nfa.cpp
+	"NFA.h"
+
+1584558157 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\nfa.h
+
+1584558922 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\number.cpp
+	"Number.h"
+
+1584558921 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\number.h
+	<Token.h>
+
+1584558985 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\punctuation_symbol.cpp
+	"Punctuation_symbol.h"
+
+1584558984 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\punctuation_symbol.h
+	<Token.h>
+
+1584896238 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\regular_definition.cpp
+	"Regular_definition.h"
+	<string>
+	"NFA.h"
+
+1584896222 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\regular_definition.h
+	<string>
+	"NFA.h"
+
