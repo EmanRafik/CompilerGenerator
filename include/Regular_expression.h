@@ -44,6 +44,7 @@ class Regular_expression
         NFA concatinating(NFA original1, NFA original2);
         NFA termNFA(string term);
         string trim(string s);
+        void handleBrackets(string term);
 };
 
 #endif // REGULAR_EXPRESSION_H

@@ -206,6 +206,25 @@ NFA Regular_expression::concatinating(NFA original1, NFA original2)
 
 NFA Regular_expression::termNFA(string term)
 {
+    size_t f = term.find("(");
+    if (f == std::string::npos)
+        handleBrackets(term);
+    vector<map<char, vector<int>>> table;
+    for (int i = 0; i < term.length(); i++)
+    {
+        if (term.at(i) != '\\')
+        {
+            vector<int> v;
+            v.push_back(i+1);
+            map<char, vector<int>> m;
+            m.insert(pair<char, vector<int>>(term.at(i), v));
+            table.push_back(m);
+        }
+    }
+}
+
+void Regular_expression::handleBrackets(string term)
+{
 
 }
 

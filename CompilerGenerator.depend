@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1584916061 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\main.cpp
+1584919280 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\main.cpp
 	<iostream>
 	"DFA.h"
 
@@ -80,7 +80,7 @@
 	"NFA.h"
 	<vector>
 
-1584915598 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\regular_expression.cpp
+1584919190 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\regular_expression.cpp
 	"Regular_expression.h"
 	"NFA.h"
 	"Regular_definition.h"
@@ -89,7 +89,7 @@
 	<string>
 	<vector>
 
-1584910903 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\regular_expression.h
+1584917331 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\regular_expression.h
 	"NFA.h"
 	"Regular_definition.h"
 	<string>
