@@ -1,11 +1,10 @@
 #include "DFA.h"
 
-DFA::DFA()
-{
+DFA::DFA() {
     //ctor
+
 }
 
-DFA::~DFA()
-{
+DFA::~DFA() {
     //dtor
 }
