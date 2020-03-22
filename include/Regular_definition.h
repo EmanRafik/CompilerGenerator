@@ -1,6 +1,8 @@
 #ifndef REGULAR_DEFINITION_H
 #define REGULAR_DEFINITION_H
 
+#include<string>
+#include"NFA.h"
 using namespace std;
 
 class Regular_definition

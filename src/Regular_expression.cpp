@@ -1,15 +1,17 @@
 #include "Regular_expression.h"
 #include"NFA.h"
+#include"Regular_definition.h"
 #include<regex>
 #include<iostream>
 #include<string>
+#include<vector>
 
 using namespace std;
 
-final int kleene_closure = 0;
-final int positive_closure = 1;
-final int concatenation = 2;
-final int or = 3;
+static const int kleene_closure = 0;
+static const int positive_closure = 1;
+static const int concatenation = 2;
+static const int dor = 3;
 
 Regular_expression::Regular_expression()
 {
@@ -83,7 +85,7 @@ void Regular_expression::setClosure(int closure)
 
 NFA Regular_expression::constructNFA()
 {
-    size_t n = strlen(value);
+    int n = value.size();
     string term = "";
     bool is_operator = false;
     for (int i = 0; i < n; i++)
@@ -107,7 +109,7 @@ NFA Regular_expression::constructNFA()
                     else
                     {
                         string expression = value.substr(i+1, j-i-1);
-                        Regular_expression e = new Regular_expression();
+                        Regular_expression e;
                         e.setValue(expression);
                         e.setSymbol(false);
                         e.setDefinition(false);
@@ -140,7 +142,7 @@ NFA Regular_expression::constructNFA()
         else if (c == '|')
         {
             string expression1 = value.substr(0, i-1);
-            string expression2 = value.substr(i+1, strlen(vlaue)-i)
+            string expression2 = value.substr(i+1, value.size()-i);
             is_operator = true;
         }
         else if (c == '*')
@@ -161,14 +163,14 @@ NFA Regular_expression::constructNFA()
         {
             if (!is_operator)
             {
-                bool found = fasle;
+                bool found = false;
                 for (int i = 0; i < regular_definitions.size(); i++)
                 {
-                    if (term == regular_definitions[i])
-                    {
+                    //if (term == regular_definitions[i])
+                    //{
 
-                        found = true;
-                    }
+                    //    found = true;
+                    //}
                 }
                 if (!found)
                 {
@@ -183,6 +185,6 @@ NFA Regular_expression::constructNFA()
             is_operator = false;
         }
     }
-    NFA nfa = new NFA();
+    NFA nfa;
 
 }
