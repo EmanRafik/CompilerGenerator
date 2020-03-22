@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -32,7 +34,29 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/DFA.h" />
+		<Unit filename="include/Files_manager.h" />
+		<Unit filename="include/Identifier.h" />
+		<Unit filename="include/Keyword.h" />
+		<Unit filename="include/Lexical_analyzer.h" />
+		<Unit filename="include/NFA.h" />
+		<Unit filename="include/Number.h" />
+		<Unit filename="include/Punctuation_symbol.h" />
+		<Unit filename="include/Regular_definition.h" />
+		<Unit filename="include/Regular_expression.h" />
+		<Unit filename="include/Token.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/DFA.cpp" />
+		<Unit filename="src/Files_manager.cpp" />
+		<Unit filename="src/Identifier.cpp" />
+		<Unit filename="src/Keyword.cpp" />
+		<Unit filename="src/Lexical_analyzer.cpp" />
+		<Unit filename="src/NFA.cpp" />
+		<Unit filename="src/Number.cpp" />
+		<Unit filename="src/Punctuation_symbol.cpp" />
+		<Unit filename="src/Regular_definition.cpp" />
+		<Unit filename="src/Regular_expression.cpp" />
+		<Unit filename="src/Token.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
