@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="compilergenerator"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="compilergenerator">
+				<Option output="C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/compilergenerator.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/DELL/CLionProjects/compilergenerator/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 compilergenerator"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="compilergenerator/fast">
+				<Option output="C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/compilergenerator.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/DELL/CLionProjects/compilergenerator/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 compilergenerator/fast"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/include/DFA.h">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/include/Files_manager.h">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/include/ID.h">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/include/Identifier.h">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/include/Keyword.h">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/include/Lexical_analyzer.h">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/include/NFA.h">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/include/Number.h">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/include/Punctuation_symbol.h">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/include/Regular_definition.h">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/include/Regular_expression.h">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/include/Token.h">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/main.cpp">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/src/DFA.cpp">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/src/Files_manager.cpp">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/src/ID.cpp">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/src/Identifier.cpp">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/src/Keyword.cpp">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/src/Lexical_analyzer.cpp">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/src/NFA.cpp">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/src/Number.cpp">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/src/Punctuation_symbol.cpp">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/src/Regular_definition.cpp">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/src/Regular_expression.cpp">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/src/Token.cpp">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="C:/Users/DELL/CLionProjects/compilergenerator/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
