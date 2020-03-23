@@ -4,6 +4,8 @@
 #include "NFA.h"
 #include <vector>
 
+using namespace std;
+
 class Lexical_analyzer_generator
 {
     public:

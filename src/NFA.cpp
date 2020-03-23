@@ -13,23 +13,18 @@ NFA::~NFA()
     //dtor
 }
 
-vector<map<char,int>> NFA::getNFATable() {
+vector<map<char, vector<int>>> NFA::getNFATable() {
     return table;
 }
 
 void NFA::setNFATable(vector<map<char,vector<int>>> table){
     this->table = table;
 }
-void NFA:: addToNFA(map<char,vector<int>> map){
-    
-}
 
-vector<map<int,Token>> NFA::getAcceptStates() {
+map<int,Token> NFA::getAcceptStates() {
     return acceptStates;
 }
 
-void NFA::setAcceptState(int state,Token token){
-    map<int, Token> acceptStatesMap = getAcceptStates();
-    acceptStatesMap[state] = token;
-    this->acceptStates = acceptStatesMap;
+void NFA::addAcceptState(int state,Token token) {
+    getAcceptStates().insert(pair<int, Token>(state, token));
 }

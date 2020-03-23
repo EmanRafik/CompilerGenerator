@@ -34,9 +34,7 @@ string Regular_definition::getValue()
     return this->value;
 }
 
-NFA Regular_definition::constructNFA()
+NFA Regular_definition::getNFA()
 {
-    //NFA nfa = new NFA();
 
-//    return nfa;
 }

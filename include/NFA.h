@@ -5,18 +5,20 @@
 #include <vector>
 #include "Token.h"
 
+using namespace std;
+
 class NFA {
 public:
     NFA();
     virtual ~NFA();
-    void setAcceptState(int state,Token token);
-    vector<map<int,Token>> getAcceptStates();
+    void addAcceptState(int state,Token token);
+    map<int,Token> getAcceptStates();
     void setNFATable(vector<map<char,vector<int>>> table);
-    vector<map<char,int>> getNFATable();
+    vector<map<char, vector<int>>> getNFATable();
 protected:
 
 private:
-    vector<map<int,Token>> acceptStates;
+    map<int,Token> acceptStates;
     vector<map<char,vector<int>>> table;
 };
 

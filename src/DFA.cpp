@@ -48,8 +48,8 @@ void DFA::setTable(int **table) {
     return accept_states;
 }
 
-void DFA::setAcceptStates(const map<int, Token> acceptStates) {
-    accept_states = acceptStates;
+void DFA::addAcceptState(int state,Token token) {
+    getAcceptStates().insert(pair<int, Token>(state, token));
 }
 
 
