@@ -1,6 +1,8 @@
 #include <iostream>
 #include "DFA.h"
 
+const int phai = -1;
+
 DFA::DFA(int number_of_states, int number_of_inputs) {
     this->number_of_states = number_of_states;
     this->number_of_inputs = number_of_inputs;
@@ -11,7 +13,7 @@ DFA::DFA(int number_of_states, int number_of_inputs) {
 
     for (int i = 0; i < number_of_states; i++) {
         for (int j = 0; j < number_of_inputs; j++) {
-            table[i][j] = -2;
+            table[i][j] = phai;
         }
     }
 
@@ -167,7 +169,7 @@ DFA DFA::minimize() {
     }
 
     DFA *dfa = new DFA(old_partitions.size(), number_of_inputs);
-    
+
     return* new DFA(0,0);
 }
 
