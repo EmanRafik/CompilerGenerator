@@ -5,11 +5,29 @@ using namespace std;
 
 int main()
 {
-    map<int, Token> accept_states;
+    DFA *dfa = new DFA(6, 2);
+
+    dfa->addTransition(0,0,1);
+    dfa->addTransition(1,0,0);
+    dfa->addTransition(2,0,4);
+    dfa->addTransition(3,0,4);
+    dfa->addTransition(4,0,4);
+    dfa->addTransition(5,0,5);
+
+    dfa->addTransition(0,1,2);
+    dfa->addTransition(1,1,3);
+    dfa->addTransition(2,1,5);
+    dfa->addTransition(3,1,5);
+    dfa->addTransition(4,1,5);
+    dfa->addTransition(5,1,5);
+
     Token *t = new Token();
-    accept_states.insert(pair<int, Token>(1, *t));
-    accept_states.insert(pair<int, Token>(2, *t));
-    accept_states.insert(pair<int, Token>(3, *t));
-    DFA *dfa = new DFA(5, 160 - 32, accept_states);
+    dfa->addAcceptState(2, *t);
+    dfa->addAcceptState(3, *t);
+    dfa->addAcceptState(4, *t);
+
+    DFA mini_dfa = dfa->minimize();
+
+    dfa->print_dfa();
     return 0;
 }

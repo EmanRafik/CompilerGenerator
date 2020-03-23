@@ -238,24 +238,10 @@ CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.s: cmake_for
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.s"
 	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\compilers\compilergenerator\src\Lexical_analyzer_generator.cpp -o CMakeFiles\compilergenerator.dir\src\Lexical_analyzer_generator.cpp.s
 
-CMakeFiles/compilergenerator.dir/main.cpp.obj: CMakeFiles/compilergenerator.dir/flags.make
-CMakeFiles/compilergenerator.dir/main.cpp.obj: CMakeFiles/compilergenerator.dir/includes_CXX.rsp
-CMakeFiles/compilergenerator.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/compilergenerator.dir/main.cpp.obj"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\main.cpp.obj -c D:\compilers\compilergenerator\main.cpp
-
-CMakeFiles/compilergenerator.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compilergenerator.dir/main.cpp.i"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\compilers\compilergenerator\main.cpp > CMakeFiles\compilergenerator.dir\main.cpp.i
-
-CMakeFiles/compilergenerator.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compilergenerator.dir/main.cpp.s"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\compilers\compilergenerator\main.cpp -o CMakeFiles\compilergenerator.dir\main.cpp.s
-
 CMakeFiles/compilergenerator.dir/src/State.cpp.obj: CMakeFiles/compilergenerator.dir/flags.make
 CMakeFiles/compilergenerator.dir/src/State.cpp.obj: CMakeFiles/compilergenerator.dir/includes_CXX.rsp
 CMakeFiles/compilergenerator.dir/src/State.cpp.obj: ../src/State.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/compilergenerator.dir/src/State.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/compilergenerator.dir/src/State.cpp.obj"
 	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\State.cpp.obj -c D:\compilers\compilergenerator\src\State.cpp
 
 CMakeFiles/compilergenerator.dir/src/State.cpp.i: cmake_force
@@ -265,6 +251,20 @@ CMakeFiles/compilergenerator.dir/src/State.cpp.i: cmake_force
 CMakeFiles/compilergenerator.dir/src/State.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compilergenerator.dir/src/State.cpp.s"
 	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\compilers\compilergenerator\src\State.cpp -o CMakeFiles\compilergenerator.dir\src\State.cpp.s
+
+CMakeFiles/compilergenerator.dir/main.cpp.obj: CMakeFiles/compilergenerator.dir/flags.make
+CMakeFiles/compilergenerator.dir/main.cpp.obj: CMakeFiles/compilergenerator.dir/includes_CXX.rsp
+CMakeFiles/compilergenerator.dir/main.cpp.obj: ../main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/compilergenerator.dir/main.cpp.obj"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\main.cpp.obj -c D:\compilers\compilergenerator\main.cpp
+
+CMakeFiles/compilergenerator.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compilergenerator.dir/main.cpp.i"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\compilers\compilergenerator\main.cpp > CMakeFiles\compilergenerator.dir\main.cpp.i
+
+CMakeFiles/compilergenerator.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compilergenerator.dir/main.cpp.s"
+	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\compilers\compilergenerator\main.cpp -o CMakeFiles\compilergenerator.dir\main.cpp.s
 
 # Object files for target compilergenerator
 compilergenerator_OBJECTS = \
@@ -281,8 +281,8 @@ compilergenerator_OBJECTS = \
 "CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.obj" \
 "CMakeFiles/compilergenerator.dir/src/Token.cpp.obj" \
 "CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj" \
-"CMakeFiles/compilergenerator.dir/main.cpp.obj" \
-"CMakeFiles/compilergenerator.dir/src/State.cpp.obj"
+"CMakeFiles/compilergenerator.dir/src/State.cpp.obj" \
+"CMakeFiles/compilergenerator.dir/main.cpp.obj"
 
 # External object files for target compilergenerator
 compilergenerator_EXTERNAL_OBJECTS =
@@ -300,8 +300,8 @@ compilergenerator.exe: CMakeFiles/compilergenerator.dir/src/Regular_definition.c
 compilergenerator.exe: CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.obj
 compilergenerator.exe: CMakeFiles/compilergenerator.dir/src/Token.cpp.obj
 compilergenerator.exe: CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj
-compilergenerator.exe: CMakeFiles/compilergenerator.dir/main.cpp.obj
 compilergenerator.exe: CMakeFiles/compilergenerator.dir/src/State.cpp.obj
+compilergenerator.exe: CMakeFiles/compilergenerator.dir/main.cpp.obj
 compilergenerator.exe: CMakeFiles/compilergenerator.dir/build.make
 compilergenerator.exe: CMakeFiles/compilergenerator.dir/linklibs.rsp
 compilergenerator.exe: CMakeFiles/compilergenerator.dir/objects1.rsp
