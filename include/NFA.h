@@ -5,6 +5,7 @@
 #include <vector>
 #include "Token.h"
 #include "State.h"
+#include "DFA.h"
 
 using namespace std;
 
@@ -20,6 +21,8 @@ public:
     void setAcceptState(State *acceptState);
     State *getStartState() const;
     void setStartState(State *startState);
+    DFA convertToDFA();
+    vector<State> closure(State *s);
 protected:
 
 private:

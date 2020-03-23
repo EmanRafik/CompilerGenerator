@@ -95,3 +95,98 @@
 	<string>
 	<vector>
 
+1584994207 source:c:\users\bcc\desktop\compiler generator\compilergenerator\main.cpp
+	<iostream>
+	"DFA.h"
+
+1584988031 c:\users\bcc\desktop\compiler generator\compilergenerator\include\dfa.h
+	<vector>
+	"Token.h"
+	<map>
+
+1584909278 c:\users\bcc\desktop\compiler generator\compilergenerator\include\token.h
+
+1584988031 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\dfa.cpp
+	<iostream>
+	"DFA.h"
+
+1584909278 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\files_manager.cpp
+	"Files_manager.h"
+
+1584909278 c:\users\bcc\desktop\compiler generator\compilergenerator\include\files_manager.h
+
+1584909278 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\identifier.cpp
+	"Identifier.h"
+
+1584909278 c:\users\bcc\desktop\compiler generator\compilergenerator\include\identifier.h
+	<Token.h>
+
+1584909278 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\keyword.cpp
+	"Keyword.h"
+
+1584909278 c:\users\bcc\desktop\compiler generator\compilergenerator\include\keyword.h
+	<Token.h>
+
+1584976729 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexical_analyzer.cpp
+	"Lexical_analyzer.h"
+
+1584909278 c:\users\bcc\desktop\compiler generator\compilergenerator\include\lexical_analyzer.h
+
+1584995837 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\nfa.cpp
+	"NFA.h"
+	"Token.h"
+	<map>
+	<string>
+	<vector>
+	"State.h"
+
+1584995864 c:\users\bcc\desktop\compiler generator\compilergenerator\include\nfa.h
+	<map>
+	<string>
+	<vector>
+	"Token.h"
+	"State.h"
+	"DFA.h"
+
+1584988031 c:\users\bcc\desktop\compiler generator\compilergenerator\include\state.h
+
+1584909278 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\number.cpp
+	"Number.h"
+
+1584909278 c:\users\bcc\desktop\compiler generator\compilergenerator\include\number.h
+	<Token.h>
+
+1584909278 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\punctuation_symbol.cpp
+	"Punctuation_symbol.h"
+
+1584909278 c:\users\bcc\desktop\compiler generator\compilergenerator\include\punctuation_symbol.h
+	<Token.h>
+
+1584976729 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\regular_definition.cpp
+	"Regular_definition.h"
+	<string>
+	"NFA.h"
+
+1584976729 c:\users\bcc\desktop\compiler generator\compilergenerator\include\regular_definition.h
+	<string>
+	"NFA.h"
+
+1584988031 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\regular_expression.cpp
+	"Regular_expression.h"
+	"NFA.h"
+	"Regular_definition.h"
+	<regex>
+	<iostream>
+	<string>
+	<vector>
+	<map>
+
+1584976729 c:\users\bcc\desktop\compiler generator\compilergenerator\include\regular_expression.h
+	"NFA.h"
+	"Regular_definition.h"
+	<string>
+	<vector>
+
+1584909278 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\token.cpp
+	"Token.h"
+

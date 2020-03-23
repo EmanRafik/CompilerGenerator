@@ -45,3 +45,12 @@ State *NFA::getStartState() const {
 void NFA::setStartState(State *startState) {
     NFA::startState = startState;
 }
+
+DFA NFA::convertToDFA(){
+    DFA *dfa = new DFA(1,2);
+    vector<State> s = closure(startState);
+}
+
+vector<State> NFA::closure(State *s){
+
+}

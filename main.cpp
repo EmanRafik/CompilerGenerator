@@ -6,7 +6,6 @@ using namespace std;
 int main()
 {
     DFA *dfa = new DFA(6, 2);
-
     dfa->addTransition(0,0,1);
     dfa->addTransition(1,0,0);
     dfa->addTransition(2,0,4);
