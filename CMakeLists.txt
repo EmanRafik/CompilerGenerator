@@ -18,6 +18,7 @@ add_executable(compilergenerator
         include/Regular_definition.h
         include/Regular_expression.h
         include/Token.h
+        include/Lexical_analyzer_generator.h
         src/DFA.cpp
         src/Files_manager.cpp
         src/ID.cpp
@@ -30,4 +31,5 @@ add_executable(compilergenerator
         src/Regular_definition.cpp
         src/Regular_expression.cpp
         src/Token.cpp
-        main.cpp)
+        src/Lexical_analyzer_generator.cpp
+        main.cpp src/State.cpp include/State.h)

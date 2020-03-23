@@ -5,7 +5,7 @@
 #include<iostream>
 #include<string>
 #include<vector>
-
+#include<map>
 using namespace std;
 
 //static const int kleene_closure = 0;

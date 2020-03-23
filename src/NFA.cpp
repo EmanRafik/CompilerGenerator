@@ -3,6 +3,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include "State.h"
 NFA::NFA()
 {
 
@@ -13,18 +14,34 @@ NFA::~NFA()
     //dtor
 }
 
-vector<map<char, vector<int>>> NFA::getNFATable() {
+map<State*,map<char, vector<State*>>> NFA::getNFATable() {
     return table;
 }
 
-void NFA::setNFATable(vector<map<char,vector<int>>> table){
+void NFA::setNFATable(map<State*,map<char,vector<State*>>> table){
     this->table = table;
 }
 
-map<int,Token> NFA::getAcceptStates() {
-    return acceptStates;
+map<State*,Token> NFA::getAcceptStatesList() {
+    return acceptStatesList;
 }
 
-void NFA::addAcceptState(int state,Token token) {
-    getAcceptStates().insert(pair<int, Token>(state, token));
+void NFA::addAcceptStateToList(State* state,Token token) {
+    getAcceptStatesList().insert(pair<State*, Token>(state, token));
+}
+
+State *NFA::getAcceptState() const {
+    return acceptState;
+}
+
+void NFA::setAcceptState(State *acceptState) {
+    NFA::acceptState = acceptState;
+}
+
+State *NFA::getStartState() const {
+    return startState;
+}
+
+void NFA::setStartState(State *startState) {
+    NFA::startState = startState;
 }

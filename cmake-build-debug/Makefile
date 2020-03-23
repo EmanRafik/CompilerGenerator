@@ -311,6 +311,33 @@ src/Lexical_analyzer.cpp.s:
 	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.s
 .PHONY : src/Lexical_analyzer.cpp.s
 
+src/Lexical_analyzer_generator.obj: src/Lexical_analyzer_generator.cpp.obj
+
+.PHONY : src/Lexical_analyzer_generator.obj
+
+# target to build an object file
+src/Lexical_analyzer_generator.cpp.obj:
+	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj
+.PHONY : src/Lexical_analyzer_generator.cpp.obj
+
+src/Lexical_analyzer_generator.i: src/Lexical_analyzer_generator.cpp.i
+
+.PHONY : src/Lexical_analyzer_generator.i
+
+# target to preprocess a source file
+src/Lexical_analyzer_generator.cpp.i:
+	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.i
+.PHONY : src/Lexical_analyzer_generator.cpp.i
+
+src/Lexical_analyzer_generator.s: src/Lexical_analyzer_generator.cpp.s
+
+.PHONY : src/Lexical_analyzer_generator.s
+
+# target to generate assembly for a file
+src/Lexical_analyzer_generator.cpp.s:
+	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.s
+.PHONY : src/Lexical_analyzer_generator.cpp.s
+
 src/NFA.obj: src/NFA.cpp.obj
 
 .PHONY : src/NFA.obj
@@ -446,6 +473,33 @@ src/Regular_expression.cpp.s:
 	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.s
 .PHONY : src/Regular_expression.cpp.s
 
+src/State.obj: src/State.cpp.obj
+
+.PHONY : src/State.obj
+
+# target to build an object file
+src/State.cpp.obj:
+	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/State.cpp.obj
+.PHONY : src/State.cpp.obj
+
+src/State.i: src/State.cpp.i
+
+.PHONY : src/State.i
+
+# target to preprocess a source file
+src/State.cpp.i:
+	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/State.cpp.i
+.PHONY : src/State.cpp.i
+
+src/State.s: src/State.cpp.s
+
+.PHONY : src/State.s
+
+# target to generate assembly for a file
+src/State.cpp.s:
+	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/State.cpp.s
+.PHONY : src/State.cpp.s
+
 src/Token.obj: src/Token.cpp.obj
 
 .PHONY : src/Token.obj
@@ -503,6 +557,9 @@ help:
 	@echo ... src/Lexical_analyzer.obj
 	@echo ... src/Lexical_analyzer.i
 	@echo ... src/Lexical_analyzer.s
+	@echo ... src/Lexical_analyzer_generator.obj
+	@echo ... src/Lexical_analyzer_generator.i
+	@echo ... src/Lexical_analyzer_generator.s
 	@echo ... src/NFA.obj
 	@echo ... src/NFA.i
 	@echo ... src/NFA.s
@@ -518,6 +575,9 @@ help:
 	@echo ... src/Regular_expression.obj
 	@echo ... src/Regular_expression.i
 	@echo ... src/Regular_expression.s
+	@echo ... src/State.obj
+	@echo ... src/State.i
+	@echo ... src/State.s
 	@echo ... src/Token.obj
 	@echo ... src/Token.i
 	@echo ... src/Token.s

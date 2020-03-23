@@ -106,6 +106,9 @@
 		<Unit filename="D:/compilers/compilergenerator/include/Lexical_analyzer.h">
 			<Option target="compilergenerator"/>
 		</Unit>
+		<Unit filename="D:/compilers/compilergenerator/include/Lexical_analyzer_generator.h">
+			<Option target="compilergenerator"/>
+		</Unit>
 		<Unit filename="D:/compilers/compilergenerator/include/NFA.h">
 			<Option target="compilergenerator"/>
 		</Unit>
@@ -119,6 +122,9 @@
 			<Option target="compilergenerator"/>
 		</Unit>
 		<Unit filename="D:/compilers/compilergenerator/include/Regular_expression.h">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="D:/compilers/compilergenerator/include/State.h">
 			<Option target="compilergenerator"/>
 		</Unit>
 		<Unit filename="D:/compilers/compilergenerator/include/Token.h">
@@ -145,6 +151,9 @@
 		<Unit filename="D:/compilers/compilergenerator/src/Lexical_analyzer.cpp">
 			<Option target="compilergenerator"/>
 		</Unit>
+		<Unit filename="D:/compilers/compilergenerator/src/Lexical_analyzer_generator.cpp">
+			<Option target="compilergenerator"/>
+		</Unit>
 		<Unit filename="D:/compilers/compilergenerator/src/NFA.cpp">
 			<Option target="compilergenerator"/>
 		</Unit>
@@ -158,6 +167,9 @@
 			<Option target="compilergenerator"/>
 		</Unit>
 		<Unit filename="D:/compilers/compilergenerator/src/Regular_expression.cpp">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="D:/compilers/compilergenerator/src/State.cpp">
 			<Option target="compilergenerator"/>
 		</Unit>
 		<Unit filename="D:/compilers/compilergenerator/src/Token.cpp">

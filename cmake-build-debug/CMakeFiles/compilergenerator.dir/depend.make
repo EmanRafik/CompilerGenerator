@@ -27,7 +27,14 @@ CMakeFiles/compilergenerator.dir/src/Keyword.cpp.obj: ../src/Keyword.cpp
 CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.obj: ../include/Lexical_analyzer.h
 CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.obj: ../src/Lexical_analyzer.cpp
 
+CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj: ../include/Lexical_analyzer_generator.h
+CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj: ../include/NFA.h
+CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj: ../include/State.h
+CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj: ../include/Token.h
+CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj: ../src/Lexical_analyzer_generator.cpp
+
 CMakeFiles/compilergenerator.dir/src/NFA.cpp.obj: ../include/NFA.h
+CMakeFiles/compilergenerator.dir/src/NFA.cpp.obj: ../include/State.h
 CMakeFiles/compilergenerator.dir/src/NFA.cpp.obj: ../include/Token.h
 CMakeFiles/compilergenerator.dir/src/NFA.cpp.obj: ../src/NFA.cpp
 
@@ -41,14 +48,19 @@ CMakeFiles/compilergenerator.dir/src/Punctuation_symbol.cpp.obj: ../src/Punctuat
 
 CMakeFiles/compilergenerator.dir/src/Regular_definition.cpp.obj: ../include/NFA.h
 CMakeFiles/compilergenerator.dir/src/Regular_definition.cpp.obj: ../include/Regular_definition.h
+CMakeFiles/compilergenerator.dir/src/Regular_definition.cpp.obj: ../include/State.h
 CMakeFiles/compilergenerator.dir/src/Regular_definition.cpp.obj: ../include/Token.h
 CMakeFiles/compilergenerator.dir/src/Regular_definition.cpp.obj: ../src/Regular_definition.cpp
 
 CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.obj: ../include/NFA.h
 CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.obj: ../include/Regular_definition.h
 CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.obj: ../include/Regular_expression.h
+CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.obj: ../include/State.h
 CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.obj: ../include/Token.h
 CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.obj: ../src/Regular_expression.cpp
+
+CMakeFiles/compilergenerator.dir/src/State.cpp.obj: ../include/State.h
+CMakeFiles/compilergenerator.dir/src/State.cpp.obj: ../src/State.cpp
 
 CMakeFiles/compilergenerator.dir/src/Token.cpp.obj: ../include/Token.h
 CMakeFiles/compilergenerator.dir/src/Token.cpp.obj: ../src/Token.cpp

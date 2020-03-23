@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "Token.h"
+#include "State.h"
 
 using namespace std;
 
@@ -11,15 +12,21 @@ class NFA {
 public:
     NFA();
     virtual ~NFA();
-    void addAcceptState(int state,Token token);
-    map<int,Token> getAcceptStates();
-    void setNFATable(vector<map<char,vector<int>>> table);
-    vector<map<char, vector<int>>> getNFATable();
+    void addAcceptStateToList(State* state,Token token);
+    map<State*,Token> getAcceptStatesList();
+    void setNFATable(map<State*,map<char,vector<State*>>> table);
+    map<State*,map<char, vector<State*>>> getNFATable();
+    State *getAcceptState() const;
+    void setAcceptState(State *acceptState);
+    State *getStartState() const;
+    void setStartState(State *startState);
 protected:
 
 private:
-    map<int,Token> acceptStates;
-    vector<map<char,vector<int>>> table;
+    map<State*,Token> acceptStatesList;
+    map<State*,map<char,vector<State*>>> table;
+    State* acceptState;
+    State* startState;
 };
 
 #endif // NFA_H

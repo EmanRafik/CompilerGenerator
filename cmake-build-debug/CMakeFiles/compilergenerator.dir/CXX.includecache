@@ -6,29 +6,13 @@
 
 #IncludeRegexTransform: 
 
-../include/DFA.h
-vector
--
+../include/Lexical_analyzer_generator.h
 Token.h
 ../include/Token.h
-map
+NFA.h
+../include/NFA.h
+vector
 -
-
-../include/Files_manager.h
-
-../include/ID.h
-Token.h
--
-
-../include/Identifier.h
-Token.h
--
-
-../include/Keyword.h
-Token.h
--
-
-../include/Lexical_analyzer.h
 
 ../include/NFA.h
 map
@@ -39,14 +23,8 @@ vector
 -
 Token.h
 ../include/Token.h
-
-../include/Number.h
-Token.h
--
-
-../include/Punctuation_symbol.h
-Token.h
--
+State.h
+../include/State.h
 
 ../include/Regular_definition.h
 string
@@ -64,39 +42,19 @@ string
 vector
 -
 
+../include/State.h
+
 ../include/Token.h
 
-D:/compilers/compilergenerator/main.cpp
-iostream
+D:/compilers/compilergenerator/src/Lexical_analyzer_generator.cpp
+Lexical_analyzer_generator.h
+D:/compilers/compilergenerator/src/Lexical_analyzer_generator.h
+map
 -
-DFA.h
-D:/compilers/compilergenerator/DFA.h
-
-D:/compilers/compilergenerator/src/DFA.cpp
-iostream
+NFA.h
+D:/compilers/compilergenerator/src/NFA.h
+vector
 -
-DFA.h
-D:/compilers/compilergenerator/src/DFA.h
-
-D:/compilers/compilergenerator/src/Files_manager.cpp
-Files_manager.h
-D:/compilers/compilergenerator/src/Files_manager.h
-
-D:/compilers/compilergenerator/src/ID.cpp
-ID.h
-D:/compilers/compilergenerator/src/ID.h
-
-D:/compilers/compilergenerator/src/Identifier.cpp
-Identifier.h
-D:/compilers/compilergenerator/src/Identifier.h
-
-D:/compilers/compilergenerator/src/Keyword.cpp
-Keyword.h
-D:/compilers/compilergenerator/src/Keyword.h
-
-D:/compilers/compilergenerator/src/Lexical_analyzer.cpp
-Lexical_analyzer.h
-D:/compilers/compilergenerator/src/Lexical_analyzer.h
 
 D:/compilers/compilergenerator/src/NFA.cpp
 NFA.h
@@ -109,14 +67,8 @@ string
 -
 vector
 -
-
-D:/compilers/compilergenerator/src/Number.cpp
-Number.h
-D:/compilers/compilergenerator/src/Number.h
-
-D:/compilers/compilergenerator/src/Punctuation_symbol.cpp
-Punctuation_symbol.h
-D:/compilers/compilergenerator/src/Punctuation_symbol.h
+State.h
+D:/compilers/compilergenerator/src/State.h
 
 D:/compilers/compilergenerator/src/Regular_definition.cpp
 Regular_definition.h
@@ -141,8 +93,10 @@ string
 -
 vector
 -
+map
+-
 
-D:/compilers/compilergenerator/src/Token.cpp
-Token.h
-D:/compilers/compilergenerator/src/Token.h
+D:/compilers/compilergenerator/src/State.cpp
+State.h
+D:/compilers/compilergenerator/src/State.h
 
