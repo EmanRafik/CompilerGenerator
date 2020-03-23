@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1584919280 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\main.cpp
+1584997199 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\main.cpp
 	<iostream>
 	"DFA.h"
 
-1584915015 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\dfa.cpp
+1584997199 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\dfa.cpp
 	<iostream>
 	"DFA.h"
 
-1584915015 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\dfa.h
+1584997199 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\dfa.h
 	<vector>
 	"Token.h"
 	<map>
@@ -31,25 +31,26 @@
 1584558963 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\keyword.h
 	<Token.h>
 
-1584915015 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexical_analyzer.cpp
-	"Lexical_analyzer_generator.h"
-	"NFA.h"
-	<vector>
+1584997199 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexical_analyzer.cpp
+	"Lexical_analyzer.h"
 
 1584558505 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\lexical_analyzer.h
 
-1584915015 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\nfa.cpp
+1584997199 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\nfa.cpp
 	"NFA.h"
 	"Token.h"
 	<map>
 	<string>
 	<vector>
+	"State.h"
 
-1584915015 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\nfa.h
+1584997199 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\nfa.h
 	<map>
 	<string>
 	<vector>
 	"Token.h"
+	"State.h"
+	"DFA.h"
 
 1584558922 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\number.cpp
 	"Number.h"
@@ -189,4 +190,37 @@
 
 1584909278 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\token.cpp
 	"Token.h"
+
+1584997199 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\state.h
+
+1584558871 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\id.cpp
+	"ID.h"
+
+1584558871 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\id.h
+	<Token.h>
+
+1584997199 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexical_analyzer_generator.cpp
+	"Lexical_analyzer_generator.h"
+	<map>
+	"NFA.h"
+	<vector>
+
+1585001442 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\nfa_constructor.cpp
+	"NFA_constructor.h"
+	"NFA.h"
+	<string>
+	<vector>
+	<map>
+	<iostream>
+	"Regular_definition.h"
+
+1585001373 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\nfa_constructor.h
+	"NFA.h"
+	<string>
+	<iostream>
+	<vector>
+	"Regular_definition.h"
+
+1584997199 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\state.cpp
+	"State.h"
 
