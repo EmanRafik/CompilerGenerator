@@ -20,6 +20,9 @@ vector<map<char,int>> NFA::getNFATable() {
 void NFA::setNFATable(vector<map<char,vector<int>>> table){
     this->table = table;
 }
+void NFA:: addToNFA(map<char,vector<int>> map){
+    
+}
 
 vector<map<int,Token>> NFA::getAcceptStates() {
     return acceptStates;
