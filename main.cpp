@@ -1,5 +1,5 @@
 #include <iostream>
-#include <DFA.h>
+#include "DFA.h"
 
 using namespace std;
 

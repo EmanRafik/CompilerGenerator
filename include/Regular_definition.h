@@ -14,7 +14,7 @@ class Regular_definition
         void setValue(string value);
         string getName();
         string getValue();
-        NFA constructNFA();
+        NFA getNFA();
 
     protected:
 

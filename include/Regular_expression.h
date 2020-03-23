@@ -13,7 +13,7 @@ class Regular_expression
     public:
         Regular_expression();
         virtual ~Regular_expression();
-        NFA constructNFA();
+        NFA getNFA();
         void setName(string name);
         void setValue(string value);
         string getName();
@@ -37,6 +37,14 @@ class Regular_expression
         bool symbol;
         int relation_with_next;
         int closure;
+        NFA constructNFA(string expression);
+        NFA kleene_closure(NFA original_nfa);
+        NFA positive_closure(NFA original_nfa);
+        NFA oring(NFA original1, NFA original2);
+        NFA concatinating(NFA original1, NFA original2);
+        NFA termNFA(string term);
+        string trim(string s);
+        void handleBrackets(string term);
 };
 
 #endif // REGULAR_EXPRESSION_H
