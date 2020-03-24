@@ -15,12 +15,14 @@ class Lexical_analyzer {
         void set_input_code (vector<char> input_code);
         vector<char> get_input_code ();
         vector<Token> getTokens();
+        vector<string> getSymbolTable();
 
     protected:
 
     private:
         vector<char> input_code;
         vector<Token> tokens;
+        vector<string> symbol_table;
         DFA *dfa;
 
 };

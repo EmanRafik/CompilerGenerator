@@ -116,22 +116,23 @@
 	<string>
 	<vector>
 
-1585060119 source:c:\users\bcc\desktop\compiler generator\compilergenerator\main.cpp
+1585074540 source:c:\users\bcc\desktop\compiler generator\compilergenerator\main.cpp
 	<iostream>
 	"DFA.h"
 	"Lexical_analyzer_generator.h"
 	"Lexical_analyzer.h"
 
-1584988031 c:\users\bcc\desktop\compiler generator\compilergenerator\include\dfa.h
+1585071199 c:\users\bcc\desktop\compiler generator\compilergenerator\include\dfa.h
 	<vector>
 	"Token.h"
 	<map>
 
-1585044080 c:\users\bcc\desktop\compiler generator\compilergenerator\include\token.h
+1585075574 c:\users\bcc\desktop\compiler generator\compilergenerator\include\token.h
 	<string>
 
-1585060119 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\dfa.cpp
+1585074540 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\dfa.cpp
 	<iostream>
+	<fstream>
 	"DFA.h"
 
 1584909278 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\files_manager.cpp
@@ -151,26 +152,27 @@
 1584909278 c:\users\bcc\desktop\compiler generator\compilergenerator\include\keyword.h
 	<Token.h>
 
-1585060119 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexical_analyzer.cpp
+1585077979 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexical_analyzer.cpp
 	"Lexical_analyzer.h"
 	"DFA.h"
 	<fstream>
 	<string>
 	<iostream>
 
-1585060119 c:\users\bcc\desktop\compiler generator\compilergenerator\include\lexical_analyzer.h
+1585077979 c:\users\bcc\desktop\compiler generator\compilergenerator\include\lexical_analyzer.h
 	<string>
 	"DFA.h"
 
-1585059810 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\nfa.cpp
+1585080400 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\nfa.cpp
 	"NFA.h"
 	"Token.h"
 	<map>
 	<string>
 	<vector>
+	<stack>
 	"State.h"
 
-1585061737 c:\users\bcc\desktop\compiler generator\compilergenerator\include\nfa.h
+1585080338 c:\users\bcc\desktop\compiler generator\compilergenerator\include\nfa.h
 	<map>
 	<string>
 	<vector>
@@ -220,7 +222,7 @@
 	<string>
 	<vector>
 
-1585044080 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\token.cpp
+1585075574 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\token.cpp
 	"Token.h"
 	<string>
 
@@ -281,7 +283,7 @@
 	<iostream>
 	<bits/stdc++.h>
 
-1585060119 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\nfa_constructor.cpp
+1585077979 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\nfa_constructor.cpp
 	"NFA_constructor.h"
 	"NFA.h"
 	<string>
@@ -290,7 +292,7 @@
 	<iostream>
 	"Regular_definition.h"
 
-1585044080 c:\users\bcc\desktop\compiler generator\compilergenerator\include\nfa_constructor.h
+1585077979 c:\users\bcc\desktop\compiler generator\compilergenerator\include\nfa_constructor.h
 	"NFA.h"
 	<string>
 	<iostream>
