@@ -40,14 +40,6 @@ NFA NFA_constructor::constructNFA(string expression)
         else if (expression.at(n-2) == ')')
         {
             cout << "between bracket " <<expression.substr(1,n-3) << "--> ";
-            if (expression.at(n-1) == '*')
-            {
-                cout << "kleene closure " << endl;
-            }
-            else if (expression.at(n-1) == '+')
-            {
-                cout << "positive closure " << endl;
-            }
             NFA nfa = constructNFA(expression.substr(1,n-3));
             if (expression.at(n-1) == '*')
             {
@@ -382,23 +374,14 @@ NFA NFA_constructor::signleCharNFA(char input){
 
 NFA NFA_constructor::termNFA(string term)
 {
-    NFA *nfa = new NFA();
-    return *nfa;
-    //size_t f = term.find("(");
-    //if (f == std::string::npos)
-        //handleBrackets(term);
-//    vector<map<char, vector<int>>> table;
-//    for (int i = 0; i < term.length(); i++)
-//    {
-//        if (term.at(i) != '\\')
-//        {
-//            vector<int> v;
-//            v.push_back(i+1);
-//            map<char, vector<int>> m;
-//            m.insert(pair<char, vector<int>>(term.at(i), v));
-//            //table.push_back(m);
-//        }
-//    }
+    term = trim(term);
+    size_t f = term.find('-');
+    if (f != std::string::npos && term.at(f-1)!='\\')
+    {
+
+    }
+
+
 }
 
 string NFA_constructor::trim(string s)
