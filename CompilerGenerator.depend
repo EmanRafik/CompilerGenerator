@@ -5,11 +5,12 @@
 	"Lexical_analyzer_generator.h"
 	"Lexical_analyzer.h"
 
-1585054529 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\dfa.cpp
+1585071457 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\dfa.cpp
 	<iostream>
+	<fstream>
 	"DFA.h"
 
-1584997199 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\dfa.h
+1585071457 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\dfa.h
 	<vector>
 	"Token.h"
 	<map>
@@ -34,29 +35,31 @@
 1584558963 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\keyword.h
 	<Token.h>
 
-1585057387 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexical_analyzer.cpp
+1585057516 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexical_analyzer.cpp
 	"Lexical_analyzer.h"
 	"DFA.h"
 	<fstream>
 	<string>
 	<iostream>
 
-1585057409 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\lexical_analyzer.h
+1585057516 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\lexical_analyzer.h
 	<string>
 	"DFA.h"
 
-1584997199 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\nfa.cpp
+1585071457 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\nfa.cpp
 	"NFA.h"
 	"Token.h"
 	<map>
 	<string>
 	<vector>
+	<stack>
 	"State.h"
 
-1584997199 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\nfa.h
+1585071457 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\nfa.h
 	<map>
 	<string>
 	<vector>
+	<set>
 	"Token.h"
 	"State.h"
 	"DFA.h"
@@ -229,7 +232,7 @@
 1584558871 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\id.h
 	<Token.h>
 
-1585057464 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexical_analyzer_generator.cpp
+1585057556 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexical_analyzer_generator.cpp
 	"Lexical_analyzer_generator.h"
 	<map>
 	"NFA.h"

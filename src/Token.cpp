@@ -23,6 +23,11 @@ void Token::setValue(string value)
     this->value = value;
 }
 
+void Token::setPriority(int priority)
+{
+    this->priority = priority;
+}
+
 string Token::getToken_class()
 {
     return this->token_class;
@@ -31,4 +36,9 @@ string Token::getToken_class()
 string Token::getValue()
 {
     return this->value;
+}
+
+int Token::getPriority()
+{
+    return this->priority;
 }
