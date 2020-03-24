@@ -32,6 +32,11 @@ vector<Token> Lexical_analyzer::getTokens() {
     return tokens;
 }
 
+vector<string> Lexical_analyzer::getSymbolTable(){
+    return symbol_table;
+}
+
+
 void Lexical_analyzer::read_input(string file_name) {
 
     vector<char> input_code;
@@ -45,6 +50,7 @@ void Lexical_analyzer::read_input(string file_name) {
         }
     }
     set_input_code(input_code);
+    analyze(input_code);
 }
 
 void Lexical_analyzer::analyze(vector<char> input_code) {
@@ -66,24 +72,32 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
             if (dfa->getAcceptStates()[current_state].getToken_class() == "id" ||
                 dfa->getAcceptStates()[current_state].getToken_class() == "num" ) {
                 last_accepted_output = dfa->getAcceptStates()[current_state].getToken_class();
+
+                //add the ids to a symbol table
+                if (dfa->getAcceptStates()[current_state].getToken_class() == "id") {
+                    symbol_table.push_back(dfa->getAcceptStates()[current_state].getValue());
+                }
+
             } else {
                 last_accepted_output = dfa->getAcceptStates()[current_state].getValue();
             }
+            // add the recognized token to the vector of tokens
             tokens.push_back(dfa->getAcceptStates()[current_state]);
 
         } else if (current_state == phai) {
             if (last_accepted_output != "") {
-                cout << c << " --> " << last_accepted_output;
+                cout << c << " --> " << last_accepted_output << endl;
                 last_accepted_output == "";
+                //backtrack to last matched state and character
                 i = last_accepted_character_index;
                 current_state = last_accepted_state;
             } else {
-                //no matches happened and phai state reached
-                cout << "error";
+                //no matches happened and phai state reached so error occured
+                cout << c << " --> " << "Lexical error occurred" << endl;
             }
-
+            //reset state again to start searching for tokens
+            current_state = 0;
         }
-        cout << endl;
         current_state = dfa->getTable()[current_state][input];
     }
 }
