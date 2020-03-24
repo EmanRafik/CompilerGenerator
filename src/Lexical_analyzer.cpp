@@ -76,7 +76,7 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
                 if (dfa->getAcceptStates()[current_state].getToken_class() == "id") {
                     symbol_table.push_back(dfa->getAcceptStates()[current_state].getValue());
                 }
-                
+
             } else {
                 last_accepted_output = dfa->getAcceptStates()[current_state].getValue();
             }
