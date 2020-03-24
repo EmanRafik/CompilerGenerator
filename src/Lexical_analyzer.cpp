@@ -62,9 +62,13 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
     int last_accepted_state = 0;
     int last_accepted_character_index;
 
+    string id = "";
+    int id_counter = 0;
+
     char c;
     for (int i = 0; input_code.size(); i++) {
         c = input_code[i];
+        id += c;
         input = c - 32;
         if (dfa->isAcceptState(current_state)) {
             last_accepted_state = current_state;
@@ -72,9 +76,11 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
             if (dfa->getAcceptStates()[current_state].getToken_class() == "id" ||
                 dfa->getAcceptStates()[current_state].getToken_class() == "num" ) {
                 last_accepted_output = dfa->getAcceptStates()[current_state].getToken_class();
-
                 //add the ids to a symbol table
                 if (dfa->getAcceptStates()[current_state].getToken_class() == "id") {
+                    Token *t = new Token();
+                    t->setToken_class("id");
+                    t->setValue(id);
                     symbol_table.push_back(dfa->getAcceptStates()[current_state].getValue());
                 }
 
@@ -91,6 +97,7 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
                 //backtrack to last matched state and character
                 i = last_accepted_character_index;
                 current_state = last_accepted_state;
+                id = "";
             } else {
                 //no matches happened and phai state reached so error occured
                 cout << c << " --> " << "Lexical error occurred" << endl;

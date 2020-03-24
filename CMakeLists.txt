@@ -7,7 +7,6 @@ include_directories(include)
 
 add_executable(compilergenerator
         include/DFA.h
-        include/Files_manager.h
         include/Lexical_analyzer.h
         include/Lexical_analyzer_generator.h
         include/NFA.h
@@ -17,7 +16,6 @@ add_executable(compilergenerator
         include/State.h
         include/Token.h
         src/DFA.cpp
-        src/Files_manager.cpp
         src/Lexical_analyzer.cpp
         src/Lexical_analyzer_generator.cpp
         src/NFA.cpp

@@ -47,10 +47,10 @@ RM = "C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\compilers\compilergenerator
+CMAKE_SOURCE_DIR = C:\Users\DELL\CLionProjects\compilergenerator
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\compilers\compilergenerator\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug\CMakeFiles C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -175,33 +175,6 @@ src/DFA.s: src/DFA.cpp.s
 src/DFA.cpp.s:
 	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/DFA.cpp.s
 .PHONY : src/DFA.cpp.s
-
-src/Files_manager.obj: src/Files_manager.cpp.obj
-
-.PHONY : src/Files_manager.obj
-
-# target to build an object file
-src/Files_manager.cpp.obj:
-	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Files_manager.cpp.obj
-.PHONY : src/Files_manager.cpp.obj
-
-src/Files_manager.i: src/Files_manager.cpp.i
-
-.PHONY : src/Files_manager.i
-
-# target to preprocess a source file
-src/Files_manager.cpp.i:
-	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Files_manager.cpp.i
-.PHONY : src/Files_manager.cpp.i
-
-src/Files_manager.s: src/Files_manager.cpp.s
-
-.PHONY : src/Files_manager.s
-
-# target to generate assembly for a file
-src/Files_manager.cpp.s:
-	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Files_manager.cpp.s
-.PHONY : src/Files_manager.cpp.s
 
 src/Lexical_analyzer.obj: src/Lexical_analyzer.cpp.obj
 
@@ -434,9 +407,6 @@ help:
 	@echo ... src/DFA.obj
 	@echo ... src/DFA.i
 	@echo ... src/DFA.s
-	@echo ... src/Files_manager.obj
-	@echo ... src/Files_manager.i
-	@echo ... src/Files_manager.s
 	@echo ... src/Lexical_analyzer.obj
 	@echo ... src/Lexical_analyzer.i
 	@echo ... src/Lexical_analyzer.s

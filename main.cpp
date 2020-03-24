@@ -7,10 +7,16 @@ using namespace std;
 
 int main()
 {
+<<<<<<< HEAD
     /*Lexical_analyzer_generator *generator = new Lexical_analyzer_generator();
     generator->read_lexical_rules("rules.txt");
     generator->generate_lexical_analyzer();
 <<<<<<< HEAD
+=======
+//    Lexical_analyzer_generator *generator = new Lexical_analyzer_generator();
+//    generator->read_lexical_rules("rules.txt");
+//    generator->generate_lexical_analyzer();
+>>>>>>> f633e9cd911747703b2d80c2d418c4a2a7672020
 ////    DFA *dfa = generator->get_minimal_dfa();
 //    Lexical_analyzer *lexical = new Lexical_analyzer();
 //
@@ -43,6 +49,7 @@ int main()
 //
 //    lexical->setDFA(dfa);
 //    lexical->read_input("input.txt");
+<<<<<<< HEAD
 
 =======
 //    DFA *dfa = generator->get_minimal_dfa();
@@ -79,5 +86,8 @@ int main()
     lexical->read_input("input.txt");
 */
 >>>>>>> 9a08d3edcfe9e313173cb7a0f9c8e2dc0434a61e
+=======
+
+>>>>>>> f633e9cd911747703b2d80c2d418c4a2a7672020
     return 0;
 }
