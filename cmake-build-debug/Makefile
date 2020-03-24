@@ -365,6 +365,33 @@ src/NFA.cpp.s:
 	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/NFA.cpp.s
 .PHONY : src/NFA.cpp.s
 
+src/NFA_constructor.obj: src/NFA_constructor.cpp.obj
+
+.PHONY : src/NFA_constructor.obj
+
+# target to build an object file
+src/NFA_constructor.cpp.obj:
+	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/NFA_constructor.cpp.obj
+.PHONY : src/NFA_constructor.cpp.obj
+
+src/NFA_constructor.i: src/NFA_constructor.cpp.i
+
+.PHONY : src/NFA_constructor.i
+
+# target to preprocess a source file
+src/NFA_constructor.cpp.i:
+	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/NFA_constructor.cpp.i
+.PHONY : src/NFA_constructor.cpp.i
+
+src/NFA_constructor.s: src/NFA_constructor.cpp.s
+
+.PHONY : src/NFA_constructor.s
+
+# target to generate assembly for a file
+src/NFA_constructor.cpp.s:
+	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/NFA_constructor.cpp.s
+.PHONY : src/NFA_constructor.cpp.s
+
 src/Number.obj: src/Number.cpp.obj
 
 .PHONY : src/Number.obj
@@ -563,6 +590,9 @@ help:
 	@echo ... src/NFA.obj
 	@echo ... src/NFA.i
 	@echo ... src/NFA.s
+	@echo ... src/NFA_constructor.obj
+	@echo ... src/NFA_constructor.i
+	@echo ... src/NFA_constructor.s
 	@echo ... src/Number.obj
 	@echo ... src/Number.i
 	@echo ... src/Number.s

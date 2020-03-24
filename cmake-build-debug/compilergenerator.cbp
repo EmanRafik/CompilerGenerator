@@ -112,6 +112,9 @@
 		<Unit filename="D:/compilers/compilergenerator/include/NFA.h">
 			<Option target="compilergenerator"/>
 		</Unit>
+		<Unit filename="D:/compilers/compilergenerator/include/NFA_constructor.h">
+			<Option target="compilergenerator"/>
+		</Unit>
 		<Unit filename="D:/compilers/compilergenerator/include/Number.h">
 			<Option target="compilergenerator"/>
 		</Unit>
@@ -155,6 +158,9 @@
 			<Option target="compilergenerator"/>
 		</Unit>
 		<Unit filename="D:/compilers/compilergenerator/src/NFA.cpp">
+			<Option target="compilergenerator"/>
+		</Unit>
+		<Unit filename="D:/compilers/compilergenerator/src/NFA_constructor.cpp">
 			<Option target="compilergenerator"/>
 		</Unit>
 		<Unit filename="D:/compilers/compilergenerator/src/Number.cpp">

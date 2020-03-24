@@ -17,7 +17,7 @@ class NFA_constructor
         NFA constructNFA(string expression);
         NFA kleene_closure(NFA original_nfa);
         NFA positive_closure(NFA original_nfa);
-        NFA oring(NFA original1, NFA original2);
+        NFA oring(NFA original1, NFA original2,bool combine);
         NFA concatinating(NFA original1, NFA original2);
         NFA termNFA(string term);
         void setRegular_definitions(vector<Regular_definition> regular_definitions);

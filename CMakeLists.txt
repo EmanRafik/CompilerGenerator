@@ -20,6 +20,7 @@ add_executable(compilergenerator
         include/Token.h
         include/Lexical_analyzer_generator.h
         include/State.h
+        include/NFA_constructor.h
         src/DFA.cpp
         src/Files_manager.cpp
         src/ID.cpp
@@ -34,4 +35,5 @@ add_executable(compilergenerator
         src/Token.cpp
         src/Lexical_analyzer_generator.cpp
         src/State.cpp
+        src/NFA_constructor.cpp
         main.cpp )

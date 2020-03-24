@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.obj"
   "CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj"
   "CMakeFiles/compilergenerator.dir/src/NFA.cpp.obj"
+  "CMakeFiles/compilergenerator.dir/src/NFA_constructor.cpp.obj"
   "CMakeFiles/compilergenerator.dir/src/Number.cpp.obj"
   "CMakeFiles/compilergenerator.dir/src/Punctuation_symbol.cpp.obj"
   "CMakeFiles/compilergenerator.dir/src/Regular_definition.cpp.obj"
