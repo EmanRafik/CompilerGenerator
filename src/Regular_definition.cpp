@@ -1,6 +1,7 @@
 #include "Regular_definition.h"
 #include<string>
 #include"NFA.h"
+#include"NFA_constructor.h"
 
 using namespace std;
 
@@ -36,5 +37,6 @@ string Regular_definition::getValue()
 
 NFA Regular_definition::getNFA()
 {
-
+    NFA_constructor *constructor = new NFA_constructor();
+    NFA nfa = constructor->constructNFA(this->value);
 }
