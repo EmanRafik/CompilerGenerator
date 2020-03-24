@@ -5,6 +5,7 @@
 #include <vector>
 #include <stack>
 #include "State.h"
+
 NFA::NFA()
 {
 
@@ -48,8 +49,10 @@ void NFA::setStartState(State *startState) {
 }
 
 DFA NFA::convertToDFA(){
-    DFA *dfa = new DFA(1,2);
+    DFA *dfa = new DFA(0,160-32);
     set<State*> s = closure(startState);
+    vector<set<State*>> vec;
+    vec.push_back(s);
 }
 
 set<State*> NFA::closure(State *st){
@@ -68,4 +71,11 @@ set<State*> NFA::closure(State *st){
         }
     }
     return res;
+}
+
+set<State*> NFA::moveStates(set<State*> s, char c){
+    set<State*>::iterator it = s.begin();
+    while(it!=s.end()){
+        it++;
+    }
 }

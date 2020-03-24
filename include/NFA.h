@@ -24,6 +24,7 @@ public:
     void setStartState(State *startState);
     DFA convertToDFA();
     set<State*> closure(State *s);
+    set<State*> moveStates(set<State*> s, char c);
 protected:
 
 private:
