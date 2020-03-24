@@ -23,6 +23,10 @@ int main()
     dfa->addTransition(4,1,5);
     dfa->addTransition(5,1,5);
 
+//    dfa->addState();
+//    dfa->addState();
+//    dfa->print_dfa();
+
     Token *t1 = new Token();
     t1->setToken_class("id");
     Token *t2 = new Token();
