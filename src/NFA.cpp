@@ -3,6 +3,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <iterator>
 #include <stack>
 #include "State.h"
 
