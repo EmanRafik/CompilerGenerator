@@ -47,6 +47,7 @@ void Lexical_analyzer_generator::read_lexical_rules(string file_name)
         {
             classify_line(line);
         }
+        //regular_expressions[3].getNFA();
 //        cout << "Regular Expressions:" << endl;
 //        for (int i = 0; i < regular_expressions.size(); i++)
 //        {
