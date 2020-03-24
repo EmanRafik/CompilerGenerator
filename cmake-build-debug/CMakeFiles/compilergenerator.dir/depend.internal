@@ -3,6 +3,7 @@
 
 CMakeFiles/compilergenerator.dir/main.cpp.obj
  ../include/DFA.h
+ ../include/Lexical_analyzer.h
  ../include/Lexical_analyzer_generator.h
  ../include/NFA.h
  ../include/Regular_definition.h
@@ -18,7 +19,9 @@ CMakeFiles/compilergenerator.dir/src/Files_manager.cpp.obj
  ../include/Files_manager.h
  C:/Users/DELL/CLionProjects/compilergenerator/src/Files_manager.cpp
 CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.obj
+ ../include/DFA.h
  ../include/Lexical_analyzer.h
+ ../include/Token.h
  C:/Users/DELL/CLionProjects/compilergenerator/src/Lexical_analyzer.cpp
 CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj
  ../include/DFA.h

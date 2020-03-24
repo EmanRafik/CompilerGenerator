@@ -86,6 +86,9 @@ void DFA::addAcceptState(int state,Token token) {
 }
 
 bool DFA::isAcceptState (int state) {
+    if (accept_states.size() == 0) {
+        return false;
+    }
     map<int, Token>::iterator itr;
     for (itr =  accept_states.begin(); itr !=  accept_states.end(); ++itr) {
         if (itr->first == state) {

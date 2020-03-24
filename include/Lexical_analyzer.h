@@ -17,6 +17,7 @@ class Lexical_analyzer
 
     private:
         DFA *dfa;
+
 };
 
 #endif // LEXICAL_ANALYZER_H
