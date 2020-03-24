@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1584997199 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\main.cpp
+1585009648 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\main.cpp
 	<iostream>
 	"DFA.h"
+	"Lexical_analyzer_generator.h"
 
 1584997199 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\dfa.cpp
 	<iostream>
@@ -23,7 +24,8 @@
 1584558946 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\identifier.h
 	<Token.h>
 
-1584558416 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\token.h
+1585009633 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\token.h
+	<string>
 
 1584558963 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\keyword.cpp
 	"Keyword.h"
@@ -64,33 +66,40 @@
 1584558984 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\punctuation_symbol.h
 	<Token.h>
 
-1584915742 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\regular_definition.cpp
+1585009103 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\regular_definition.cpp
 	"Regular_definition.h"
 	<string>
 	"NFA.h"
+	"NFA_constructor.h"
 
 1584910782 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\regular_definition.h
 	<string>
 	"NFA.h"
 
-1584558416 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\token.cpp
+1585009995 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\token.cpp
 	"Token.h"
+	<string>
 
-1584915015 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\lexical_analyzer_generator.h
+1585012711 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\lexical_analyzer_generator.h
 	"Token.h"
 	"NFA.h"
+	"Regular_definition.h"
+	"Regular_expression.h"
+	<string>
 	<vector>
 
-1584919190 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\regular_expression.cpp
+1585010899 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\regular_expression.cpp
 	"Regular_expression.h"
 	"NFA.h"
 	"Regular_definition.h"
-	<regex>
+	"NFA_constructor.h"
+	"Token.h"
+	"State.h"
 	<iostream>
 	<string>
 	<vector>
 
-1584917331 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\regular_expression.h
+1585009816 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\regular_expression.h
 	"NFA.h"
 	"Regular_definition.h"
 	<string>
@@ -199,13 +208,16 @@
 1584558871 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\id.h
 	<Token.h>
 
-1584997199 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexical_analyzer_generator.cpp
+1585012394 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexical_analyzer_generator.cpp
 	"Lexical_analyzer_generator.h"
 	<map>
 	"NFA.h"
 	<vector>
+	<fstream>
+	<iostream>
+	<bits/stdc++.h>
 
-1585001442 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\nfa_constructor.cpp
+1585005389 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\nfa_constructor.cpp
 	"NFA_constructor.h"
 	"NFA.h"
 	<string>
