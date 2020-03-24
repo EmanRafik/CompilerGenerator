@@ -14,25 +14,15 @@ Token.h
 map
 -
 
-../include/Lexical_analyzer.h
-string
--
-DFA.h
-../include/DFA.h
-
 ../include/Token.h
 string
 -
 
-C:/Users/DELL/CLionProjects/compilergenerator/src/Lexical_analyzer.cpp
-Lexical_analyzer.h
-C:/Users/DELL/CLionProjects/compilergenerator/src/Lexical_analyzer.h
-DFA.h
-C:/Users/DELL/CLionProjects/compilergenerator/src/DFA.h
-fstream
--
-string
--
+C:/Users/DELL/CLionProjects/compilergenerator/src/DFA.cpp
 iostream
 -
+fstream
+-
+DFA.h
+C:/Users/DELL/CLionProjects/compilergenerator/src/DFA.h
 

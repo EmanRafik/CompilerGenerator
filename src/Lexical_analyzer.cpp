@@ -50,6 +50,7 @@ void Lexical_analyzer::read_input(string file_name) {
         }
     }
     set_input_code(input_code);
+    analyze(input_code);
 }
 
 void Lexical_analyzer::analyze(vector<char> input_code) {

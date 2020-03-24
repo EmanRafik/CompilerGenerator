@@ -13,7 +13,7 @@ int main()
 //    DFA *dfa = generator->get_minimal_dfa();
     Lexical_analyzer *lexical = new Lexical_analyzer();
 
-    DFA *dfa = new DFA(6, 2);
+    DFA *dfa = new DFA(6, 95);
     dfa->addTransition(0,0,1);
     dfa->addTransition(1,0,0);
     dfa->addTransition(2,0,4);
