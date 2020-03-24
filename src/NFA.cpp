@@ -3,6 +3,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <stack>
 #include "State.h"
 NFA::NFA()
 {
@@ -48,9 +49,23 @@ void NFA::setStartState(State *startState) {
 
 DFA NFA::convertToDFA(){
     DFA *dfa = new DFA(1,2);
-    vector<State> s = closure(startState);
+    set<State*> s = closure(startState);
 }
 
-vector<State> NFA::closure(State *s){
-
+set<State*> NFA::closure(State *st){
+    set<State*> res;
+    stack<State*> closureStack;
+    closureStack.push(st);
+    while(!closureStack.empty()){
+        State *s = closureStack.top();
+        closureStack.pop();
+        if(res.count(s)==0){
+            res.insert(s);
+            vector<State*> v = table[s][' '];
+            for(int i=0;i<v.size();i++){
+                res.insert(v.at(i));
+            }
+        }
+    }
+    return res;
 }
