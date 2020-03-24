@@ -47,10 +47,10 @@ RM = "C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\compilers\compilergenerator
+CMAKE_SOURCE_DIR = C:\Users\DELL\CLionProjects\compilergenerator
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\compilers\compilergenerator\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug\CMakeFiles C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -203,87 +203,6 @@ src/Files_manager.cpp.s:
 	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Files_manager.cpp.s
 .PHONY : src/Files_manager.cpp.s
 
-src/ID.obj: src/ID.cpp.obj
-
-.PHONY : src/ID.obj
-
-# target to build an object file
-src/ID.cpp.obj:
-	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/ID.cpp.obj
-.PHONY : src/ID.cpp.obj
-
-src/ID.i: src/ID.cpp.i
-
-.PHONY : src/ID.i
-
-# target to preprocess a source file
-src/ID.cpp.i:
-	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/ID.cpp.i
-.PHONY : src/ID.cpp.i
-
-src/ID.s: src/ID.cpp.s
-
-.PHONY : src/ID.s
-
-# target to generate assembly for a file
-src/ID.cpp.s:
-	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/ID.cpp.s
-.PHONY : src/ID.cpp.s
-
-src/Identifier.obj: src/Identifier.cpp.obj
-
-.PHONY : src/Identifier.obj
-
-# target to build an object file
-src/Identifier.cpp.obj:
-	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Identifier.cpp.obj
-.PHONY : src/Identifier.cpp.obj
-
-src/Identifier.i: src/Identifier.cpp.i
-
-.PHONY : src/Identifier.i
-
-# target to preprocess a source file
-src/Identifier.cpp.i:
-	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Identifier.cpp.i
-.PHONY : src/Identifier.cpp.i
-
-src/Identifier.s: src/Identifier.cpp.s
-
-.PHONY : src/Identifier.s
-
-# target to generate assembly for a file
-src/Identifier.cpp.s:
-	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Identifier.cpp.s
-.PHONY : src/Identifier.cpp.s
-
-src/Keyword.obj: src/Keyword.cpp.obj
-
-.PHONY : src/Keyword.obj
-
-# target to build an object file
-src/Keyword.cpp.obj:
-	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Keyword.cpp.obj
-.PHONY : src/Keyword.cpp.obj
-
-src/Keyword.i: src/Keyword.cpp.i
-
-.PHONY : src/Keyword.i
-
-# target to preprocess a source file
-src/Keyword.cpp.i:
-	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Keyword.cpp.i
-.PHONY : src/Keyword.cpp.i
-
-src/Keyword.s: src/Keyword.cpp.s
-
-.PHONY : src/Keyword.s
-
-# target to generate assembly for a file
-src/Keyword.cpp.s:
-	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Keyword.cpp.s
-.PHONY : src/Keyword.cpp.s
-
 src/Lexical_analyzer.obj: src/Lexical_analyzer.cpp.obj
 
 .PHONY : src/Lexical_analyzer.obj
@@ -365,59 +284,32 @@ src/NFA.cpp.s:
 	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/NFA.cpp.s
 .PHONY : src/NFA.cpp.s
 
-src/Number.obj: src/Number.cpp.obj
+src/NFA_constructor.obj: src/NFA_constructor.cpp.obj
 
-.PHONY : src/Number.obj
-
-# target to build an object file
-src/Number.cpp.obj:
-	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Number.cpp.obj
-.PHONY : src/Number.cpp.obj
-
-src/Number.i: src/Number.cpp.i
-
-.PHONY : src/Number.i
-
-# target to preprocess a source file
-src/Number.cpp.i:
-	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Number.cpp.i
-.PHONY : src/Number.cpp.i
-
-src/Number.s: src/Number.cpp.s
-
-.PHONY : src/Number.s
-
-# target to generate assembly for a file
-src/Number.cpp.s:
-	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Number.cpp.s
-.PHONY : src/Number.cpp.s
-
-src/Punctuation_symbol.obj: src/Punctuation_symbol.cpp.obj
-
-.PHONY : src/Punctuation_symbol.obj
+.PHONY : src/NFA_constructor.obj
 
 # target to build an object file
-src/Punctuation_symbol.cpp.obj:
-	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Punctuation_symbol.cpp.obj
-.PHONY : src/Punctuation_symbol.cpp.obj
+src/NFA_constructor.cpp.obj:
+	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/NFA_constructor.cpp.obj
+.PHONY : src/NFA_constructor.cpp.obj
 
-src/Punctuation_symbol.i: src/Punctuation_symbol.cpp.i
+src/NFA_constructor.i: src/NFA_constructor.cpp.i
 
-.PHONY : src/Punctuation_symbol.i
+.PHONY : src/NFA_constructor.i
 
 # target to preprocess a source file
-src/Punctuation_symbol.cpp.i:
-	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Punctuation_symbol.cpp.i
-.PHONY : src/Punctuation_symbol.cpp.i
+src/NFA_constructor.cpp.i:
+	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/NFA_constructor.cpp.i
+.PHONY : src/NFA_constructor.cpp.i
 
-src/Punctuation_symbol.s: src/Punctuation_symbol.cpp.s
+src/NFA_constructor.s: src/NFA_constructor.cpp.s
 
-.PHONY : src/Punctuation_symbol.s
+.PHONY : src/NFA_constructor.s
 
 # target to generate assembly for a file
-src/Punctuation_symbol.cpp.s:
-	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/Punctuation_symbol.cpp.s
-.PHONY : src/Punctuation_symbol.cpp.s
+src/NFA_constructor.cpp.s:
+	$(MAKE) -f CMakeFiles\compilergenerator.dir\build.make CMakeFiles/compilergenerator.dir/src/NFA_constructor.cpp.s
+.PHONY : src/NFA_constructor.cpp.s
 
 src/Regular_definition.obj: src/Regular_definition.cpp.obj
 
@@ -545,15 +437,6 @@ help:
 	@echo ... src/Files_manager.obj
 	@echo ... src/Files_manager.i
 	@echo ... src/Files_manager.s
-	@echo ... src/ID.obj
-	@echo ... src/ID.i
-	@echo ... src/ID.s
-	@echo ... src/Identifier.obj
-	@echo ... src/Identifier.i
-	@echo ... src/Identifier.s
-	@echo ... src/Keyword.obj
-	@echo ... src/Keyword.i
-	@echo ... src/Keyword.s
 	@echo ... src/Lexical_analyzer.obj
 	@echo ... src/Lexical_analyzer.i
 	@echo ... src/Lexical_analyzer.s
@@ -563,12 +446,9 @@ help:
 	@echo ... src/NFA.obj
 	@echo ... src/NFA.i
 	@echo ... src/NFA.s
-	@echo ... src/Number.obj
-	@echo ... src/Number.i
-	@echo ... src/Number.s
-	@echo ... src/Punctuation_symbol.obj
-	@echo ... src/Punctuation_symbol.i
-	@echo ... src/Punctuation_symbol.s
+	@echo ... src/NFA_constructor.obj
+	@echo ... src/NFA_constructor.i
+	@echo ... src/NFA_constructor.s
 	@echo ... src/Regular_definition.obj
 	@echo ... src/Regular_definition.i
 	@echo ... src/Regular_definition.s

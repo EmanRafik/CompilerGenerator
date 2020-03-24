@@ -8,30 +8,22 @@ include_directories(include)
 add_executable(compilergenerator
         include/DFA.h
         include/Files_manager.h
-        include/ID.h
-        include/Identifier.h
-        include/Keyword.h
         include/Lexical_analyzer.h
+        include/Lexical_analyzer_generator.h
         include/NFA.h
-        include/Number.h
-        include/Punctuation_symbol.h
+        include/NFA_constructor.h
         include/Regular_definition.h
         include/Regular_expression.h
-        include/Token.h
-        include/Lexical_analyzer_generator.h
         include/State.h
+        include/Token.h
         src/DFA.cpp
         src/Files_manager.cpp
-        src/ID.cpp
-        src/Identifier.cpp
-        src/Keyword.cpp
         src/Lexical_analyzer.cpp
+        src/Lexical_analyzer_generator.cpp
         src/NFA.cpp
-        src/Number.cpp
-        src/Punctuation_symbol.cpp
+        src/NFA_constructor.cpp
         src/Regular_definition.cpp
         src/Regular_expression.cpp
-        src/Token.cpp
-        src/Lexical_analyzer_generator.cpp
         src/State.cpp
-        main.cpp )
+        src/Token.cpp
+        main.cpp)
