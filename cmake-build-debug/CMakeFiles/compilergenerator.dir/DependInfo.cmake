@@ -4,22 +4,17 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/compilers/compilergenerator/main.cpp" "D:/compilers/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/main.cpp.obj"
-  "D:/compilers/compilergenerator/src/DFA.cpp" "D:/compilers/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/DFA.cpp.obj"
-  "D:/compilers/compilergenerator/src/Files_manager.cpp" "D:/compilers/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/Files_manager.cpp.obj"
-  "D:/compilers/compilergenerator/src/ID.cpp" "D:/compilers/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/ID.cpp.obj"
-  "D:/compilers/compilergenerator/src/Identifier.cpp" "D:/compilers/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/Identifier.cpp.obj"
-  "D:/compilers/compilergenerator/src/Keyword.cpp" "D:/compilers/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/Keyword.cpp.obj"
-  "D:/compilers/compilergenerator/src/Lexical_analyzer.cpp" "D:/compilers/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.obj"
-  "D:/compilers/compilergenerator/src/Lexical_analyzer_generator.cpp" "D:/compilers/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj"
-  "D:/compilers/compilergenerator/src/NFA.cpp" "D:/compilers/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/NFA.cpp.obj"
-  "D:/compilers/compilergenerator/src/NFA_constructor.cpp" "D:/compilers/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/NFA_constructor.cpp.obj"
-  "D:/compilers/compilergenerator/src/Number.cpp" "D:/compilers/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/Number.cpp.obj"
-  "D:/compilers/compilergenerator/src/Punctuation_symbol.cpp" "D:/compilers/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/Punctuation_symbol.cpp.obj"
-  "D:/compilers/compilergenerator/src/Regular_definition.cpp" "D:/compilers/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/Regular_definition.cpp.obj"
-  "D:/compilers/compilergenerator/src/Regular_expression.cpp" "D:/compilers/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.obj"
-  "D:/compilers/compilergenerator/src/State.cpp" "D:/compilers/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/State.cpp.obj"
-  "D:/compilers/compilergenerator/src/Token.cpp" "D:/compilers/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/Token.cpp.obj"
+  "C:/Users/DELL/CLionProjects/compilergenerator/main.cpp" "C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/main.cpp.obj"
+  "C:/Users/DELL/CLionProjects/compilergenerator/src/DFA.cpp" "C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/DFA.cpp.obj"
+  "C:/Users/DELL/CLionProjects/compilergenerator/src/Files_manager.cpp" "C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/Files_manager.cpp.obj"
+  "C:/Users/DELL/CLionProjects/compilergenerator/src/Lexical_analyzer.cpp" "C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.obj"
+  "C:/Users/DELL/CLionProjects/compilergenerator/src/Lexical_analyzer_generator.cpp" "C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj"
+  "C:/Users/DELL/CLionProjects/compilergenerator/src/NFA.cpp" "C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/NFA.cpp.obj"
+  "C:/Users/DELL/CLionProjects/compilergenerator/src/NFA_constructor.cpp" "C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/NFA_constructor.cpp.obj"
+  "C:/Users/DELL/CLionProjects/compilergenerator/src/Regular_definition.cpp" "C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/Regular_definition.cpp.obj"
+  "C:/Users/DELL/CLionProjects/compilergenerator/src/Regular_expression.cpp" "C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.obj"
+  "C:/Users/DELL/CLionProjects/compilergenerator/src/State.cpp" "C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/State.cpp.obj"
+  "C:/Users/DELL/CLionProjects/compilergenerator/src/Token.cpp" "C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir/src/Token.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

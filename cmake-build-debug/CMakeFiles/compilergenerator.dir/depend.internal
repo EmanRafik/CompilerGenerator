@@ -3,65 +3,66 @@
 
 CMakeFiles/compilergenerator.dir/main.cpp.obj
  ../include/DFA.h
- ../include/Token.h
- D:/compilers/compilergenerator/main.cpp
-CMakeFiles/compilergenerator.dir/src/DFA.cpp.obj
- ../include/DFA.h
- ../include/Token.h
- D:/compilers/compilergenerator/src/DFA.cpp
-CMakeFiles/compilergenerator.dir/src/Files_manager.cpp.obj
- ../include/Files_manager.h
- D:/compilers/compilergenerator/src/Files_manager.cpp
-CMakeFiles/compilergenerator.dir/src/ID.cpp.obj
- ../include/ID.h
- ../include/Token.h
- D:/compilers/compilergenerator/src/ID.cpp
-CMakeFiles/compilergenerator.dir/src/Identifier.cpp.obj
- ../include/Identifier.h
- ../include/Token.h
- D:/compilers/compilergenerator/src/Identifier.cpp
-CMakeFiles/compilergenerator.dir/src/Keyword.cpp.obj
- ../include/Keyword.h
- ../include/Token.h
- D:/compilers/compilergenerator/src/Keyword.cpp
-CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.obj
- ../include/Lexical_analyzer.h
- D:/compilers/compilergenerator/src/Lexical_analyzer.cpp
-CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj
  ../include/Lexical_analyzer_generator.h
- ../include/NFA.h
- ../include/State.h
- ../include/Token.h
- D:/compilers/compilergenerator/src/Lexical_analyzer_generator.cpp
-CMakeFiles/compilergenerator.dir/src/NFA.cpp.obj
- ../include/NFA.h
- ../include/State.h
- ../include/Token.h
- D:/compilers/compilergenerator/src/NFA.cpp
-CMakeFiles/compilergenerator.dir/src/Number.cpp.obj
- ../include/Number.h
- ../include/Token.h
- D:/compilers/compilergenerator/src/Number.cpp
-CMakeFiles/compilergenerator.dir/src/Punctuation_symbol.cpp.obj
- ../include/Punctuation_symbol.h
- ../include/Token.h
- D:/compilers/compilergenerator/src/Punctuation_symbol.cpp
-CMakeFiles/compilergenerator.dir/src/Regular_definition.cpp.obj
- ../include/NFA.h
- ../include/Regular_definition.h
- ../include/State.h
- ../include/Token.h
- D:/compilers/compilergenerator/src/Regular_definition.cpp
-CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.obj
  ../include/NFA.h
  ../include/Regular_definition.h
  ../include/Regular_expression.h
  ../include/State.h
  ../include/Token.h
- D:/compilers/compilergenerator/src/Regular_expression.cpp
+ C:/Users/DELL/CLionProjects/compilergenerator/main.cpp
+CMakeFiles/compilergenerator.dir/src/DFA.cpp.obj
+ ../include/DFA.h
+ ../include/Token.h
+ C:/Users/DELL/CLionProjects/compilergenerator/src/DFA.cpp
+CMakeFiles/compilergenerator.dir/src/Files_manager.cpp.obj
+ ../include/Files_manager.h
+ C:/Users/DELL/CLionProjects/compilergenerator/src/Files_manager.cpp
+CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.obj
+ ../include/Lexical_analyzer.h
+ C:/Users/DELL/CLionProjects/compilergenerator/src/Lexical_analyzer.cpp
+CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj
+ ../include/DFA.h
+ ../include/Lexical_analyzer_generator.h
+ ../include/NFA.h
+ ../include/Regular_definition.h
+ ../include/Regular_expression.h
+ ../include/State.h
+ ../include/Token.h
+ C:/Users/DELL/CLionProjects/compilergenerator/src/Lexical_analyzer_generator.cpp
+CMakeFiles/compilergenerator.dir/src/NFA.cpp.obj
+ ../include/DFA.h
+ ../include/NFA.h
+ ../include/State.h
+ ../include/Token.h
+ C:/Users/DELL/CLionProjects/compilergenerator/src/NFA.cpp
+CMakeFiles/compilergenerator.dir/src/NFA_constructor.cpp.obj
+ ../include/DFA.h
+ ../include/NFA.h
+ ../include/NFA_constructor.h
+ ../include/Regular_definition.h
+ ../include/State.h
+ ../include/Token.h
+ C:/Users/DELL/CLionProjects/compilergenerator/src/NFA_constructor.cpp
+CMakeFiles/compilergenerator.dir/src/Regular_definition.cpp.obj
+ ../include/DFA.h
+ ../include/NFA.h
+ ../include/NFA_constructor.h
+ ../include/Regular_definition.h
+ ../include/State.h
+ ../include/Token.h
+ C:/Users/DELL/CLionProjects/compilergenerator/src/Regular_definition.cpp
+CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.obj
+ ../include/DFA.h
+ ../include/NFA.h
+ ../include/NFA_constructor.h
+ ../include/Regular_definition.h
+ ../include/Regular_expression.h
+ ../include/State.h
+ ../include/Token.h
+ C:/Users/DELL/CLionProjects/compilergenerator/src/Regular_expression.cpp
 CMakeFiles/compilergenerator.dir/src/State.cpp.obj
  ../include/State.h
- D:/compilers/compilergenerator/src/State.cpp
+ C:/Users/DELL/CLionProjects/compilergenerator/src/State.cpp
 CMakeFiles/compilergenerator.dir/src/Token.cpp.obj
  ../include/Token.h
- D:/compilers/compilergenerator/src/Token.cpp
+ C:/Users/DELL/CLionProjects/compilergenerator/src/Token.cpp

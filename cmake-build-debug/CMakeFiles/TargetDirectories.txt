@@ -1,3 +1,3 @@
-D:/compilers/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir
-D:/compilers/compilergenerator/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/compilers/compilergenerator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/CMakeFiles/compilergenerator.dir
+C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/DELL/CLionProjects/compilergenerator/cmake-build-debug/CMakeFiles/rebuild_cache.dir

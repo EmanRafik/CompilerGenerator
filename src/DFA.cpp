@@ -17,10 +17,6 @@ DFA::DFA(int number_of_states, int number_of_inputs) {
         }
     }
 
-    map<int, Token>::iterator itr;
-    for (itr =  accept_states.begin(); itr !=  accept_states.end(); ++itr) {
-//        cout  << itr->first << endl;
-    }
 }
 
 DFA::~DFA() {
@@ -168,9 +164,33 @@ DFA DFA::minimize() {
 
     }
 
+    if (number_of_states == old_partitions.size()) {
+        return *this;
+    } else {
+
+    }
     DFA *dfa = new DFA(old_partitions.size(), number_of_inputs);
 
-    return* new DFA(0,0);
+    //add transitions relative to new partitions
+    for (int i = 0; i < dfa->getNumberOfStates(); i++) {
+        for (int j = 0; j < dfa->getNumberOfInputs(); j++) {
+            if (table[old_partitions[i][0]][j] != phai) {
+                dfa->addTransition(i, j, states_partitions[table[old_partitions[i][0]][j]]);
+            }
+        }
+    }
+
+    //add accept states relative to new partitions
+    map<int, Token>::iterator itr;
+    for (itr =  accept_states.begin(); itr != accept_states.end(); ++itr) {
+        dfa->addAcceptState(states_partitions[itr->first], itr->second);
+    }
+
+    for (itr =  dfa->accept_states.begin(); itr != dfa->accept_states.end(); ++itr) {
+        std::cout << itr->first << " " << itr->second.getToken_class() << endl;
+    }
+
+    return *dfa;
 }
 
 void DFA::print_dfa() {
