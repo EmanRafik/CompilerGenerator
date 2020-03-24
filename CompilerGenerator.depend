@@ -172,7 +172,7 @@
 	<stack>
 	"State.h"
 
-1585080338 c:\users\bcc\desktop\compiler generator\compilergenerator\include\nfa.h
+1585085977 c:\users\bcc\desktop\compiler generator\compilergenerator\include\nfa.h
 	<map>
 	<string>
 	<vector>
@@ -205,7 +205,7 @@
 	<string>
 	"NFA.h"
 
-1585044080 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\regular_expression.cpp
+1585085717 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\regular_expression.cpp
 	"Regular_expression.h"
 	"NFA.h"
 	"Regular_definition.h"
@@ -216,7 +216,7 @@
 	<string>
 	<vector>
 
-1585044080 c:\users\bcc\desktop\compiler generator\compilergenerator\include\regular_expression.h
+1585085717 c:\users\bcc\desktop\compiler generator\compilergenerator\include\regular_expression.h
 	"NFA.h"
 	"Regular_definition.h"
 	<string>
@@ -264,7 +264,7 @@
 1584997199 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\state.cpp
 	"State.h"
 
-1585060119 c:\users\bcc\desktop\compiler generator\compilergenerator\include\lexical_analyzer_generator.h
+1585085717 c:\users\bcc\desktop\compiler generator\compilergenerator\include\lexical_analyzer_generator.h
 	"Token.h"
 	"NFA.h"
 	"DFA.h"
@@ -273,11 +273,12 @@
 	<string>
 	<vector>
 
-1585060119 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexical_analyzer_generator.cpp
+1585085717 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexical_analyzer_generator.cpp
 	"Lexical_analyzer_generator.h"
 	<map>
 	"NFA.h"
 	"DFA.h"
+	"NFA_constructor.h"
 	<vector>
 	<fstream>
 	<iostream>
@@ -292,7 +293,7 @@
 	<iostream>
 	"Regular_definition.h"
 
-1585077979 c:\users\bcc\desktop\compiler generator\compilergenerator\include\nfa_constructor.h
+1585083580 c:\users\bcc\desktop\compiler generator\compilergenerator\include\nfa_constructor.h
 	"NFA.h"
 	<string>
 	<iostream>
