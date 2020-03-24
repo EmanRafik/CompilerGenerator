@@ -326,6 +326,28 @@ NFA NFA_constructor::concatinating(NFA original1, NFA original2)
     nfa.setNFATable(newNFAmap);
     return nfa;
 }
+NFA NFA_constructor::signleCharNFA(char input){
+    State start;
+    State* start_ptr = start.getInstance();
+    State accept;
+    State* accept_ptr = accept.getInstance();
+    NFA nfa;
+    nfa.setStartState(start_ptr);
+    nfa.setAcceptState(accept_ptr);
+    vector<State*> vec;
+    vec.push_back(accept_ptr);
+    map<char,vector<State*>> firstStateMap;
+    firstStateMap.insert(std::pair<char,vector<State*>>(input,vec));
+    map<State*,map<char,vector<State*>>> newNFAmap;
+    //insert the start state
+    newNFAmap.insert(std::pair<State*,map<char,vector<State*>>>(start_ptr,firstStateMap));
+    vector<State*> finalStateVector;
+    map<char,vector<State*>> finalStateMap;
+    finalStateMap.insert(std::pair<char,vector<State*>>(' ',finalStateVector));
+    newNFAmap.insert(std::pair<State*,map<char,vector<State*>>>(accept_ptr,finalStateMap));
+    nfa.setNFATable(newNFAmap);
+    return nfa;
+}
 
 NFA NFA_constructor::termNFA(string term)
 {
