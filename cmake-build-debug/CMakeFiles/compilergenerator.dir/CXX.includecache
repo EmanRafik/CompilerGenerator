@@ -6,19 +6,3 @@
 
 #IncludeRegexTransform: 
 
-../include/DFA.h
-vector
--
-Token.h
-../include/Token.h
-map
--
-
-../include/Token.h
-
-C:/Users/DELL/CLionProjects/compilergenerator/src/DFA.cpp
-iostream
--
-DFA.h
-C:/Users/DELL/CLionProjects/compilergenerator/src/DFA.h
-
