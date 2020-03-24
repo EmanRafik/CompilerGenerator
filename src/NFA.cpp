@@ -3,6 +3,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <iterator>
 #include <stack>
 #include "State.h"
 
@@ -84,7 +85,7 @@ DFA NFA::convertToDFA(){
         }
         it++;
     }
-    return dfa;
+    return *dfa;
 }
 
 set<State*> NFA::closure(State *st){

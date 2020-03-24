@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-    Lexical_analyzer_generator *generator = new Lexical_analyzer_generator();
+    /*Lexical_analyzer_generator *generator = new Lexical_analyzer_generator();
     generator->read_lexical_rules("rules.txt");
     generator->generate_lexical_analyzer();
 //    DFA *dfa = generator->get_minimal_dfa();
@@ -42,6 +42,6 @@ int main()
 
     lexical->setDFA(dfa);
     lexical->read_input("input.txt");
-
+*/
     return 0;
 }
