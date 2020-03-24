@@ -27,11 +27,11 @@ class Lexical_analyzer_generator
 
     private:
         vector<NFA> NFAlist;
-        void classify_line(string line);
+        void classify_line(string line, int priority);
         vector<Regular_expression> regular_expressions;
         vector<Regular_definition> regular_definitions;
-        vector<string> keywords;
-        vector<string> punctuations;
+        vector<pair<string, int>> keywords;
+        vector<pair<string, int>> punctuations;
         string trim(string s);
         DFA *minimal_dfa;
 };

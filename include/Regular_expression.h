@@ -16,8 +16,10 @@ class Regular_expression
         NFA getNFA();
         void setName(string name);
         void setValue(string value);
+        void setPriority(int priority);
         string getName();
         string getValue();
+        int getPriority();
 
     protected:
 
@@ -25,6 +27,7 @@ class Regular_expression
         string name;
         string value;
         vector<Regular_definition> regular_definitions;
+        int priority;
 };
 
 #endif // REGULAR_EXPRESSION_H

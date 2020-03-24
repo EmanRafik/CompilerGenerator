@@ -30,6 +30,11 @@ void Regular_expression::setValue(string value)
     this->value = value;
 }
 
+void Regular_expression::setPriority(int priority)
+{
+    this->priority = priority;
+}
+
 string Regular_expression::getName()
 {
     return this->name;
@@ -40,13 +45,20 @@ string Regular_expression::getValue()
    return this->value;
 }
 
+int Regular_expression::getPriority()
+{
+    return this->priority;
+}
+
 NFA Regular_expression::getNFA()
 {
     NFA_constructor *constructor = new NFA_constructor();
     NFA nfa = constructor->constructNFA(this->value);
     Token *token = new Token();
     token->setToken_class(name);
-    //nfa.addAcceptStateToList(nfa.getAcceptState(), token);
+    token->setPriority(this->priority);
+    State *accept = nfa.getAcceptState();
+    nfa.addAcceptStateToList(accept, *token);
     return nfa;
 }
 

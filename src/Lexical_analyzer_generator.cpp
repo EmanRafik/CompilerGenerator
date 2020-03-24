@@ -2,6 +2,7 @@
 #include <map>
 #include "NFA.h"
 #include "DFA.h"
+#include"NFA_constructor.h"
 #include <vector>
 #include <fstream>
 #include<iostream>
@@ -34,7 +35,44 @@ DFA* Lexical_analyzer_generator::get_minimal_dfa()
 
 void Lexical_analyzer_generator::generate_lexical_analyzer()
 {
+    NFA_constructor *constructor = new NFA_constructor();
+    constructor->setRegular_definitions(regular_definitions);
+    //construct NFA for each keyword
+    for (int i = 0; i < keywords.size(); i++)
+    {
+        NFA nfa = constructor->termNFA(keywords[i].first);
+        Token *token = new Token();
+        token->setToken_class("keyword");
+        token->setValue(keywords[i].first);
+        token->setPriority(keywords[i].second);
+        State *accept = nfa.getAcceptState();
+        nfa.addAcceptStateToList(accept, *token);
+        NFAlist.push_back(nfa);
+    }
+    //construct NFA for each punctuation character
+    for (int i = 0; i < punctuations.size(); i++)
+    {
+        string punc = punctuations[i].first;
+        NFA nfa = constructor->signleCharNFA(punc.at(0));
+        Token *token = new Token();
+        token->setToken_class("punctuation");
+        token->setValue(punc);
+        token->setPriority(punctuations[i].second);
+        State *accept = nfa.getAcceptState();
+        nfa.addAcceptStateToList(accept, *token);
+        NFAlist.push_back(nfa);
+    }
+    //get constructed NFA of each regular expression
+    for (int i = 0; i < regular_expressions.size(); i++)
+    {
+        NFA nfa = regular_expressions[i].getNFA();
+        NFAlist.push_back(nfa);
+    }
+    //combine all NFA
 
+    //convert NFA to DFA
+
+    //minimize DFA
 }
 
 void Lexical_analyzer_generator:: addNFA(NFA nfa){
@@ -50,19 +88,22 @@ NFA Lexical_analyzer_generator::combineNFA(vector<NFA> list)
 
 void Lexical_analyzer_generator::read_lexical_rules(string file_name)
 {
+    //read rules line by line from lexical rules file and specify line class
     fstream file;
     file.open(file_name, ios::in);
     if (file.is_open())
     {
+        int priority = 1;
         string line;
         while (getline(file, line))
         {
-            classify_line(line);
+            classify_line(line, priority);
+            priority++;
         }
     }
 }
 
-void Lexical_analyzer_generator::classify_line(string line)
+void Lexical_analyzer_generator::classify_line(string line, int priority)
 {
     line = trim(line);
     if (line.at(0) == '{')
@@ -76,9 +117,9 @@ void Lexical_analyzer_generator::classify_line(string line)
             ss >> keyword;
             if (keyword != "")
             {
-                keywords.push_back(keyword);
+                pair<string,int> p(keyword, priority);
+                keywords.push_back(p);
             }
-
         }
         return;
     }
@@ -97,7 +138,8 @@ void Lexical_analyzer_generator::classify_line(string line)
                 {
                     punc = punc.substr(1);
                 }
-                punctuations.push_back(punc);
+                pair<string,int> p(punc, priority);
+                punctuations.push_back(p);
             }
         }
         return;
