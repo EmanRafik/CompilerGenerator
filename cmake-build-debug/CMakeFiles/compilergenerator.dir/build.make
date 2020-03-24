@@ -42,10 +42,10 @@ RM = "C:\Program Files\JetBrains\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\compilers\compilergenerator
+CMAKE_SOURCE_DIR = C:\Users\DELL\CLionProjects\compilergenerator
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\compilers\compilergenerator\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/compilergenerator.dir/depend.make
@@ -59,161 +59,146 @@ include CMakeFiles/compilergenerator.dir/flags.make
 CMakeFiles/compilergenerator.dir/src/DFA.cpp.obj: CMakeFiles/compilergenerator.dir/flags.make
 CMakeFiles/compilergenerator.dir/src/DFA.cpp.obj: CMakeFiles/compilergenerator.dir/includes_CXX.rsp
 CMakeFiles/compilergenerator.dir/src/DFA.cpp.obj: ../src/DFA.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/compilergenerator.dir/src/DFA.cpp.obj"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\DFA.cpp.obj -c D:\compilers\compilergenerator\src\DFA.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/compilergenerator.dir/src/DFA.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\DFA.cpp.obj -c C:\Users\DELL\CLionProjects\compilergenerator\src\DFA.cpp
 
 CMakeFiles/compilergenerator.dir/src/DFA.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compilergenerator.dir/src/DFA.cpp.i"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\compilers\compilergenerator\src\DFA.cpp > CMakeFiles\compilergenerator.dir\src\DFA.cpp.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\CLionProjects\compilergenerator\src\DFA.cpp > CMakeFiles\compilergenerator.dir\src\DFA.cpp.i
 
 CMakeFiles/compilergenerator.dir/src/DFA.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compilergenerator.dir/src/DFA.cpp.s"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\compilers\compilergenerator\src\DFA.cpp -o CMakeFiles\compilergenerator.dir\src\DFA.cpp.s
-
-CMakeFiles/compilergenerator.dir/src/Files_manager.cpp.obj: CMakeFiles/compilergenerator.dir/flags.make
-CMakeFiles/compilergenerator.dir/src/Files_manager.cpp.obj: CMakeFiles/compilergenerator.dir/includes_CXX.rsp
-CMakeFiles/compilergenerator.dir/src/Files_manager.cpp.obj: ../src/Files_manager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/compilergenerator.dir/src/Files_manager.cpp.obj"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\Files_manager.cpp.obj -c D:\compilers\compilergenerator\src\Files_manager.cpp
-
-CMakeFiles/compilergenerator.dir/src/Files_manager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compilergenerator.dir/src/Files_manager.cpp.i"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\compilers\compilergenerator\src\Files_manager.cpp > CMakeFiles\compilergenerator.dir\src\Files_manager.cpp.i
-
-CMakeFiles/compilergenerator.dir/src/Files_manager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compilergenerator.dir/src/Files_manager.cpp.s"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\compilers\compilergenerator\src\Files_manager.cpp -o CMakeFiles\compilergenerator.dir\src\Files_manager.cpp.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\CLionProjects\compilergenerator\src\DFA.cpp -o CMakeFiles\compilergenerator.dir\src\DFA.cpp.s
 
 CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.obj: CMakeFiles/compilergenerator.dir/flags.make
 CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.obj: CMakeFiles/compilergenerator.dir/includes_CXX.rsp
 CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.obj: ../src/Lexical_analyzer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.obj"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\Lexical_analyzer.cpp.obj -c D:\compilers\compilergenerator\src\Lexical_analyzer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\Lexical_analyzer.cpp.obj -c C:\Users\DELL\CLionProjects\compilergenerator\src\Lexical_analyzer.cpp
 
 CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.i"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\compilers\compilergenerator\src\Lexical_analyzer.cpp > CMakeFiles\compilergenerator.dir\src\Lexical_analyzer.cpp.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\CLionProjects\compilergenerator\src\Lexical_analyzer.cpp > CMakeFiles\compilergenerator.dir\src\Lexical_analyzer.cpp.i
 
 CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.s"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\compilers\compilergenerator\src\Lexical_analyzer.cpp -o CMakeFiles\compilergenerator.dir\src\Lexical_analyzer.cpp.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\CLionProjects\compilergenerator\src\Lexical_analyzer.cpp -o CMakeFiles\compilergenerator.dir\src\Lexical_analyzer.cpp.s
 
 CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj: CMakeFiles/compilergenerator.dir/flags.make
 CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj: CMakeFiles/compilergenerator.dir/includes_CXX.rsp
 CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj: ../src/Lexical_analyzer_generator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\Lexical_analyzer_generator.cpp.obj -c D:\compilers\compilergenerator\src\Lexical_analyzer_generator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\Lexical_analyzer_generator.cpp.obj -c C:\Users\DELL\CLionProjects\compilergenerator\src\Lexical_analyzer_generator.cpp
 
 CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.i"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\compilers\compilergenerator\src\Lexical_analyzer_generator.cpp > CMakeFiles\compilergenerator.dir\src\Lexical_analyzer_generator.cpp.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\CLionProjects\compilergenerator\src\Lexical_analyzer_generator.cpp > CMakeFiles\compilergenerator.dir\src\Lexical_analyzer_generator.cpp.i
 
 CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.s"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\compilers\compilergenerator\src\Lexical_analyzer_generator.cpp -o CMakeFiles\compilergenerator.dir\src\Lexical_analyzer_generator.cpp.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\CLionProjects\compilergenerator\src\Lexical_analyzer_generator.cpp -o CMakeFiles\compilergenerator.dir\src\Lexical_analyzer_generator.cpp.s
 
 CMakeFiles/compilergenerator.dir/src/NFA.cpp.obj: CMakeFiles/compilergenerator.dir/flags.make
 CMakeFiles/compilergenerator.dir/src/NFA.cpp.obj: CMakeFiles/compilergenerator.dir/includes_CXX.rsp
 CMakeFiles/compilergenerator.dir/src/NFA.cpp.obj: ../src/NFA.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/compilergenerator.dir/src/NFA.cpp.obj"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\NFA.cpp.obj -c D:\compilers\compilergenerator\src\NFA.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/compilergenerator.dir/src/NFA.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\NFA.cpp.obj -c C:\Users\DELL\CLionProjects\compilergenerator\src\NFA.cpp
 
 CMakeFiles/compilergenerator.dir/src/NFA.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compilergenerator.dir/src/NFA.cpp.i"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\compilers\compilergenerator\src\NFA.cpp > CMakeFiles\compilergenerator.dir\src\NFA.cpp.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\CLionProjects\compilergenerator\src\NFA.cpp > CMakeFiles\compilergenerator.dir\src\NFA.cpp.i
 
 CMakeFiles/compilergenerator.dir/src/NFA.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compilergenerator.dir/src/NFA.cpp.s"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\compilers\compilergenerator\src\NFA.cpp -o CMakeFiles\compilergenerator.dir\src\NFA.cpp.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\CLionProjects\compilergenerator\src\NFA.cpp -o CMakeFiles\compilergenerator.dir\src\NFA.cpp.s
 
 CMakeFiles/compilergenerator.dir/src/NFA_constructor.cpp.obj: CMakeFiles/compilergenerator.dir/flags.make
 CMakeFiles/compilergenerator.dir/src/NFA_constructor.cpp.obj: CMakeFiles/compilergenerator.dir/includes_CXX.rsp
 CMakeFiles/compilergenerator.dir/src/NFA_constructor.cpp.obj: ../src/NFA_constructor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/compilergenerator.dir/src/NFA_constructor.cpp.obj"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\NFA_constructor.cpp.obj -c D:\compilers\compilergenerator\src\NFA_constructor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/compilergenerator.dir/src/NFA_constructor.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\NFA_constructor.cpp.obj -c C:\Users\DELL\CLionProjects\compilergenerator\src\NFA_constructor.cpp
 
 CMakeFiles/compilergenerator.dir/src/NFA_constructor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compilergenerator.dir/src/NFA_constructor.cpp.i"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\compilers\compilergenerator\src\NFA_constructor.cpp > CMakeFiles\compilergenerator.dir\src\NFA_constructor.cpp.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\CLionProjects\compilergenerator\src\NFA_constructor.cpp > CMakeFiles\compilergenerator.dir\src\NFA_constructor.cpp.i
 
 CMakeFiles/compilergenerator.dir/src/NFA_constructor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compilergenerator.dir/src/NFA_constructor.cpp.s"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\compilers\compilergenerator\src\NFA_constructor.cpp -o CMakeFiles\compilergenerator.dir\src\NFA_constructor.cpp.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\CLionProjects\compilergenerator\src\NFA_constructor.cpp -o CMakeFiles\compilergenerator.dir\src\NFA_constructor.cpp.s
 
 CMakeFiles/compilergenerator.dir/src/Regular_definition.cpp.obj: CMakeFiles/compilergenerator.dir/flags.make
 CMakeFiles/compilergenerator.dir/src/Regular_definition.cpp.obj: CMakeFiles/compilergenerator.dir/includes_CXX.rsp
 CMakeFiles/compilergenerator.dir/src/Regular_definition.cpp.obj: ../src/Regular_definition.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/compilergenerator.dir/src/Regular_definition.cpp.obj"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\Regular_definition.cpp.obj -c D:\compilers\compilergenerator\src\Regular_definition.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/compilergenerator.dir/src/Regular_definition.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\Regular_definition.cpp.obj -c C:\Users\DELL\CLionProjects\compilergenerator\src\Regular_definition.cpp
 
 CMakeFiles/compilergenerator.dir/src/Regular_definition.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compilergenerator.dir/src/Regular_definition.cpp.i"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\compilers\compilergenerator\src\Regular_definition.cpp > CMakeFiles\compilergenerator.dir\src\Regular_definition.cpp.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\CLionProjects\compilergenerator\src\Regular_definition.cpp > CMakeFiles\compilergenerator.dir\src\Regular_definition.cpp.i
 
 CMakeFiles/compilergenerator.dir/src/Regular_definition.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compilergenerator.dir/src/Regular_definition.cpp.s"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\compilers\compilergenerator\src\Regular_definition.cpp -o CMakeFiles\compilergenerator.dir\src\Regular_definition.cpp.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\CLionProjects\compilergenerator\src\Regular_definition.cpp -o CMakeFiles\compilergenerator.dir\src\Regular_definition.cpp.s
 
 CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.obj: CMakeFiles/compilergenerator.dir/flags.make
 CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.obj: CMakeFiles/compilergenerator.dir/includes_CXX.rsp
 CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.obj: ../src/Regular_expression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.obj"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\Regular_expression.cpp.obj -c D:\compilers\compilergenerator\src\Regular_expression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\Regular_expression.cpp.obj -c C:\Users\DELL\CLionProjects\compilergenerator\src\Regular_expression.cpp
 
 CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.i"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\compilers\compilergenerator\src\Regular_expression.cpp > CMakeFiles\compilergenerator.dir\src\Regular_expression.cpp.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\CLionProjects\compilergenerator\src\Regular_expression.cpp > CMakeFiles\compilergenerator.dir\src\Regular_expression.cpp.i
 
 CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compilergenerator.dir/src/Regular_expression.cpp.s"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\compilers\compilergenerator\src\Regular_expression.cpp -o CMakeFiles\compilergenerator.dir\src\Regular_expression.cpp.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\CLionProjects\compilergenerator\src\Regular_expression.cpp -o CMakeFiles\compilergenerator.dir\src\Regular_expression.cpp.s
 
 CMakeFiles/compilergenerator.dir/src/State.cpp.obj: CMakeFiles/compilergenerator.dir/flags.make
 CMakeFiles/compilergenerator.dir/src/State.cpp.obj: CMakeFiles/compilergenerator.dir/includes_CXX.rsp
 CMakeFiles/compilergenerator.dir/src/State.cpp.obj: ../src/State.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/compilergenerator.dir/src/State.cpp.obj"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\State.cpp.obj -c D:\compilers\compilergenerator\src\State.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/compilergenerator.dir/src/State.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\State.cpp.obj -c C:\Users\DELL\CLionProjects\compilergenerator\src\State.cpp
 
 CMakeFiles/compilergenerator.dir/src/State.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compilergenerator.dir/src/State.cpp.i"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\compilers\compilergenerator\src\State.cpp > CMakeFiles\compilergenerator.dir\src\State.cpp.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\CLionProjects\compilergenerator\src\State.cpp > CMakeFiles\compilergenerator.dir\src\State.cpp.i
 
 CMakeFiles/compilergenerator.dir/src/State.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compilergenerator.dir/src/State.cpp.s"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\compilers\compilergenerator\src\State.cpp -o CMakeFiles\compilergenerator.dir\src\State.cpp.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\CLionProjects\compilergenerator\src\State.cpp -o CMakeFiles\compilergenerator.dir\src\State.cpp.s
 
 CMakeFiles/compilergenerator.dir/src/Token.cpp.obj: CMakeFiles/compilergenerator.dir/flags.make
 CMakeFiles/compilergenerator.dir/src/Token.cpp.obj: CMakeFiles/compilergenerator.dir/includes_CXX.rsp
 CMakeFiles/compilergenerator.dir/src/Token.cpp.obj: ../src/Token.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/compilergenerator.dir/src/Token.cpp.obj"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\Token.cpp.obj -c D:\compilers\compilergenerator\src\Token.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/compilergenerator.dir/src/Token.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\src\Token.cpp.obj -c C:\Users\DELL\CLionProjects\compilergenerator\src\Token.cpp
 
 CMakeFiles/compilergenerator.dir/src/Token.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compilergenerator.dir/src/Token.cpp.i"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\compilers\compilergenerator\src\Token.cpp > CMakeFiles\compilergenerator.dir\src\Token.cpp.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\CLionProjects\compilergenerator\src\Token.cpp > CMakeFiles\compilergenerator.dir\src\Token.cpp.i
 
 CMakeFiles/compilergenerator.dir/src/Token.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compilergenerator.dir/src/Token.cpp.s"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\compilers\compilergenerator\src\Token.cpp -o CMakeFiles\compilergenerator.dir\src\Token.cpp.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\CLionProjects\compilergenerator\src\Token.cpp -o CMakeFiles\compilergenerator.dir\src\Token.cpp.s
 
 CMakeFiles/compilergenerator.dir/main.cpp.obj: CMakeFiles/compilergenerator.dir/flags.make
 CMakeFiles/compilergenerator.dir/main.cpp.obj: CMakeFiles/compilergenerator.dir/includes_CXX.rsp
 CMakeFiles/compilergenerator.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/compilergenerator.dir/main.cpp.obj"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\main.cpp.obj -c D:\compilers\compilergenerator\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/compilergenerator.dir/main.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\compilergenerator.dir\main.cpp.obj -c C:\Users\DELL\CLionProjects\compilergenerator\main.cpp
 
 CMakeFiles/compilergenerator.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/compilergenerator.dir/main.cpp.i"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\compilers\compilergenerator\main.cpp > CMakeFiles\compilergenerator.dir\main.cpp.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\DELL\CLionProjects\compilergenerator\main.cpp > CMakeFiles\compilergenerator.dir\main.cpp.i
 
 CMakeFiles/compilergenerator.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/compilergenerator.dir/main.cpp.s"
-	C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\compilers\compilergenerator\main.cpp -o CMakeFiles\compilergenerator.dir\main.cpp.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\DELL\CLionProjects\compilergenerator\main.cpp -o CMakeFiles\compilergenerator.dir\main.cpp.s
 
 # Object files for target compilergenerator
 compilergenerator_OBJECTS = \
 "CMakeFiles/compilergenerator.dir/src/DFA.cpp.obj" \
-"CMakeFiles/compilergenerator.dir/src/Files_manager.cpp.obj" \
 "CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.obj" \
 "CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj" \
 "CMakeFiles/compilergenerator.dir/src/NFA.cpp.obj" \
@@ -228,7 +213,6 @@ compilergenerator_OBJECTS = \
 compilergenerator_EXTERNAL_OBJECTS =
 
 compilergenerator.exe: CMakeFiles/compilergenerator.dir/src/DFA.cpp.obj
-compilergenerator.exe: CMakeFiles/compilergenerator.dir/src/Files_manager.cpp.obj
 compilergenerator.exe: CMakeFiles/compilergenerator.dir/src/Lexical_analyzer.cpp.obj
 compilergenerator.exe: CMakeFiles/compilergenerator.dir/src/Lexical_analyzer_generator.cpp.obj
 compilergenerator.exe: CMakeFiles/compilergenerator.dir/src/NFA.cpp.obj
@@ -242,7 +226,7 @@ compilergenerator.exe: CMakeFiles/compilergenerator.dir/build.make
 compilergenerator.exe: CMakeFiles/compilergenerator.dir/linklibs.rsp
 compilergenerator.exe: CMakeFiles/compilergenerator.dir/objects1.rsp
 compilergenerator.exe: CMakeFiles/compilergenerator.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable compilergenerator.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable compilergenerator.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\compilergenerator.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -255,6 +239,6 @@ CMakeFiles/compilergenerator.dir/clean:
 .PHONY : CMakeFiles/compilergenerator.dir/clean
 
 CMakeFiles/compilergenerator.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\compilers\compilergenerator D:\compilers\compilergenerator D:\compilers\compilergenerator\cmake-build-debug D:\compilers\compilergenerator\cmake-build-debug D:\compilers\compilergenerator\cmake-build-debug\CMakeFiles\compilergenerator.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\DELL\CLionProjects\compilergenerator C:\Users\DELL\CLionProjects\compilergenerator C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug C:\Users\DELL\CLionProjects\compilergenerator\cmake-build-debug\CMakeFiles\compilergenerator.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/compilergenerator.dir/depend
 
