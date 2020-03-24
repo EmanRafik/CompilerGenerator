@@ -17,7 +17,8 @@ class NFA_constructor
         NFA constructNFA(string expression);
         NFA kleene_closure(NFA original_nfa);
         NFA positive_closure(NFA original_nfa);
-        NFA oring(NFA original1, NFA original2,bool combine);
+        NFA oring(NFA original1, NFA original2);
+        NFA oringList(vector<NFA> list,bool combine);
         NFA concatinating(NFA original1, NFA original2);
         NFA signleCharNFA(char input);
         NFA termNFA(string term);

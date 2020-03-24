@@ -25,6 +25,7 @@ public:
     DFA convertToDFA();
     set<State*> closure(State *s);
     set<State*> moveStates(set<State*> s, char c);
+    bool inSet(set<State*> m);
 protected:
 
 private:
