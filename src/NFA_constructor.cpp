@@ -8,6 +8,8 @@
 
 using namespace std;
 
+static const char epsilon = ' ';
+
 NFA_constructor::NFA_constructor()
 {
     //ctor
@@ -375,13 +377,43 @@ NFA NFA_constructor::signleCharNFA(char input){
 NFA NFA_constructor::termNFA(string term)
 {
     term = trim(term);
-    size_t f = term.find('-');
+    size_t f = term.find("-");
     if (f != std::string::npos && term.at(f-1)!='\\')
     {
-
+        vector<NFA> NFAList;
+        char c1 = term.at(f-1);
+        char c2 = term.at(f+1);
+        for (char c = c1; c <= c2; c++)
+        {
+            NFA nfa = signleCharNFA(c);
+            NFAList.push_back(nfa);
+        }
+        return oringList(NFAList, false);
     }
-
-
+    if (term.length() == 2 && term.at(0) =='\\' && term.at(1) =='L')
+    {
+        return signleCharNFA(epsilon);
+    }
+    char c = term.at(0);
+    int j = 1;
+    if (term.length() > 1 && c =='\\')
+    {
+        c = term.at(1);
+        j = 2;
+    }
+    NFA nfa = signleCharNFA(c);
+    for (int i = j; i < term.length(); i++)
+    {
+        c = term.at(i);
+        if (c == '\\')
+        {
+            c = term.at(i+1);
+            i++;
+        }
+        NFA nfa2 = signleCharNFA(c);
+        nfa = concatinating(nfa, nfa2);
+    }
+    return nfa;
 }
 
 string NFA_constructor::trim(string s)

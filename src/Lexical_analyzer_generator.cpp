@@ -40,6 +40,7 @@ void Lexical_analyzer_generator::generate_lexical_analyzer()
     //construct NFA for each keyword
     for (int i = 0; i < keywords.size(); i++)
     {
+        cout << keywords[i].first << endl;
         NFA nfa = constructor->termNFA(keywords[i].first);
         Token *token = new Token();
         token->setToken_class("keyword");
@@ -69,7 +70,7 @@ void Lexical_analyzer_generator::generate_lexical_analyzer()
         NFAlist.push_back(nfa);
     }
     //combine all NFA
-
+    NFA combined = constructor->oringList(NFAlist, true);
     //convert NFA to DFA
 
     //minimize DFA
