@@ -2,6 +2,7 @@
 #define LEXICAL_ANALYZER_GENERATOR_H
 #include "Token.h"
 #include "NFA.h"
+#include "DFA.h"
 #include"Regular_definition.h"
 #include"Regular_expression.h"
 #include<string>
@@ -19,6 +20,8 @@ class Lexical_analyzer_generator
         void addNFA(NFA nfa);
         NFA combineNFA(vector<NFA> list);
         void read_lexical_rules(string file_name);
+        void generate_lexical_analyzer();
+        DFA *get_minimal_dfa();
 
     protected:
 
@@ -30,6 +33,7 @@ class Lexical_analyzer_generator
         vector<string> keywords;
         vector<string> punctuations;
         string trim(string s);
+        DFA *minimal_dfa;
 };
 
 #endif // LEXICAL_ANALYZER_GENERATOR_H
