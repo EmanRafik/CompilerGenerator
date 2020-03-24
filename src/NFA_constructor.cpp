@@ -34,17 +34,29 @@ NFA NFA_constructor::constructNFA(string expression)
         if (expression.at(n-1) == ')')
         {
             expression = expression.substr(1, n-2);
+            cout << "between bracket " <<expression << "--> no closure" << endl;
             return constructNFA(expression);
         }
         else if (expression.at(n-2) == ')')
         {
+            cout << "between bracket " <<expression.substr(1,n-3) << "--> ";
+            if (expression.at(n-1) == '*')
+            {
+                cout << "kleene closure " << endl;
+            }
+            else if (expression.at(n-1) == '+')
+            {
+                cout << "positive closure " << endl;
+            }
             NFA nfa = constructNFA(expression.substr(1,n-3));
             if (expression.at(n-1) == '*')
             {
+                cout << "kleene closure " << endl;
                 return kleene_closure(nfa);
             }
             else if (expression.at(n-1) == '+')
             {
+                cout << "positive closure " << endl;
                 return positive_closure(nfa);
             }
         }
@@ -61,14 +73,14 @@ NFA NFA_constructor::constructNFA(string expression)
         {
             open--;
         }
-        else if (c == '|')
+        else if (c == '|' && open ==0)
         {
-            if (open == 0)
-            {
-                NFA nfa1 = constructNFA(expression.substr(0, i-1));
-                NFA nfa2 = constructNFA(expression.substr(i+1, expression.length()-i));
-                return oring(nfa1, nfa2,false);
-            }
+            string expr1 = expression.substr(0, i);
+            string expr2 = expression.substr(i+1, expression.length()-i);
+            cout << "OR --> expr1: " << expr1 << "\nexpr2:  " << expr2 << endl;
+            NFA nfa1 = constructNFA(expr1);
+            NFA nfa2 = constructNFA(expr2);
+            return oring(nfa1, nfa2,false);
         }
     }
     for (int i = 0; i < n; i++)
@@ -76,8 +88,11 @@ NFA NFA_constructor::constructNFA(string expression)
         char c = expression.at(i);
         if (c == ' ')
         {
-            NFA nfa1 = constructNFA(expression.substr(0, i-1));
-            NFA nfa2 = constructNFA(expression.substr(i+1, expression.length()-i));
+            string expr1 = expression.substr(0, i);
+            string expr2 = expression.substr(i+1, expression.length()-i);
+            cout << "CONC --> expr1: " << expr1 << "\nexpr2:  " << expr2 << endl;
+            NFA nfa1 = constructNFA(expr1);
+            NFA nfa2 = constructNFA(expr2);
             return concatinating(nfa1, nfa2);
         }
     }
@@ -100,23 +115,28 @@ NFA NFA_constructor::constructNFA(string expression)
         {
             nfa = regular_definitions[i].getNFA();
             found = true;
+            cout << "Regular Definition --> " << expression << " --> ";
             break;
         }
     }
     if (!found)
     {
+        cout << "Term --> " << expression << " --> ";
         nfa = termNFA(expression);
     }
     if (closure == 0)
     {
+        cout << "kleene closure" << endl;
         return kleene_closure(nfa);
     }
     else if (closure == 1)
     {
+        cout << "positive closure" << endl;
         return positive_closure(nfa);
     }
     else
     {
+        cout << "no closure" << endl;
         return nfa;
     }
 }
@@ -309,21 +329,23 @@ NFA NFA_constructor::concatinating(NFA original1, NFA original2)
 
 NFA NFA_constructor::termNFA(string term)
 {
-    size_t f = term.find("(");
-    if (f == std::string::npos)
+    NFA *nfa = new NFA();
+    return *nfa;
+    //size_t f = term.find("(");
+    //if (f == std::string::npos)
         //handleBrackets(term);
-    vector<map<char, vector<int>>> table;
-    for (int i = 0; i < term.length(); i++)
-    {
-        if (term.at(i) != '\\')
-        {
-            vector<int> v;
-            v.push_back(i+1);
-            map<char, vector<int>> m;
-            m.insert(pair<char, vector<int>>(term.at(i), v));
-            //table.push_back(m);
-        }
-    }
+//    vector<map<char, vector<int>>> table;
+//    for (int i = 0; i < term.length(); i++)
+//    {
+//        if (term.at(i) != '\\')
+//        {
+//            vector<int> v;
+//            v.push_back(i+1);
+//            map<char, vector<int>> m;
+//            m.insert(pair<char, vector<int>>(term.at(i), v));
+//            //table.push_back(m);
+//        }
+//    }
 }
 
 string NFA_constructor::trim(string s)

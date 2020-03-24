@@ -1,6 +1,7 @@
 #include "Lexical_analyzer_generator.h"
 #include <map>
 #include "NFA.h"
+#include "DFA.h"
 #include <vector>
 #include <fstream>
 #include<iostream>
@@ -26,13 +27,24 @@ void Lexical_analyzer_generator:: setNFAList(vector<NFA> list) {
     this->NFAlist = list;
 }
 
+DFA* Lexical_analyzer_generator::get_minimal_dfa()
+{
+    return this->minimal_dfa;
+}
+
+void Lexical_analyzer_generator::generate_lexical_analyzer()
+{
+
+}
+
 void Lexical_analyzer_generator:: addNFA(NFA nfa){
     vector<NFA> list = getNFAList();
     list.push_back(nfa);
     setNFAList(list);
 }
 
-NFA Lexical_analyzer_generator::combineNFA(vector<NFA> list){
+NFA Lexical_analyzer_generator::combineNFA(vector<NFA> list)
+{
 
 }
 
@@ -47,26 +59,6 @@ void Lexical_analyzer_generator::read_lexical_rules(string file_name)
         {
             classify_line(line);
         }
-//        cout << "Regular Expressions:" << endl;
-//        for (int i = 0; i < regular_expressions.size(); i++)
-//        {
-//            cout << "name: " << regular_expressions[i].getName() << " value: " << regular_expressions[i].getValue() << endl;
-//        }
-//        cout << "Regular Definitions:" << endl;
-//        for (int i = 0; i < regular_definitions.size(); i++)
-//        {
-//            cout << "name: " << regular_definitions[i].getName() << " value: " << regular_definitions[i].getValue() << endl;
-//        }
-//        cout << "keywords:" << endl;
-//        for (int i = 0; i < keywords.size(); i++)
-//        {
-//            cout << keywords[i] << endl;
-//        }
-//        cout << "Punctuations:" << endl;
-//        for (int i = 0; i < punctuations.size(); i++)
-//        {
-//            cout << punctuations[i] << endl;
-//        }
     }
 }
 
