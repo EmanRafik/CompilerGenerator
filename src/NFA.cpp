@@ -69,16 +69,16 @@ void NFA::printNFA(){
     printf("---------------------------------------------------------------------------\n");
 }
 
-/*DFA NFA::convertToDFA(){
+DFA NFA::convertToDFA(){
     DFA *dfa = new DFA(0,126-32);
-    set<State*> s = closure(startState);
+    set<int> s = closure(startState);
     dfa->addState();
-    vector<set<State*>> vec;
+    vector<set<int>> vec;
     vec.push_back(s);
     int n=0;
     while(n<vec.size()){
         for(int i=0;i<95;i++){
-            set<State*> m = moveStates(vec.at(n),i);
+            set<int> m = moveStates(vec.at(n),i);
             if(m.size()>0){
                 if(!inSet(m,vec)){
                     vec.push_back(m);
@@ -95,7 +95,7 @@ void NFA::printNFA(){
         }
         n++;
     }
-    map<State*,Token>::iterator it = acceptStatesList.begin();
+    map<int,Token>::iterator it = acceptStatesList.begin();
     while(it!=acceptStatesList.end()){
         for(int j=0;j<vec.size();j++){
             if(vec.at(j).find(it->first)!=vec.at(j).end()){
@@ -108,16 +108,16 @@ void NFA::printNFA(){
     return *dfa;
 }
 
-set<State*> NFA::closure(State *st){
-    set<State*> res;
-    stack<State*> closureStack;
+set<int> NFA::closure(int st){
+    set<int> res;
+    stack<int> closureStack;
     closureStack.push(st);
     while(!closureStack.empty()){
-        State *s = closureStack.top();
+        int s = closureStack.top();
         closureStack.pop();
         if(res.count(s)==0){
             res.insert(s);
-            vector<State*> v = table[s][' '];
+            vector<int> v = table.at(s)[' '];
             for(int i=0;i<v.size();i++){
                 res.insert(v.at(i));
             }
@@ -126,11 +126,11 @@ set<State*> NFA::closure(State *st){
     return res;
 }
 
-set<State*> NFA::moveStates(set<State*> s, char c){
-    set<State*> res;
-    set<State*>::iterator it = s.begin();
+set<int> NFA::moveStates(set<int> s, char c){
+    set<int> res;
+    set<int>::iterator it = s.begin();
     while(it!=s.end()){
-        vector<State*> v = table[*it][c];
+        vector<int> v = table.at(*it)[c];
         for(int i=0;i<v.size();i++){
             res.insert(v.at(i));
         }
@@ -139,7 +139,7 @@ set<State*> NFA::moveStates(set<State*> s, char c){
     return res;
 }
 
-bool NFA::inSet(set<State*> s,vector<set<State*>> vec){
+bool NFA::inSet(set<int> s,vector<set<int>> vec){
     for(int i=0;i<vec.size();i++){
         if(vec.at(i)==s){
             return true;
@@ -147,4 +147,4 @@ bool NFA::inSet(set<State*> s,vector<set<State*>> vec){
     }
     return false;
 }
-*/
+

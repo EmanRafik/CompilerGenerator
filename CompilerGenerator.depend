@@ -125,11 +125,17 @@
 	<string>
 	<vector>
 
-1585089600 source:c:\users\bcc\desktop\compiler generator\compilergenerator\main.cpp
+1585153229 source:c:\users\bcc\desktop\compiler generator\compilergenerator\main.cpp
 	<iostream>
 	"DFA.h"
 	"Lexical_analyzer_generator.h"
 	"Lexical_analyzer.h"
+	"NFA_constructor.h"
+	"NFA.h"
+	"State.h"
+	<map>
+	<vector>
+	<stdio.h>
 
 1585088732 c:\users\bcc\desktop\compiler generator\compilergenerator\include\dfa.h
 	<vector>
@@ -161,7 +167,7 @@
 1584909278 c:\users\bcc\desktop\compiler generator\compilergenerator\include\keyword.h
 	<Token.h>
 
-1585088732 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexical_analyzer.cpp
+1585153229 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexical_analyzer.cpp
 	"Lexical_analyzer.h"
 	"DFA.h"
 	<fstream>
@@ -181,7 +187,7 @@
 	<stack>
 	"State.h"
 
-1585089579 c:\users\bcc\desktop\compiler generator\compilergenerator\include\nfa.h
+1585167034 c:\users\bcc\desktop\compiler generator\compilergenerator\include\nfa.h
 	<map>
 	<string>
 	<vector>
@@ -204,7 +210,7 @@
 1584909278 c:\users\bcc\desktop\compiler generator\compilergenerator\include\punctuation_symbol.h
 	<Token.h>
 
-1585088732 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\regular_definition.cpp
+1585132734 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\regular_definition.cpp
 	"Regular_definition.h"
 	<string>
 	"NFA.h"
@@ -214,7 +220,7 @@
 	<string>
 	"NFA.h"
 
-1585088732 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\regular_expression.cpp
+1585132734 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\regular_expression.cpp
 	"Regular_expression.h"
 	"NFA.h"
 	"Regular_definition.h"
@@ -284,7 +290,7 @@
 	<string>
 	<vector>
 
-1585088732 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexical_analyzer_generator.cpp
+1585132734 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexical_analyzer_generator.cpp
 	"Lexical_analyzer_generator.h"
 	<map>
 	"NFA.h"
