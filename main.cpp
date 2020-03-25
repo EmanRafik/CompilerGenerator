@@ -2,7 +2,12 @@
 #include "DFA.h"
 #include"Lexical_analyzer_generator.h"
 #include"Lexical_analyzer.h"
-
+#include "NFA_constructor.h"
+#include "NFA.h"
+#include "State.h"
+#include <map>
+#include <vector>
+#include <stdio.h>
 using namespace std;
 
 int main()
@@ -43,5 +48,17 @@ int main()
     lexical->setDFA(dfa);
     lexical->read_input("input.txt");
 */
+
+    NFA_constructor *constructor = new NFA_constructor();
+    NFA nfa1 = constructor->signleCharNFA('a');
+    std::map<State*,map<char,vector<State*>>>::iterator it1 = nfa1.getNFATable().begin();
+    while(it1 != nfa1.getNFATable().end()){
+        State* state = it1->first;
+        map<char,vector<State*>> m =it1->second;
+        printf("state is %p\n",state);
+    }
+    NFA nfa2 = constructor->signleCharNFA('b');
+    NFA concatenatedNFA = constructor->concatinating(nfa1,nfa2);
+
     return 0;
 }
