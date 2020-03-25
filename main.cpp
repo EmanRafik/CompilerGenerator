@@ -64,6 +64,8 @@ int main()
     NFA orNFAlist = constructor->oringList(list,false);
     //orNFAlist.printNFA();
     NFA kleeneclosureNFA = constructor->kleene_closure(nfa1);
-    kleeneclosureNFA.printNFA();
+    //kleeneclosureNFA.printNFA();
+    NFA positiveclosureNFA = constructor->positive_closure(nfa1);
+    positiveclosureNFA.printNFA();
     return 0;
 }
