@@ -33,7 +33,9 @@ map<int,Token> NFA::getAcceptStatesList() {
 void NFA::addAcceptStateToList(int state,Token token) {
     getAcceptStatesList().insert(pair<int, Token>(state, token));
 }
-
+void NFA::setAcceptStatesList(map<int,Token> acceptStatesList) {
+    this->acceptStatesList = acceptStatesList;
+}
 int NFA::getAcceptState() const {
     return acceptState;
 }
@@ -52,7 +54,7 @@ void NFA::setStartState(int startState) {
 void NFA::printNFA(){
     std::vector<map<char,vector<int>>>::iterator it = table.begin();
     int i=0;
-    while(i <= acceptState && it != table.end()){
+    while(it != table.end()){
         printf("state: %d          ",i);
         std::map<char,vector<int>>::iterator mapIt = table[i].begin();
         while(mapIt != table[i].end() ){

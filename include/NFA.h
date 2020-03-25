@@ -16,6 +16,7 @@ public:
     virtual ~NFA();
     void addAcceptStateToList(int state,Token token);
     map<int,Token> getAcceptStatesList();
+    void setAcceptStatesList(map<int,Token> acceptStatesList);
     void setNFATable(vector<map<char,vector<int>>> table);
     vector<map<char,vector<int>>> getNFATable();
     int getAcceptState() const;
