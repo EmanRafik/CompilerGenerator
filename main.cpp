@@ -50,9 +50,9 @@ int main()
 */
     NFA_constructor *constructor = new NFA_constructor();
     NFA nfa1 = constructor->signleCharNFA('a');
-//    nfa1.printNFA();
+    nfa1.printNFA();
     NFA nfa2 = constructor->signleCharNFA('b');
-//    nfa2.printNFA();
+    nfa2.printNFA();
     NFA concatenatedNFA = constructor->concatinating(nfa1,nfa2);
     concatenatedNFA.printNFA();
     return 0;

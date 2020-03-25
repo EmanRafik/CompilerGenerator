@@ -76,14 +76,6 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
             if (dfa->getAcceptStates()[current_state].getToken_class() == "id" ||
                 dfa->getAcceptStates()[current_state].getToken_class() == "num" ) {
                 last_accepted_output = dfa->getAcceptStates()[current_state].getToken_class();
-                //add the ids to a symbol table
-                if (dfa->getAcceptStates()[current_state].getToken_class() == "id") {
-                    Token *t = new Token();
-                    t->setToken_class("id");
-                    t->setValue(id);
-                    symbol_table.push_back(dfa->getAcceptStates()[current_state].getValue());
-                }
-
             } else {
                 last_accepted_output = dfa->getAcceptStates()[current_state].getValue();
             }
@@ -93,6 +85,14 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
         } else if (current_state == phai) {
             if (last_accepted_output != "") {
                 cout << c << " --> " << last_accepted_output << endl;
+                //add the matched ids to a symbol table
+                if (dfa->getAcceptStates()[current_state].getToken_class() == "id") {
+                    Token *t = new Token();
+                    t->setToken_class("id");
+                    //remove last (i - last_accepted_character_index) characters which are extra than the last match
+                    t->setValue(id.substr(0, id.size()-(i-last_accepted_character_index)));
+                    symbol_table.push_back(dfa->getAcceptStates()[current_state].getValue());
+                }
                 last_accepted_output == "";
                 //backtrack to last matched state and character
                 i = last_accepted_character_index;
