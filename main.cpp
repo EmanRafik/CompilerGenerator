@@ -54,14 +54,16 @@ int main()
     NFA nfa2 = constructor->signleCharNFA('b');
     NFA nfa3 = constructor->signleCharNFA('c');
     //nfa2.printNFA();
-    //NFA concatenatedNFA = constructor->concatinating(nfa1,nfa2);
+    NFA concatenatedNFA = constructor->concatinating(nfa1,nfa2);
     //concatenatedNFA.printNFA();
-    //NFA orNFA = constructor->oring(nfa1,nfa2);
+    NFA orNFA = constructor->oring(nfa1,nfa2);
     vector<NFA> list;
     list.push_back(nfa1);
     list.push_back(nfa2);
     list.push_back(nfa3);
     NFA orNFAlist = constructor->oringList(list,false);
-    orNFAlist.printNFA();
+    //orNFAlist.printNFA();
+    NFA kleeneclosureNFA = constructor->kleene_closure(nfa1);
+    kleeneclosureNFA.printNFA();
     return 0;
 }
