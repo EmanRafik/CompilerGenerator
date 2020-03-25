@@ -22,6 +22,7 @@ public:
     void setAcceptState(int acceptState);
     int getStartState() const;
     void setStartState(int startState);
+    void printNFA();
     DFA convertToDFA();
     set<State*> closure(State *s);
     set<State*> moveStates(set<State*> s, char c);

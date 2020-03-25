@@ -5,8 +5,9 @@
 #include <vector>
 #include <iterator>
 #include <stack>
+#include <cstdio>
 #include "State.h"
-
+#include <stdio.h>
 NFA::NFA()
 {
 
@@ -47,6 +48,25 @@ int NFA::getStartState() const {
 
 void NFA::setStartState(int startState) {
     NFA::startState = startState;
+}
+void NFA::printNFA(){
+    std::vector<map<char,vector<int>>>::iterator it = this->getNFATable().begin();
+    int i=0;
+    while(i <= this->getAcceptState() &&it != this->getNFATable().end()){
+        printf("state: %d          ",i);
+        std::map<char,vector<int>>::iterator mapIt = this->getNFATable()[i].begin();
+        while(mapIt != this->getNFATable()[i].end() ){
+            printf("input: %c        to ",mapIt->first);
+            for(int state : mapIt->second){
+                printf("%d ",state);
+            }
+            printf("\n");
+            mapIt++;
+        }
+        i++;
+        it++;
+    }
+    printf("---------------------------------------------------------------------------\n");
 }
 
 /*DFA NFA::convertToDFA(){

@@ -50,29 +50,10 @@ int main()
 */
     NFA_constructor *constructor = new NFA_constructor();
     NFA nfa1 = constructor->signleCharNFA('a');
-    printNFA(nfa1);
+    nfa1.printNFA();
     NFA nfa2 = constructor->signleCharNFA('b');
-    printNFA(nfa2);
+    nfa2.printNFA();
     NFA concatenatedNFA = constructor->concatinating(nfa1,nfa2);
-    printNFA(concatenatedNFA);
+    concatenatedNFA.printNFA();
     return 0;
-}
-void printNFA(NFA nfa){
-    std::vector<map<char,vector<int>>>::iterator it = nfa.getNFATable().begin();
-    int i=0;
-    while(i <= nfa.getAcceptState() &&it != nfa.getNFATable().end()){
-        printf("state: %d          ",i);
-        std::map<char,vector<int>>::iterator mapIt = nfa.getNFATable()[i].begin();
-        while(mapIt != nfa.getNFATable()[i].end() ){
-            printf("input: %c        to ",mapIt->first);
-            for(int state : mapIt->second){
-                printf("%d ",state);
-            }
-            printf("\n");
-            mapIt++;
-        }
-        i++;
-        it++;
-    }
-    printf("---------------------------------------------------------------------------\n");
 }
