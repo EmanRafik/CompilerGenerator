@@ -71,7 +71,7 @@ void NFA::printNFA(){
 
 DFA NFA::convertToDFA(){
     DFA *dfa = new DFA(0,126-32);
-    set<int> s = closure(startState);
+    set<int> s = closure(0);
     dfa->addState();
     vector<set<int>> vec;
     vec.push_back(s);
@@ -117,7 +117,7 @@ set<int> NFA::closure(int st){
         closureStack.pop();
         if(res.count(s)==0){
             res.insert(s);
-            vector<int> v = table.at(s)[' '];
+            vector<int> v = table[s].at(' ');
             for(int i=0;i<v.size();i++){
                 res.insert(v.at(i));
             }
@@ -130,7 +130,7 @@ set<int> NFA::moveStates(set<int> s, char c){
     set<int> res;
     set<int>::iterator it = s.begin();
     while(it!=s.end()){
-        vector<int> v = table.at(*it)[c];
+        vector<int> v = table[*it].at(c);
         for(int i=0;i<v.size();i++){
             res.insert(v.at(i));
         }
