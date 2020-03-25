@@ -31,7 +31,7 @@ map<int,Token> NFA::getAcceptStatesList() {
 }
 
 void NFA::addAcceptStateToList(int state,Token token) {
-    getAcceptStatesList().insert(pair<int, Token>(state, token));
+    acceptStatesList.insert(pair<int, Token>(state, token));
 }
 
 int NFA::getAcceptState() const {
