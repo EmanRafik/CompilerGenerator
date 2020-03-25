@@ -35,7 +35,6 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/DFA.h" />
-		<Unit filename="include/Files_manager.h" />
 		<Unit filename="include/Lexical_analyzer.h" />
 		<Unit filename="include/Lexical_analyzer_generator.h" />
 		<Unit filename="include/NFA.h" />
@@ -46,7 +45,6 @@
 		<Unit filename="include/Token.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/DFA.cpp" />
-		<Unit filename="src/Files_manager.cpp" />
 		<Unit filename="src/Lexical_analyzer.cpp" />
 		<Unit filename="src/Lexical_analyzer_generator.cpp" />
 		<Unit filename="src/NFA.cpp" />

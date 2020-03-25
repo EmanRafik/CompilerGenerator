@@ -38,23 +38,23 @@ NFA NFA_constructor::constructNFA(string expression)
         if (expression.at(n-1) == ')')
         {
             expression = expression.substr(1, n-2);
-            cout << "between bracket " <<expression << "--> no closure" << endl;
+            //cout << "between bracket " <<expression << "--> no closure" << endl;
             return constructNFA(expression);
         }
         else if (expression.at(n-2) == ')')
         {
-            cout << "between bracket " <<expression.substr(1,n-3) << "--> ";
+            //cout << "between bracket " <<expression.substr(1,n-3) << "--> ";
             NFA nfa = constructNFA(expression.substr(1,n-3));
-           /* if (expression.at(n-1) == '*')
+            if (expression.at(n-1) == '*')
             {
-                cout << "kleene closure " << endl;
+                //cout << "kleene closure " << endl;
                 return kleene_closure(nfa);
             }
             else if (expression.at(n-1) == '+')
             {
-                cout << "positive closure " << endl;
+                //cout << "positive closure " << endl;
                 return positive_closure(nfa);
-            }*/
+            }
         }
     }
     int open = 0;
@@ -73,10 +73,10 @@ NFA NFA_constructor::constructNFA(string expression)
         {
             string expr1 = expression.substr(0, i);
             string expr2 = expression.substr(i+1, expression.length()-i);
-            cout << "OR --> expr1: " << expr1 << "\nexpr2:  " << expr2 << endl;
+            //cout << "OR --> expr1: " << expr1 << "\nexpr2:  " << expr2 << endl;
             NFA nfa1 = constructNFA(expr1);
             NFA nfa2 = constructNFA(expr2);
-//            return oring(nfa1, nfa2);
+            return oring(nfa1, nfa2);
         }
     }
     for (int i = 0; i < n; i++)
@@ -86,19 +86,19 @@ NFA NFA_constructor::constructNFA(string expression)
         {
             string expr1 = expression.substr(0, i);
             string expr2 = expression.substr(i+1, expression.length()-i);
-            cout << "CONC --> expr1: " << expr1 << "\nexpr2:  " << expr2 << endl;
+            //cout << "CONC --> expr1: " << expr1 << "\nexpr2:  " << expr2 << endl;
             NFA nfa1 = constructNFA(expr1);
             NFA nfa2 = constructNFA(expr2);
             return concatinating(nfa1, nfa2);
         }
     }
     int closure = -1;
-    if (expression.at(n-1) == '*')
+    if (expression.length() > 1 && expression.at(n-1) == '*' && expression.at(n-2) != '\\')
     {
         closure = 0;
         expression = expression.substr(0,n-1);
     }
-    else if (expression.at(n-1) == '+')
+    else if (expression.length() > 1 && expression.at(n-1) == '+' && expression.at(n-2) != '\\')
     {
         closure = 1;
         expression = expression.substr(0,n-1);
@@ -111,28 +111,28 @@ NFA NFA_constructor::constructNFA(string expression)
         {
             nfa = regular_definitions[i].getNFA();
             found = true;
-            cout << "Regular Definition --> " << expression << " --> ";
+            //cout << "Regular Definition --> " << expression << " --> ";
             break;
         }
     }
-    /*if (!found)
+    if (!found)
     {
-        cout << "Term --> " << expression << " --> ";
+        //cout << "Term --> " << expression << " --> ";
         nfa = termNFA(expression);
     }
     if (closure == 0)
     {
-        cout << "kleene closure" << endl;
+        //cout << "kleene closure" << endl;
         return kleene_closure(nfa);
     }
     else if (closure == 1)
     {
-        cout << "positive closure" << endl;
+        //cout << "positive closure" << endl;
         return positive_closure(nfa);
     }
-    else*/
+    else
     {
-        cout << "no closure" << endl;
+        //cout << "no closure" << endl;
         return nfa;
     }
 }
@@ -254,7 +254,7 @@ NFA NFA_constructor::oringList(vector<NFA> list, bool combine){
                     }
                     else{
                         map<int,Token> acceptStatesList = nfa.getAcceptStatesList();
-                        nfa.addAcceptStateToList(i + lastIncrement,acceptStatesList.at(i + lastIncrement));
+                        nfa.addAcceptStateToList(i + lastIncrement,acceptStatesList[i + lastIncrement]);
                     }
                 }
                 else{
@@ -407,7 +407,7 @@ NFA NFA_constructor::signleCharNFA(char input){
     nfa->setNFATable(newNFAtable);
     return *nfa;
 }
-/*
+
 NFA NFA_constructor::termNFA(string term)
 {
     term = trim(term);
@@ -449,7 +449,7 @@ NFA NFA_constructor::termNFA(string term)
     }
     return nfa;
 }
-*/
+
 string NFA_constructor::trim(string s)
 {
     while (s.at(0) == ' ')

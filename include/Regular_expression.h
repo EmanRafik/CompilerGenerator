@@ -13,7 +13,7 @@ class Regular_expression
     public:
         Regular_expression();
         virtual ~Regular_expression();
-        NFA getNFA();
+        NFA getNFA(vector<Regular_definition> regular_definitions);
         void setName(string name);
         void setValue(string value);
         void setPriority(int priority);

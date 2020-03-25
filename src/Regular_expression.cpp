@@ -50,15 +50,16 @@ int Regular_expression::getPriority()
     return this->priority;
 }
 
-/*NFA Regular_expression::getNFA()
+NFA Regular_expression::getNFA(vector<Regular_definition> regular_definitions)
 {
     NFA_constructor *constructor = new NFA_constructor();
+    constructor->setRegular_definitions(regular_definitions);
     NFA nfa = constructor->constructNFA(this->value);
     Token *token = new Token();
     token->setToken_class(name);
     token->setPriority(this->priority);
-    State *accept = nfa.getAcceptState();
+    int accept = nfa.getAcceptState();
     nfa.addAcceptStateToList(accept, *token);
     return nfa;
 }
-*/
+

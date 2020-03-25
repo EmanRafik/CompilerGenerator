@@ -33,20 +33,19 @@ DFA* Lexical_analyzer_generator::get_minimal_dfa()
     return this->minimal_dfa;
 }
 
-/*void Lexical_analyzer_generator::generate_lexical_analyzer()
+void Lexical_analyzer_generator::generate_lexical_analyzer()
 {
     NFA_constructor *constructor = new NFA_constructor();
     constructor->setRegular_definitions(regular_definitions);
     //construct NFA for each keyword
     for (int i = 0; i < keywords.size(); i++)
     {
-        cout << keywords[i].first << endl;
         NFA nfa = constructor->termNFA(keywords[i].first);
         Token *token = new Token();
         token->setToken_class("keyword");
         token->setValue(keywords[i].first);
         token->setPriority(keywords[i].second);
-        State *accept = nfa.getAcceptState();
+        int accept = nfa.getAcceptState();
         nfa.addAcceptStateToList(accept, *token);
         NFAlist.push_back(nfa);
     }
@@ -59,14 +58,14 @@ DFA* Lexical_analyzer_generator::get_minimal_dfa()
         token->setToken_class("punctuation");
         token->setValue(punc);
         token->setPriority(punctuations[i].second);
-        State *accept = nfa.getAcceptState();
+        int accept = nfa.getAcceptState();
         nfa.addAcceptStateToList(accept, *token);
         NFAlist.push_back(nfa);
     }
     //get constructed NFA of each regular expression
     for (int i = 0; i < regular_expressions.size(); i++)
     {
-        NFA nfa = regular_expressions[i].getNFA();
+        NFA nfa = regular_expressions[i].getNFA(regular_definitions);
         NFAlist.push_back(nfa);
     }
     //combine all NFA
@@ -75,7 +74,7 @@ DFA* Lexical_analyzer_generator::get_minimal_dfa()
 
     //minimize DFA
 }
-*/
+
 void Lexical_analyzer_generator:: addNFA(NFA nfa){
     vector<NFA> list = getNFAList();
     list.push_back(nfa);
