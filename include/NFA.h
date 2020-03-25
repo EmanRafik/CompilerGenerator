@@ -24,9 +24,9 @@ public:
     void setStartState(int startState);
     void printNFA();
     DFA convertToDFA();
-    set<State*> closure(State *s);
-    set<State*> moveStates(set<State*> s, char c);
-    bool inSet(set<State*> m,vector<set<State*>> vec);
+    set<int> closure(int s);
+    set<int> moveStates(set<int> s, char c);
+    bool inSet(set<int> m,vector<set<int>> vec);
 protected:
 
 private:
