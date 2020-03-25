@@ -17,39 +17,39 @@ NFA::~NFA()
     //dtor
 }
 
-map<State*,map<char, vector<State*>>> NFA::getNFATable() {
+vector<map<char,vector<int>>> NFA::getNFATable() {
     return table;
 }
 
-void NFA::setNFATable(map<State*,map<char,vector<State*>>> table){
+void NFA::setNFATable(vector<map<char,vector<int>>> table){
     this->table = table;
 }
 
-map<State*,Token> NFA::getAcceptStatesList() {
+map<int,Token> NFA::getAcceptStatesList() {
     return acceptStatesList;
 }
 
-void NFA::addAcceptStateToList(State* state,Token token) {
-    getAcceptStatesList().insert(pair<State*, Token>(state, token));
+void NFA::addAcceptStateToList(int state,Token token) {
+    getAcceptStatesList().insert(pair<int, Token>(state, token));
 }
 
-State *NFA::getAcceptState() const {
+int NFA::getAcceptState() const {
     return acceptState;
 }
 
-void NFA::setAcceptState(State *acceptState) {
+void NFA::setAcceptState(int acceptState) {
     NFA::acceptState = acceptState;
 }
 
-State *NFA::getStartState() const {
+int NFA::getStartState() const {
     return startState;
 }
 
-void NFA::setStartState(State *startState) {
+void NFA::setStartState(int startState) {
     NFA::startState = startState;
 }
 
-DFA NFA::convertToDFA(){
+/*DFA NFA::convertToDFA(){
     DFA *dfa = new DFA(0,126-32);
     set<State*> s = closure(startState);
     dfa->addState();
@@ -127,3 +127,4 @@ bool NFA::inSet(set<State*> s,vector<set<State*>> vec){
     }
     return false;
 }
+*/

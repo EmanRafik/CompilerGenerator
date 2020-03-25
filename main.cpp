@@ -9,7 +9,7 @@
 #include <vector>
 #include <stdio.h>
 using namespace std;
-
+void printNFA(NFA nfa);
 int main()
 {
     /*Lexical_analyzer_generator *generator = new Lexical_analyzer_generator();
@@ -18,7 +18,7 @@ int main()
 //    DFA *dfa = generator->get_minimal_dfa();
     Lexical_analyzer *lexical = new Lexical_analyzer();
 
-    DFA *dfa = new DFA(6, 95);
+    DFA *dfa = new DFA(6, 2);
     dfa->addTransition(0,0,1);
     dfa->addTransition(1,0,0);
     dfa->addTransition(2,0,4);
@@ -48,17 +48,31 @@ int main()
     lexical->setDFA(dfa);
     lexical->read_input("input.txt");
 */
-
     NFA_constructor *constructor = new NFA_constructor();
     NFA nfa1 = constructor->signleCharNFA('a');
-    std::map<State*,map<char,vector<State*>>>::iterator it1 = nfa1.getNFATable().begin();
-    while(it1 != nfa1.getNFATable().end()){
-        State* state = it1->first;
-        map<char,vector<State*>> m =it1->second;
-        printf("state is %p\n",state);
-    }
+    printNFA(nfa1);
     NFA nfa2 = constructor->signleCharNFA('b');
+    printNFA(nfa2);
     NFA concatenatedNFA = constructor->concatinating(nfa1,nfa2);
-
+    printNFA(concatenatedNFA);
     return 0;
+}
+void printNFA(NFA nfa){
+    std::vector<map<char,vector<int>>>::iterator it = nfa.getNFATable().begin();
+    int i=0;
+    while(i <= nfa.getAcceptState() &&it != nfa.getNFATable().end()){
+        printf("state: %d          ",i);
+        std::map<char,vector<int>>::iterator mapIt = nfa.getNFATable()[i].begin();
+        while(mapIt != nfa.getNFATable()[i].end() ){
+            printf("input: %c        to ",mapIt->first);
+            for(int state : mapIt->second){
+                printf("%d ",state);
+            }
+            printf("\n");
+            mapIt++;
+        }
+        i++;
+        it++;
+    }
+    printf("---------------------------------------------------------------------------\n");
 }

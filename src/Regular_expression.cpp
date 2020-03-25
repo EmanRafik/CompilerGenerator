@@ -50,7 +50,7 @@ int Regular_expression::getPriority()
     return this->priority;
 }
 
-NFA Regular_expression::getNFA()
+/*NFA Regular_expression::getNFA()
 {
     NFA_constructor *constructor = new NFA_constructor();
     NFA nfa = constructor->constructNFA(this->value);
@@ -61,4 +61,4 @@ NFA Regular_expression::getNFA()
     nfa.addAcceptStateToList(accept, *token);
     return nfa;
 }
-
+*/

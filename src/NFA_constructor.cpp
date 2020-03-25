@@ -4,9 +4,13 @@
 #include<vector>
 #include<map>
 #include<iostream>
+#include <cstdio>
 #include"Regular_definition.h"
+#include <stdio.h>
 
 using namespace std;
+
+static const char epsilon = ' ';
 
 NFA_constructor::NFA_constructor()
 {
@@ -41,7 +45,7 @@ NFA NFA_constructor::constructNFA(string expression)
         {
             cout << "between bracket " <<expression.substr(1,n-3) << "--> ";
             NFA nfa = constructNFA(expression.substr(1,n-3));
-            if (expression.at(n-1) == '*')
+           /* if (expression.at(n-1) == '*')
             {
                 cout << "kleene closure " << endl;
                 return kleene_closure(nfa);
@@ -50,7 +54,7 @@ NFA NFA_constructor::constructNFA(string expression)
             {
                 cout << "positive closure " << endl;
                 return positive_closure(nfa);
-            }
+            }*/
         }
     }
     int open = 0;
@@ -72,7 +76,7 @@ NFA NFA_constructor::constructNFA(string expression)
             cout << "OR --> expr1: " << expr1 << "\nexpr2:  " << expr2 << endl;
             NFA nfa1 = constructNFA(expr1);
             NFA nfa2 = constructNFA(expr2);
-            return oring(nfa1, nfa2);
+//            return oring(nfa1, nfa2);
         }
     }
     for (int i = 0; i < n; i++)
@@ -111,7 +115,7 @@ NFA NFA_constructor::constructNFA(string expression)
             break;
         }
     }
-    if (!found)
+    /*if (!found)
     {
         cout << "Term --> " << expression << " --> ";
         nfa = termNFA(expression);
@@ -126,13 +130,13 @@ NFA NFA_constructor::constructNFA(string expression)
         cout << "positive closure" << endl;
         return positive_closure(nfa);
     }
-    else
+    else*/
     {
         cout << "no closure" << endl;
         return nfa;
     }
 }
-
+/*
 NFA NFA_constructor::kleene_closure(NFA original_nfa)
 {
     NFA nfa;
@@ -309,81 +313,108 @@ NFA NFA_constructor::oring(NFA original1, NFA original2)
     nfa.setNFATable(newNFAmap);
     return nfa;
 }
-
+*/
 NFA NFA_constructor::concatinating(NFA original1, NFA original2)
 {
-    NFA nfa;
-    State* startState1 = original1.getStartState();
-    State* acceptState1 = original1.getAcceptState();
-    State* startState2 = original2.getStartState();
-    State* acceptState2 = original2.getAcceptState();
-    nfa.setStartState(startState1);
-    nfa.setAcceptState(acceptState2);
-    map<State*,map<char,vector<State*>>> newNFAmap;
-    std::map<State*,map<char,vector<State*>>>::iterator it1 = original1.getNFATable().begin();
-    std::map<State*,map<char,vector<State*>>>::iterator it2 = original2.getNFATable().begin();
+    NFA *nfa = new NFA();
+    vector<map<char,vector<int>>> newNFAtable;
+    std::vector<map<char,vector<int>>>::iterator it1 = original1.getNFATable().begin();
+    std::vector<map<char,vector<int>>>::iterator it2 = original2.getNFATable().begin();
     //add states of the first NFA
-    while(it1 != original1.getNFATable().end()){
-        State* currentState = it1->first;
-        map<char,vector<State*>> currentMap = it1->second;
-        //connect the 2 NFAs
-        if(currentState == acceptState1){
-            //get the states that are connected to the beginning of the second NFA and connect them to the end
-            //of the first NFA
-            map<char,vector<State*>> nextMap = original2.getNFATable().at(startState2);
-            std::map<char,vector<State*>>::iterator nextIt = nextMap.begin();
-            while(nextIt != nextMap.end()){
-                currentMap.insert(std::pair<char,vector<State*>>(nextIt->first,nextIt->second));
-            }
-        }
-            newNFAmap.insert(std::pair<State*,map<char,vector<State*>>>(currentState,currentMap));
+    int i=0;
+    while(i != original1.getAcceptState() && it1 != original1.getNFATable().end()){
+        map<char,vector<int>> currentMap = original1.getNFATable()[i];
+            newNFAtable.push_back(currentMap);
+            it1++;
+            i++;
     }
     //add states of the second NFA
-    while(it2 != original2.getNFATable().end()){
-        State* currentState = it2->first;
-        map<char,vector<State*>> currentMap = it2->second;
-        if(currentState != startState2){
-            newNFAmap.insert(std::pair<State*,map<char,vector<State*>>>(currentState,currentMap));
+    int sizeOfFirstNFA = original1.getNFATable().size() - 1;
+    i=0;
+    while(i <= original2.getAcceptState() && it2 != original2.getNFATable().end()){
+        map<char,vector<int>> currentMap = original2.getNFATable()[i];
+        std::map<char,vector<int>>::iterator mapIt = currentMap.begin();
+        while(mapIt != currentMap.end() ){
+            vector<int> newVec;
+            for(int state : mapIt->second){
+                if(state == original2.getAcceptState()){
+                    nfa->setAcceptState(state + sizeOfFirstNFA);
+                }
+                newVec.push_back(state + sizeOfFirstNFA);
+            }
+            currentMap[mapIt->first]=newVec;
+            mapIt++;
         }
+        newNFAtable.push_back(currentMap);
+        it2++;
+        i++;
     }
-    nfa.setNFATable(newNFAmap);
-    return nfa;
+
+    nfa->setNFATable(newNFAtable);
+    return *nfa;
 }
 NFA NFA_constructor::signleCharNFA(char input){
-    State start;
-    State* start_ptr = start.getInstance();
-    State accept;
-    State* accept_ptr = accept.getInstance();
-    NFA nfa;
-    nfa.setStartState(start_ptr);
-    nfa.setAcceptState(accept_ptr);
-    vector<State*> vec;
-    vec.push_back(accept_ptr);
-    map<char,vector<State*>> firstStateMap;
-    firstStateMap.insert(std::pair<char,vector<State*>>(input,vec));
-    map<State*,map<char,vector<State*>>> newNFAmap;
+    NFA *nfa = new NFA();
+    nfa->setStartState(0);
+    nfa->setAcceptState(1);
+    vector<int> vec;
+    vec.push_back(1);
+    map<char,vector<int>> firstStateMap;
+    firstStateMap.insert(std::pair<char,vector<int>>(input,vec));
+    vector<map<char,vector<int>>> newNFAtable;
     //insert the start state
-    newNFAmap.insert(std::pair<State*,map<char,vector<State*>>>(start_ptr,firstStateMap));
-    vector<State*> finalStateVector;
-    map<char,vector<State*>> finalStateMap;
-    finalStateMap.insert(std::pair<char,vector<State*>>(' ',finalStateVector));
-    newNFAmap.insert(std::pair<State*,map<char,vector<State*>>>(accept_ptr,finalStateMap));
-    nfa.setNFATable(newNFAmap);
-    return nfa;
+    newNFAtable.push_back(firstStateMap);
+    vector<int> finalStateVector;
+    map<char,vector<int>> finalStateMap;
+    finalStateMap.insert(std::pair<char,vector<int>>(' ',finalStateVector));
+    //insert empty final state
+    newNFAtable.push_back(finalStateMap);
+    nfa->setNFATable(newNFAtable);
+    return *nfa;
 }
-
+/*
 NFA NFA_constructor::termNFA(string term)
 {
     term = trim(term);
-    size_t f = term.find('-');
+    size_t f = term.find("-");
     if (f != std::string::npos && term.at(f-1)!='\\')
     {
-
+        vector<NFA> NFAList;
+        char c1 = term.at(f-1);
+        char c2 = term.at(f+1);
+        for (char c = c1; c <= c2; c++)
+        {
+            NFA nfa = signleCharNFA(c);
+            NFAList.push_back(nfa);
+        }
+        return oringList(NFAList, false);
     }
-
-
+    if (term.length() == 2 && term.at(0) =='\\' && term.at(1) =='L')
+    {
+        return signleCharNFA(epsilon);
+    }
+    char c = term.at(0);
+    int j = 1;
+    if (term.length() > 1 && c =='\\')
+    {
+        c = term.at(1);
+        j = 2;
+    }
+    NFA nfa = signleCharNFA(c);
+    for (int i = j; i < term.length(); i++)
+    {
+        c = term.at(i);
+        if (c == '\\')
+        {
+            c = term.at(i+1);
+            i++;
+        }
+        NFA nfa2 = signleCharNFA(c);
+        nfa = concatinating(nfa, nfa2);
+    }
+    return nfa;
 }
-
+*/
 string NFA_constructor::trim(string s)
 {
     while (s.at(0) == ' ')

@@ -14,14 +14,14 @@ class NFA {
 public:
     NFA();
     virtual ~NFA();
-    void addAcceptStateToList(State* state,Token token);
-    map<State*,Token> getAcceptStatesList();
-    void setNFATable(map<State*,map<char,vector<State*>>> table);
-    map<State*,map<char, vector<State*>>> getNFATable();
-    State *getAcceptState() const;
-    void setAcceptState(State *acceptState);
-    State *getStartState() const;
-    void setStartState(State *startState);
+    void addAcceptStateToList(int state,Token token);
+    map<int,Token> getAcceptStatesList();
+    void setNFATable(vector<map<char,vector<int>>> table);
+    vector<map<char,vector<int>>> getNFATable();
+    int getAcceptState() const;
+    void setAcceptState(int acceptState);
+    int getStartState() const;
+    void setStartState(int startState);
     DFA convertToDFA();
     set<State*> closure(State *s);
     set<State*> moveStates(set<State*> s, char c);
@@ -29,10 +29,10 @@ public:
 protected:
 
 private:
-    map<State*,Token> acceptStatesList;
-    map<State*,map<char,vector<State*>>> table;
-    State* acceptState;
-    State* startState;
+    map<int,Token> acceptStatesList;
+    vector<map<char,vector<int>>> table;
+    int acceptState;
+    int startState;
 };
 
 #endif // NFA_H
