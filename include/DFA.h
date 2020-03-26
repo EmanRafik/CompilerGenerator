@@ -26,7 +26,7 @@ class DFA {
         void addAcceptState(int state,Token token);
         bool isAcceptState(int state);
         bool areCompatibleStates (int state1, int state2, vector<int> partitions);
-        DFA minimize ();
+        DFA* minimize ();
         void print_dfa();
 
         int **getTable() const;
