@@ -73,7 +73,7 @@ void NFA::printNFA(){
 }
 
 DFA NFA::convertToDFA(){
-    DFA *dfa = new DFA(0,126-32);
+    DFA *dfa = new DFA(0,95);
     set<int> s = closure(0);
     dfa->addState();
     vector<set<int>> vec;
