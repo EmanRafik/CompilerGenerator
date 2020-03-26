@@ -64,8 +64,8 @@ int main()
     list.push_back(nfa3);
     NFA orNFAlist = constructor->oringList(list,true);
     orNFAlist.printNFA();
-    DFA d = orNFAlist.convertToDFA();
-    d.print_dfa();
+    DFA* d = orNFAlist.convertToDFA();
+    d->print_dfa();
     set<int> x;
     x.insert(0);
     x.insert(1);

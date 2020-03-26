@@ -72,7 +72,7 @@ void NFA::printNFA(){
     printf("---------------------------------------------------------------------------\n");
 }
 
-DFA NFA::convertToDFA(){
+DFA* NFA::convertToDFA(){
     DFA *dfa = new DFA(0,95);
     set<int> s = closure(0);
     dfa->addState();
@@ -80,7 +80,7 @@ DFA NFA::convertToDFA(){
     vec.push_back(s);
     int n=0;
     while(n<vec.size()){
-        for(int i=0;i<95;i++){
+        for(int i=1;i<95;i++){
             set<int> m = moveStates(vec.at(n),i+32);
             if(m.size()>0){
                 if(!inSet(m,vec)){
@@ -108,7 +108,7 @@ DFA NFA::convertToDFA(){
         }
         it++;
     }
-    return *dfa;
+    return dfa;
 }
 
 set<int> NFA::closure(int st){

@@ -125,7 +125,7 @@
 	<string>
 	<vector>
 
-1585221976 source:c:\users\bcc\desktop\compiler generator\compilergenerator\main.cpp
+1585224404 source:c:\users\bcc\desktop\compiler generator\compilergenerator\main.cpp
 	<iostream>
 	"DFA.h"
 	"Lexical_analyzer_generator.h"
@@ -192,7 +192,7 @@
 	"State.h"
 	<stdio.h>
 
-1585214876 c:\users\bcc\desktop\compiler generator\compilergenerator\include\nfa.h
+1585224381 c:\users\bcc\desktop\compiler generator\compilergenerator\include\nfa.h
 	<map>
 	<string>
 	<vector>
@@ -295,7 +295,7 @@
 	<string>
 	<vector>
 
-1585174676 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexical_analyzer_generator.cpp
+1585224428 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexical_analyzer_generator.cpp
 	"Lexical_analyzer_generator.h"
 	<map>
 	"NFA.h"
