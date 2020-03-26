@@ -3,7 +3,6 @@
 #include "DFA.h"
 
 const int phai = -1;
-const int undefined_state = -2;
 
 DFA::DFA(int number_of_inputs) {
     this->number_of_states = 0;
@@ -70,7 +69,7 @@ void DFA::addState() {
             if (i < number_of_states - 1) {
                 new_table[i][j] = table[i][j];
             } else {
-                new_table[i][j] = undefined_state;
+                new_table[i][j] = phai;
             }
         }
     }
@@ -195,8 +194,6 @@ DFA DFA::minimize() {
 
     if (number_of_states == old_partitions.size()) {
         return *this;
-    } else {
-
     }
     DFA *dfa = new DFA(old_partitions.size(), number_of_inputs);
 

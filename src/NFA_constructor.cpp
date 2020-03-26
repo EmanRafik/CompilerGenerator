@@ -223,7 +223,7 @@ NFA NFA_constructor::positive_closure(NFA original_nfa)
 }
 
 NFA NFA_constructor::oringList(vector<NFA> list, bool combine){
-    NFA *nfa = new NFA();
+    NFA *newNFA = new NFA();
     vector<map<char,vector<int>>> newNFAtable;
     map<char,vector<int>> firstMap;
     vector<int> firstVector;
@@ -254,7 +254,12 @@ NFA NFA_constructor::oringList(vector<NFA> list, bool combine){
                     }
                     else{
                         map<int,Token> acceptStatesList = nfa.getAcceptStatesList();
-                        nfa.addAcceptStateToList(i + lastIncrement,acceptStatesList[i + lastIncrement]);
+                        map<int, Token > nfaAcceptList ;
+                        if(!newNFA->getAcceptStatesList().empty()){
+                            nfaAcceptList = newNFA->getAcceptStatesList();
+                        }
+                        nfaAcceptList.insert(pair<int,Token> (i + lastIncrement, acceptStatesList[i + lastIncrement]));
+                        newNFA->setAcceptStatesList(nfaAcceptList);
                     }
                 }
                 else{
@@ -272,14 +277,14 @@ NFA NFA_constructor::oringList(vector<NFA> list, bool combine){
         lastIncrement += nfa.getNFATable().size();
     }
     if(!combine){
-        nfa->setAcceptState(lastState);
+        newNFA->setAcceptState(lastState);
         vector<int> finalStateVector;
         map<char,vector<int>> finalStateMap;
         finalStateMap.insert(std::pair<char,vector<int>>(' ',finalStateVector));
         newNFAtable.push_back(finalStateMap);
     }
-    nfa->setNFATable(newNFAtable);
-    return *nfa;
+    newNFA->setNFATable(newNFAtable);
+    return *newNFA;
 }
 
 NFA NFA_constructor::oring(NFA original1, NFA original2)

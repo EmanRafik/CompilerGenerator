@@ -2,6 +2,7 @@
 #include "Token.h"
 #include <map>
 #include <string>
+#include <iostream>
 #include <vector>
 #include <iterator>
 #include <stack>
@@ -33,7 +34,9 @@ map<int,Token> NFA::getAcceptStatesList() {
 void NFA::addAcceptStateToList(int state,Token token) {
     acceptStatesList.insert(pair<int, Token>(state, token));
 }
-
+void NFA::setAcceptStatesList(map<int,Token> acceptStatesList) {
+    this->acceptStatesList = acceptStatesList;
+}
 int NFA::getAcceptState() const {
     return acceptState;
 }
@@ -52,7 +55,7 @@ void NFA::setStartState(int startState) {
 void NFA::printNFA(){
     std::vector<map<char,vector<int>>>::iterator it = table.begin();
     int i=0;
-    while(i <= acceptState && it != table.end()){
+    while(it != table.end()){
         printf("state: %d          ",i);
         std::map<char,vector<int>>::iterator mapIt = table[i].begin();
         while(mapIt != table[i].end() ){
@@ -69,16 +72,16 @@ void NFA::printNFA(){
     printf("---------------------------------------------------------------------------\n");
 }
 
-DFA NFA::convertToDFA(){
-    DFA *dfa = new DFA(0,126-32);
+DFA* NFA::convertToDFA(){
+    DFA *dfa = new DFA(0,95);
     set<int> s = closure(0);
     dfa->addState();
     vector<set<int>> vec;
     vec.push_back(s);
     int n=0;
     while(n<vec.size()){
-        for(int i=0;i<95;i++){
-            set<int> m = moveStates(vec.at(n),i);
+        for(int i=1;i<95;i++){
+            set<int> m = moveStates(vec.at(n),i+32);
             if(m.size()>0){
                 if(!inSet(m,vec)){
                     vec.push_back(m);
@@ -105,7 +108,7 @@ DFA NFA::convertToDFA(){
         }
         it++;
     }
-    return *dfa;
+    return dfa;
 }
 
 set<int> NFA::closure(int st){
@@ -117,9 +120,12 @@ set<int> NFA::closure(int st){
         closureStack.pop();
         if(res.count(s)==0){
             res.insert(s);
-            vector<int> v = table[s].at(' ');
-            for(int i=0;i<v.size();i++){
-                res.insert(v.at(i));
+            int c = table[s].count(' ');
+            if(c>0){
+                vector<int> v = table[s][' '];
+                for(int i=0;i<v.size();i++){
+                    closureStack.push(v.at(i));
+                }
             }
         }
     }
@@ -130,9 +136,12 @@ set<int> NFA::moveStates(set<int> s, char c){
     set<int> res;
     set<int>::iterator it = s.begin();
     while(it!=s.end()){
-        vector<int> v = table[*it].at(c);
-        for(int i=0;i<v.size();i++){
-            res.insert(v.at(i));
+        int x = table[*it].count(c);
+        if(x>0){
+            vector<int> v = table[*it][c];
+            for(int i=0;i<v.size();i++){
+                res.insert(v.at(i));
+            }
         }
         it++;
     }

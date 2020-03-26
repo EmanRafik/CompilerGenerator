@@ -16,6 +16,7 @@ public:
     virtual ~NFA();
     void addAcceptStateToList(int state,Token token);
     map<int,Token> getAcceptStatesList();
+    void setAcceptStatesList(map<int,Token> acceptStatesList);
     void setNFATable(vector<map<char,vector<int>>> table);
     vector<map<char,vector<int>>> getNFATable();
     int getAcceptState() const;
@@ -23,7 +24,7 @@ public:
     int getStartState() const;
     void setStartState(int startState);
     void printNFA();
-    DFA convertToDFA();
+    DFA* convertToDFA();
     set<int> closure(int s);
     set<int> moveStates(set<int> s, char c);
     bool inSet(set<int> m,vector<set<int>> vec);
