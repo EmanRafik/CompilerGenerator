@@ -258,7 +258,7 @@ NFA NFA_constructor::oringList(vector<NFA> list, bool combine){
                         if(!newNFA->getAcceptStatesList().empty()){
                             nfaAcceptList = newNFA->getAcceptStatesList();
                         }
-                        nfaAcceptList.insert(pair<int,Token> (i + lastIncrement, acceptStatesList[i + lastIncrement]));
+                        nfaAcceptList.insert(pair<int,Token> (i + lastIncrement, acceptStatesList[currentAcceptState]));
                         newNFA->setAcceptStatesList(nfaAcceptList);
                     }
                 }
