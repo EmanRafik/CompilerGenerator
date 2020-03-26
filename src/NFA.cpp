@@ -81,7 +81,7 @@ DFA NFA::convertToDFA(){
     int n=0;
     while(n<vec.size()){
         for(int i=0;i<95;i++){
-            set<int> m = moveStates(vec.at(n),i);
+            set<int> m = moveStates(vec.at(n),i+32);
             if(m.size()>0){
                 if(!inSet(m,vec)){
                     vec.push_back(m);

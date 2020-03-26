@@ -66,16 +66,17 @@ int main()
     orNFAlist.printNFA();
     DFA d = orNFAlist.convertToDFA();
     d.print_dfa();
-    /*set<int> x;
+    set<int> x;
     x.insert(0);
-    x.insert(3);
+    x.insert(1);
     x.insert(5);
-    set<int> s = orNFAlist.moveStates(x,'c');
+    /*set<int> s = orNFAlist.moveStates(x,'c');
     set<int>::iterator it = s.begin();
     while(it != s.end()){
         cout<<*it<<endl;
         it++;
     }*/
+
    // NFA kleeneclosureNFA = constructor->kleene_closure(nfa1);
     //kleeneclosureNFA.printNFA();
    // NFA positiveclosureNFA = constructor->positive_closure(nfa1);
