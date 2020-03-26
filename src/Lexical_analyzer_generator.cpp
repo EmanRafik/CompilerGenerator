@@ -76,11 +76,7 @@ void Lexical_analyzer_generator::generate_lexical_analyzer()
     DFA* dfa = combined.convertToDFA();
     //dfa->minimize().print_dfa();
     //minimize DFA
-<<<<<<< HEAD
-
-=======
     minimal_dfa = dfa->minimize();
->>>>>>> 27d8044a9341457528f301d15903df3b93662af6
 }
 
 void Lexical_analyzer_generator:: addNFA(NFA nfa)
