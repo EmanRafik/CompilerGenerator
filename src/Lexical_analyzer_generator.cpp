@@ -72,6 +72,13 @@ void Lexical_analyzer_generator::generate_lexical_analyzer()
     }
     //combine all NFA
     NFA combined = constructor->oringList(NFAlist, true);
+    std::map<int, Token>::iterator it = combined.getAcceptStatesList().begin();
+	while (it != combined.getAcceptStatesList().end())
+	{
+		Token t = it->second;
+        cout << "token: "<< t.getToken_class() << endl;
+		it++;
+	}
     //convert NFA to DFA
     DFA* dfa = combined.convertToDFA();
     //dfa->minimize().print_dfa();
