@@ -75,7 +75,8 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
             last_accepted_state = current_state;
             last_accepted_character_index = i;
             if (dfa->getAcceptStates()[current_state].getToken_class() == "id" ||
-                dfa->getAcceptStates()[current_state].getToken_class() == "num" ) {
+                dfa->getAcceptStates()[current_state].getToken_class() == "num" ||
+                dfa->getAcceptStates()[current_state].getToken_class() == "relop" ) {
                 last_accepted_output = dfa->getAcceptStates()[current_state].getToken_class();
             } else {
                 last_accepted_output = dfa->getAcceptStates()[current_state].getValue();
@@ -83,7 +84,7 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
             // add the recognized token to the vector of tokens
             tokens.push_back(dfa->getAcceptStates()[current_state]);
 
-        } else if (current_state == phai) {
+        } else if (current_state == phai || c == 32) {
             if (last_accepted_output != "") {
                 cout << c << " --> " << last_accepted_output << endl;
                 //add the matched ids to a symbol table
@@ -98,12 +99,12 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
                 //backtrack to last matched state and character
                 i = last_accepted_character_index;
                 current_state = last_accepted_state;
-                id = "";
             } else {
                 //no matches happened and phai state reached so error occured
                 cout << c << " --> " << "Lexical error occurred" << endl;
             }
             //reset state again to start searching for tokens
+            id = "";
             current_state = 0;
         }
         current_state = dfa->getTable()[current_state][input];
