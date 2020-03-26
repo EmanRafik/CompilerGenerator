@@ -125,7 +125,7 @@
 	<string>
 	<vector>
 
-1585153229 source:c:\users\bcc\desktop\compiler generator\compilergenerator\main.cpp
+1585221589 source:c:\users\bcc\desktop\compiler generator\compilergenerator\main.cpp
 	<iostream>
 	"DFA.h"
 	"Lexical_analyzer_generator.h"
@@ -135,6 +135,7 @@
 	"State.h"
 	<map>
 	<vector>
+	<set>
 	<stdio.h>
 
 1585088732 c:\users\bcc\desktop\compiler generator\compilergenerator\include\dfa.h
@@ -178,16 +179,20 @@
 	<string>
 	"DFA.h"
 
-1585089618 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\nfa.cpp
+1585221793 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\nfa.cpp
 	"NFA.h"
 	"Token.h"
 	<map>
 	<string>
+	<iostream>
 	<vector>
+	<iterator>
 	<stack>
+	<cstdio>
 	"State.h"
+	<stdio.h>
 
-1585167034 c:\users\bcc\desktop\compiler generator\compilergenerator\include\nfa.h
+1585214876 c:\users\bcc\desktop\compiler generator\compilergenerator\include\nfa.h
 	<map>
 	<string>
 	<vector>
@@ -220,7 +225,7 @@
 	<string>
 	"NFA.h"
 
-1585132734 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\regular_expression.cpp
+1585174110 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\regular_expression.cpp
 	"Regular_expression.h"
 	"NFA.h"
 	"Regular_definition.h"
@@ -231,7 +236,7 @@
 	<string>
 	<vector>
 
-1585088732 c:\users\bcc\desktop\compiler generator\compilergenerator\include\regular_expression.h
+1585174110 c:\users\bcc\desktop\compiler generator\compilergenerator\include\regular_expression.h
 	"NFA.h"
 	"Regular_definition.h"
 	<string>
@@ -290,7 +295,7 @@
 	<string>
 	<vector>
 
-1585132734 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexical_analyzer_generator.cpp
+1585174676 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexical_analyzer_generator.cpp
 	"Lexical_analyzer_generator.h"
 	<map>
 	"NFA.h"
@@ -301,14 +306,16 @@
 	<iostream>
 	<bits/stdc++.h>
 
-1585088732 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\nfa_constructor.cpp
+1585214876 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\nfa_constructor.cpp
 	"NFA_constructor.h"
 	"NFA.h"
 	<string>
 	<vector>
 	<map>
 	<iostream>
+	<cstdio>
 	"Regular_definition.h"
+	<stdio.h>
 
 1585088732 c:\users\bcc\desktop\compiler generator\compilergenerator\include\nfa_constructor.h
 	"NFA.h"

@@ -7,6 +7,7 @@
 #include "State.h"
 #include <map>
 #include <vector>
+#include <set>
 #include <stdio.h>
 using namespace std;
 void printNFA(NFA nfa);
@@ -64,6 +65,16 @@ int main()
     NFA orNFAlist = constructor->oringList(list,true);
     orNFAlist.printNFA();
     orNFAlist.convertToDFA();
+    /*set<int> x;
+    x.insert(0);
+    x.insert(3);
+    x.insert(5);
+    set<int> s = orNFAlist.moveStates(x,'c');
+    set<int>::iterator it = s.begin();
+    while(it != s.end()){
+        cout<<*it<<endl;
+        it++;
+    }*/
    // NFA kleeneclosureNFA = constructor->kleene_closure(nfa1);
     //kleeneclosureNFA.printNFA();
    // NFA positiveclosureNFA = constructor->positive_closure(nfa1);

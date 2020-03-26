@@ -2,6 +2,7 @@
 #include "Token.h"
 #include <map>
 #include <string>
+#include <iostream>
 #include <vector>
 #include <iterator>
 #include <stack>
@@ -119,9 +120,12 @@ set<int> NFA::closure(int st){
         closureStack.pop();
         if(res.count(s)==0){
             res.insert(s);
-            vector<int> v = table[s].at(' ');
-            for(int i=0;i<v.size();i++){
-                res.insert(v.at(i));
+            int c = table[s].count(' ');
+            if(c>0){
+                vector<int> v = table[s][' '];
+                for(int i=0;i<v.size();i++){
+                    closureStack.push(v.at(i));
+                }
             }
         }
     }
@@ -132,9 +136,12 @@ set<int> NFA::moveStates(set<int> s, char c){
     set<int> res;
     set<int>::iterator it = s.begin();
     while(it!=s.end()){
-        vector<int> v = table[*it].at(c);
-        for(int i=0;i<v.size();i++){
-            res.insert(v.at(i));
+        int x = table[*it].count(c);
+        if(x>0){
+            vector<int> v = table[*it][c];
+            for(int i=0;i<v.size();i++){
+                res.insert(v.at(i));
+            }
         }
         it++;
     }
