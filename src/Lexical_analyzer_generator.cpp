@@ -73,10 +73,12 @@ void Lexical_analyzer_generator::generate_lexical_analyzer()
     //combine all NFA
     NFA combined = constructor->oringList(NFAlist, true);
     //convert NFA to DFA
-    DFA *dfa = combined.convertToDFA();
-//    dfa->minimize().print_dfa();
+    DFA* dfa = combined.convertToDFA();
+    //dfa->minimize().print_dfa();
     //minimize DFA
-    *minimal_dfa = dfa->minimize();
+    DFA dfa2 = dfa->minimize();
+    *minimal_dfa = &dfa2;
+    *minimal_dfa->print_dfa();
 }
 
 void Lexical_analyzer_generator:: addNFA(NFA nfa)
