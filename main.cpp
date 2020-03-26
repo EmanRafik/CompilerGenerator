@@ -17,8 +17,8 @@ int main()
     generator->read_lexical_rules("rules.txt");
     generator->generate_lexical_analyzer();
     Lexical_analyzer *lexical = new Lexical_analyzer();
-//    lexical->setDFA(generator->get_minimal_dfa());
-//    lexical->read_input("input.txt");
+    lexical->setDFA(generator->get_minimal_dfa());
+    lexical->read_input("input.txt");
 
 //    DFA *dfa = generator->get_minimal_dfa();
 /*   Lexical_analyzer *lexical = new Lexical_analyzer();

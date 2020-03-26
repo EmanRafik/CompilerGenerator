@@ -108,7 +108,7 @@ bool DFA::areCompatibleStates (int state1, int state2, vector<int> partitions) {
     return true;
 }
 
-DFA DFA::minimize() {
+DFA* DFA::minimize() {
     vector< vector<int> > partitions;
     //partition states into one partition for all non-acceptance states
     // and one partition for each acceptance state.
@@ -193,7 +193,7 @@ DFA DFA::minimize() {
     }
 
     if (number_of_states == old_partitions.size()) {
-        return *this;
+        return this;
     }
     DFA *dfa = new DFA(old_partitions.size(), number_of_inputs);
 
@@ -216,7 +216,7 @@ DFA DFA::minimize() {
 //        std::cout << itr->first << " " << itr->second.getToken_class() << endl;
 //    }
 
-    return *dfa;
+    return dfa;
 }
 
 void DFA::print_dfa() {

@@ -66,7 +66,8 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
     int id_counter = 0;
 
     char c;
-    for (int i = 0; input_code.size(); i++) {
+    int i = 0;
+    while (i < input_code.size()) {
         c = input_code[i];
         id += c;
         input = c - 32;
@@ -106,6 +107,7 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
             current_state = 0;
         }
         current_state = dfa->getTable()[current_state][input];
+        i++;
     }
 }
 
