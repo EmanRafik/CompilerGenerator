@@ -24,7 +24,7 @@ public:
     int getStartState() const;
     void setStartState(int startState);
     void printNFA();
-    DFA convertToDFA();
+    DFA* convertToDFA();
     set<int> closure(int s);
     set<int> moveStates(set<int> s, char c);
     bool inSet(set<int> m,vector<set<int>> vec);
