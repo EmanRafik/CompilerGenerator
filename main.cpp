@@ -14,8 +14,8 @@ void printNFA(NFA nfa);
 int main()
 {
     Lexical_analyzer_generator *generator = new Lexical_analyzer_generator();
-    //generator->read_lexical_rules("rules.txt");
-    //generator->generate_lexical_analyzer();
+    generator->read_lexical_rules("rules.txt");
+    generator->generate_lexical_analyzer();
 //    DFA *dfa = generator->get_minimal_dfa();
  /*   Lexical_analyzer *lexical = new Lexical_analyzer();
 
@@ -49,7 +49,7 @@ int main()
     lexical->setDFA(dfa);
     lexical->read_input("input.txt");
 */
-   NFA_constructor *constructor = new NFA_constructor();
+   /*NFA_constructor *constructor = new NFA_constructor();
     NFA nfa1 = constructor->signleCharNFA('a');
     //nfa1.printNFA();
     NFA nfa2 = constructor->signleCharNFA('b');
@@ -65,17 +65,7 @@ int main()
     NFA orNFAlist = constructor->oringList(list,true);
     orNFAlist.printNFA();
     DFA* d = orNFAlist.convertToDFA();
-    d->print_dfa();
-    set<int> x;
-    x.insert(0);
-    x.insert(1);
-    x.insert(5);
-    /*set<int> s = orNFAlist.moveStates(x,'c');
-    set<int>::iterator it = s.begin();
-    while(it != s.end()){
-        cout<<*it<<endl;
-        it++;
-    }*/
+    d->print_dfa();*/
 
    // NFA kleeneclosureNFA = constructor->kleene_closure(nfa1);
     //kleeneclosureNFA.printNFA();
