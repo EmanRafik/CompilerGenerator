@@ -37,7 +37,7 @@ void NFA::addAcceptStateToList(int state,Token token) {
 void NFA::setAcceptStatesList(map<int,Token> acceptStatesList) {
     this->acceptStatesList = acceptStatesList;
 }
-int NFA::getAcceptState() const {
+int NFA::getAcceptState() {
     return acceptState;
 }
 
@@ -45,7 +45,7 @@ void NFA::setAcceptState(int acceptState) {
     NFA::acceptState = acceptState;
 }
 
-int NFA::getStartState() const {
+int NFA::getStartState(){
     return startState;
 }
 
@@ -71,6 +71,15 @@ void NFA::printNFA(){
     }
     printf("---------------------------------------------------------------------------\n");
 }
+void NFA::printAcceptStatesList(){
+    std::map<int, Token>::iterator it = acceptStatesList.begin();
+    while (it != acceptStatesList.end())
+    {
+        Token t = it->second;
+        cout << "token: "<< t.getToken_class() << endl;
+        it++;
+    }
+};
 
 DFA* NFA::convertToDFA(){
     DFA *dfa = new DFA(0,95);
