@@ -110,9 +110,12 @@ DFA* NFA::convertToDFA(){
     map<int,Token>::iterator it = acceptStatesList.begin();
     while(it!=acceptStatesList.end()){
         for(int j=0;j<vec.size();j++){
-            if(vec.at(j).find(it->first)!=vec.at(j).end()){
-                dfa->addAcceptState(j,it->second);
-                //break;
+            set<int>::iterator setit = vec.at(j).begin();
+            while(setit!=vec.at(j).end()){
+                if(*setit==it->first){
+                    dfa->addAcceptState(j,it->second);
+                }
+                setit++;
             }
         }
         it++;
