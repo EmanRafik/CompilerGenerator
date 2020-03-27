@@ -1,1 +1,1 @@
-int floatboolean
+int floatbooleanint int ifelsewhile
