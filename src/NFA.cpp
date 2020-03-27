@@ -149,7 +149,12 @@ set<int> NFA::moveStates(set<int> s, char c){
         if(x>0){
             vector<int> v = table[*it][c];
             for(int i=0;i<v.size();i++){
-                res.insert(v.at(i));
+                set<int> eps = closure(v.at(i));
+                set<int>::iterator epsit = eps.begin();
+                while(epsit!=eps.end()){
+                    res.insert(*epsit);
+                    epsit++;
+                }
             }
         }
         it++;
