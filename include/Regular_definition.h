@@ -14,7 +14,7 @@ class Regular_definition
         void setValue(string value);
         string getName();
         string getValue();
-        NFA getNFA();
+        NFA getNFA(vector<Regular_definition> regular_definitions);
 
     protected:
 

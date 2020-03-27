@@ -109,7 +109,7 @@ NFA NFA_constructor::constructNFA(string expression)
     {
         if (regular_definitions[i].getName() == expression)
         {
-            nfa = regular_definitions[i].getNFA();
+            nfa = regular_definitions[i].getNFA(regular_definitions);
             found = true;
             //cout << "Regular Definition --> " << expression << " --> ";
             break;

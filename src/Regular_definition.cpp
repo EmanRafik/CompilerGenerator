@@ -35,9 +35,10 @@ string Regular_definition::getValue()
     return this->value;
 }
 
-NFA Regular_definition::getNFA()
+NFA Regular_definition::getNFA(vector<Regular_definition> regular_definitions)
 {
     NFA_constructor *constructor = new NFA_constructor();
+    constructor->setRegular_definitions(regular_definitions);
     NFA nfa = constructor->constructNFA(this->value);
     return nfa;
 }
