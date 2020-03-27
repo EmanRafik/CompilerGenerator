@@ -73,6 +73,7 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
         input = c - 32;
         current_state = dfa->getTable()[current_state][input];
         if (dfa->isAcceptState(current_state)) {
+                cout <<"--->" << dfa->getAcceptStates()[current_state].getToken_class() << endl;
             last_accepted_state = current_state;
             last_accepted_character_index = i;
             if (dfa->getAcceptStates()[current_state].getToken_class() == "id" ||
