@@ -112,7 +112,7 @@ DFA* NFA::convertToDFA(){
         for(int j=0;j<vec.size();j++){
             if(vec.at(j).find(it->first)!=vec.at(j).end()){
                 dfa->addAcceptState(j,it->second);
-                break;
+                //break;
             }
         }
         it++;
