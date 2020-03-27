@@ -73,18 +73,13 @@ void Lexical_analyzer_generator::generate_lexical_analyzer()
     //combine all NFA
     NFA combined = constructor->oringList(NFAlist, true);
     combined.printAcceptStatesList();
-    /*std::map<int, Token>::iterator it = combined.getAcceptStatesList().begin();
-	while (it != combined.getAcceptStatesList().end())
-	{
-		Token t = it->second;
-        cout << "token: "<< t.getToken_class() << endl;
-		it++;
-	}*/
+
     //convert NFA to DFA
     DFA* dfa = combined.convertToDFA();
-    //dfa->minimize().print_dfa();
+
     //minimize DFA
     minimal_dfa = dfa->minimize();
+    minimal_dfa->print_dfa();
 }
 
 void Lexical_analyzer_generator:: addNFA(NFA nfa)
@@ -92,11 +87,6 @@ void Lexical_analyzer_generator:: addNFA(NFA nfa)
     vector<NFA> list = getNFAList();
     list.push_back(nfa);
     setNFAList(list);
-}
-
-NFA Lexical_analyzer_generator::combineNFA(vector<NFA> list)
-{
-
 }
 
 void Lexical_analyzer_generator::read_lexical_rules(string file_name)
