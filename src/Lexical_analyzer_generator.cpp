@@ -73,13 +73,14 @@ void Lexical_analyzer_generator::generate_lexical_analyzer()
     //combine all NFA
     NFA combined = constructor->oringList(NFAlist, true);
     combined.printAcceptStatesList();
-
+    cout << "combined size: " << combined.getAcceptStatesList().size() << endl;
     //convert NFA to DFA
     DFA* dfa = combined.convertToDFA();
-
+cout << "DFA size: " << dfa->getAcceptStates().size() <<endl;
     //minimize DFA
     minimal_dfa = dfa->minimize();
-    //minimal_dfa->print_dfa();
+    minimal_dfa->print_dfa();
+    cout << "Minimal size: " << minimal_dfa->getAcceptStates().size() <<endl;
 }
 
 void Lexical_analyzer_generator:: addNFA(NFA nfa)

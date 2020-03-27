@@ -1,1 +1,4 @@
-int floatbooleanint int ifelsewhile
+int sum , count , pass , mnt; while (pass != 10)
+{
+pass = pass + 1 ;
+}
