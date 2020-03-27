@@ -83,6 +83,7 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
             }
             // add the recognized token to the vector of tokens
             tokens.push_back(dfa->getAcceptStates()[current_state]);
+            current_state = dfa->getTable()[current_state][input];
 
         } else if (current_state == phai || c == 32) {
             if (last_accepted_output != "") {
@@ -109,7 +110,6 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
             id = "";
             current_state = 0;
         }
-        current_state = dfa->getTable()[current_state][input];
         i++;
     }
 }
