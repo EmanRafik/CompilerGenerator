@@ -95,7 +95,7 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
                     t->setValue(id.substr(0, id.size()-(i-last_accepted_character_index)));
                     symbol_table.push_back(dfa->getAcceptStates()[current_state].getValue());
                 }
-                last_accepted_output == "";
+                last_accepted_output = "";
                 //backtrack to last matched state and character
                 i = last_accepted_character_index;
                 current_state = last_accepted_state;

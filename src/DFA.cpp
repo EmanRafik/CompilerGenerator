@@ -229,8 +229,8 @@ void DFA::print_dfa() {
         cout << "state    ";
         for (int i = 0; i < number_of_inputs; i++) {
             char c = i + 32;
-            file << " '" << c << "' ";
-            cout << " '" << c << "' ";
+            file << "  '" << c << "'  ";
+            cout << "  '" << c << "'  ";
         }
         file << endl;
         cout << endl;
@@ -244,8 +244,14 @@ void DFA::print_dfa() {
                 cout << "   " << i << "       ";
             }
             for (int j = 0; j < number_of_inputs; j++) {
-                file << table[i][j] << "   ";
-                cout << table[i][j] << "   ";
+                if (table[i][j] < 0) {
+                    file << table[i][j] << "    ";
+                    cout << table[i][j] << "    ";
+                } else {
+                    file << table[i][j] << "     ";
+                    cout << table[i][j] << "     ";
+                }
+
             }
             file << endl;
             cout << endl;
