@@ -151,17 +151,22 @@ NFA NFA_constructor::kleene_closure(NFA original_nfa)
 
     //inserting NFAs states
     int i=0;
-    while(i <= original_nfa.getAcceptState() && it1 != original_nfa.getNFATable().end()){
+    while(i <= original_nfa.getAcceptState() && it1 != original_nfa.getNFATable().end())
+    {
         map<char,vector<int>> currentMap = original_nfa.getNFATable()[i];
         std::map<char,vector<int>>::iterator mapIt = currentMap.begin();
-        while(mapIt != currentMap.end() ){
+        while(mapIt != currentMap.end() )
+        {
             vector<int> newVec;
-            if(i == original_nfa.getAcceptState()){
+            if(i == original_nfa.getAcceptState())
+            {
                 newVec.push_back(original_nfa.getNFATable().size()+1);
                 newVec.push_back(1);
             }
-            else{
-                for(int state : mapIt->second){
+            else
+            {
+                for(int state : mapIt->second)
+                {
                     newVec.push_back(state + 1);
                 }
             }
@@ -190,17 +195,22 @@ NFA NFA_constructor::positive_closure(NFA original_nfa)
     std::vector<map<char,vector<int>>>::iterator it1 = nfa->getNFATable().begin();
     //inserting NFAs states
     int i=0;
-    while(i <= original_nfa.getAcceptState() && it1 != original_nfa.getNFATable().end()){
+    while(i <= original_nfa.getAcceptState() && it1 != original_nfa.getNFATable().end())
+    {
         map<char,vector<int>> currentMap = original_nfa.getNFATable()[i];
         std::map<char,vector<int>>::iterator mapIt = currentMap.begin();
-        while(mapIt != currentMap.end() ){
+        while(mapIt != currentMap.end() )
+        {
             vector<int> newVec;
-            if(i == original_nfa.getAcceptState()){
+            if(i == original_nfa.getAcceptState())
+            {
                 newVec.push_back(original_nfa.getNFATable().size());
                 newVec.push_back(0);
             }
-            else{
-                for(int state : mapIt->second){
+            else
+            {
+                for(int state : mapIt->second)
+                {
                     newVec.push_back(state);
                 }
             }
@@ -222,7 +232,8 @@ NFA NFA_constructor::positive_closure(NFA original_nfa)
     return *nfa;
 }
 
-NFA NFA_constructor::oringList(vector<NFA> list, bool combine){
+NFA NFA_constructor::oringList(vector<NFA> list, bool combine)
+{
     NFA *newNFA = new NFA();
     vector<map<char,vector<int>>> newNFAtable;
     map<char,vector<int>> firstMap;
@@ -230,7 +241,8 @@ NFA NFA_constructor::oringList(vector<NFA> list, bool combine){
     //connecting the new start state
     int i = 1;
     int lastState = 1;
-    for(NFA nfa:list){
+    for(NFA nfa:list)
+    {
         firstVector.push_back(i);
         i += nfa.getNFATable().size();
         lastState += nfa.getNFATable().size();
@@ -238,32 +250,41 @@ NFA NFA_constructor::oringList(vector<NFA> list, bool combine){
     int lastIncrement = 1;
     firstMap.insert(std::pair<char,vector<int>>(' ',firstVector));
     newNFAtable.push_back(firstMap);
-    for(NFA nfa:list){
+    for(NFA nfa:list)
+    {
         int i=0;
         std::vector<map<char,vector<int>>>::iterator it1 = nfa.getNFATable().begin();
         int currentAcceptState = nfa.getAcceptState();
         //inserting NFAs states
-        while(i <= nfa.getAcceptState() && it1 != nfa.getNFATable().end()){
+        while(i <= nfa.getAcceptState() && it1 != nfa.getNFATable().end())
+        {
             map<char,vector<int>> currentMap = nfa.getNFATable()[i];
             std::map<char,vector<int>>::iterator mapIt = currentMap.begin();
-            while(mapIt != currentMap.end() ){
+            while(mapIt != currentMap.end() )
+            {
                 vector<int> newVec;
-                if(i == currentAcceptState){
-                    if(!combine){
+                if(i == currentAcceptState)
+                {
+                    if(!combine)
+                    {
                         newVec.push_back(lastState);
                     }
-                    else{
+                    else
+                    {
                         map<int,Token> acceptStatesList = nfa.getAcceptStatesList();
                         map<int, Token > nfaAcceptList ;
-                        if(!newNFA->getAcceptStatesList().empty()){
+                        if(!newNFA->getAcceptStatesList().empty())
+                        {
                             nfaAcceptList = newNFA->getAcceptStatesList();
                         }
                         nfaAcceptList.insert(pair<int,Token> (i + lastIncrement, acceptStatesList[currentAcceptState]));
                         newNFA->setAcceptStatesList(nfaAcceptList);
                     }
                 }
-                else{
-                    for(int state : mapIt->second){
+                else
+                {
+                    for(int state : mapIt->second)
+                    {
                         newVec.push_back(state + lastIncrement);
                     }
                 }
@@ -276,7 +297,8 @@ NFA NFA_constructor::oringList(vector<NFA> list, bool combine){
         }
         lastIncrement += nfa.getNFATable().size();
     }
-    if(!combine){
+    if(!combine)
+    {
         newNFA->setAcceptState(lastState);
         vector<int> finalStateVector;
         map<char,vector<int>> finalStateMap;
@@ -306,16 +328,21 @@ NFA NFA_constructor::oring(NFA original1, NFA original2)
     std::vector<map<char,vector<int>>>::iterator it2 = original2.getNFATable().begin();
     //inserting first NFA states
     int i=0;
-    while(i <= original1.getAcceptState() && it1 != original1.getNFATable().end()){
+    while(i <= original1.getAcceptState() && it1 != original1.getNFATable().end())
+    {
         map<char,vector<int>> currentMap = original1.getNFATable()[i];
         std::map<char,vector<int>>::iterator mapIt = currentMap.begin();
-        while(mapIt != currentMap.end() ){
+        while(mapIt != currentMap.end() )
+        {
             vector<int> newVec;
-            if(i == firstVectorSize - 1){
+            if(i == firstVectorSize - 1)
+            {
                 newVec.push_back(firstVectorSize + secondVectorSize + 1);
             }
-            else{
-                for(int state : mapIt->second){
+            else
+            {
+                for(int state : mapIt->second)
+                {
                     newVec.push_back(state + 1);
                 }
             }
@@ -328,15 +355,19 @@ NFA NFA_constructor::oring(NFA original1, NFA original2)
     }
     //inserting second NFA states
     i=0;
-    while(i <= original2.getAcceptState() && it2 != original2.getNFATable().end()){
+    while(i <= original2.getAcceptState() && it2 != original2.getNFATable().end())
+    {
         map<char,vector<int>> currentMap = original2.getNFATable()[i];
         std::map<char,vector<int>>::iterator mapIt = currentMap.begin();
-        while(mapIt != currentMap.end() ){
+        while(mapIt != currentMap.end() )
+        {
             vector<int> newVec;
-            if(i == secondVectorSize - 1){
+            if(i == secondVectorSize - 1)
+            {
                 newVec.push_back(firstVectorSize + secondVectorSize + 1);
             }
-            for(int state : mapIt->second){
+            for(int state : mapIt->second)
+            {
                 newVec.push_back(state + firstVectorSize + 1);
             }
             currentMap[mapIt->first] = newVec;
@@ -363,22 +394,27 @@ NFA NFA_constructor::concatinating(NFA original1, NFA original2)
     std::vector<map<char,vector<int>>>::iterator it2 = original2.getNFATable().begin();
     //add states of the first NFA
     int i=0;
-    while(i != original1.getAcceptState() && it1 != original1.getNFATable().end()){
+    while(i != original1.getAcceptState() && it1 != original1.getNFATable().end())
+    {
         map<char,vector<int>> currentMap = original1.getNFATable()[i];
-            newNFAtable.push_back(currentMap);
-            it1++;
-            i++;
+        newNFAtable.push_back(currentMap);
+        it1++;
+        i++;
     }
     //add states of the second NFA
     int sizeOfFirstNFA = original1.getNFATable().size() - 1;
     i=0;
-    while(i <= original2.getAcceptState() && it2 != original2.getNFATable().end()){
+    while(i <= original2.getAcceptState() && it2 != original2.getNFATable().end())
+    {
         map<char,vector<int>> currentMap = original2.getNFATable()[i];
         std::map<char,vector<int>>::iterator mapIt = currentMap.begin();
-        while(mapIt != currentMap.end() ){
+        while(mapIt != currentMap.end() )
+        {
             vector<int> newVec;
-            for(int state : mapIt->second){
-                if(state == original2.getAcceptState()){
+            for(int state : mapIt->second)
+            {
+                if(state == original2.getAcceptState())
+                {
                     nfa->setAcceptState(state + sizeOfFirstNFA);
                 }
                 newVec.push_back(state + sizeOfFirstNFA);
@@ -393,7 +429,8 @@ NFA NFA_constructor::concatinating(NFA original1, NFA original2)
     nfa->setNFATable(newNFAtable);
     return *nfa;
 }
-NFA NFA_constructor::signleCharNFA(char input){
+NFA NFA_constructor::signleCharNFA(char input)
+{
     NFA *nfa = new NFA();
     nfa->setStartState(0);
     nfa->setAcceptState(1);

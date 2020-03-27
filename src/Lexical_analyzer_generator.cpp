@@ -20,11 +20,13 @@ Lexical_analyzer_generator::~Lexical_analyzer_generator()
     //dtor
 }
 
-vector<NFA> Lexical_analyzer_generator:: getNFAList(){
+vector<NFA> Lexical_analyzer_generator:: getNFAList()
+{
     return NFAlist;
 }
 
-void Lexical_analyzer_generator:: setNFAList(vector<NFA> list) {
+void Lexical_analyzer_generator:: setNFAList(vector<NFA> list)
+{
     this->NFAlist = list;
 }
 
@@ -70,14 +72,22 @@ void Lexical_analyzer_generator::generate_lexical_analyzer()
     }
     //combine all NFA
     NFA combined = constructor->oringList(NFAlist, true);
+    std::map<int, Token>::iterator it = combined.getAcceptStatesList().begin();
+	while (it != combined.getAcceptStatesList().end())
+	{
+		Token t = it->second;
+        cout << "token: "<< t.getToken_class() << endl;
+		it++;
+	}
     //convert NFA to DFA
-    DFA *dfa = combined.convertToDFA();
-//    dfa->minimize().print_dfa();
+    DFA* dfa = combined.convertToDFA();
+    //dfa->minimize().print_dfa();
     //minimize DFA
     minimal_dfa = dfa->minimize();
 }
 
-void Lexical_analyzer_generator:: addNFA(NFA nfa){
+void Lexical_analyzer_generator:: addNFA(NFA nfa)
+{
     vector<NFA> list = getNFAList();
     list.push_back(nfa);
     setNFAList(list);
@@ -127,7 +137,7 @@ void Lexical_analyzer_generator::classify_line(string line, int priority)
     }
     if (line.at(0) == '[')
     {
-       line = line.substr(1, line.length()-2);
+        line = line.substr(1, line.length()-2);
         line = trim(line);
         istringstream ss(line);
         while (ss)
