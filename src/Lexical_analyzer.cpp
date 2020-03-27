@@ -97,8 +97,10 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
                 }
                 last_accepted_output = "";
                 //backtrack to last matched state and character
-                i = last_accepted_character_index;
-                current_state = last_accepted_state;
+                i = last_accepted_character_index - 1;
+//                c = input_code[i];
+//                input = c - 32;
+//                current_state = last_accepted_state;
             } else {
                 //no matches happened and phai state reached so error occured
                 cout << c << " --> " << "Lexical error occurred" << endl;

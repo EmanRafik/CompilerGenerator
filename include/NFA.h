@@ -19,9 +19,10 @@ public:
     void setAcceptStatesList(map<int,Token> acceptStatesList);
     void setNFATable(vector<map<char,vector<int>>> table);
     vector<map<char,vector<int>>> getNFATable();
-    int getAcceptState() const;
+    int getAcceptState();
+    void printAcceptStatesList();
     void setAcceptState(int acceptState);
-    int getStartState() const;
+    int getStartState();
     void setStartState(int startState);
     void printNFA();
     DFA* convertToDFA();

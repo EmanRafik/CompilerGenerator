@@ -97,13 +97,16 @@ bool DFA::isAcceptState (int state) {
     return false;
 }
 
-bool DFA::areCompatibleStates (int state1, int state2, vector<int> partitions) {
+bool DFA::areCompatibleStates (int state1, int state2, vector<int> states_partitions) {
     for (int i = 0; i < number_of_inputs; i++) {
         if (table[state1][i] >= 0 && table[state2][i] >= 0) {
-            if (partitions[table[state1][i]] != partitions[table[state2][i]]) {
+            if (states_partitions[table[state1][i]] != states_partitions[table[state2][i]]) {
                 return false;
             }
+        } else if ((table[state1][i]  < 0 && table[state2][i] >= 0) || ((table[state1][i] ) >= 0 && table[state2][i] < 0)){
+            return false;
         }
+
     }
     return true;
 }
@@ -200,7 +203,7 @@ DFA* DFA::minimize() {
     //add transitions relative to new partitions
     for (int i = 0; i < dfa->getNumberOfStates(); i++) {
         for (int j = 0; j < dfa->getNumberOfInputs(); j++) {
-            if (table[old_partitions[i][0]][j] != phai) {
+            if (table[ old_partitions[i][0] ] [j] != phai) {
                 dfa->addTransition(i, j, states_partitions[table[old_partitions[i][0]][j]]);
             }
         }
@@ -237,15 +240,31 @@ void DFA::print_dfa() {
 
         for (int i = 0; i < number_of_states; i++) {
             if (isAcceptState(i)) {
-                file << "  *" << i << "       ";
-                cout << "  *" << i << "       ";
+                if (i < 10) {
+                    file << "   *" << i << "     ";
+                    cout << "   *" << i << "     ";
+                } else {
+                    file << "  *" << i << "     ";
+                    cout << "  *" << i << "     ";
+                }
             } else {
-                file << "   " << i << "       ";
-                cout << "   " << i << "       ";
+                if (i < 10) {
+                    file << "    " << i << "     ";
+                    cout << "    " << i << "     ";
+                } else {
+                    file << "   " << i << "     ";
+                    cout << "   " << i << "     ";
+                }
             }
             for (int j = 0; j < number_of_inputs; j++) {
-                file << table[i][j] << "   ";
-                cout << table[i][j] << "   ";
+                if (table[i][j] < 0) {
+                    file << table[i][j] << "   ";
+                    cout << table[i][j] << "   ";
+                } else {
+                    file << table[i][j] << "    ";
+                    cout << table[i][j] << "    ";
+                }
+
             }
             file << endl;
             cout << endl;
