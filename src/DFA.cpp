@@ -81,7 +81,13 @@ map<int, Token> DFA::getAcceptStates() {
 }
 
 void DFA::addAcceptState(int state,Token token) {
-    accept_states.insert(pair<int, Token>(state, token));
+    if (accept_states.count(state)) {
+        if (token.getPriority() < accept_states.at(state).getPriority()) {
+            accept_states.at(state) = token;
+        }
+    } else {
+        accept_states.insert(pair<int, Token>(state, token));
+    }
 }
 
 bool DFA::isAcceptState (int state) {
