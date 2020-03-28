@@ -1,4 +1,5 @@
+{boolean int float}
+{ if else while }
 letter = a-z | A-Z
 digit = 0-9
-digits = digit+
-num: digit+ | digit+ . digits ( \L | E digits)
+id: letter (letter|digit)*
