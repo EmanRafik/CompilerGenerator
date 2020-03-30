@@ -18,6 +18,14 @@ Lexical_analyzer::~Lexical_analyzer() {
 
 void Lexical_analyzer::setDFA(DFA *dfa) {
     this->dfa = dfa;
+    map<int,Token>::iterator it = dfa->getAcceptStates().begin();
+    while (it != dfa->getAcceptStates().end())
+    {
+        Token t = it->second;
+        cout << "State num: " << it->first << " ==== ";
+        cout << "Class: "<< t.getToken_class() << "  === Priority: " << t.getPriority() << endl;
+        it++;
+    }
 }
 
 void Lexical_analyzer::set_input_code(vector<char> input_code) {
@@ -73,10 +81,6 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
         input = c - 32;
         current_state = dfa->getTable()[current_state][input];
         if (dfa->isAcceptState(current_state)) {
-<<<<<<< HEAD
-=======
-//                cout <<"--->" << dfa->getAcceptStates()[current_state].getToken_class() << endl;
->>>>>>> 6ee783623a4a054283d0be1a37acb4a5bf320018
             last_accepted_state = current_state;
             last_accepted_character_index = i;
             if (dfa->getAcceptStates()[current_state].getToken_class() == "keyword") {

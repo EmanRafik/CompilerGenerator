@@ -78,7 +78,7 @@ void Lexical_analyzer_generator::generate_lexical_analyzer()
     //dfa->print_dfa();
     //minimize DFA
     minimal_dfa = dfa->minimize();
-    minimal_dfa->print_dfa();
+    //minimal_dfa->print_dfa();
 }
 
 void Lexical_analyzer_generator:: addNFA(NFA nfa)
@@ -170,6 +170,7 @@ void Lexical_analyzer_generator::classify_line(string line, int priority)
             string value = trim(line.substr(f+1));
             re->setName(name);
             re->setValue(value);
+            re->setPriority(priority);
             regular_expressions.push_back(*re);
             return;
         }
