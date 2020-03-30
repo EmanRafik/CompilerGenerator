@@ -81,14 +81,6 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
             } else {
                 last_accepted_output = dfa->getAcceptStates()[current_state].getToken_class();
             }
-
-//            if (dfa->getAcceptStates()[current_state].getToken_class() == "id" ||
-//                dfa->getAcceptStates()[current_state].getToken_class() == "num" ||
-//                dfa->getAcceptStates()[current_state].getToken_class() == "relop" ) {
-//                last_accepted_output = dfa->getAcceptStates()[current_state].getToken_class();
-//            } else {
-//                last_accepted_output = dfa->getAcceptStates()[current_state].getValue();
-//            }
             // add the recognized token to the vector of tokens
             tokens.push_back(dfa->getAcceptStates()[current_state]);
             current_state = dfa->getTable()[current_state][input];
