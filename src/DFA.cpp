@@ -82,8 +82,6 @@ map<int, Token> DFA::getAcceptStates() {
 
 void DFA::addAcceptState(int state,Token token) {
     if (accept_states.count(state)) {
-        cout << "P1: " << token.getPriority() << endl;
-        cout << "P2: " << accept_states.at(state).getPriority() << endl;
         if (token.getPriority() < accept_states.at(state).getPriority()) {
             accept_states.at(state) = token;
         }

@@ -78,7 +78,7 @@ void Lexical_analyzer_generator::generate_lexical_analyzer()
     //dfa->print_dfa();
     //minimize DFA
     minimal_dfa = dfa->minimize();
-    //minimal_dfa->print_dfa();
+    minimal_dfa->print_dfa();
 }
 
 void Lexical_analyzer_generator:: addNFA(NFA nfa)
