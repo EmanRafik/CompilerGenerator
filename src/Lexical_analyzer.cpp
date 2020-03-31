@@ -46,6 +46,7 @@ void Lexical_analyzer::read_input(string file_name) {
 void Lexical_analyzer::analyze(vector<char> input_code) {
     int current_state = 0;
     int input;
+    int last = 0;
     //info about the total analyzer state when last match occured
     // they have to be reset when state is accepted by resetting last_accepted_output to empty character
     string last_accepted_output = "";
@@ -92,14 +93,15 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
                 }
 
             } else {
-                i = last_accepted_character_index;
-                last_accepted_character_index++;
+                i = last+1;
+                last++;
                 //If no matches happened and phai state reached and current character is not a space so error occured
                 if (c != 32) {
                     cout << id << " --> " << "Lexical error" << endl;
                 }
             }
             //reset state again to start searching for tokens
+            last = i;
             id = "";
             current_state = 0;
         }
