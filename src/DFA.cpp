@@ -33,24 +33,12 @@ int DFA::getNumberOfStates() const {
     return number_of_states;
 }
 
-void DFA::setNumberOfStates(int numberOfStates) {
-    number_of_states = numberOfStates;
-}
-
 int DFA::getNumberOfInputs() const {
     return number_of_inputs;
 }
 
-void DFA::setNumberOfInputs(int numberOfInputs) {
-    number_of_inputs = numberOfInputs;
-}
-
 int **DFA::getTable() const {
     return table;
-}
-
-void DFA::setTable(int **table) {
-    DFA::table = table;
 }
 
 void DFA::addTransition(int from, int input, int to) {
@@ -142,11 +130,6 @@ DFA* DFA::minimize() {
         }
     }
 
-//    for (int i = 0; i < number_of_states; i++) {
-//        cout << states_partitions[i] << " ";
-//    }
-//    cout << endl;
-
     vector< vector<int> > old_partitions = partitions;
     partitions.erase(partitions.begin(), partitions.end());
     vector< vector<int> > new_partitions;
@@ -190,10 +173,6 @@ DFA* DFA::minimize() {
                 states_partitions[new_partitions[i][j]] = i;
             }
         }
-//        for (int i = 0; i < number_of_states; i++) {
-//            cout << states_partitions[i] << " ";
-//        }
-//        cout << endl;
 
         flag = (old_partitions.size() != new_partitions.size());
         old_partitions = new_partitions;
@@ -220,10 +199,6 @@ DFA* DFA::minimize() {
     for (itr =  accept_states.begin(); itr != accept_states.end(); ++itr) {
         dfa->addAcceptState(states_partitions[itr->first], itr->second);
     }
-
-//    for (itr =  dfa->accept_states.begin(); itr != dfa->accept_states.end(); ++itr) {
-//        std::cout << itr->first << " " << itr->second.getToken_class() << endl;
-//    }
 
     return dfa;
 }

@@ -1,7 +1,10 @@
-int sum, count, pass;
+if sum, count, pass;
 float f;
-boolean b; while
-(pass != 10)
+boolean b;
+while (pass != 10)
 {
     pass++;
+}
+if (b) {
+    f = 3.14;
 }

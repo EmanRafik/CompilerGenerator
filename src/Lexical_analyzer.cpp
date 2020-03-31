@@ -24,21 +24,12 @@ void Lexical_analyzer::set_input_code(vector<char> input_code) {
     this->input_code = input_code;
 }
 
-vector<char> Lexical_analyzer::get_input_code() {
-    return input_code;
+void Lexical_analyzer::execute(string file_name) {
+    read_input(file_name);
+    analyze(input_code);
 }
-
-vector<Token> Lexical_analyzer::getTokens() {
-    return tokens;
-}
-
-vector<string> Lexical_analyzer::getSymbolTable(){
-    return symbol_table;
-}
-
 
 void Lexical_analyzer::read_input(string file_name) {
-
     vector<char> input_code;
     ifstream file;
     file.open(file_name, ios::in);
@@ -50,7 +41,6 @@ void Lexical_analyzer::read_input(string file_name) {
         }
     }
     set_input_code(input_code);
-    analyze(input_code);
 }
 
 void Lexical_analyzer::analyze(vector<char> input_code) {
@@ -61,10 +51,8 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
     string last_accepted_output = "";
     int last_accepted_state = 0;
     int last_accepted_character_index;
-
     string id = "";
     int id_counter = 0;
-
     char c;
     int i = 0;
     while (i < input_code.size()) {
@@ -73,18 +61,16 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
         input = c - 32;
         current_state = dfa->getTable()[current_state][input];
         if (dfa->isAcceptState(current_state)) {
-//                cout <<"--->" << dfa->getAcceptStates()[current_state].getToken_class() << endl;
             last_accepted_state = current_state;
             last_accepted_character_index = i;
-            if (dfa->getAcceptStates()[current_state].getToken_class() == "keyword") {
+            if (dfa->getAcceptStates()[current_state].getToken_class() == "keyword"
+            || dfa->getAcceptStates()[current_state].getToken_class() == "punctuation") {
                 last_accepted_output = dfa->getAcceptStates()[current_state].getValue();
             } else {
                 last_accepted_output = dfa->getAcceptStates()[current_state].getToken_class();
             }
             // add the recognized token to the vector of tokens
             tokens.push_back(dfa->getAcceptStates()[current_state]);
-            current_state = dfa->getTable()[current_state][input];
-
         }
         if (current_state == phai || c == 32 || i == input_code.size()-1) {
             if (last_accepted_output != "") {
@@ -106,7 +92,7 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
                 }
 
             } else {
-                //no matches happened and phai state reached so error occured
+                //If no matches happened and phai state reached and current character is not a space so error occured
                 if (c != 32) {
                     cout << c << " --> " << "Lexical error" << endl;
                 }

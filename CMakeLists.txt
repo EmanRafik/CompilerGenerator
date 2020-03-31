@@ -13,7 +13,6 @@ add_executable(compilergenerator
         include/NFA_constructor.h
         include/Regular_definition.h
         include/Regular_expression.h
-        include/State.h
         include/Token.h
         src/DFA.cpp
         src/Lexical_analyzer.cpp
@@ -22,6 +21,5 @@ add_executable(compilergenerator
         src/NFA_constructor.cpp
         src/Regular_definition.cpp
         src/Regular_expression.cpp
-        src/State.cpp
         src/Token.cpp
         main.cpp)
