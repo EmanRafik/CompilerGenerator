@@ -52,10 +52,10 @@ NFA Regular_expression::getNFA(vector<Regular_definition> regular_definitions)
 {
     NFA_constructor *constructor = new NFA_constructor();
     constructor->setRegular_definitions(regular_definitions);
-    NFA nfa = constructor->constructNFA(this->value);
+    NFA nfa = constructor->constructNFA(value);
     Token *token = new Token();
     token->setToken_class(name);
-    token->setPriority(this->priority);
+    token->setPriority(priority);
     int accept = nfa.getAcceptState();
     nfa.addAcceptStateToList(accept, *token);
     return nfa;

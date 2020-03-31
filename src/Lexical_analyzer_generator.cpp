@@ -73,7 +73,6 @@ void Lexical_analyzer_generator::generate_lexical_analyzer()
     //combine all NFA
     NFA combined = constructor->oringList(NFAlist, true);
     combined.printAcceptStatesList();
-    combined.printNFA();
     //convert NFA to DFA
     DFA* dfa = combined.convertToDFA();
     //dfa->print_dfa();
@@ -171,6 +170,7 @@ void Lexical_analyzer_generator::classify_line(string line, int priority)
             string value = trim(line.substr(f+1));
             re->setName(name);
             re->setValue(value);
+            re->setPriority(priority);
             regular_expressions.push_back(*re);
             return;
         }

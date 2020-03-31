@@ -72,6 +72,7 @@ void NFA::printAcceptStatesList(){
     std::map<int, Token>::iterator it = acceptStatesList.begin();
     while (it != acceptStatesList.end())
     {
+        cout << " accept state num: " << it->first<< endl;
         Token t = it->second;
         cout << "token: "<< t.getToken_class() << endl;
         it++;
