@@ -44,6 +44,8 @@ void Lexical_analyzer::read_input(string file_name) {
 }
 
 void Lexical_analyzer::analyze(vector<char> input_code) {
+    ofstream file;
+    file.open("output.txt", std::ofstream::trunc);
     int current_state = 0;
     int input;
     int last = 0;
@@ -77,6 +79,7 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
             if (last_accepted_output != "") {
                 id = id.substr(0, id.size()-(i-last_accepted_character_index));
                 cout << id << " --> " << last_accepted_output << endl;
+                file << id << " --> " << last_accepted_output << endl;
                 //add the matched ids to a symbol table
                 if (dfa->getAcceptStates()[current_state].getToken_class() == "id") {
                     Token *t = new Token();
@@ -93,11 +96,12 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
                 }
 
             } else {
-                i = last+1;
+                i = last;
                 last++;
                 //If no matches happened and phai state reached and current character is not a space so error occured
                 if (c != 32) {
                     cout << id << " --> " << "Lexical error" << endl;
+                    file << id << " --> " << "Lexical error" << endl;
                 }
             }
             //reset state again to start searching for tokens
