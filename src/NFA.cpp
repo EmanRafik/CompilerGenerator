@@ -86,18 +86,18 @@ DFA* NFA::convertToDFA(){
     vector<set<int>> vec;
     vec.push_back(s);
     int n=0;
-    while(n<vec.size()){
-        for(int i=1;i<95;i++){
+    while(n < vec.size()){
+        for(int i = 1; i < 95; i++){
             set<int> m = moveStates(vec.at(n),i+32);
-            if(m.size()>0){
-                if(!inSet(m,vec)){
+            if(m.size() > 0) {
+                if(!inSet(m, vec)){
                     vec.push_back(m);
                     dfa->addState();
-                    dfa->addTransition(n,i,vec.size()-1);
+                    dfa->addTransition(n, i,vec.size()-1);
                 }else{
-                    for(int j=0;j<vec.size();j++){
-                        if(vec.at(j)==m){
-                            dfa->addTransition(n,i,j);
+                    for(int j = 0; j < vec.size(); j++){
+                        if(vec.at(j) == m){
+                            dfa->addTransition(n, i, j);
                         }
                     }
                 }
@@ -106,11 +106,11 @@ DFA* NFA::convertToDFA(){
         n++;
     }
     map<int,Token>::iterator it = acceptStatesList.begin();
-    while(it!=acceptStatesList.end()){
-        for(int j=0;j<vec.size();j++){
+    while(it != acceptStatesList.end()){
+        for(int j = 0; j < vec.size(); j++){
             set<int>::iterator setit = vec.at(j).begin();
-            while(setit!=vec.at(j).end()){
-                if(*setit==it->first){
+            while(setit != vec.at(j).end()){
+                if(*setit ==it->first){
                     dfa->addAcceptState(j,it->second);
                 }
                 setit++;
@@ -145,14 +145,14 @@ set<int> NFA::closure(int st){
 set<int> NFA::moveStates(set<int> s, char c){
     set<int> res;
     set<int>::iterator it = s.begin();
-    while(it!=s.end()){
+    while(it != s.end()){
         int x = table[*it].count(c);
-        if(x>0){
+        if(x > 0){
             vector<int> v = table[*it][c];
-            for(int i=0;i<v.size();i++){
+            for(int i = 0; i < v.size(); i++){
                 set<int> eps = closure(v.at(i));
                 set<int>::iterator epsit = eps.begin();
-                while(epsit!=eps.end()){
+                while(epsit != eps.end()){
                     res.insert(*epsit);
                     epsit++;
                 }

@@ -7,6 +7,6 @@ digits = digit+
 num: digit+ | digit+ . digits ( \L | E digits)
 relop: \=\= | !\= | > | >\= | < | <\=
 assign: \=
-[; , \( \) { }]
+[; , \( \) { } [ ] . | "]
 addop: \+ | \-
 mulop: \* | /

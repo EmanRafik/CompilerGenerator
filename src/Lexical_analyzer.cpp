@@ -50,7 +50,7 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
     // they have to be reset when state is accepted by resetting last_accepted_output to empty character
     string last_accepted_output = "";
     int last_accepted_state = 0;
-    int last_accepted_character_index;
+    int last_accepted_character_index = 0;
     string id = "";
     int id_counter = 0;
     char c;
@@ -92,9 +92,11 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
                 }
 
             } else {
+                i = last_accepted_character_index;
+                last_accepted_character_index++;
                 //If no matches happened and phai state reached and current character is not a space so error occured
                 if (c != 32) {
-                    cout << c << " --> " << "Lexical error" << endl;
+                    cout << id << " --> " << "Lexical error" << endl;
                 }
             }
             //reset state again to start searching for tokens

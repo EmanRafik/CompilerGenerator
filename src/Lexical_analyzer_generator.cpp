@@ -75,7 +75,6 @@ void Lexical_analyzer_generator::generate_lexical_analyzer()
     combined.printAcceptStatesList();
     //convert NFA to DFA
     DFA* dfa = combined.convertToDFA();
-    //dfa->print_dfa();
     //minimize DFA
     minimal_dfa = dfa->minimize();
     minimal_dfa->print_dfa();
