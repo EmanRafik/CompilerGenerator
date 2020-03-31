@@ -96,8 +96,13 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
                 }
 
             } else {
-                i = last;
-                last++;
+                if (last == 0) {
+                    i = last;
+                    last++;
+                } else {
+                    i = last+1;
+                    last++;
+                }
                 //If no matches happened and phai state reached and current character is not a space so error occured
                 if (c != 32) {
                     cout << id << " --> " << "Lexical error" << endl;
