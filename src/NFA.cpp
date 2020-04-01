@@ -4,10 +4,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include <iterator>
 #include <stack>
-#include <cstdio>
-#include "State.h"
 #include <stdio.h>
 NFA::NFA()
 {

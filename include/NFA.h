@@ -5,7 +5,6 @@
 #include <vector>
 #include <set>
 #include "Token.h"
-#include "State.h"
 #include "DFA.h"
 
 using namespace std;

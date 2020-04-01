@@ -3,8 +3,6 @@
 #include"Regular_definition.h"
 #include"NFA_constructor.h"
 #include"Token.h"
-#include"State.h"
-#include<iostream>
 #include<string>
 #include<vector>
 
