@@ -20,16 +20,6 @@ Lexical_analyzer_generator::~Lexical_analyzer_generator()
     //dtor
 }
 
-vector<NFA> Lexical_analyzer_generator:: getNFAList()
-{
-    return NFAlist;
-}
-
-void Lexical_analyzer_generator:: setNFAList(vector<NFA> list)
-{
-    this->NFAlist = list;
-}
-
 DFA* Lexical_analyzer_generator::get_minimal_dfa()
 {
     return this->minimal_dfa;
@@ -37,6 +27,7 @@ DFA* Lexical_analyzer_generator::get_minimal_dfa()
 
 void Lexical_analyzer_generator::generate_lexical_analyzer()
 {
+    vector<NFA> NFAlist;
     NFA_constructor *constructor = new NFA_constructor();
     constructor->setRegular_definitions(regular_definitions);
     //construct NFA for each keyword
@@ -78,13 +69,6 @@ void Lexical_analyzer_generator::generate_lexical_analyzer()
     //minimize DFA
     minimal_dfa = dfa->minimize();
     minimal_dfa->print_dfa();
-}
-
-void Lexical_analyzer_generator:: addNFA(NFA nfa)
-{
-    vector<NFA> list = getNFAList();
-    list.push_back(nfa);
-    setNFAList(list);
 }
 
 void Lexical_analyzer_generator::read_lexical_rules(string file_name)
