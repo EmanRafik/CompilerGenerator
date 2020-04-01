@@ -20,7 +20,7 @@ class NFA_constructor
         NFA oring(NFA original1, NFA original2);
         NFA oringList(vector<NFA> list,bool combine);
         NFA concatinating(NFA original1, NFA original2);
-        NFA signleCharNFA(char input);
+        NFA signleCharNFA(vector<char> input);
         NFA termNFA(string term);
         void setRegular_definitions(vector<Regular_definition> regular_definitions);
 

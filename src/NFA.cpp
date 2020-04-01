@@ -50,13 +50,17 @@ void NFA::setStartState(int startState) {
     NFA::startState = startState;
 }
 void NFA::printNFA(){
-    std::vector<map<char,vector<int>>>::iterator it = table.begin();
+    std::vector<map<vector<char>,vector<int>>>::iterator it = table.begin();
     int i=0;
     while(it != table.end()){
         printf("state: %d          ",i);
-        std::map<char,vector<int>>::iterator mapIt = table[i].begin();
+        std::map<vector<char>,vector<int>>::iterator mapIt = table[i].begin();
         while(mapIt != table[i].end() ){
-            printf("input: %c        to ",mapIt->first);
+            printf("input: ");
+            for(char ch : mapIt->first){
+                printf("%c ",ch);
+            }
+            printf("to          ");
             for(int state : mapIt->second){
                 printf("%d ",state);
             }

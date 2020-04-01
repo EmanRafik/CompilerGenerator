@@ -16,8 +16,8 @@ public:
     void addAcceptStateToList(int state,Token token);
     map<int,Token> getAcceptStatesList();
     void setAcceptStatesList(map<int,Token> acceptStatesList);
-    void setNFATable(vector<map<char,vector<int>>> table);
-    vector<map<char,vector<int>>> getNFATable();
+    void setNFATable(vector<map<vector<char>,vector<int>>> table);
+    vector<map<vector<char>,vector<int>>> getNFATable();
     int getAcceptState();
     void printAcceptStatesList();
     void setAcceptState(int acceptState);
@@ -32,7 +32,7 @@ protected:
 
 private:
     map<int,Token> acceptStatesList;
-    vector<map<char,vector<int>>> table;
+    vector<map<vector<char>,vector<int>>> table;
     int acceptState;
     int startState;
 };
