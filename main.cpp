@@ -15,6 +15,5 @@ int main()
     Lexical_analyzer *lexical = new Lexical_analyzer();
     lexical->setDFA(generator->get_minimal_dfa());
     lexical->execute("input.txt");
-
     return 0;
 }

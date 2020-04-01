@@ -32,31 +32,31 @@ void NFA_constructor::setRegular_definitions(vector<Regular_definition> regular_
 NFA NFA_constructor::constructNFA(string expression)
 {
     expression = trim(expression);
+    ///check if the expression is enclosed between brackets
     int n = expression.length();
     if (expression.at(0) == '(')
     {
         if (expression.at(n-1) == ')')
         {
             expression = expression.substr(1, n-2);
-            //cout << "between bracket " <<expression << "--> no closure" << endl;
             return constructNFA(expression);
         }
         else if (expression.at(n-2) == ')')
         {
-            //cout << "between bracket " <<expression.substr(1,n-3) << "--> ";
             NFA nfa = constructNFA(expression.substr(1,n-3));
+            ///kleene closured expression
             if (expression.at(n-1) == '*')
             {
-                //cout << "kleene closure " << endl;
                 return kleene_closure(nfa);
             }
+            ///positive closured expression
             else if (expression.at(n-1) == '+')
             {
-                //cout << "positive closure " << endl;
                 return positive_closure(nfa);
             }
         }
     }
+    ///Search for or operation, neglecting operators enclosed between brackets
     int open = 0;
     for (int i = 0; i < n; i++)
     {
@@ -73,12 +73,12 @@ NFA NFA_constructor::constructNFA(string expression)
         {
             string expr1 = expression.substr(0, i);
             string expr2 = expression.substr(i+1, expression.length()-i);
-            //cout << "OR --> expr1: " << expr1 << "\nexpr2:  " << expr2 << endl;
             NFA nfa1 = constructNFA(expr1);
             NFA nfa2 = constructNFA(expr2);
             return oring(nfa1, nfa2);
         }
     }
+    ///Search for concatenate operation
     for (int i = 0; i < n; i++)
     {
         char c = expression.at(i);
@@ -86,18 +86,19 @@ NFA NFA_constructor::constructNFA(string expression)
         {
             string expr1 = expression.substr(0, i);
             string expr2 = expression.substr(i+1, expression.length()-i);
-            //cout << "CONC --> expr1: " << expr1 << "\nexpr2:  " << expr2 << endl;
             NFA nfa1 = constructNFA(expr1);
             NFA nfa2 = constructNFA(expr2);
             return concatinating(nfa1, nfa2);
         }
     }
     int closure = -1;
+    ///kleene closured expression
     if (expression.length() > 1 && expression.at(n-1) == '*' && expression.at(n-2) != '\\')
     {
         closure = 0;
         expression = expression.substr(0,n-1);
     }
+    ///positive closured expression
     else if (expression.length() > 1 && expression.at(n-1) == '+' && expression.at(n-2) != '\\')
     {
         closure = 1;
@@ -105,34 +106,33 @@ NFA NFA_constructor::constructNFA(string expression)
     }
     bool found = false;
     NFA nfa;
+    ///check if term is regular definition
     for (int i = 0; i < regular_definitions.size(); i++)
     {
         if (regular_definitions[i].getName() == expression)
         {
+            ///get NFA of regular definition
             nfa = regular_definitions[i].getNFA(regular_definitions);
             found = true;
-            //cout << "Regular Definition --> " << expression << " --> ";
             break;
         }
     }
     if (!found)
     {
-        //cout << "Term --> " << expression << " --> ";
+        ///construct NFA for the term
         nfa = termNFA(expression);
     }
+    ///adjust constructed NFA to term closure
     if (closure == 0)
     {
-        //cout << "kleene closure" << endl;
         return kleene_closure(nfa);
     }
     else if (closure == 1)
     {
-        //cout << "positive closure" << endl;
         return positive_closure(nfa);
     }
     else
     {
-        //cout << "no closure" << endl;
         return nfa;
     }
 }
@@ -466,19 +466,20 @@ NFA NFA_constructor::termNFA(string term)
     size_t f = term.find("-");
     if (f != std::string::npos && term.at(f-1)!='\\')
     {
-        vector<NFA> NFAList;
+        vector<char> vec;
         char c1 = term.at(f-1);
         char c2 = term.at(f+1);
         for (char c = c1; c <= c2; c++)
         {
-            NFA nfa = signleCharNFA(c);
-            NFAList.push_back(nfa);
+            vec.push_back(c);
         }
-        return oringList(NFAList, false);
+        return signleCharNFA(vec);
     }
     if (term.length() == 2 && term.at(0) =='\\' && term.at(1) =='L')
     {
-        return signleCharNFA(epsilon);
+        vector<char> vec;
+        vec.push_back(epsilon);
+        return signleCharNFA(vec);
     }
     char c = term.at(0);
     int j = 1;
@@ -487,7 +488,9 @@ NFA NFA_constructor::termNFA(string term)
         c = term.at(1);
         j = 2;
     }
-    NFA nfa = signleCharNFA(c);
+    vector<char> vec;
+    vec.push_back(c);
+    NFA nfa = signleCharNFA(vec);
     for (int i = j; i < term.length(); i++)
     {
         c = term.at(i);
@@ -496,7 +499,9 @@ NFA NFA_constructor::termNFA(string term)
             c = term.at(i+1);
             i++;
         }
-        NFA nfa2 = signleCharNFA(c);
+        vector<char> vec;
+        vec.push_back(c);
+        NFA nfa2 = signleCharNFA(vec);
         nfa = concatinating(nfa, nfa2);
     }
     return nfa;

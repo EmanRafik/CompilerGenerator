@@ -16,11 +16,11 @@ NFA::~NFA()
     //dtor
 }
 
-vector<map<char,vector<int>>> NFA::getNFATable() {
+vector<map<vector<char>,vector<int>>> NFA::getNFATable() {
     return table;
 }
 
-void NFA::setNFATable(vector<map<char,vector<int>>> table){
+void NFA::setNFATable(vector<map<vector<char>,vector<int>>> table){
     this->table = table;
 }
 
