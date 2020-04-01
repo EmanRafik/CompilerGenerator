@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <stack>
 #include <stdio.h>
 NFA::NFA()
@@ -134,12 +135,17 @@ set<int> NFA::closure(int st){
         closureStack.pop();
         if(res.count(s)==0){
             res.insert(s);
-            int c = table[s].count(' ');
-            if(c>0){
-                vector<int> v = table[s][' '];
-                for(int i=0;i<v.size();i++){
-                    closureStack.push(v.at(i));
+            map<vector<char>,vector<int>> m = table[s];
+            map<vector<char>,vector<int>>::iterator it = m.begin();
+            while(it!=m.end()){
+                vector<char> c = it->first;
+                if(count(c.begin(), c.end(), ' ')){
+                    vector<int> v = it->second;
+                    for(int i=0;i<v.size();i++){
+                        closureStack.push(v.at(i));
+                    }
                 }
+                it++;
             }
         }
     }
@@ -150,17 +156,23 @@ set<int> NFA::moveStates(set<int> s, char c){
     set<int> res;
     set<int>::iterator it = s.begin();
     while(it != s.end()){
-        int x = table[*it].count(c);
-        if(x > 0){
-            vector<int> v = table[*it][c];
-            for(int i = 0; i < v.size(); i++){
-                set<int> eps = closure(v.at(i));
-                set<int>::iterator epsit = eps.begin();
-                while(epsit != eps.end()){
-                    res.insert(*epsit);
-                    epsit++;
+        map<vector<char>,vector<int>> m = table[*it];
+        map<vector<char>,vector<int>>::iterator charit = m.begin();
+        while(charit!=m.end()){
+            vector<char> tr = charit->first;
+            int x = count(tr.begin(), tr.end(), c);
+            if(x > 0){
+                vector<int> v = charit->second;
+                for(int i = 0; i < v.size(); i++){
+                    set<int> eps = closure(v.at(i));
+                    set<int>::iterator epsit = eps.begin();
+                    while(epsit != eps.end()){
+                        res.insert(*epsit);
+                        epsit++;
+                    }
                 }
             }
+            charit++;
         }
         it++;
     }
