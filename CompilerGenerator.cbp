@@ -41,7 +41,6 @@
 		<Unit filename="include/NFA_constructor.h" />
 		<Unit filename="include/Regular_definition.h" />
 		<Unit filename="include/Regular_expression.h" />
-		<Unit filename="include/State.h" />
 		<Unit filename="include/Token.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/DFA.cpp" />
@@ -51,7 +50,6 @@
 		<Unit filename="src/NFA_constructor.cpp" />
 		<Unit filename="src/Regular_definition.cpp" />
 		<Unit filename="src/Regular_expression.cpp" />
-		<Unit filename="src/State.cpp" />
 		<Unit filename="src/Token.cpp" />
 		<Extensions>
 			<code_completion />

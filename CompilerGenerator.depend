@@ -17,7 +17,7 @@
 	<fstream>
 	"DFA.h"
 
-1585244303 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\dfa.h
+1585674852 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\dfa.h
 	<vector>
 	"Token.h"
 	<map>
@@ -66,13 +66,12 @@
 	"State.h"
 	<stdio.h>
 
-1585307661 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\nfa.h
+1585674852 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\nfa.h
 	<map>
 	<string>
 	<vector>
 	<set>
 	"Token.h"
-	"State.h"
 	"DFA.h"
 
 1584558922 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\number.cpp
