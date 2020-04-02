@@ -440,7 +440,6 @@ NFA NFA_constructor::concatinating(NFA original1, NFA original2)
 NFA NFA_constructor::signleCharNFA(vector<char> input)
 {
     NFA *nfa = new NFA();
-    nfa->setStartState(0);
     nfa->setAcceptState(1);
     vector<int> vec;
     vec.push_back(1);
