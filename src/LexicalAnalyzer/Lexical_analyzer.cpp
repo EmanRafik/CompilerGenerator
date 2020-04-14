@@ -1,5 +1,5 @@
-#include "Lexical_analyzer.h"
-#include "DFA.h"
+#include "LexicalAnalyzer/Lexical_analyzer.h"
+#include "LexicalAnalyzer/DFA.h"
 #include <fstream>
 #include<string>
 #include<iostream>

@@ -23,8 +23,10 @@ class DFA {
         bool areCompatibleStates (int state1, int state2, vector<int> partitions);
         DFA* minimize ();
         void print_dfa();
+        string printHelper(const int x, const int width);
 
-    private:
+
+        private:
         int number_of_states, number_of_inputs;
         map<int, Token> accept_states;
         int **table;

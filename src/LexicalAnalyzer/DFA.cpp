@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
-#include "DFA.h"
+#include <sstream>
+#include "LexicalAnalyzer/DFA.h"
 
 const int phai = -1;
 
@@ -209,49 +210,51 @@ void DFA::print_dfa() {
     ofstream file;
     file.open("minimized transition table.txt", std::ofstream::trunc);
     if (file.is_open()) {
-        file << "state    ";
-        cout << "state    ";
+        file << "state       ";
+//        cout << "state       ";
         for (int i = 0; i < number_of_inputs; i++) {
             char c = i + 32;
             file << " '" << c << "' ";
-            cout << " '" << c << "' ";
+//            cout << " '" << c << "' ";
         }
         file << endl;
-        cout << endl;
+//        cout << endl;
 
         for (int i = 0; i < number_of_states; i++) {
             if (isAcceptState(i)) {
                 if (i < 10) {
                     file << "   *" << i << "     ";
-                    cout << "   *" << i << "     ";
+//                    cout << "   *" << i << "     ";
                 } else {
                     file << "  *" << i << "     ";
-                    cout << "  *" << i << "     ";
+//                    cout << "  *" << i << "     ";
                 }
             } else {
                 if (i < 10) {
                     file << "    " << i << "     ";
-                    cout << "    " << i << "     ";
+//                    cout << "    " << i << "     ";
                 } else {
                     file << "   " << i << "     ";
-                    cout << "   " << i << "     ";
+//                    cout << "   " << i << "     ";
                 }
             }
             for (int j = 0; j < number_of_inputs; j++) {
-                if (table[i][j] < 0) {
-                    file << table[i][j] << "   ";
-                    cout << table[i][j] << "   ";
-                } else {
-                    file << table[i][j] << "    ";
-                    cout << table[i][j] << "    ";
-                }
-
+                file << printHelper(table[i][j], 5);
             }
             file << endl;
-            cout << endl;
+//            cout << endl;
         }
     }
     file.close();
+}
+
+string DFA::printHelper(const int x, const int width) {
+    stringstream ss;
+    ss << fixed << right;
+    ss.fill(' ');        // fill space around displayed #
+    ss.width(width);     // set  width around displayed #
+    ss << x;
+    return ss.str();
 }
 
 

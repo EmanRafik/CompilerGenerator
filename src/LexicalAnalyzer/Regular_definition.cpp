@@ -1,7 +1,7 @@
-#include "Regular_definition.h"
+#include "LexicalAnalyzer/Regular_definition.h"
 #include<string>
-#include"NFA.h"
-#include"NFA_constructor.h"
+#include"LexicalAnalyzer/NFA.h"
+#include"LexicalAnalyzer/NFA_constructor.h"
 
 using namespace std;
 

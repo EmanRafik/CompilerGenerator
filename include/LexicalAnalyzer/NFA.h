@@ -21,8 +21,6 @@ public:
     int getAcceptState();
     void printAcceptStatesList();
     void setAcceptState(int acceptState);
-    int getStartState();
-    void setStartState(int startState);
     void printNFA();
     DFA* convertToDFA();
     set<int> closure(int s);
@@ -34,7 +32,6 @@ private:
     map<int,Token> acceptStatesList;
     vector<map<vector<char>,vector<int>>> table;
     int acceptState;
-    int startState;
 };
 
 #endif // NFA_H

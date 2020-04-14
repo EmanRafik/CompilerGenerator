@@ -1,5 +1,5 @@
-#include "NFA.h"
-#include "Token.h"
+#include "LexicalAnalyzer/NFA.h"
+#include "LexicalAnalyzer/Token.h"
 #include <map>
 #include <string>
 #include <iostream>
@@ -43,13 +43,7 @@ void NFA::setAcceptState(int acceptState) {
     NFA::acceptState = acceptState;
 }
 
-int NFA::getStartState(){
-    return startState;
-}
 
-void NFA::setStartState(int startState) {
-    NFA::startState = startState;
-}
 void NFA::printNFA(){
     std::vector<map<vector<char>,vector<int>>>::iterator it = table.begin();
     int i=0;

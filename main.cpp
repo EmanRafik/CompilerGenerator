@@ -1,8 +1,8 @@
 #include <iostream>
-#include "DFA.h"
-#include"Lexical_analyzer_generator.h"
-#include"Lexical_analyzer.h"
-#include "NFA.h"
+#include "LexicalAnalyzer/DFA.h"
+#include"LexicalAnalyzer/Lexical_analyzer_generator.h"
+#include"LexicalAnalyzer/Lexical_analyzer.h"
+#include "LexicalAnalyzer/NFA.h"
 #include <vector>
 
 using namespace std;

@@ -6,20 +6,20 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(include)
 
 add_executable(compilergenerator
-        include/DFA.h
-        include/Lexical_analyzer.h
-        include/Lexical_analyzer_generator.h
-        include/NFA.h
-        include/NFA_constructor.h
-        include/Regular_definition.h
-        include/Regular_expression.h
-        include/Token.h
-        src/DFA.cpp
-        src/Lexical_analyzer.cpp
-        src/Lexical_analyzer_generator.cpp
-        src/NFA.cpp
-        src/NFA_constructor.cpp
-        src/Regular_definition.cpp
-        src/Regular_expression.cpp
-        src/Token.cpp
-        main.cpp)
+        include/LexicalAnalyzer/DFA.h
+        include/LexicalAnalyzer/Lexical_analyzer.h
+        include/LexicalAnalyzer/Lexical_analyzer_generator.h
+        include/LexicalAnalyzer/NFA.h
+        include/LexicalAnalyzer/NFA_constructor.h
+        include/LexicalAnalyzer/Regular_definition.h
+        include/LexicalAnalyzer/Regular_expression.h
+        include/LexicalAnalyzer/Token.h
+        src/LexicalAnalyzer/DFA.cpp
+        src/LexicalAnalyzer/Lexical_analyzer.cpp
+        src/LexicalAnalyzer/Lexical_analyzer_generator.cpp
+        src/LexicalAnalyzer/NFA.cpp
+        src/LexicalAnalyzer/NFA_constructor.cpp
+        src/LexicalAnalyzer/Regular_definition.cpp
+        src/LexicalAnalyzer/Regular_expression.cpp
+        src/LexicalAnalyzer/Token.cpp
+        main.cpp src/Parser/ParserTable.cpp include/Parser/ParserTable.h src/Parser/Symbol.cpp src/Parser/Production.cpp include/Parser/Symbol.h include/Parser/Production.h src/Parser/Parser.cpp src/Parser/ParserGenerator.cpp include/Parser/Parser.h include/Parser/ParserGenerator.h)
