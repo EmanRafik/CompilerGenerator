@@ -1,3 +1,5 @@
-!!=
-!ok
-!!!!!okay
+int sum , count , pass , mnt; while (pass != 10)
+{
+float boolean if else 
+pass = pass + 1.6Ex ;
+}

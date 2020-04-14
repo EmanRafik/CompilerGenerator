@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1585769998 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\main.cpp
+1585770137 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\main.cpp
 	<iostream>
 	"DFA.h"
 	"Lexical_analyzer_generator.h"
@@ -12,7 +12,7 @@
 	<fstream>
 	"DFA.h"
 
-1585674852 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\dfa.h
+1585777391 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\dfa.h
 	<vector>
 	"Token.h"
 	<map>
@@ -48,13 +48,14 @@
 	<string>
 	"DFA.h"
 
-1585769968 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\nfa.cpp
+1585775632 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\nfa.cpp
 	"NFA.h"
 	"Token.h"
 	<map>
 	<string>
 	<iostream>
 	<vector>
+	<algorithm>
 	<stack>
 	<stdio.h>
 
@@ -234,7 +235,7 @@
 1584558871 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\id.h
 	<Token.h>
 
-1585770046 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexical_analyzer_generator.cpp
+1585776258 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexical_analyzer_generator.cpp
 	"Lexical_analyzer_generator.h"
 	<map>
 	"NFA.h"

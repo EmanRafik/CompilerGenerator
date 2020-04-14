@@ -1,10 +1,28 @@
-!! --> Lexical error
+int --> int
+sum --> id
+, --> ,
+count --> id
+, --> ,
+pass --> id
+, --> ,
+mnt --> id
+; --> ;
+while --> while
+( --> (
+pass --> id
 != --> relop
-!o --> Lexical error
-ok --> id
-!! --> Lexical error
-!! --> Lexical error
-!! --> Lexical error
-!! --> Lexical error
-!o --> Lexical error
-okay --> id
+10 --> num
+) --> )
+{ --> {
+float --> float
+boolean --> boolean
+if --> if
+else --> else
+pass --> id
+= --> assign
+pass --> id
++ --> addop
+1.6 --> num
+Ex --> id
+; --> ;
+} --> }
