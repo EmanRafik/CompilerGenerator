@@ -211,38 +211,38 @@ void DFA::print_dfa() {
     file.open("minimized transition table.txt", std::ofstream::trunc);
     if (file.is_open()) {
         file << "state       ";
-        cout << "state       ";
+//        cout << "state       ";
         for (int i = 0; i < number_of_inputs; i++) {
             char c = i + 32;
             file << " '" << c << "' ";
-            cout << " '" << c << "' ";
+//            cout << " '" << c << "' ";
         }
         file << endl;
-        cout << endl;
+//        cout << endl;
 
         for (int i = 0; i < number_of_states; i++) {
             if (isAcceptState(i)) {
                 if (i < 10) {
                     file << "   *" << i << "     ";
-                    cout << "   *" << i << "     ";
+//                    cout << "   *" << i << "     ";
                 } else {
                     file << "  *" << i << "     ";
-                    cout << "  *" << i << "     ";
+//                    cout << "  *" << i << "     ";
                 }
             } else {
                 if (i < 10) {
                     file << "    " << i << "     ";
-                    cout << "    " << i << "     ";
+//                    cout << "    " << i << "     ";
                 } else {
                     file << "   " << i << "     ";
-                    cout << "   " << i << "     ";
+//                    cout << "   " << i << "     ";
                 }
             }
             for (int j = 0; j < number_of_inputs; j++) {
                 file << printHelper(table[i][j], 5);
             }
             file << endl;
-            cout << endl;
+//            cout << endl;
         }
     }
     file.close();

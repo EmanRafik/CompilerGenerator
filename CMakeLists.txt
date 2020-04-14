@@ -22,4 +22,4 @@ add_executable(compilergenerator
         src/LexicalAnalyzer/Regular_definition.cpp
         src/LexicalAnalyzer/Regular_expression.cpp
         src/LexicalAnalyzer/Token.cpp
-        main.cpp)
+        main.cpp src/Parser/ParserTable.cpp include/Parser/ParserTable.h src/Parser/Symbol.cpp src/Parser/Production.cpp include/Parser/Symbol.h include/Parser/Production.h src/Parser/Parser.cpp src/Parser/ParserGenerator.cpp include/Parser/Parser.h include/Parser/ParserGenerator.h)
