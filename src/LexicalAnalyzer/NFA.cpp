@@ -1,5 +1,5 @@
-#include "NFA.h"
-#include "Token.h"
+#include "LexicalAnalyzer/NFA.h"
+#include "LexicalAnalyzer/Token.h"
 #include <map>
 #include <string>
 #include <iostream>

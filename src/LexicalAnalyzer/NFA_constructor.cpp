@@ -1,11 +1,11 @@
-#include "NFA_constructor.h"
-#include"NFA.h"
+#include "LexicalAnalyzer/NFA_constructor.h"
+#include"LexicalAnalyzer/NFA.h"
 #include<string>
 #include<vector>
 #include<map>
 #include<iostream>
 #include <cstdio>
-#include"Regular_definition.h"
+#include"LexicalAnalyzer/Regular_definition.h"
 #include <stdio.h>
 
 using namespace std;

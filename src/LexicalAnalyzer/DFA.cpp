@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include "DFA.h"
+#include "LexicalAnalyzer/DFA.h"
 
 const int phai = -1;
 

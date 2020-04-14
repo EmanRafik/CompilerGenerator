@@ -1,8 +1,8 @@
-#include "Lexical_analyzer_generator.h"
+#include "LexicalAnalyzer/Lexical_analyzer_generator.h"
 #include <map>
-#include "NFA.h"
-#include "DFA.h"
-#include"NFA_constructor.h"
+#include "LexicalAnalyzer/NFA.h"
+#include "LexicalAnalyzer/DFA.h"
+#include"LexicalAnalyzer/NFA_constructor.h"
 #include <vector>
 #include <fstream>
 #include<iostream>
