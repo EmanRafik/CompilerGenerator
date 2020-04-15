@@ -1,11 +1,11 @@
 #include <iostream>
 #include "Phase1_LexicalAnalyzer/DFA.h"
-#include"Phase1_LexicalAnalyzer/Lexical_analyzer_generator.h"
-#include"Phase1_LexicalAnalyzer/Lexical_analyzer.h"
+#include "Phase1_LexicalAnalyzer/Lexical_analyzer_generator.h"
+#include "Phase1_LexicalAnalyzer/Lexical_analyzer.h"
 #include "Phase1_LexicalAnalyzer/NFA.h"
 #include <vector>
-#include "Production.h"
-#include "Symbol.h"
+#include "Phase2_Parser/Production.h"
+#include "Phase2_Parser/Symbol.h"
 
 
 using namespace std;

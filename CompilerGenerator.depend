@@ -119,13 +119,15 @@
 	<string>
 	<vector>
 
-1585770549 source:c:\users\bcc\desktop\compiler generator\compilergenerator\main.cpp
+1586988233 source:c:\users\bcc\desktop\compiler generator\compilergenerator\main.cpp
 	<iostream>
-	"DFA.h"
-	"Lexical_analyzer_generator.h"
-	"Lexical_analyzer.h"
-	"NFA.h"
+	"Phase1_LexicalAnalyzer/DFA.h"
+	"Phase1_LexicalAnalyzer/Lexical_analyzer_generator.h"
+	"Phase1_LexicalAnalyzer/Lexical_analyzer.h"
+	"Phase1_LexicalAnalyzer/NFA.h"
 	<vector>
+	"Phase2_Parser/Production.h"
+	"Phase2_Parser/Symbol.h"
 
 1585680010 c:\users\bcc\desktop\compiler generator\compilergenerator\include\dfa.h
 	<vector>
@@ -465,4 +467,170 @@
 1586950119 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\symbol.cpp
 	<string>
 	"Symbol.h"
+
+1586988388 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\parser\myparser.cpp
+	<iostream>
+	"Phase2_Parser/Parser_table.h"
+	"Phase2_Parser/Symbol.h"
+	"Phase2_Parser/MyParser.h"
+	"Phase2_Parser/Production.h"
+
+1586988406 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\parser\parser_generator.cpp
+	"Phase2_Parser/Parser_generator.h"
+	<vector>
+	<string>
+	<map>
+	<set>
+	"Phase2_Parser/Production.h"
+
+1586988412 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\parser\parser_table.cpp
+	"Phase2_Parser/Production.h"
+	"Phase2_Parser/Parser_table.h"
+
+1586987778 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase1_lexicalanalyzer\dfa.h
+	<vector>
+	"Token.h"
+	<map>
+
+1586987778 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase1_lexicalanalyzer\token.h
+	<string>
+
+1586987778 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase1_lexicalanalyzer\lexical_analyzer_generator.h
+	"Token.h"
+	"NFA.h"
+	"DFA.h"
+	"Regular_definition.h"
+	"Regular_expression.h"
+	<string>
+	<vector>
+
+1586987778 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase1_lexicalanalyzer\nfa.h
+	<map>
+	<string>
+	<vector>
+	<set>
+	"Token.h"
+	"DFA.h"
+
+1586987778 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase1_lexicalanalyzer\regular_definition.h
+	<string>
+	"NFA.h"
+
+1586987778 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase1_lexicalanalyzer\regular_expression.h
+	"NFA.h"
+	"Regular_definition.h"
+	<string>
+	<vector>
+
+1586987778 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase1_lexicalanalyzer\lexical_analyzer.h
+	<string>
+	"DFA.h"
+
+1586988388 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase2_parser\production.h
+	<string>
+	<vector>
+	"Phase2_Parser/Symbol.h"
+
+1586987778 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase2_parser\symbol.h
+	<string>
+
+1586987779 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexicalanalyzer\dfa.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	"Phase1_LexicalAnalyzer/DFA.h"
+
+1586987779 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexicalanalyzer\lexical_analyzer.cpp
+	"Phase1_LexicalAnalyzer/Lexical_analyzer.h"
+	"Phase1_LexicalAnalyzer/DFA.h"
+	<fstream>
+	<string>
+	<iostream>
+	<Phase1_LexicalAnalyzer/Lexical_analyzer.h>
+
+1586987779 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexicalanalyzer\lexical_analyzer_generator.cpp
+	"Phase1_LexicalAnalyzer/Lexical_analyzer_generator.h"
+	<map>
+	"Phase1_LexicalAnalyzer/NFA.h"
+	"Phase1_LexicalAnalyzer/DFA.h"
+	"Phase1_LexicalAnalyzer/NFA_constructor.h"
+	<vector>
+	<fstream>
+	<iostream>
+	<bits/stdc++.h>
+
+1586987778 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase1_lexicalanalyzer\nfa_constructor.h
+	"NFA.h"
+	<string>
+	<iostream>
+	<vector>
+	"Regular_definition.h"
+
+1586987779 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexicalanalyzer\nfa.cpp
+	"Phase1_LexicalAnalyzer/NFA.h"
+	"Phase1_LexicalAnalyzer/Token.h"
+	<map>
+	<string>
+	<iostream>
+	<vector>
+	<algorithm>
+	<stack>
+	<stdio.h>
+
+1586987779 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexicalanalyzer\nfa_constructor.cpp
+	"Phase1_LexicalAnalyzer/NFA_constructor.h"
+	"Phase1_LexicalAnalyzer/NFA.h"
+	<string>
+	<vector>
+	<map>
+	<iostream>
+	<cstdio>
+	"Phase1_LexicalAnalyzer/Regular_definition.h"
+	<stdio.h>
+
+1586987779 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexicalanalyzer\regular_definition.cpp
+	"Phase1_LexicalAnalyzer/Regular_definition.h"
+	<string>
+	"Phase1_LexicalAnalyzer/NFA.h"
+	"Phase1_LexicalAnalyzer/NFA_constructor.h"
+
+1586987779 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexicalanalyzer\regular_expression.cpp
+	"Phase1_LexicalAnalyzer/Regular_expression.h"
+	"Phase1_LexicalAnalyzer/NFA.h"
+	"Phase1_LexicalAnalyzer/Regular_definition.h"
+	"Phase1_LexicalAnalyzer/NFA_constructor.h"
+	"Phase1_LexicalAnalyzer/Token.h"
+	<string>
+	<vector>
+
+1586987779 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexicalanalyzer\token.cpp
+	"Phase1_LexicalAnalyzer/Token.h"
+	<string>
+
+1586987778 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase2_parser\parser_table.h
+	<map>
+	<string>
+	<vector>
+	"Symbol.h"
+	"Production.h"
+
+1586987778 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase2_parser\myparser.h
+	<Phase1_LexicalAnalyzer/Token.h>
+	<stack>
+	"Parser_table.h"
+	"Symbol.h"
+
+1586987778 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase2_parser\parser_generator.h
+	<vector>
+	<string>
+	<map>
+	<set>
+	"Phase2_Parser/Production.h"
+
+1586988416 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\parser\production.cpp
+	"Phase2_Parser/Production.h"
+
+1586988429 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\parser\symbol.cpp
+	<string>
+	"Phase2_Parser/Symbol.h"
 

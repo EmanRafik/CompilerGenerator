@@ -2,8 +2,8 @@
 // Created by DELL on 14-Apr-20.
 //
 
-#include "Production.h"
-#include "Parser_table.h"
+#include "Phase2_Parser/Production.h"
+#include "Phase2_Parser/Parser_table.h"
 
 Parser_table::Parser_table() {
 
