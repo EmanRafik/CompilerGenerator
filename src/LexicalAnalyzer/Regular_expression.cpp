@@ -1,8 +1,8 @@
-#include "LexicalAnalyzer/Regular_expression.h"
-#include"LexicalAnalyzer/NFA.h"
-#include"LexicalAnalyzer/Regular_definition.h"
-#include"LexicalAnalyzer/NFA_constructor.h"
-#include"LexicalAnalyzer/Token.h"
+#include "Phase1_LexicalAnalyzer/Regular_expression.h"
+#include"Phase1_LexicalAnalyzer/NFA.h"
+#include"Phase1_LexicalAnalyzer/Regular_definition.h"
+#include"Phase1_LexicalAnalyzer/NFA_constructor.h"
+#include"Phase1_LexicalAnalyzer/Token.h"
 #include<string>
 #include<vector>
 

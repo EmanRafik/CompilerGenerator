@@ -2,8 +2,8 @@
 // Created by DELL on 14-Apr-20.
 //
 
-#ifndef COMPILERGENERATOR_PARSERTABLE_H
-#define COMPILERGENERATOR_PARSERTABLE_H
+#ifndef COMPILERGENERATOR_PARSER_TABLE_H
+#define COMPILERGENERATOR_PARSER_TABLE_H
 
 #include <map>
 #include <string>
@@ -13,20 +13,23 @@
 
 using namespace std;
 
-class ParserTable {
+class Parser_table {
 public:
-    ParserTable();
-
+    Parser_table();
     void addTerminal (Production p);
     void addNonTerminal (Production p);
-
+    Production **getTable();
+    map<string, int> getTerminals();
+    map<string, int> getNonTerminals();
 
 private:
     Production **table;
     map <string, int> terminals;
+
+private:
     map <string, int> non_terminals;
 
 };
 
-#endif COMPILERGENERATOR_PARSERTABLE_H
+#endif //COMPILERGENERATOR_PARSER_TABLE_H
 

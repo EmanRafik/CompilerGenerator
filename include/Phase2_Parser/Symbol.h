@@ -11,13 +11,14 @@ using namespace std;
 
 class Symbol {
 public:
-    Symbol(string s, bool isTerminal);
-    const string getSymbol();
-    bool isTerminal1();
+    Symbol();
+    Symbol(string symbol, bool isTerminal);
+    string getSymbol();
+    bool isTerminal ();
 
 private:
-    string s;
-    bool isTerminal;
+    string symbol;
+    bool is_terminal;
 
 };
 
