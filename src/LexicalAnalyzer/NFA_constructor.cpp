@@ -1,11 +1,11 @@
-#include "LexicalAnalyzer/NFA_constructor.h"
-#include"LexicalAnalyzer/NFA.h"
+#include "Phase1_LexicalAnalyzer/NFA_constructor.h"
+#include"Phase1_LexicalAnalyzer/NFA.h"
 #include<string>
 #include<vector>
 #include<map>
 #include<iostream>
 #include <cstdio>
-#include"LexicalAnalyzer/Regular_definition.h"
+#include"Phase1_LexicalAnalyzer/Regular_definition.h"
 #include <stdio.h>
 
 using namespace std;

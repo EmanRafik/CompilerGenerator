@@ -14,12 +14,15 @@ class Lexical_analyzer {
         void setDFA(DFA *dfa);
         void analyze (vector<char> input_code);
         void set_input_code (vector<char> input_code);
+        Token getNextToken ();
 
     private:
         vector<char> input_code;
         vector<Token> tokens;
         vector<string> symbol_table;
+        int current_token_index;
         DFA *dfa;
+
 
 };
 

@@ -3,14 +3,22 @@
 //
 
 #include<string>
-#include <Parser/Symbol.h>
+#include "Symbol.h"
 
-Symbol::Symbol(string s, bool isTerminal) : s(s), isTerminal(isTerminal) {}
+Symbol::Symbol() {
 
-const string Symbol::getSymbol() {
-    return s;
 }
 
-bool Symbol::isTerminal1() {
-    return isTerminal;
+Symbol::Symbol(string s, bool isTerminal) {
+    this->symbol = symbol;
+    this->is_terminal = isTerminal;
 }
+
+string Symbol::getSymbol() {
+    return symbol;
+}
+
+bool Symbol::isTerminal() {
+    return is_terminal;
+}
+

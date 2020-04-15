@@ -1,15 +1,16 @@
-#include "LexicalAnalyzer/Lexical_analyzer.h"
-#include "LexicalAnalyzer/DFA.h"
+#include "Phase1_LexicalAnalyzer/Lexical_analyzer.h"
+#include "Phase1_LexicalAnalyzer/DFA.h"
 #include <fstream>
 #include<string>
 #include<iostream>
+#include <Phase1_LexicalAnalyzer/Lexical_analyzer.h>
 
 using namespace std;
 
 const int phai = -1;
 
 Lexical_analyzer::Lexical_analyzer() {
-
+    this->current_token_index = 0;
 }
 
 Lexical_analyzer::~Lexical_analyzer() {
@@ -17,6 +18,7 @@ Lexical_analyzer::~Lexical_analyzer() {
 }
 
 void Lexical_analyzer::setDFA(DFA *dfa) {
+    this->current_token_index = 0;
     this->dfa = dfa;
 }
 
@@ -77,15 +79,16 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
         }
         if (current_state == phai || c == 32 || i == input_code.size()-1) {
             if (last_accepted_output != "") {
+                //remove last (i - last_accepted_character_index) characters which are extra than the last match
                 id = id.substr(0, id.size()-(i-last_accepted_character_index));
                 cout << id << " --> " << last_accepted_output << endl;
                 file << id << " --> " << last_accepted_output << endl;
+                Token *t = new Token();
+                t->setToken_class(dfa->getAcceptStates()[current_state].getToken_class());
+                t->setValue(id);
+                tokens.push_back(*t);
                 //add the matched ids to a symbol table
                 if (dfa->getAcceptStates()[current_state].getToken_class() == "id") {
-                    Token *t = new Token();
-                    t->setToken_class("id");
-                    //remove last (i - last_accepted_character_index) characters which are extra than the last match
-                    t->setValue(id);
                     symbol_table.push_back(dfa->getAcceptStates()[current_state].getValue());
                 }
                 last_accepted_output = "";
@@ -115,6 +118,18 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
             current_state = 0;
         }
         i++;
+    }
+}
+
+Token Lexical_analyzer::getNextToken () {
+    if (current_token_index != symbol_table.size()) {
+        Token token = tokens.at(current_token_index);
+        current_token_index++;
+        return token;
+    } else {
+        Token *token = new Token();
+        token->setValue("$");
+        return *token;
     }
 }
 

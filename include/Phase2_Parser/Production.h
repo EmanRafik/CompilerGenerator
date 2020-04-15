@@ -13,6 +13,7 @@ using namespace std;
 
 class Production {
 public:
+    Production();
     Production(string from);
     void addSymbol (Symbol s);
     string getFrom();
@@ -24,5 +25,5 @@ private:
 
 };
 
-#endif COMPILERGENERATOR_PRODUCTION_H
+#endif //COMPILERGENERATOR_PRODUCTION_H
 

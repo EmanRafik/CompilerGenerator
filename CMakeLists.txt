@@ -4,16 +4,23 @@ project(compilergenerator)
 set(CMAKE_CXX_STANDARD 14)
 
 include_directories(include)
+include_directories(include/Phase1_LexicalAnalyzer)
+include_directories(include/Phase2_Parser)
 
 add_executable(compilergenerator
-        include/LexicalAnalyzer/DFA.h
-        include/LexicalAnalyzer/Lexical_analyzer.h
-        include/LexicalAnalyzer/Lexical_analyzer_generator.h
-        include/LexicalAnalyzer/NFA.h
-        include/LexicalAnalyzer/NFA_constructor.h
-        include/LexicalAnalyzer/Regular_definition.h
-        include/LexicalAnalyzer/Regular_expression.h
-        include/LexicalAnalyzer/Token.h
+        include/Phase1_LexicalAnalyzer/DFA.h
+        include/Phase1_LexicalAnalyzer/Lexical_analyzer.h
+        include/Phase1_LexicalAnalyzer/Lexical_analyzer_generator.h
+        include/Phase1_LexicalAnalyzer/NFA.h
+        include/Phase1_LexicalAnalyzer/NFA_constructor.h
+        include/Phase1_LexicalAnalyzer/Regular_definition.h
+        include/Phase1_LexicalAnalyzer/Regular_expression.h
+        include/Phase1_LexicalAnalyzer/Token.h
+        include/Phase2_Parser/MyParser.h
+        include/Phase2_Parser/Parser_generator.h
+        include/Phase2_Parser/Parser_table.h
+        include/Phase2_Parser/Production.h
+        include/Phase2_Parser/Symbol.h
         src/LexicalAnalyzer/DFA.cpp
         src/LexicalAnalyzer/Lexical_analyzer.cpp
         src/LexicalAnalyzer/Lexical_analyzer_generator.cpp
@@ -22,4 +29,9 @@ add_executable(compilergenerator
         src/LexicalAnalyzer/Regular_definition.cpp
         src/LexicalAnalyzer/Regular_expression.cpp
         src/LexicalAnalyzer/Token.cpp
-        main.cpp src/Parser/ParserTable.cpp include/Parser/ParserTable.h src/Parser/Symbol.cpp src/Parser/Production.cpp include/Parser/Symbol.h include/Parser/Production.h src/Parser/Parser.cpp src/Parser/ParserGenerator.cpp include/Parser/Parser.h include/Parser/ParserGenerator.h)
+        src/Parser/MyParser.cpp
+        src/Parser/Parser_generator.cpp
+        src/Parser/Parser_table.cpp
+        src/Parser/Production.cpp
+        src/Parser/Symbol.cpp
+        main.cpp)
