@@ -1,11 +1,13 @@
 # depslib dependency file v1.0
-1585770137 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\main.cpp
+1586950119 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\main.cpp
 	<iostream>
-	"DFA.h"
-	"Lexical_analyzer_generator.h"
-	"Lexical_analyzer.h"
-	"NFA.h"
+	"Phase1_LexicalAnalyzer/DFA.h"
+	"Phase1_LexicalAnalyzer/Lexical_analyzer_generator.h"
+	"Phase1_LexicalAnalyzer/Lexical_analyzer.h"
+	"Phase1_LexicalAnalyzer/NFA.h"
 	<vector>
+	"Production.h"
+	"Symbol.h"
 
 1585674852 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\dfa.cpp
 	<iostream>
@@ -307,4 +309,160 @@
 
 1585088732 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\state.cpp
 	"State.h"
+
+1586950119 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase1_lexicalanalyzer\dfa.h
+	<vector>
+	"Token.h"
+	<map>
+
+1586950119 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase1_lexicalanalyzer\token.h
+	<string>
+
+1586950119 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase1_lexicalanalyzer\lexical_analyzer_generator.h
+	"Token.h"
+	"NFA.h"
+	"DFA.h"
+	"Regular_definition.h"
+	"Regular_expression.h"
+	<string>
+	<vector>
+
+1586950119 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase1_lexicalanalyzer\nfa.h
+	<map>
+	<string>
+	<vector>
+	<set>
+	"Token.h"
+	"DFA.h"
+
+1586950119 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase1_lexicalanalyzer\regular_definition.h
+	<string>
+	"NFA.h"
+
+1586950119 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase1_lexicalanalyzer\regular_expression.h
+	"NFA.h"
+	"Regular_definition.h"
+	<string>
+	<vector>
+
+1586950119 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase1_lexicalanalyzer\lexical_analyzer.h
+	<string>
+	"DFA.h"
+
+1586950119 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase2_parser\production.h
+	<string>
+	<vector>
+	"Symbol.h"
+
+1586986317 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase2_parser\symbol.h
+	<string>
+
+1586950119 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexicalanalyzer\dfa.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	"Phase1_LexicalAnalyzer/DFA.h"
+
+1586950119 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexicalanalyzer\lexical_analyzer.cpp
+	"Phase1_LexicalAnalyzer/Lexical_analyzer.h"
+	"Phase1_LexicalAnalyzer/DFA.h"
+	<fstream>
+	<string>
+	<iostream>
+	<Phase1_LexicalAnalyzer/Lexical_analyzer.h>
+
+1586950119 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexicalanalyzer\lexical_analyzer_generator.cpp
+	"Phase1_LexicalAnalyzer/Lexical_analyzer_generator.h"
+	<map>
+	"Phase1_LexicalAnalyzer/NFA.h"
+	"Phase1_LexicalAnalyzer/DFA.h"
+	"Phase1_LexicalAnalyzer/NFA_constructor.h"
+	<vector>
+	<fstream>
+	<iostream>
+	<bits/stdc++.h>
+
+1586950119 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase1_lexicalanalyzer\nfa_constructor.h
+	"NFA.h"
+	<string>
+	<iostream>
+	<vector>
+	"Regular_definition.h"
+
+1586950119 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexicalanalyzer\nfa.cpp
+	"Phase1_LexicalAnalyzer/NFA.h"
+	"Phase1_LexicalAnalyzer/Token.h"
+	<map>
+	<string>
+	<iostream>
+	<vector>
+	<algorithm>
+	<stack>
+	<stdio.h>
+
+1586950119 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexicalanalyzer\nfa_constructor.cpp
+	"Phase1_LexicalAnalyzer/NFA_constructor.h"
+	"Phase1_LexicalAnalyzer/NFA.h"
+	<string>
+	<vector>
+	<map>
+	<iostream>
+	<cstdio>
+	"Phase1_LexicalAnalyzer/Regular_definition.h"
+	<stdio.h>
+
+1586950119 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexicalanalyzer\regular_definition.cpp
+	"Phase1_LexicalAnalyzer/Regular_definition.h"
+	<string>
+	"Phase1_LexicalAnalyzer/NFA.h"
+	"Phase1_LexicalAnalyzer/NFA_constructor.h"
+
+1586950119 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexicalanalyzer\regular_expression.cpp
+	"Phase1_LexicalAnalyzer/Regular_expression.h"
+	"Phase1_LexicalAnalyzer/NFA.h"
+	"Phase1_LexicalAnalyzer/Regular_definition.h"
+	"Phase1_LexicalAnalyzer/NFA_constructor.h"
+	"Phase1_LexicalAnalyzer/Token.h"
+	<string>
+	<vector>
+
+1586950119 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexicalanalyzer\token.cpp
+	"Phase1_LexicalAnalyzer/Token.h"
+	<string>
+
+1586950119 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\myparser.cpp
+	<iostream>
+	"Parser_table.h"
+	"Symbol.h"
+	"MyParser.h"
+	"Production.h"
+
+1586950119 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase2_parser\parser_table.h
+	<map>
+	<string>
+	<vector>
+	"Symbol.h"
+	"Production.h"
+
+1586950119 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase2_parser\myparser.h
+	<Phase1_LexicalAnalyzer/Token.h>
+	<stack>
+	"Parser_table.h"
+	"Symbol.h"
+
+1586978684 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\non_terminal.cpp
+	"Non_terminal.h"
+
+1586978684 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase2_parser\non_terminal.h
+
+1586950119 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\parser_table.cpp
+	"Production.h"
+	"Parser_table.h"
+
+1586950119 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\production.cpp
+	"Production.h"
+
+1586950119 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\symbol.cpp
+	<string>
+	"Symbol.h"
 
