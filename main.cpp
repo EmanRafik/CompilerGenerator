@@ -8,12 +8,15 @@
 #include "Phase2_Parser/Parser_table.h"
 #include "Production.h"
 #include "Symbol.h"
+#include "Parser_generator.h"
 
 
 using namespace std;
 void printNFA(NFA nfa);
 int main()
 {
+//    Parser_generator *pg = new Parser_generator();
+//    pg->generate_parser();
     Lexical_analyzer_generator *generator = new Lexical_analyzer_generator();
     generator->read_lexical_rules("rules.txt");
     generator->generate_lexical_analyzer();
