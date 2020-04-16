@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1587040901 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\main.cpp
+1587074848 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\main.cpp
 	<iostream>
 	"Phase1_LexicalAnalyzer/DFA.h"
 	"Phase1_LexicalAnalyzer/Lexical_analyzer_generator.h"
@@ -638,10 +638,20 @@
 	<string>
 	"Phase2_Parser/Symbol.h"
 
-1586987179 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase2_parser\parser_generator.h
+1587073468 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase2_parser\parser_generator.h
 	<vector>
 	<string>
 	<map>
 	<set>
 	"Phase2_Parser/Production.h"
+
+1587076035 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\parser_generator.cpp
+	"Phase2_Parser/Parser_generator.h"
+	<vector>
+	<string>
+	<map>
+	<set>
+	"Symbol.h"
+	"Production.h"
+	<iostream>
 
