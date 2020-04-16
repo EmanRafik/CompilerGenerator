@@ -2,8 +2,8 @@
 // Created by DELL on 14-Apr-20.
 //
 
-#include<string>
-#include "Symbol.h"
+#include <string>
+#include "Phase2_Parser/Symbol.h"
 
 Symbol::Symbol() {
 

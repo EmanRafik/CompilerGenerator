@@ -14,7 +14,7 @@ public:
     Symbol();
     Symbol(string symbol, bool isTerminal);
     string getSymbol();
-    bool isTerminal ();
+    bool isTerminal();
 
 private:
     string symbol;

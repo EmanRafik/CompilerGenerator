@@ -34,23 +34,33 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="include/DFA.h" />
-		<Unit filename="include/Lexical_analyzer.h" />
-		<Unit filename="include/Lexical_analyzer_generator.h" />
-		<Unit filename="include/NFA.h" />
-		<Unit filename="include/NFA_constructor.h" />
-		<Unit filename="include/Regular_definition.h" />
-		<Unit filename="include/Regular_expression.h" />
-		<Unit filename="include/Token.h" />
+		<Unit filename="include/Phase1_LexicalAnalyzer/DFA.h" />
+		<Unit filename="include/Phase1_LexicalAnalyzer/Lexical_analyzer.h" />
+		<Unit filename="include/Phase1_LexicalAnalyzer/Lexical_analyzer_generator.h" />
+		<Unit filename="include/Phase1_LexicalAnalyzer/NFA.h" />
+		<Unit filename="include/Phase1_LexicalAnalyzer/NFA_constructor.h" />
+		<Unit filename="include/Phase1_LexicalAnalyzer/Regular_definition.h" />
+		<Unit filename="include/Phase1_LexicalAnalyzer/Regular_expression.h" />
+		<Unit filename="include/Phase1_LexicalAnalyzer/Token.h" />
+		<Unit filename="include/Phase2_Parser/MyParser.h" />
+		<Unit filename="include/Phase2_Parser/Parser_generator.h" />
+		<Unit filename="include/Phase2_Parser/Parser_table.h" />
+		<Unit filename="include/Phase2_Parser/Production.h" />
+		<Unit filename="include/Phase2_Parser/Symbol.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/DFA.cpp" />
-		<Unit filename="src/Lexical_analyzer.cpp" />
-		<Unit filename="src/Lexical_analyzer_generator.cpp" />
-		<Unit filename="src/NFA.cpp" />
-		<Unit filename="src/NFA_constructor.cpp" />
-		<Unit filename="src/Regular_definition.cpp" />
-		<Unit filename="src/Regular_expression.cpp" />
-		<Unit filename="src/Token.cpp" />
+		<Unit filename="src/LexicalAnalyzer/DFA.cpp" />
+		<Unit filename="src/LexicalAnalyzer/Lexical_analyzer.cpp" />
+		<Unit filename="src/LexicalAnalyzer/Lexical_analyzer_generator.cpp" />
+		<Unit filename="src/LexicalAnalyzer/NFA.cpp" />
+		<Unit filename="src/LexicalAnalyzer/NFA_constructor.cpp" />
+		<Unit filename="src/LexicalAnalyzer/Regular_definition.cpp" />
+		<Unit filename="src/LexicalAnalyzer/Regular_expression.cpp" />
+		<Unit filename="src/LexicalAnalyzer/Token.cpp" />
+		<Unit filename="src/Parser/MyParser.cpp" />
+		<Unit filename="src/Parser/Parser_generator.cpp" />
+		<Unit filename="src/Parser/Parser_table.cpp" />
+		<Unit filename="src/Parser/Production.cpp" />
+		<Unit filename="src/Parser/Symbol.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

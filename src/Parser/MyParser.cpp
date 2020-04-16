@@ -3,10 +3,10 @@
 //
 
 #include <iostream>
-#include "Parser_table.h"
-#include "Symbol.h"
-#include "MyParser.h"
-#include "Production.h"
+#include "Phase2_Parser/Parser_table.h"
+#include "Phase2_Parser/Symbol.h"
+#include "Phase2_Parser/MyParser.h"
+#include "Phase2_Parser/Production.h"
 
 MyParser::MyParser(Parser_table parser_table, Symbol start_symbol) {
     this->parser_table = parser_table;
