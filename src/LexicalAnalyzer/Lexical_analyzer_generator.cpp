@@ -65,6 +65,8 @@ void Lexical_analyzer_generator::generate_lexical_analyzer()
     }
     ///combine all NFA
     NFA combined = constructor->oringList(NFAlist, true);
+//    combined.printNFA();
+//    combined.printAcceptStatesList();
     ///convert NFA to DFA
     DFA* dfa = combined.convertToDFA();
     ///minimize DFA

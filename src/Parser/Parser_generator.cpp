@@ -1,12 +1,12 @@
 //
 // Created by DELL on 14-Apr-20.
 //
-#include "Parser_generator.h"
-#include<vector>
-#include<string>
-#include<map>
-#include<set>
-#include"Production.h"
+#include "Phase2_Parser/Parser_generator.h"
+#include <vector>
+#include <string>
+#include <map>
+#include <set>
+#include "Phase2_Parser/Production.h"
 
 using namespace std;
 

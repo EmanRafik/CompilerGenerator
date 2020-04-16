@@ -7,7 +7,7 @@
 
 #include <string>
 #include <vector>
-#include "Symbol.h"
+#include "Phase2_Parser/Symbol.h"
 
 using namespace std;
 

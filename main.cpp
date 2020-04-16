@@ -4,6 +4,8 @@
 #include"Phase1_LexicalAnalyzer/Lexical_analyzer.h"
 #include "Phase1_LexicalAnalyzer/NFA.h"
 #include <vector>
+#include "Phase2_Parser/MyParser.h"
+#include "Phase2_Parser/Parser_table.h"
 #include "Production.h"
 #include "Symbol.h"
 
@@ -12,12 +14,12 @@ using namespace std;
 void printNFA(NFA nfa);
 int main()
 {
-//    Lexical_analyzer_generator *generator = new Lexical_analyzer_generator();
-//    generator->read_lexical_rules("rules.txt");
-//    generator->generate_lexical_analyzer();
-//    Lexical_analyzer *lexical = new Lexical_analyzer();
-//    lexical->setDFA(generator->get_minimal_dfa());
-//    lexical->execute("input.txt");
+    Lexical_analyzer_generator *generator = new Lexical_analyzer_generator();
+    generator->read_lexical_rules("rules.txt");
+    generator->generate_lexical_analyzer();
+    Lexical_analyzer *lexical = new Lexical_analyzer();
+    lexical->setDFA(generator->get_minimal_dfa());
+    lexical->execute("input.txt");
 
     Symbol *nt1 = new Symbol("E", false);
     Symbol *nt2 = new Symbol("E-", false);
@@ -65,7 +67,78 @@ int main()
     Production *p8 = new Production("F");
     p8->addSymbol(*t7);
 
+    map <string, int> terminals;
+    map <string, int> non_terminals;
 
+    non_terminals.insert(pair<string, int>("E",0));
+    non_terminals.insert(pair<string, int>("E-",1));
+    non_terminals.insert(pair<string, int>("T",2));
+    non_terminals.insert(pair<string, int>("T-",3));
+    non_terminals.insert(pair<string, int>("F",4));
+
+    terminals.insert(pair<string, int>("id",0));
+    terminals.insert(pair<string, int>("+",1));
+    terminals.insert(pair<string, int>("*",2));
+    terminals.insert(pair<string, int>("(",3));
+    terminals.insert(pair<string, int>(")",4));
+    terminals.insert(pair<string, int>("$",5));
+
+    Production *p;
+    Parser_table *parserTable = new Parser_table(non_terminals, terminals);
+    parserTable->printTable();
+
+    parserTable->getTable()[0][0] = *p1;
+    parserTable->getTable()[0][3] = *p1;
+    p = new Production("E");
+    p->addSymbol(*new Symbol("synch", true));
+    parserTable->getTable()[0][4] = *p;
+    parserTable->getTable()[0][5] = *p;
+
+    parserTable->getTable()[1][1] = *p2;
+    p = new Production("E-");
+    p->addSymbol(*new Symbol("epsilon", true));
+    parserTable->getTable()[1][4] = *p;
+    parserTable->getTable()[1][5] = *p;
+
+    parserTable->getTable()[2][0] = *p4;
+    p = new Production("T");
+    p->addSymbol(*new Symbol("synch", true));
+    parserTable->getTable()[2][1] = *p;
+    parserTable->getTable()[2][3] = *p4;
+    parserTable->getTable()[2][4] = *p;
+    parserTable->getTable()[2][5] = *p;
+
+    p = new Production("T-");
+    p->addSymbol(*new Symbol("epsilon", true));
+    parserTable->getTable()[3][1] = *p;
+    parserTable->getTable()[3][2] = *p5;
+    parserTable->getTable()[3][4] = *p;
+    parserTable->getTable()[3][5] = *p;
+
+    parserTable->getTable()[4][0] = *p8;
+    p = new Production("F");
+    p->addSymbol(*new Symbol("synch", true));
+    parserTable->getTable()[4][1] = *p;
+    parserTable->getTable()[4][2] = *p;
+    parserTable->getTable()[4][3] = *p7;
+    parserTable->getTable()[4][4] = *p;
+    parserTable->getTable()[4][5] = *p;
+
+    MyParser *myParser = new MyParser(*parserTable, *nt1);
+
+    Token t = lexical->getNextToken();
+    bool error_flag = false;
+    while (t.getValue() != "$") {
+        if (myParser->parse(t)) {
+            t = lexical->getNextToken();
+        } else {
+            error_flag = true;
+            break;
+        }
+    }
+    while (!error_flag) {
+        error_flag = !myParser->parse(t);
+    }
 
     return 0;
 }
