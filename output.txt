@@ -1,8 +1,8 @@
-* --> mulop
-+ --> addop
-id --> id
-) --> )
-+ --> addop
 ( --> (
 id --> id
++ --> addop
+( --> (
 * --> mulop
+id --> id
+) --> )
+$ --> Lexical error
