@@ -32,11 +32,17 @@ bool MyParser::parse(Token token) {
         } else if (production.getTo().at(0).getSymbol() == "synch") {
             cout << "synch" << endl;
         } else if (production.getTo().at(0).getSymbol() == "epsilon") {
+            cout << production.getFrom() << " --> epsilon" << endl;
             continue;
         } else {
+            cout << production.getFrom() << " --> ";
+            for (int i = 0; i < production.getTo().size(); i++) {
+                cout << production.getTo().at(i).getSymbol();
+            }
             for (int i = production.getTo().size()-1; i >= 0; i--) {
                 stack.push(production.getTo().at(i));
             }
+            cout << endl;
         }
 
     }
