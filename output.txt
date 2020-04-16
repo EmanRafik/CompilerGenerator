@@ -1,10 +1,8 @@
-!! --> Lexical error
-!= --> relop
-!o --> Lexical error
-ok --> id
-!! --> Lexical error
-!! --> Lexical error
-!! --> Lexical error
-!! --> Lexical error
-!o --> Lexical error
-okay --> id
+* --> mulop
++ --> addop
+id --> id
+) --> )
++ --> addop
+( --> (
+id --> id
+* --> mulop

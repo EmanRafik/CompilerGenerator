@@ -9,7 +9,7 @@ Symbol::Symbol() {
 
 }
 
-Symbol::Symbol(string s, bool isTerminal) {
+Symbol::Symbol(string symbol, bool isTerminal) {
     this->symbol = symbol;
     this->is_terminal = isTerminal;
 }

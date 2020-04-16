@@ -74,8 +74,7 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
             } else {
                 last_accepted_output = dfa->getAcceptStates()[current_state].getToken_class();
             }
-            // add the recognized token to the vector of tokens
-            tokens.push_back(dfa->getAcceptStates()[current_state]);
+//            tokens.push_back(dfa->getAcceptStates()[current_state]);
         }
         if (current_state == phai || c == 32 || i == input_code.size()-1) {
             if (last_accepted_output != "") {
@@ -83,7 +82,10 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
                 id = id.substr(0, id.size()-(i-last_accepted_character_index));
                 cout << id << " --> " << last_accepted_output << endl;
                 file << id << " --> " << last_accepted_output << endl;
+
+                // add the recognized token to the vector of tokens
                 Token *t = new Token();
+//                *t = dfa->getAcceptStates()[current_state];
                 t->setToken_class(dfa->getAcceptStates()[current_state].getToken_class());
                 t->setValue(id);
                 tokens.push_back(*t);
@@ -122,7 +124,7 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
 }
 
 Token Lexical_analyzer::getNextToken () {
-    if (current_token_index != symbol_table.size()) {
+    if (current_token_index != tokens.size()) {
         Token token = tokens.at(current_token_index);
         current_token_index++;
         return token;

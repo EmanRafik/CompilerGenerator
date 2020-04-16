@@ -16,17 +16,19 @@ using namespace std;
 class Parser_table {
 public:
     Parser_table();
+    Parser_table(map <string, int> terminals, map <string, int> non_terminals);
     void addTerminal (Production p);
     void addNonTerminal (Production p);
     Production **getTable();
     map<string, int> getTerminals();
     map<string, int> getNonTerminals();
+    void setTerminals(map<string, int> terminals);
+    void setNonTerminals(map<string, int> nonTerminals);
+    void printTable();
 
 private:
     Production **table;
     map <string, int> terminals;
-
-private:
     map <string, int> non_terminals;
 
 };

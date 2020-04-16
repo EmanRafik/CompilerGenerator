@@ -28,8 +28,11 @@ bool MyParser::parse(Token token) {
         if (production.getTo().at(0).getSymbol() == "error") {
             cout << "error" << endl;
             stack.push(current_symbol);
+            return true;
         } else if (production.getTo().at(0).getSymbol() == "synch") {
             cout << "synch" << endl;
+        } else if (production.getTo().at(0).getSymbol() == "epsilon") {
+            continue;
         } else {
             for (int i = production.getTo().size()-1; i >= 0; i--) {
                 stack.push(production.getTo().at(i));
@@ -49,8 +52,15 @@ bool MyParser::parse(Token token) {
             return false;
         } else {
             cout << "matching " << token.getValue() << " failed" << endl;
-            stack.push(current_symbol);
+//            stack.push(current_symbol);
         }
+    } else {
+        if (current_symbol.getSymbol() == "$") {
+            //parsing done successfully
+            cout << "parsing done successfully" << endl;
+            return false;
+        }
+        cout << "match '" << token.getValue() << "'" << endl;
     }
 
     return true;
