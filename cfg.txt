@@ -1,2 +1,1 @@
-                                     # METHOD_BODY = STATEMENT_LIST
-           # STATEMENT_LIST = STATEMENT | STATEMENT_LIST STATEMENT
+# DECLARATION = PRIMITIVE_TYPE 'id' | \L

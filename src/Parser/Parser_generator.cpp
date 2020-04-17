@@ -105,10 +105,14 @@ void Parser_generator::handleRHS(string s, string from){
     string token;
         while ((pos = s.find(delimiter)) != std::string::npos) {
             token = s.substr(0, pos);
-            handleToken(token, from);
+            if(token.length() != 0){
+                handleToken(token, from);
+            }
             s.erase(0, pos + delimiter.length());
         }
-        handleToken(s, from);
+        if(s.length() != 0){
+            handleToken(s, from);
+        }
 }
 void Parser_generator::handleToken(string s, string from){
         s = trim(s);
