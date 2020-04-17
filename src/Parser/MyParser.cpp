@@ -58,15 +58,14 @@ bool MyParser::parse(Token token) {
             return false;
         } else {
             cout << "matching " << token.getValue() << " failed" << endl;
-//            stack.push(current_symbol);
         }
     } else {
+        cout << "match '" << token.getValue() << "'" << endl;
         if (current_symbol.getSymbol() == "$") {
             //parsing done successfully
             cout << "parsing done successfully" << endl;
             return false;
         }
-        cout << "match '" << token.getValue() << "'" << endl;
     }
 
     return true;

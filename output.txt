@@ -5,4 +5,3 @@ id --> id
 * --> mulop
 id --> id
 ) --> )
-$ --> Lexical error

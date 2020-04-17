@@ -25,8 +25,10 @@ public:
     void setTerminals(map<string, int> terminals);
     void setNonTerminals(map<string, int> nonTerminals);
     void printTable();
+    string printHelper(const string x, const int width);
 
-private:
+
+        private:
     Production **table;
     map <string, int> terminals;
     map <string, int> non_terminals;
