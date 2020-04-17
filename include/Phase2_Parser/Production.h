@@ -21,6 +21,10 @@ public:
 
 private:
     string from;
+public:
+    void setFrom(const string &from);
+
+private:
     vector<Symbol> to;
 
 };

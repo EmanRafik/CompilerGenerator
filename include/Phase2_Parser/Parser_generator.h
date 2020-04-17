@@ -19,8 +19,12 @@ class Parser_generator
         Parser_generator();
         void read_rules(string file_name);
         void generate_parser();
+        void read_cfg(string file_name);
 
     private:
+        string handleLHS(string s, int i);
+        void handleRHS(string s, string from);
+        void handleToken(string s, string from);
         void convert_grammar_to_LL1();
         void compute_first_and_follow();
         set<string> non_terminal_first(int non_terminal, vector<Production> productions, bool computed[]);

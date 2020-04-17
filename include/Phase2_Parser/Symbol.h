@@ -18,6 +18,12 @@ public:
 
 private:
     string symbol;
+public:
+    void setSymbol(const string &symbol);
+
+    void setIsTerminal(bool isTerminal);
+
+private:
     bool is_terminal;
 
 };

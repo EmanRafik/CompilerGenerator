@@ -9,6 +9,11 @@
 #include "Symbol.h"
 #include "Production.h"
 #include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <functional>
+#include <cctype>
+#include <locale>
 
 using namespace std;
 
@@ -34,7 +39,130 @@ void Parser_generator::convert_grammar_to_LL1()
 {
 
 }
+// trim from start
+static inline std::string &ltrim(std::string &s) {
+    s.erase(s.begin(), std::find_if(s.begin(), s.end(),
+                                    std::not1(std::ptr_fun<int, int>(std::isspace))));
+    return s;
+}
 
+// trim from end
+static inline std::string &rtrim(std::string &s) {
+    s.erase(std::find_if(s.rbegin(), s.rend(),
+                         std::not1(std::ptr_fun<int, int>(std::isspace))).base(), s.end());
+    return s;
+}
+
+// trim from both ends
+static inline std::string &trim(std::string &s) {
+    return ltrim(rtrim(s));
+}
+void Parser_generator::read_cfg(string file_name){
+    fstream file;
+    file.open(file_name, ios::in);
+    if (file.is_open())
+    {
+        string line;
+        int i = 0;
+        string lastNonTerminal = "";
+        while (getline(file, line))
+        {
+           line = trim(line);
+            cout<<line<<endl;
+            string equalDelimiter = "=";
+            int pos = 0;
+            string lhs = "";
+            //if this is a new production rule split it on the first '='
+            if (line.length()!=0 && line[0] == '#' && (pos = line.find(equalDelimiter)) != std::string::npos) {
+                lhs = line.substr(0, pos);
+                std::cout << lhs << std::endl;
+                line.erase(0, pos + equalDelimiter.length());
+            }
+            //if the previous was a new production rule then handle LHS and RHS
+            if(lhs.length() != 0){
+                string nonTerminal = handleLHS(lhs, i);
+                lastNonTerminal = nonTerminal;
+                i++;
+                handleRHS(line , lastNonTerminal);
+            }
+            //the production rule is expanded and this is a part of the RHS
+            else{
+                handleRHS(line, lastNonTerminal);
+            }
+        }
+    }
+}
+string Parser_generator::handleLHS(string s, int i){
+    string nonTerminal = s.substr(1); //eliminate # character
+    nonTerminal = trim(nonTerminal);
+    non_terminals_map.insert(pair<string,int>(nonTerminal,i));
+    Symbol *nonTerminalSymbol = new Symbol(nonTerminal, false); //leave it for now
+    return nonTerminal;
+}
+void Parser_generator::handleRHS(string s, string from){
+    string delimiter = "|";
+    int pos = 0;
+    string token;
+        while ((pos = s.find(delimiter)) != std::string::npos) {
+            token = s.substr(0, pos);
+            handleToken(token, from);
+            s.erase(0, pos + delimiter.length());
+        }
+        handleToken(s, from);
+}
+void Parser_generator::handleToken(string s, string from){
+        s = trim(s);
+        string delimiter = " ";
+        int pos = 0;
+        string token;
+        Production production;
+        production.setFrom(from);
+    while ((pos = s.find(delimiter)) != std::string::npos) {
+        token = s.substr(0, pos);
+        token = trim(token);
+        Symbol symbol;
+        if(token.length() > 2 && token[0] == '\'') { //a terminal will be inside single quotes
+            int pos = token.length() - 1;
+            token = token.substr(1, pos);
+            terminals.insert(token);
+            symbol.setSymbol(token);
+            symbol.setIsTerminal(true);
+            production.addSymbol(symbol);
+        }
+        else if(token == "\\L"){ //epsilon
+            symbol.setSymbol(" ");
+            symbol.setIsTerminal(true);
+            production.addSymbol(symbol);
+        }
+        else{ //non terminal
+            symbol.setSymbol(token);
+            symbol.setIsTerminal(false);
+            production.addSymbol(symbol);
+        }
+        s.erase(0, pos + delimiter.length());
+    }
+    token = trim(s);
+    Symbol symbol;
+    if(token.length() > 2 && token[0] == '\'') { //a terminal will be inside single quotes
+        int pos = token.length() - 1;
+        token = token.substr(1, pos);
+        terminals.insert(token);
+        symbol.setSymbol(token);
+        symbol.setIsTerminal(true);
+        production.addSymbol(symbol);
+    }
+    else if(token == "\\L"){ //epsilon
+        symbol.setSymbol(" ");
+        symbol.setIsTerminal(true);
+        production.addSymbol(symbol);
+    }
+    else{ //non terminal
+        symbol.setSymbol(token);
+        symbol.setIsTerminal(false);
+        production.addSymbol(symbol);
+    }
+    grammar.push_back(production);
+};
 void Parser_generator::compute_first_and_follow()
 {
     int non_terminals_count = non_terminals_map.size();
@@ -252,3 +380,4 @@ void Parser_generator::construct_parser_table()
 {
 
 }
+

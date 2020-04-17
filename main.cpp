@@ -18,7 +18,7 @@ int main()
 //    Parser_generator *pg = new Parser_generator();
 //    pg->generate_parser();
 
-    Lexical_analyzer_generator *generator = new Lexical_analyzer_generator();
+   /* Lexical_analyzer_generator *generator = new Lexical_analyzer_generator();
     generator->read_lexical_rules("rules.txt");
     generator->generate_lexical_analyzer();
     Lexical_analyzer *lexical = new Lexical_analyzer();
@@ -144,6 +144,9 @@ int main()
     while (!error_flag) {
         error_flag = !myParser->parse(t);
     }
+    */
+   Parser_generator *generator = new Parser_generator();
+   generator->read_cfg("cfg.txt");
 
     return 0;
 }

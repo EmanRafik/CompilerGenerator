@@ -23,3 +23,7 @@ string Production::getFrom() {
 std::vector <Symbol> Production::getTo() {
     return to;
 }
+
+void Production::setFrom(const string &from) {
+    Production::from = from;
+}
