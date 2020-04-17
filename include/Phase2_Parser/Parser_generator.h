@@ -36,6 +36,7 @@ class Parser_generator
         map<int, vector<Production>> non_terminals;
         map<int,set<string>> first_sets;
         map<int, set<string>> follow_sets;
+        map<string, vector<Production>> recursionMap;
 
 };
 #endif //COMPILERGENERATOR_PARSER_GENERATOR_H

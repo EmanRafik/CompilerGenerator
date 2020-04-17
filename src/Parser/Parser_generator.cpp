@@ -47,9 +47,12 @@ void Parser_generator::convert_grammar_to_LL1() {
                     Symbol symbol;
                     symbol.setSymbol(grammar[j].getFrom() + "~");
                     symbol.setIsTerminal(false);
-                    grammar[j].addSymbol(symbol);
+                    if(grammar[j].getTo()[0].getSymbol() != " "){
+                        grammar[j].addSymbol(symbol);
+                    }
                 }
             }
+            updated.erase(grammar[i].getFrom());
             i--;
         } else if (!grammar[i].getTo()[0].isTerminal()) {
             bool nonTerminalreplaced = false;
@@ -73,7 +76,7 @@ void Parser_generator::convert_grammar_to_LL1() {
                     Production p;
                     p.setFrom(from);
                     p.setTo(newVector);
-                    grammar.push_back(p);
+                    grammar.insert(grammar.begin() + i, p );
                     if(p.getFrom() == p.getTo()[0].getSymbol()){
                         leftRecursion(updated, epsilonSet, symbol, grammar.size()-1);
                         for(int k = 0; k<grammar.size();k++) {
@@ -81,9 +84,12 @@ void Parser_generator::convert_grammar_to_LL1() {
                                 Symbol symbol;
                                 symbol.setSymbol(grammar[j].getFrom() + "~");
                                 symbol.setIsTerminal(false);
-                                grammar[k].addSymbol(symbol);
+                                if(grammar[k].getTo()[0].getSymbol() != " "){
+                                    grammar[k].addSymbol(symbol);
+                                }
                             }
                         }
+                        updated.erase(p.getFrom());
                     }
                     i--;
                 }
@@ -240,6 +246,16 @@ void Parser_generator::handleToken(string s, string from) {
         symbol.setSymbol(token);
         symbol.setIsTerminal(false);
         production.addSymbol(symbol);
+    }
+    if(!recursionMap.count(from)){
+        vector<Production> pVector;
+        pVector.push_back(production);
+        recursionMap.insert(pair<string,vector<Production>>(from,pVector));
+    }
+    else{
+        vector<Production> pVector = recursionMap.at(from);
+        pVector.push_back(production);
+        recursionMap.insert(pair<string,vector<Production>>(from,pVector));
     }
     grammar.push_back(production);
 };
