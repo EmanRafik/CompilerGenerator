@@ -147,6 +147,7 @@ int main()
     */
    Parser_generator *generator = new Parser_generator();
    generator->read_cfg("cfg.txt");
+   generator->convert_grammar_to_LL1();
 
     return 0;
 }

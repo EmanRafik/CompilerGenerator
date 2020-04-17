@@ -26,6 +26,8 @@ public:
 
 private:
     vector<Symbol> to;
+public:
+    void setTo(const vector<Symbol> &to);
 
 };
 

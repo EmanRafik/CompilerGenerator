@@ -1,1 +1,4 @@
-# DECLARATION = PRIMITIVE_TYPE 'id' | \L
+#A = A 'c' | S 'd' | 'f'
+#S= A 'a' | 'b'
+
+
