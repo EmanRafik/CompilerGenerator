@@ -33,6 +33,27 @@ void Parser_generator::generate_parser() {
 }
 
 void Parser_generator::convert_grammar_to_LL1() {
+    performLeftRecursion();
+    for(int i = 0; i<grammar.size(); i++){
+        string from = grammar[i].getFrom();
+        int index = non_terminals_map.at(from);
+        vector<Production> vec;
+        if(non_terminals.count(index)){
+            vector<Production> vec = non_terminals.at(index);
+        }
+        vec.push_back(grammar[i]);
+        non_terminals.insert(pair<int,vector<Production>>(index,vec));
+    }
+    performLeftFactoring();
+}
+
+void Parser_generator::performLeftFactoring(){
+    for(int i = 0; i < non_terminals.size(); i++) {
+
+    }
+
+}
+void Parser_generator::performLeftRecursion(){
     set<string> updated;
     set<string> epsilonSet;
     for (int i = 0; i < grammar.size(); i++) {
@@ -119,6 +140,10 @@ void Parser_generator::leftRecursion(set<string> &updated, set<string> &epsilonS
     grammar.push_back(p);
     updated.insert(grammar[i].getFrom());
     epsilonSet.insert(symbol.getSymbol());
+    int index = non_terminals_map.size();
+    if(!non_terminals_map.count(symbol.getSymbol())){
+        non_terminals_map.insert(pair<string, int>(symbol.getSymbol(),index));
+    }
     grammar.erase(grammar.begin() + i);
 }
 
@@ -146,7 +171,6 @@ void Parser_generator::read_cfg(string file_name) {
     file.open(file_name, ios::in);
     if (file.is_open()) {
         string line;
-        int i = 0;
         string lastNonTerminal = "";
         while (getline(file, line)) {
             line = trim(line);
@@ -162,9 +186,8 @@ void Parser_generator::read_cfg(string file_name) {
             }
             //if the previous was a new production rule then handle LHS and RHS
             if (lhs.length() != 0) {
-                string nonTerminal = handleLHS(lhs, i);
+                string nonTerminal = handleLHS(lhs);
                 lastNonTerminal = nonTerminal;
-                i++;
                 handleRHS(line, lastNonTerminal);
             }
                 //the production rule is expanded and this is a part of the RHS
@@ -175,9 +198,10 @@ void Parser_generator::read_cfg(string file_name) {
     }
 }
 
-string Parser_generator::handleLHS(string s, int i) {
+string Parser_generator::handleLHS(string s) {
     string nonTerminal = s.substr(1); //eliminate # character
     nonTerminal = trim(nonTerminal);
+    int i =non_terminals_map.size();
     non_terminals_map.insert(pair<string, int>(nonTerminal, i));
     Symbol *nonTerminalSymbol = new Symbol(nonTerminal, false); //leave it for now
     return nonTerminal;

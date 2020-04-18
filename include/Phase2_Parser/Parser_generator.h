@@ -22,9 +22,11 @@ class Parser_generator
         void read_cfg(string file_name);
         void convert_grammar_to_LL1();
     private:
-        string handleLHS(string s, int i);
+        string handleLHS(string s);
         void handleRHS(string s, string from);
         void handleToken(string s, string from);
+        void performLeftRecursion();
+        void performLeftFactoring();
         void leftRecursion(set<string> &updated, set<string> &epsilonSet, Symbol symbol, int i);
         void compute_first_and_follow();
         set<string> non_terminal_first(int non_terminal, vector<Production> productions, bool computed[]);
