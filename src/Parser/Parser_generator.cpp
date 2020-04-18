@@ -52,7 +52,7 @@ void Parser_generator::convert_grammar_to_LL1() {
 void Parser_generator::performLeftFactoring() {
     std::map<int, vector<Production>>::iterator mapIt = non_terminals.begin();
     while (mapIt != non_terminals.end()) {
-        int dashCount = 1;
+        int dashCount = 1; //number of dashes (levels) of factoring
         vector<Production> vec = mapIt->second;
         string from = vec[0].getFrom();
         for (int i = 0; i < vec.size(); i++) {
@@ -62,7 +62,7 @@ void Parser_generator::performLeftFactoring() {
             bool finished = false;
             bool firstInserted = false;
             Symbol symbol = vec[i].getTo()[0];
-            for (int j = i + 1; j < vec.size(); j++) {
+            for (int j = i + 1; j < vec.size(); j++) { //check for one similar symbol
                 if (vec[j].getTo()[prefixIndex].getSymbol() == symbol.getSymbol()) {
                     if (!firstInserted) {
                         firstInserted = true;
@@ -73,7 +73,7 @@ void Parser_generator::performLeftFactoring() {
             }
             while (!finished) {
                 prefixIndex++;
-                if (!symSet.empty() && symSet.begin()->getTo().size() > prefixIndex) {
+                if (!symSet.empty() && symSet.begin()->getTo().size() > prefixIndex) { //check for longest common prefix
                     Symbol symbol1 = symSet.begin()->getTo()[prefixIndex];
                     for (Production p : symSet) {
                         if (p.getTo().size() <= prefixIndex ||
@@ -89,13 +89,13 @@ void Parser_generator::performLeftFactoring() {
             }
             Symbol newSym;
             newSym.setSymbol(from);
-            for(int l =0 ;l<dashCount;l++){
+            for(int l =0 ;l<dashCount;l++){ //create the new symbol for factoring
                 string s = newSym.getSymbol();
                 s += "*";
                 newSym.setSymbol(s);
             }
             newSym.setIsTerminal(false);
-            for (int z = 0; z < vec.size(); z++) {
+            for (int z = 0; z < vec.size(); z++) { //delete the productions that contain left factoring
                 bool del = false;
                 for (int k = 0; k < symSet.size(); k++) {
                     if (checkEqualProductions(symSet[k], vec[z])) {
@@ -110,8 +110,9 @@ void Parser_generator::performLeftFactoring() {
                 }
             }
             if(symSet.size() > 0){
-                dashCount++;
+                dashCount++; //for next iteration
                 non_terminals[mapIt->first] = vec;
+                //create a new production and add it to the end of the updated one
                 Production newProd;
                 newProd.setFrom(from);
                 for(int k=0; k<symSet[0].getTo().size(); k++){
@@ -124,7 +125,7 @@ void Parser_generator::performLeftFactoring() {
                     non_terminals[mapIt->first].push_back(newProd);
                 }
                 vector<Production> newVector;
-                for (Production p : symSet) {
+                for (Production p : symSet) { //create a new production for every element with that prefix
                     Production smallProduction;
                     smallProduction.setFrom(newSym.getSymbol());
                     for (int r = prefixIndex; r < p.getTo().size(); r++) {
@@ -138,7 +139,7 @@ void Parser_generator::performLeftFactoring() {
                     }
                     newVector.push_back(smallProduction);
                 }
-                if(newProd.getTo().size() > 0){
+                if(newProd.getTo().size() > 0){ //add the new production to the map
                     int index = non_terminals_map.size();
                     non_terminals_map[newSym.getSymbol()] = index;
                     non_terminals[index] = newVector;
@@ -151,6 +152,7 @@ void Parser_generator::performLeftFactoring() {
 }
 
 bool Parser_generator::checkEqualProductions(Production p1, Production p2) {
+    //check if two productions are equal
     if (p1.getTo().size() != p2.getTo().size()) {
         return false;
     }
@@ -170,7 +172,7 @@ void Parser_generator::performLeftRecursion() {
         symbol.setSymbol(grammar[i].getFrom() + "~");
         symbol.setIsTerminal(false);
         string firstTo = grammar[i].getTo()[0].getSymbol();
-        if (grammar[i].getFrom() == firstTo) {
+        if (grammar[i].getFrom() == firstTo) { //immedate
             leftRecursion(updated, epsilonSet, symbol, i);
             for (int j = 0; j < grammar.size(); j++) {
                 if (updated.count(grammar[j].getFrom())) {
@@ -184,7 +186,7 @@ void Parser_generator::performLeftRecursion() {
                 }
             }
             i--;
-        } else if (!grammar[i].getTo()[0].isTerminal()) {
+        } else if (!grammar[i].getTo()[0].isTerminal()) { //sub with the non terminal's production rules
             bool nonTerminalreplaced = false;
             vector<Symbol> clone = grammar[i].getTo();
             string from = grammar[i].getFrom();
@@ -204,6 +206,7 @@ void Parser_generator::performLeftRecursion() {
                     p.setFrom(from);
                     p.setTo(newVector);
                     grammar.insert(grammar.begin() + i, p);
+                    //test the newly substituted production for left recursion
                     if (p.getFrom() == p.getTo()[0].getSymbol()) {
                         leftRecursion(updated, epsilonSet, symbol, i);
                     }
@@ -223,6 +226,7 @@ void Parser_generator::performLeftRecursion() {
             }
         }
     }
+    //add epsilon productions to the newly added symbols
     for (int i = 0; i < grammar.size(); i++) {
         if (epsilonSet.count(grammar[i].getFrom())) {
             epsilonSet.erase(grammar[i].getFrom());
@@ -238,6 +242,7 @@ void Parser_generator::performLeftRecursion() {
 }
 
 void Parser_generator::leftRecursion(set<string> &updated, set<string> &epsilonSet, Symbol symbol, int i) {
+    //create a new production rule for the new symbol
     Production p;
     p.setFrom(symbol.getSymbol());
     vector<Symbol> vec = grammar[i].getTo();
@@ -253,7 +258,7 @@ void Parser_generator::leftRecursion(set<string> &updated, set<string> &epsilonS
     if (!non_terminals_map.count(symbol.getSymbol())) {
         non_terminals_map.insert(pair<string, int>(symbol.getSymbol(), index));
     }
-    grammar.erase(grammar.begin() + i);
+    grammar.erase(grammar.begin() + i); //remove the production that contains the recursion
 }
 
 // trim from start
