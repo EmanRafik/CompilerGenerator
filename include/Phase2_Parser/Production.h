@@ -7,6 +7,7 @@
 
 #include <string>
 #include <vector>
+#include<set>
 #include "Phase2_Parser/Symbol.h"
 
 using namespace std;
@@ -18,6 +19,8 @@ public:
     void addSymbol (Symbol s);
     string getFrom();
     vector<Symbol> getTo() ;
+    set<string> get_first();
+    void add_first(set<string> s);
 
 private:
     string from;
@@ -26,6 +29,7 @@ public:
 
 private:
     vector<Symbol> to;
+    set<string> first;
 public:
     void setTo(const vector<Symbol> &to);
 

@@ -437,6 +437,9 @@ set<string> Parser_generator::non_terminal_first(int non_terminal, vector<Produc
         Symbol first_symbol = production.getTo()[0];
         if (first_symbol.isTerminal()) {
             first.insert(first_symbol.getSymbol());
+            set<string> temp;
+            temp.insert(first_symbol.getSymbol());
+            production.add_first(temp);
         } else {
             vector<Symbol> to_vector = production.getTo();
             bool add_epsilon = true;
@@ -444,6 +447,9 @@ set<string> Parser_generator::non_terminal_first(int non_terminal, vector<Produc
                 Symbol symbol = to_vector[i];
                 if (symbol.isTerminal()) {
                     first.insert(symbol.getSymbol());
+                    set<string> temp;
+                    temp.insert(symbol.getSymbol());
+                    production.add_first(temp);
                     add_epsilon = false;
                     break;
                 }
@@ -467,6 +473,7 @@ set<string> Parser_generator::non_terminal_first(int non_terminal, vector<Produc
                             vector<Production> p = it2->second;
                             set<string> s = non_terminal_first(mapping, p, computed);
                             first.insert(s.begin(), s.end());
+                            production.add_first(s);
                             if (s.find(epsilon) == s.end()) {
                                 add_epsilon = false;
                                 break;
@@ -476,6 +483,9 @@ set<string> Parser_generator::non_terminal_first(int non_terminal, vector<Produc
                 }
             }
             if (add_epsilon) {
+                set<string> temp;
+                temp.insert(epsilon);
+                production.add_first(temp);
                 first.insert(epsilon);
             }
         }
@@ -564,6 +574,6 @@ set<string> Parser_generator::non_terminal_follow(string non_terminal, int non_t
 }
 
 void Parser_generator::construct_parser_table() {
-    //Parser_table *table = new Parser_table(non_terminals,first_sets,follow_sets);
+    Parser_table *table = new Parser_table(non_terminals_map, non_terminals, first_sets,follow_sets);
 }
 

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1587074848 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\main.cpp
+1587223234 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\main.cpp
 	<iostream>
 	"Phase1_LexicalAnalyzer/DFA.h"
 	"Phase1_LexicalAnalyzer/Lexical_analyzer_generator.h"
@@ -357,12 +357,13 @@
 	<string>
 	"DFA.h"
 
-1587036439 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase2_parser\production.h
+1587227307 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase2_parser\production.h
 	<string>
 	<vector>
+	<set>
 	"Phase2_Parser/Symbol.h"
 
-1586986317 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase2_parser\symbol.h
+1587223234 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase2_parser\symbol.h
 	<string>
 
 1586950119 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexicalanalyzer\dfa.cpp
@@ -438,17 +439,18 @@
 	"Phase1_LexicalAnalyzer/Token.h"
 	<string>
 
-1587036851 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\myparser.cpp
+1587148338 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\myparser.cpp
 	<iostream>
 	"Phase2_Parser/Parser_table.h"
 	"Phase2_Parser/Symbol.h"
 	"Phase2_Parser/MyParser.h"
 	"Phase2_Parser/Production.h"
 
-1587036439 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase2_parser\parser_table.h
+1587223234 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase2_parser\parser_table.h
 	<map>
 	<string>
 	<vector>
+	<set>
 	"Symbol.h"
 	"Production.h"
 
@@ -463,15 +465,17 @@
 
 1586978684 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase2_parser\non_terminal.h
 
-1587036439 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\parser_table.cpp
+1587223234 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\parser_table.cpp
 	<iostream>
+	<sstream>
 	"Production.h"
 	"Parser_table.h"
 
-1587036439 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\production.cpp
+1587227307 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\production.cpp
+	<set>
 	"Phase2_Parser/Production.h"
 
-1587036439 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\symbol.cpp
+1587223234 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\symbol.cpp
 	<string>
 	"Phase2_Parser/Symbol.h"
 
@@ -651,15 +655,16 @@
 	<string>
 	"Phase2_Parser/Symbol.h"
 
-1587073468 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase2_parser\parser_generator.h
+1587226586 d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\include\phase2_parser\parser_generator.h
 	<vector>
 	<string>
 	<map>
 	<set>
 	"Phase2_Parser/Production.h"
 
-1587076035 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\parser_generator.cpp
+1587227274 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\parser_generator.cpp
 	"Phase2_Parser/Parser_generator.h"
+	"Phase2_Parser/Parser_table.h"
 	<vector>
 	<string>
 	<map>
@@ -667,4 +672,9 @@
 	"Symbol.h"
 	"Production.h"
 	<iostream>
+	<fstream>
+	<algorithm>
+	<functional>
+	<cctype>
+	<locale>
 
