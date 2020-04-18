@@ -10,8 +10,7 @@
 Parser_table::Parser_table() {
 }
 
-Parser_table::Parser_table(map <string, int> non_terminals, map <string, int> terminals) {
-    this->terminals = terminals;
+Parser_table::Parser_table(map <string, int> non_terminals, map<int, set<string>> first_sets, map<int, set<string>> follow_sets) {
     this->non_terminals = non_terminals;
 
     this->table = new Production *[non_terminals.size()];
@@ -86,4 +85,8 @@ string Parser_table::printHelper(const string x, const int width) {
     ss.width(width);     // set  width around displayed #
     ss << x;
     return ss.str();
+}
+
+void Parser_table::build_table(){
+
 }

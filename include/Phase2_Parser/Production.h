@@ -17,11 +17,17 @@ public:
     Production(string from);
     void addSymbol (Symbol s);
     string getFrom();
-    vector<Symbol> getTo();
+    vector<Symbol> getTo() ;
 
 private:
     string from;
+public:
+    void setFrom(const string &from);
+
+private:
     vector<Symbol> to;
+public:
+    void setTo(const vector<Symbol> &to);
 
 };
 

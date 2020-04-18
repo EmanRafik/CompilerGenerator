@@ -22,3 +22,11 @@ bool Symbol::isTerminal() {
     return is_terminal;
 }
 
+void Symbol::setSymbol(const string &symbol) {
+    Symbol::symbol = symbol;
+}
+
+void Symbol::setIsTerminal(bool isTerminal) {
+    is_terminal = isTerminal;
+}
+

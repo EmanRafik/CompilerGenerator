@@ -8,6 +8,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <set>
 #include "Symbol.h"
 #include "Production.h"
 
@@ -16,7 +17,7 @@ using namespace std;
 class Parser_table {
 public:
     Parser_table();
-    Parser_table(map <string, int> terminals, map <string, int> non_terminals);
+    Parser_table(map <string, int> non_terminals, map<int, set<string>> first_sets, map<int, set<string>> follow_sets);
     void addTerminal (Production p);
     void addNonTerminal (Production p);
     Production **getTable();
@@ -26,12 +27,14 @@ public:
     void setNonTerminals(map<string, int> nonTerminals);
     void printTable();
     string printHelper(const string x, const int width);
+    void build_table();
 
-
-        private:
+private:
     Production **table;
     map <string, int> terminals;
     map <string, int> non_terminals;
+    map<int, set<string>> first_sets;
+    map<int, set<string>> follow_sets;
 
 };
 

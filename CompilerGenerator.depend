@@ -122,15 +122,18 @@
 	<string>
 	<vector>
 
-1586988233 source:c:\users\bcc\desktop\compiler generator\compilergenerator\main.cpp
+1587222378 source:c:\users\bcc\desktop\compiler generator\compilergenerator\main.cpp
 	<iostream>
 	"Phase1_LexicalAnalyzer/DFA.h"
 	"Phase1_LexicalAnalyzer/Lexical_analyzer_generator.h"
 	"Phase1_LexicalAnalyzer/Lexical_analyzer.h"
 	"Phase1_LexicalAnalyzer/NFA.h"
 	<vector>
-	"Phase2_Parser/Production.h"
-	"Phase2_Parser/Symbol.h"
+	"Phase2_Parser/MyParser.h"
+	"Phase2_Parser/Parser_table.h"
+	"Production.h"
+	"Symbol.h"
+	"Parser_generator.h"
 
 1585680010 c:\users\bcc\desktop\compiler generator\compilergenerator\include\dfa.h
 	<vector>
@@ -472,24 +475,33 @@
 	<string>
 	"Phase2_Parser/Symbol.h"
 
-1586988388 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\parser\myparser.cpp
+1587156788 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\parser\myparser.cpp
 	<iostream>
 	"Phase2_Parser/Parser_table.h"
 	"Phase2_Parser/Symbol.h"
 	"Phase2_Parser/MyParser.h"
 	"Phase2_Parser/Production.h"
 
-1586988406 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\parser\parser_generator.cpp
+1587209808 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\parser\parser_generator.cpp
 	"Phase2_Parser/Parser_generator.h"
 	<vector>
 	<string>
 	<map>
 	<set>
-	"Phase2_Parser/Production.h"
+	"Symbol.h"
+	"Production.h"
+	<iostream>
+	<fstream>
+	<algorithm>
+	<functional>
+	<cctype>
+	<locale>
 
-1586988412 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\parser\parser_table.cpp
-	"Phase2_Parser/Production.h"
-	"Phase2_Parser/Parser_table.h"
+1587156788 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\parser\parser_table.cpp
+	<iostream>
+	<sstream>
+	"Production.h"
+	"Parser_table.h"
 
 1586987778 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase1_lexicalanalyzer\dfa.h
 	<vector>
@@ -530,12 +542,12 @@
 	<string>
 	"DFA.h"
 
-1586988388 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase2_parser\production.h
+1587209808 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase2_parser\production.h
 	<string>
 	<vector>
 	"Phase2_Parser/Symbol.h"
 
-1586987778 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase2_parser\symbol.h
+1587209808 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase2_parser\symbol.h
 	<string>
 
 1586987779 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexicalanalyzer\dfa.cpp
@@ -544,7 +556,7 @@
 	<sstream>
 	"Phase1_LexicalAnalyzer/DFA.h"
 
-1586987779 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexicalanalyzer\lexical_analyzer.cpp
+1587156788 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexicalanalyzer\lexical_analyzer.cpp
 	"Phase1_LexicalAnalyzer/Lexical_analyzer.h"
 	"Phase1_LexicalAnalyzer/DFA.h"
 	<fstream>
@@ -552,7 +564,7 @@
 	<iostream>
 	<Phase1_LexicalAnalyzer/Lexical_analyzer.h>
 
-1586987779 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexicalanalyzer\lexical_analyzer_generator.cpp
+1587156788 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\lexicalanalyzer\lexical_analyzer_generator.cpp
 	"Phase1_LexicalAnalyzer/Lexical_analyzer_generator.h"
 	<map>
 	"Phase1_LexicalAnalyzer/NFA.h"
@@ -611,10 +623,11 @@
 	"Phase1_LexicalAnalyzer/Token.h"
 	<string>
 
-1586987778 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase2_parser\parser_table.h
+1587222396 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase2_parser\parser_table.h
 	<map>
 	<string>
 	<vector>
+	<set>
 	"Symbol.h"
 	"Production.h"
 
@@ -624,17 +637,17 @@
 	"Parser_table.h"
 	"Symbol.h"
 
-1586987778 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase2_parser\parser_generator.h
+1587209808 c:\users\bcc\desktop\compiler generator\compilergenerator\include\phase2_parser\parser_generator.h
 	<vector>
 	<string>
 	<map>
 	<set>
 	"Phase2_Parser/Production.h"
 
-1586988416 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\parser\production.cpp
+1587209808 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\parser\production.cpp
 	"Phase2_Parser/Production.h"
 
-1586988429 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\parser\symbol.cpp
+1587209808 source:c:\users\bcc\desktop\compiler generator\compilergenerator\src\parser\symbol.cpp
 	<string>
 	"Phase2_Parser/Symbol.h"
 
