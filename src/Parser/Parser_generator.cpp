@@ -42,70 +42,67 @@ void Parser_generator::convert_grammar_to_LL1() {
         string firstTo = grammar[i].getTo()[0].getSymbol();
         if (grammar[i].getFrom() == firstTo) {
             leftRecursion(updated, epsilonSet, symbol, i);
-            for(int j = 0; j<grammar.size();j++) {
+            for (int j = 0; j < grammar.size(); j++) {
                 if (updated.count(grammar[j].getFrom())) {
                     Symbol symbol;
                     symbol.setSymbol(grammar[j].getFrom() + "~");
                     symbol.setIsTerminal(false);
-                    if(grammar[j].getTo()[0].getSymbol() != " "){
+                    if (grammar[j].getTo()[0].getSymbol() != " " &&
+                        grammar[j].getTo()[grammar[j].getTo().size() - 1].getSymbol() != symbol.getSymbol()) {
                         grammar[j].addSymbol(symbol);
                     }
                 }
             }
-            updated.erase(grammar[i].getFrom());
             i--;
         } else if (!grammar[i].getTo()[0].isTerminal()) {
             bool nonTerminalreplaced = false;
             vector<Symbol> clone = grammar[i].getTo();
             string from = grammar[i].getFrom();
             clone.erase(clone.begin());
-            if(clone[clone.size() - 1 ].getSymbol() == from + "~"){
-                clone.erase(clone.end());
-            }
             for (int j = 0; j < i; j++) {
                 if (grammar[j].getFrom() == firstTo) {
-                    if(!nonTerminalreplaced){
+                    if (!nonTerminalreplaced) {
                         nonTerminalreplaced = true;
                         grammar.erase(grammar.begin() + i);
                         i++;
                     }
                     vector<Symbol> newVector = grammar[j].getTo();
-                    for(int k=0 ; k<clone.size();k++){
+                    for (int k = 0; k < clone.size(); k++) {
                         newVector.push_back(clone[k]);
                     }
                     Production p;
                     p.setFrom(from);
                     p.setTo(newVector);
-                    grammar.insert(grammar.begin() + i, p );
-                    if(p.getFrom() == p.getTo()[0].getSymbol()){
-                        leftRecursion(updated, epsilonSet, symbol, grammar.size()-1);
-                        for(int k = 0; k<grammar.size();k++) {
-                            if (updated.count(grammar[k].getFrom())) {
-                                Symbol symbol;
-                                symbol.setSymbol(grammar[j].getFrom() + "~");
-                                symbol.setIsTerminal(false);
-                                if(grammar[k].getTo()[0].getSymbol() != " "){
-                                    grammar[k].addSymbol(symbol);
-                                }
+                    grammar.insert(grammar.begin() + i, p);
+                    if (p.getFrom() == p.getTo()[0].getSymbol()) {
+                        leftRecursion(updated, epsilonSet, symbol, i);
+                    }
+                    for (int k = 0; k < grammar.size(); k++) {
+                        if (updated.count(grammar[k].getFrom())) {
+                            Symbol symbol;
+                            symbol.setSymbol(grammar[k].getFrom() + "~");
+                            symbol.setIsTerminal(false);
+                            if (grammar[k].getTo()[0].getSymbol() != " " &&
+                                grammar[k].getTo()[grammar[k].getTo().size() - 1].getSymbol() != symbol.getSymbol()) {
+                                grammar[k].addSymbol(symbol);
                             }
                         }
-                        updated.erase(p.getFrom());
                     }
                     i--;
                 }
             }
         }
     }
-    for(int i = 0; i<grammar.size();i++){
-        if(epsilonSet.count(grammar[i].getFrom())){
-                epsilonSet.erase(grammar[i].getFrom());
-                Symbol symbol;
-                symbol.setSymbol(" ");
-                symbol.setIsTerminal(true);
-                Production p;
-                p.setFrom(grammar[i].getFrom() + "~");
-                p.addSymbol(symbol);
-                grammar.push_back(p);
+    for (int i = 0; i < grammar.size(); i++) {
+        if (epsilonSet.count(grammar[i].getFrom())) {
+            epsilonSet.erase(grammar[i].getFrom());
+            Symbol symbol;
+            symbol.setSymbol(" ");
+            symbol.setIsTerminal(true);
+            Production p;
+            p.setFrom(grammar[i].getFrom());
+            p.addSymbol(symbol);
+            grammar.push_back(p);
         }
     }
 }
@@ -115,7 +112,9 @@ void Parser_generator::leftRecursion(set<string> &updated, set<string> &epsilonS
     p.setFrom(symbol.getSymbol());
     vector<Symbol> vec = grammar[i].getTo();
     vec.erase(vec.begin());
-    vec.push_back(symbol);
+    if(vec[vec.size()-1].getSymbol() != symbol.getSymbol()){
+        vec.push_back(symbol);
+    }
     p.setTo(vec);
     grammar.push_back(p);
     updated.insert(grammar[i].getFrom());
@@ -247,15 +246,14 @@ void Parser_generator::handleToken(string s, string from) {
         symbol.setIsTerminal(false);
         production.addSymbol(symbol);
     }
-    if(!recursionMap.count(from)){
+    if (!recursionMap.count(from)) {
         vector<Production> pVector;
         pVector.push_back(production);
-        recursionMap.insert(pair<string,vector<Production>>(from,pVector));
-    }
-    else{
+        recursionMap.insert(pair<string, vector<Production>>(from, pVector));
+    } else {
         vector<Production> pVector = recursionMap.at(from);
         pVector.push_back(production);
-        recursionMap.insert(pair<string,vector<Production>>(from,pVector));
+        recursionMap.insert(pair<string, vector<Production>>(from, pVector));
     }
     grammar.push_back(production);
 };
