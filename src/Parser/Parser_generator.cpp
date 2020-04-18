@@ -2,6 +2,7 @@
 // Created by DELL on 14-Apr-20.
 //
 #include "Phase2_Parser/Parser_generator.h"
+#include "Phase2_Parser/Parser_table.h"
 #include <vector>
 #include <string>
 #include <map>
@@ -563,6 +564,6 @@ set<string> Parser_generator::non_terminal_follow(string non_terminal, int non_t
 }
 
 void Parser_generator::construct_parser_table() {
-
+    //Parser_table *table = new Parser_table(non_terminals,first_sets,follow_sets);
 }
 

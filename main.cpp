@@ -18,7 +18,7 @@ int main()
 //    Parser_generator *pg = new Parser_generator();
 //    pg->generate_parser();
 
-   /* Lexical_analyzer_generator *generator = new Lexical_analyzer_generator();
+/*   Lexical_analyzer_generator *generator = new Lexical_analyzer_generator();
     generator->read_lexical_rules("rules.txt");
     generator->generate_lexical_analyzer();
     Lexical_analyzer *lexical = new Lexical_analyzer();
@@ -130,7 +130,7 @@ int main()
 
     parserTable->printTable();
 
-    MyParser *myParser = new MyParser(*parserTable, *nt1);
+/*    MyParser *myParser = new MyParser(*parserTable, *nt1);
     Token t = lexical->getNextToken();
     bool error_flag = false;
     while (t.getValue() != "$") {
@@ -143,11 +143,11 @@ int main()
     }
     while (!error_flag) {
         error_flag = !myParser->parse(t);
-    }
-    */
+    }*/
+/*
    Parser_generator *generator = new Parser_generator();
    generator->read_cfg("cfg.txt");
-   generator->convert_grammar_to_LL1();
+   generator->convert_grammar_to_LL1();*/
 
     return 0;
 }
