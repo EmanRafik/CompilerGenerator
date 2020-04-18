@@ -39,7 +39,7 @@ void Parser_generator::convert_grammar_to_LL1() {
         int index = non_terminals_map[from];
         vector<Production> vec;
         if (non_terminals.count(index)) {
-            for(Production p : non_terminals[index]){
+            for (Production p : non_terminals[index]) {
                 vec.push_back(p);
             }
         }
@@ -89,7 +89,7 @@ void Parser_generator::performLeftFactoring() {
             }
             Symbol newSym;
             newSym.setSymbol(from);
-            for(int l =0 ;l<dashCount;l++){ //create the new symbol for factoring
+            for (int l = 0; l < dashCount; l++) { //create the new symbol for factoring
                 string s = newSym.getSymbol();
                 s += "*";
                 newSym.setSymbol(s);
@@ -99,28 +99,28 @@ void Parser_generator::performLeftFactoring() {
                 bool del = false;
                 for (int k = 0; k < symSet.size(); k++) {
                     if (checkEqualProductions(symSet[k], vec[z])) {
-                        i=-1;
+                        i = -1;
                         vec.erase(vec.begin() + z);
                         del = true;
                         break;
                     }
                 }
-                if(del){
+                if (del) {
                     z--;
                 }
             }
-            if(symSet.size() > 0){
+            if (symSet.size() > 0) {
                 dashCount++; //for next iteration
                 non_terminals[mapIt->first] = vec;
                 //create a new production and add it to the end of the updated one
                 Production newProd;
                 newProd.setFrom(from);
-                for(int k=0; k<symSet[0].getTo().size(); k++){
-                    if(k<prefixIndex){
+                for (int k = 0; k < symSet[0].getTo().size(); k++) {
+                    if (k < prefixIndex) {
                         newProd.addSymbol(symSet[0].getTo()[k]);
                     }
                 }
-                if(newProd.getTo().size()>0){
+                if (newProd.getTo().size() > 0) {
                     newProd.addSymbol(newSym);
                     non_terminals[mapIt->first].push_back(newProd);
                 }
@@ -139,7 +139,7 @@ void Parser_generator::performLeftFactoring() {
                     }
                     newVector.push_back(smallProduction);
                 }
-                if(newProd.getTo().size() > 0){ //add the new production to the map
+                if (newProd.getTo().size() > 0) { //add the new production to the map
                     int index = non_terminals_map.size();
                     non_terminals_map[newSym.getSymbol()] = index;
                     non_terminals[index] = newVector;
