@@ -20,7 +20,7 @@ string Production::getFrom() {
     return from;
 }
 
-std::vector <Symbol> Production::getTo() const {
+std::vector <Symbol> Production::getTo() {
     return to;
 }
 

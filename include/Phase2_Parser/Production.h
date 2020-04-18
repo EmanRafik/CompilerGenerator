@@ -17,7 +17,7 @@ public:
     Production(string from);
     void addSymbol (Symbol s);
     string getFrom();
-    vector<Symbol> getTo() const;
+    vector<Symbol> getTo() ;
 
 private:
     string from;

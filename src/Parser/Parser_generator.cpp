@@ -34,86 +34,126 @@ void Parser_generator::generate_parser() {
 
 void Parser_generator::convert_grammar_to_LL1() {
     performLeftRecursion();
-    for(int i = 0; i<grammar.size(); i++){
+    for (int i = 0; i < grammar.size(); i++) {
         string from = grammar[i].getFrom();
-        int index = non_terminals_map.at(from);
+        int index = non_terminals_map[from];
         vector<Production> vec;
-        if(non_terminals.count(index)){
-            vector<Production> vec = non_terminals.at(index);
+        if (non_terminals.count(index)) {
+            for(Production p : non_terminals[index]){
+                vec.push_back(p);
+            }
         }
         vec.push_back(grammar[i]);
-        non_terminals.insert(pair<int,vector<Production>>(index,vec));
+        non_terminals[index] = vec;
     }
     performLeftFactoring();
 }
 
-void Parser_generator::performLeftFactoring(){
-    std::map<int,vector<Production>>::iterator mapIt = non_terminals.begin();
-    while(mapIt != non_terminals.end()){
+void Parser_generator::performLeftFactoring() {
+    std::map<int, vector<Production>>::iterator mapIt = non_terminals.begin();
+    while (mapIt != non_terminals.end()) {
         vector<Production> vec = mapIt->second;
         string from = vec[0].getFrom();
-        for(int i=0; i<vec.size(); i++){
-            set<Production> symSet;
-            int prefixIndex=0;
+        for (int i = 0; i < vec.size(); i++) {
+            vector<Production> symSet;
+            int prefixIndex = 0;
             bool finished = false;
+            bool firstInserted = false;
             Symbol symbol = vec[i].getTo()[0];
-            for(int j = i+1; j<vec.size();j++){
-                if(vec[j].getTo()[prefixIndex].getSymbol() == symbol.getSymbol()){
-                    symSet.insert(vec[i]);
-                    symSet.insert(vec[j]);
+            for (int j = i + 1; j < vec.size(); j++) {
+                if (vec[j].getTo()[prefixIndex].getSymbol() == symbol.getSymbol()) {
+                    if (!firstInserted) {
+                        firstInserted = true;
+                        symSet.push_back(vec[i]);
+                    }
+                    symSet.push_back(vec[j]);
                 }
             }
-            while(!finished){
+            while (!finished) {
                 prefixIndex++;
-                if(!symSet.empty() && symSet.begin()->getTo().size() > prefixIndex){
+                if (!symSet.empty() && symSet.begin()->getTo().size() > prefixIndex) {
                     Symbol symbol1 = symSet.begin()->getTo()[prefixIndex];
-                    for(Production p : symSet){
-                        if(p.getTo().size() <= prefixIndex || p.getTo()[prefixIndex].getSymbol() != symbol1.getSymbol()){
+                    for (Production p : symSet) {
+                        if (p.getTo().size() <= prefixIndex ||
+                            p.getTo()[prefixIndex].getSymbol() != symbol1.getSymbol()) {
                             finished = true;
                             break;
                         }
                     }
-                }
-                else{
+                } else {
                     finished = true;
                     break;
                 }
             }
             Symbol newSym;
-            newSym.setSymbol(from+"*");
+            newSym.setSymbol(from + "*");
             newSym.setIsTerminal(false);
-            for(int z=0; z<vec.size(); z++){
-                if(symSet.count(vec[z])){
-                    for(int zz=0; zz<prefixIndex; zz++){
-                        vec[z].getTo().erase(vec[z].getTo().begin());
+            for (int z = 0; z < vec.size(); z++) {
+                bool del = false;
+                for (int k = 0; k < symSet.size(); k++) {
+                    if (checkEqualProductions(symSet[k], vec[z])) {
+                        vec.erase(vec.begin() + z);
+                        del = true;
+                        break;
                     }
-                    vec[z].addSymbol(newSym);
+                }
+                if(del){
+                    z--;
                 }
             }
-            vector<Production> newVector;
-            for(Production p : symSet){
-                Production smallProduction;
-                smallProduction.setFrom(newSym.getSymbol());
-                for(int r=prefixIndex; r <p.getTo().size(); r++){
-                    smallProduction.addSymbol(p.getTo()[r]);
+            if(symSet.size() > 0){
+                non_terminals[mapIt->first] = vec;
+                Production newProd;
+                newProd.setFrom(from);
+                for(int k=0; k<symSet[0].getTo().size(); k++){
+                    if(k<prefixIndex){
+                        newProd.addSymbol(symSet[0].getTo()[k]);
+                    }
                 }
-                if(p.getTo().size() == 0){
-                    Symbol eps;
-                    eps.setSymbol(" ");
-                    eps.setIsTerminal(true);
-                    p.addSymbol(eps);
+                if(newProd.getTo().size()>0){
+                    newProd.addSymbol(newSym);
+                    non_terminals[mapIt->first].push_back(newProd);
                 }
-                newVector.push_back(p);
+                vector<Production> newVector;
+                for (Production p : symSet) {
+                    Production smallProduction;
+                    smallProduction.setFrom(newSym.getSymbol());
+                    for (int r = prefixIndex; r < p.getTo().size(); r++) {
+                        smallProduction.addSymbol(p.getTo()[r]);
+                    }
+                    if (smallProduction.getTo().size() == 0) {
+                        Symbol eps;
+                        eps.setSymbol(" ");
+                        eps.setIsTerminal(true);
+                        smallProduction.addSymbol(eps);
+                    }
+                    newVector.push_back(smallProduction);
+                }
+                if(newProd.getTo().size() > 0){
+                    int index = non_terminals_map.size();
+                    non_terminals_map[newSym.getSymbol()] = index;
+                    non_terminals[index] = newVector;
+                }
             }
-            int index = non_terminals_map.size();
-            non_terminals_map.insert(pair<string,int>(newSym.getSymbol(),index));
-            non_terminals.insert(pair<int,vector<Production>>(index,newVector));
-
         }
+        mapIt++;
     }
 
 }
-void Parser_generator::performLeftRecursion(){
+
+bool Parser_generator::checkEqualProductions(Production p1, Production p2) {
+    if (p1.getTo().size() != p2.getTo().size()) {
+        return false;
+    }
+    for (int i = 0; i < p1.getTo().size(); i++) {
+        if (p1.getTo()[i].getSymbol() != p2.getTo()[i].getSymbol()) {
+            return false;
+        }
+    }
+    return true;
+}
+
+void Parser_generator::performLeftRecursion() {
     set<string> updated;
     set<string> epsilonSet;
     for (int i = 0; i < grammar.size(); i++) {
@@ -193,7 +233,7 @@ void Parser_generator::leftRecursion(set<string> &updated, set<string> &epsilonS
     p.setFrom(symbol.getSymbol());
     vector<Symbol> vec = grammar[i].getTo();
     vec.erase(vec.begin());
-    if(vec[vec.size()-1].getSymbol() != symbol.getSymbol()){
+    if (vec[vec.size() - 1].getSymbol() != symbol.getSymbol()) {
         vec.push_back(symbol);
     }
     p.setTo(vec);
@@ -201,8 +241,8 @@ void Parser_generator::leftRecursion(set<string> &updated, set<string> &epsilonS
     updated.insert(grammar[i].getFrom());
     epsilonSet.insert(symbol.getSymbol());
     int index = non_terminals_map.size();
-    if(!non_terminals_map.count(symbol.getSymbol())){
-        non_terminals_map.insert(pair<string, int>(symbol.getSymbol(),index));
+    if (!non_terminals_map.count(symbol.getSymbol())) {
+        non_terminals_map.insert(pair<string, int>(symbol.getSymbol(), index));
     }
     grammar.erase(grammar.begin() + i);
 }
@@ -261,7 +301,7 @@ void Parser_generator::read_cfg(string file_name) {
 string Parser_generator::handleLHS(string s) {
     string nonTerminal = s.substr(1); //eliminate # character
     nonTerminal = trim(nonTerminal);
-    int i =non_terminals_map.size();
+    int i = non_terminals_map.size();
     non_terminals_map.insert(pair<string, int>(nonTerminal, i));
     Symbol *nonTerminalSymbol = new Symbol(nonTerminal, false); //leave it for now
     return nonTerminal;
