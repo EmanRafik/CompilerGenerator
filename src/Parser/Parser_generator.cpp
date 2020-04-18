@@ -52,9 +52,11 @@ void Parser_generator::convert_grammar_to_LL1() {
 void Parser_generator::performLeftFactoring() {
     std::map<int, vector<Production>>::iterator mapIt = non_terminals.begin();
     while (mapIt != non_terminals.end()) {
+        int dashCount = 1;
         vector<Production> vec = mapIt->second;
         string from = vec[0].getFrom();
         for (int i = 0; i < vec.size(); i++) {
+            vec = mapIt->second;
             vector<Production> symSet;
             int prefixIndex = 0;
             bool finished = false;
@@ -86,12 +88,18 @@ void Parser_generator::performLeftFactoring() {
                 }
             }
             Symbol newSym;
-            newSym.setSymbol(from + "*");
+            newSym.setSymbol(from);
+            for(int l =0 ;l<dashCount;l++){
+                string s = newSym.getSymbol();
+                s += "*";
+                newSym.setSymbol(s);
+            }
             newSym.setIsTerminal(false);
             for (int z = 0; z < vec.size(); z++) {
                 bool del = false;
                 for (int k = 0; k < symSet.size(); k++) {
                     if (checkEqualProductions(symSet[k], vec[z])) {
+                        i=-1;
                         vec.erase(vec.begin() + z);
                         del = true;
                         break;
@@ -102,6 +110,7 @@ void Parser_generator::performLeftFactoring() {
                 }
             }
             if(symSet.size() > 0){
+                dashCount++;
                 non_terminals[mapIt->first] = vec;
                 Production newProd;
                 newProd.setFrom(from);
