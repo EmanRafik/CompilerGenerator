@@ -144,10 +144,9 @@ int main()
     while (!error_flag) {
         error_flag = !myParser->parse(t);
     }*/
-/*
    Parser_generator *generator = new Parser_generator();
    generator->read_cfg("cfg.txt");
-   generator->convert_grammar_to_LL1();*/
+   generator->convert_grammar_to_LL1();
 
     return 0;
 }

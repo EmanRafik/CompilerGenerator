@@ -10,8 +10,11 @@
 Parser_table::Parser_table() {
 }
 
-Parser_table::Parser_table(map <string, int> non_terminals, map<int, set<string>> first_sets, map<int, set<string>> follow_sets) {
+Parser_table::Parser_table(map <string, int> non_terminals,map<int, vector<Production>> productions, map<int, set<string>> first_sets, map<int, set<string>> follow_sets) {
     this->non_terminals = non_terminals;
+    this->productions = productions;
+    this-> first_sets = first_sets;
+    this->follow_sets = follow_sets;
 
     this->table = new Production *[non_terminals.size()];
     for (int i = 0; i < non_terminals.size(); i++)
@@ -88,5 +91,40 @@ string Parser_table::printHelper(const string x, const int width) {
 }
 
 void Parser_table::build_table(){
-
+    Symbol *synch = new Symbol("synch", true);
+    Symbol *eps = new Symbol("epsilon", true);
+    map<string,int>::iterator it = non_terminals.begin();
+    while(it!=non_terminals.end()){
+        int i = it->second;
+        string s = it->first;
+        set<string> follow = follow_sets[i];
+        set<string> first = first_sets[i];
+        vector<Production> pro = productions[i];
+        set<string>::iterator follow_it = follow.begin();
+        if(first.count("epsilon")){
+            while(follow_it!=follow.end()){
+                Production *p = new Production(s);
+                p->addSymbol(*eps);
+                table[i][non_terminals[*follow_it]] = *p;
+                follow_it++;
+            }
+        }else{
+            while(follow_it!=follow.end()){
+                Production *p = new Production(s);
+                p->addSymbol(*synch);
+                table[i][non_terminals[*follow_it]] = *p;
+                follow_it++;
+            }
+        }
+        for(int j=0;j<pro.size();j++){
+            Production p = pro[j];
+            set<string> f = p.get_first();
+            set<string>::iterator first_it = f.begin();
+            while(first_it!=f.end()){
+                table[i][non_terminals[*first_it]] = p;
+                first_it++;
+            }
+        }
+        it++;
+    }
 }
