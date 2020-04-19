@@ -22,7 +22,8 @@ using namespace std;
 const string epsilon = "epsilon";
 
 Parser_generator::Parser_generator() {
-
+terminals.insert("$");
+terminals.insert(epsilon);
 }
 
 Parser_table Parser_generator::generate_parser(string file_name) {
@@ -314,6 +315,10 @@ string Parser_generator::handleLHS(string s) {
     string nonTerminal = s.substr(1); //eliminate # character
     nonTerminal = trim(nonTerminal);
     int i = non_terminals_map.size();
+    if(i==0){
+        firstNonTerminal.setSymbol(nonTerminal);
+        firstNonTerminal.setIsTerminal(false);
+    }
     non_terminals_map.insert(pair<string, int>(nonTerminal, i));
     Symbol *nonTerminalSymbol = new Symbol(nonTerminal, false); //leave it for now
     return nonTerminal;
@@ -626,5 +631,9 @@ Parser_table Parser_generator::construct_parser_table() {
 
     Parser_table *table = new Parser_table(non_terminals_map, terminals_map,non_terminals, first_sets,follow_sets);
     return *table;
+}
+
+const Symbol &Parser_generator::getFirstNonTerminal() const {
+    return firstNonTerminal;
 }
 

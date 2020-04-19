@@ -43,6 +43,9 @@ private:
     map<int, set<string>> first_sets;
     map<int, set<string>> follow_sets;
     map<string, vector<Production>> recursionMap;
+    Symbol firstNonTerminal;
+public:
+    const Symbol &getFirstNonTerminal() const;
 
 };
 
