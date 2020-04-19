@@ -1,7 +1,6 @@
 (
-id
-+
+or
 (
-*
-id
+and
 )
+not

@@ -1,6 +1,6 @@
-# bexpr = bexpr 'or' bterm | bterm
-# bterm = bterm 'and' bfactor | bfactor
-# bfactor = 'not' bfactor | '(' bexpr ')' | 'false'
+# exp = exp 'or' term | term
+# term = term 'and' factor | factor
+# factor = 'not' factor | '(' exp ')' | 'false'
 
 
 

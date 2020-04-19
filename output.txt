@@ -1,7 +1,6 @@
 ( --> (
-id --> id
-+ --> addop
+or --> id
 ( --> (
-* --> mulop
-id --> id
+and --> id
 ) --> )
+not --> id
