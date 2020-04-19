@@ -109,7 +109,7 @@ Parser_table Parser_table::build_table(){
             p->addSymbol(*eps);
             while(follow_it!=follow.end()){
                 table[i][terminals[*follow_it]] = *p;
-                cout << s << " " << *follow_it << " = " << p->getTo().at(0).getSymbol()<<endl;
+                //cout << s << " " << *follow_it << " = " << p->getTo().at(0).getSymbol()<<endl;
                 follow_it++;
             }
         }else{
@@ -117,7 +117,7 @@ Parser_table Parser_table::build_table(){
             p->addSymbol(*synch);
             while(follow_it!=follow.end()){
                 table[i][terminals[*follow_it]] = *p;
-                cout << s << " " << *follow_it << " = " << p->getTo().at(0).getSymbol()<<endl;
+                //cout << s << " " << *follow_it << " = " << p->getTo().at(0).getSymbol()<<endl;
                 follow_it++;
             }
         }
@@ -127,11 +127,15 @@ Parser_table Parser_table::build_table(){
             set<string>::iterator first_it = f.begin();
             while(first_it!=f.end()){
                 table[i][terminals[*first_it]] = p;
-                cout << s << " " << *first_it << " = " << p.getTo().at(0).getSymbol()<<endl;
+                //cout << s << " " << *first_it << " = " << p.getTo().at(0).getSymbol()<<endl;
                 first_it++;
             }
         }
         it++;
     }
+    /*map<string, int>::iterator iter;
+    for ( iter = terminals.begin(); iter != terminals.end(); iter++ ) {
+        cout<< iter->first<< "   ";
+    }*/
     return *this;
 }
