@@ -35,6 +35,7 @@ private:
 
     set<string> non_terminal_first(int non_terminal, vector<Production> productions, bool computed[]);
     set<string> non_terminal_follow(string non_terminal, int non_terminal_mapping, bool computed[]);
+    void add_first_to_production(int non_terminal, int production, set<string> s);
     vector<Production> grammar;
     set<string> terminals;
     map<string, int> non_terminals_map;

@@ -412,6 +412,40 @@ void Parser_generator::compute_first_and_follow() {
         it++;
     }
 
+    //test
+//    map<int, set<string>>::iterator m = first_sets.begin();
+//    while (m != first_sets.end())
+//    {
+//        cout << m->first << ":" << endl;
+//        set<string>::iterator i = m->second.begin();
+//        while (i != m->second.end())
+//        {
+//            cout << *i << " ";
+//            i++;
+//        }
+//        cout << endl;
+//        m++;
+//    }
+//    it = non_terminals.begin();
+//    while (it != non_terminals.end())
+//    {
+//        vector<Production> prods = it->second;
+//        for (unsigned int i = 0; i < prods.size(); i++)
+//        {
+//            Production pr = prods[i];
+//            cout << pr.getFrom() << ":" << endl;
+//            set<string> s = pr.get_first();
+//            set<string>::iterator s_i = s.begin();
+//            while (s_i != s.end())
+//            {
+//                cout << *s_i << " " << endl;
+//                s_i++;
+//            }
+//            cout << endl;
+//        }
+//        it++;
+//    }
+    //end test
     /**compute follow**/
     for (int i = 0; i < non_terminals_count; i++) {
         computed[i] = false;
@@ -436,7 +470,7 @@ set<string> Parser_generator::non_terminal_first(int non_terminal, vector<Produc
             first.insert(first_symbol.getSymbol());
             set<string> temp;
             temp.insert(first_symbol.getSymbol());
-            production.add_first(temp);
+            add_first_to_production(non_terminal, i, temp);
         } else {
             vector<Symbol> to_vector = production.getTo();
             bool add_epsilon = true;
@@ -446,7 +480,7 @@ set<string> Parser_generator::non_terminal_first(int non_terminal, vector<Produc
                     first.insert(symbol.getSymbol());
                     set<string> temp;
                     temp.insert(symbol.getSymbol());
-                    production.add_first(temp);
+                    add_first_to_production(non_terminal, i, temp);
                     add_epsilon = false;
                     break;
                 }
@@ -459,6 +493,7 @@ set<string> Parser_generator::non_terminal_first(int non_terminal, vector<Produc
                         if (it2 != first_sets.end()) {
                             set<string> s = it2->second;
                             first.insert(s.begin(), s.end());
+                            add_first_to_production(non_terminal, i, s);
                             if (s.find(epsilon) == s.end()) {
                                 add_epsilon = false;
                                 break;
@@ -470,7 +505,7 @@ set<string> Parser_generator::non_terminal_first(int non_terminal, vector<Produc
                             vector<Production> p = it2->second;
                             set<string> s = non_terminal_first(mapping, p, computed);
                             first.insert(s.begin(), s.end());
-                            production.add_first(s);
+                            add_first_to_production(non_terminal, i, s);
                             if (s.find(epsilon) == s.end()) {
                                 add_epsilon = false;
                                 break;
@@ -482,7 +517,7 @@ set<string> Parser_generator::non_terminal_first(int non_terminal, vector<Produc
             if (add_epsilon) {
                 set<string> temp;
                 temp.insert(epsilon);
-                production.add_first(temp);
+                add_first_to_production(non_terminal, i, temp);
                 first.insert(epsilon);
             }
         }
@@ -490,6 +525,15 @@ set<string> Parser_generator::non_terminal_first(int non_terminal, vector<Produc
     first_sets.insert(pair<int, set<string>>(non_terminal, first));
     computed[non_terminal] = true;
     return first;
+}
+
+void Parser_generator::add_first_to_production(int non_terminal, int production, set<string> s)
+{
+    map<int,vector<Production>>::iterator nt_it = non_terminals.find(non_terminal);
+    if (nt_it != non_terminals.end())
+    {
+        nt_it->second[production].add_first(s);
+    }
 }
 
 set<string> Parser_generator::non_terminal_follow(string non_terminal, int non_terminal_mapping, bool computed[]) {
