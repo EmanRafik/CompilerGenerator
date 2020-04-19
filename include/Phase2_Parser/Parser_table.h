@@ -17,7 +17,7 @@ using namespace std;
 class Parser_table {
 public:
     Parser_table();
-    Parser_table(map <string, int> non_terminals,map<int, vector<Production>> productions, map<int, set<string>> first_sets, map<int, set<string>> follow_sets);
+    Parser_table(map <string, int> non_terminals, map <string, int> terminals, map<int, vector<Production>> productions, map<int, set<string>> first_sets, map<int, set<string>> follow_sets);
     void addTerminal (Production p);
     void addNonTerminal (Production p);
     Production **getTable();
@@ -27,7 +27,7 @@ public:
     void setNonTerminals(map<string, int> nonTerminals);
     void printTable();
     string printHelper(const string x, const int width);
-    void build_table();
+    Parser_table build_table();
 
 private:
     Production **table;

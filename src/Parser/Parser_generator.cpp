@@ -25,12 +25,11 @@ Parser_generator::Parser_generator() {
 
 }
 
-void Parser_generator::read_rules(string file_name) {
-
-}
-
-void Parser_generator::generate_parser() {
-
+Parser_table Parser_generator::generate_parser(string file_name) {
+    read_cfg(file_name);
+    convert_grammar_to_LL1();
+    compute_first_and_follow();
+    return construct_parser_table();
 }
 
 void Parser_generator::convert_grammar_to_LL1() {
@@ -134,7 +133,7 @@ void Parser_generator::performLeftFactoring() {
                     }
                     if (smallProduction.getTo().size() == 0) {
                         Symbol eps;
-                        eps.setSymbol(" ");
+                        eps.setSymbol(epsilon);
                         eps.setIsTerminal(true);
                         smallProduction.addSymbol(eps);
                     }
@@ -180,7 +179,7 @@ void Parser_generator::performLeftRecursion() {
                     Symbol symbol;
                     symbol.setSymbol(grammar[j].getFrom() + "~");
                     symbol.setIsTerminal(false);
-                    if (grammar[j].getTo()[0].getSymbol() != " " &&
+                    if (grammar[j].getTo()[0].getSymbol() != epsilon &&
                         grammar[j].getTo()[grammar[j].getTo().size() - 1].getSymbol() != symbol.getSymbol()) {
                         grammar[j].addSymbol(symbol);
                     }
@@ -216,7 +215,7 @@ void Parser_generator::performLeftRecursion() {
                             Symbol symbol;
                             symbol.setSymbol(grammar[k].getFrom() + "~");
                             symbol.setIsTerminal(false);
-                            if (grammar[k].getTo()[0].getSymbol() != " " &&
+                            if (grammar[k].getTo()[0].getSymbol() != epsilon &&
                                 grammar[k].getTo()[grammar[k].getTo().size() - 1].getSymbol() != symbol.getSymbol()) {
                                 grammar[k].addSymbol(symbol);
                             }
@@ -232,7 +231,7 @@ void Parser_generator::performLeftRecursion() {
         if (epsilonSet.count(grammar[i].getFrom())) {
             epsilonSet.erase(grammar[i].getFrom());
             Symbol symbol;
-            symbol.setSymbol(" ");
+            symbol.setSymbol(epsilon);
             symbol.setIsTerminal(true);
             Production p;
             p.setFrom(grammar[i].getFrom());
@@ -289,14 +288,12 @@ void Parser_generator::read_cfg(string file_name) {
         string lastNonTerminal = "";
         while (getline(file, line)) {
             line = trim(line);
-            cout << line << endl;
             string equalDelimiter = "=";
             int pos = 0;
             string lhs = "";
             //if this is a new production rule split it on the first '='
             if (line.length() != 0 && line[0] == '#' && (pos = line.find(equalDelimiter)) != std::string::npos) {
                 lhs = line.substr(0, pos);
-                std::cout << lhs << std::endl;
                 line.erase(0, pos + equalDelimiter.length());
             }
             //if the previous was a new production rule then handle LHS and RHS
@@ -351,13 +348,13 @@ void Parser_generator::handleToken(string s, string from) {
         Symbol symbol;
         if (token.length() > 2 && token[0] == '\'') { //a terminal will be inside single quotes
             int pos = token.length() - 1;
-            token = token.substr(1, pos);
+            token = token.substr(1, pos-1);
             terminals.insert(token);
             symbol.setSymbol(token);
             symbol.setIsTerminal(true);
             production.addSymbol(symbol);
         } else if (token == "\\L") { //epsilon
-            symbol.setSymbol(" ");
+            symbol.setSymbol(epsilon);
             symbol.setIsTerminal(true);
             production.addSymbol(symbol);
         } else { //non terminal
@@ -371,13 +368,13 @@ void Parser_generator::handleToken(string s, string from) {
     Symbol symbol;
     if (token.length() > 2 && token[0] == '\'') { //a terminal will be inside single quotes
         int pos = token.length() - 1;
-        token = token.substr(1, pos);
+        token = token.substr(1, pos-1);
         terminals.insert(token);
         symbol.setSymbol(token);
         symbol.setIsTerminal(true);
         production.addSymbol(symbol);
     } else if (token == "\\L") { //epsilon
-        symbol.setSymbol(" ");
+        symbol.setSymbol(epsilon);
         symbol.setIsTerminal(true);
         production.addSymbol(symbol);
     } else { //non terminal
@@ -573,7 +570,17 @@ set<string> Parser_generator::non_terminal_follow(string non_terminal, int non_t
     return follow;
 }
 
-void Parser_generator::construct_parser_table() {
-    Parser_table *table = new Parser_table(non_terminals_map, non_terminals, first_sets,follow_sets);
+Parser_table Parser_generator::construct_parser_table() {
+    map<string, int> terminals_map;
+
+    set<string>::iterator it;
+    int i = 0;
+    for (it = terminals.begin(); it != terminals.end(); ++it) {
+        terminals_map.insert(pair<string, int>(*it,i));
+        i++;
+    }
+
+    Parser_table *table = new Parser_table(non_terminals_map, terminals_map,non_terminals, first_sets,follow_sets);
+    return *table;
 }
 

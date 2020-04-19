@@ -10,8 +10,9 @@
 Parser_table::Parser_table() {
 }
 
-Parser_table::Parser_table(map <string, int> non_terminals,map<int, vector<Production>> productions, map<int, set<string>> first_sets, map<int, set<string>> follow_sets) {
+Parser_table::Parser_table(map <string, int> non_terminals, map <string, int> terminals, map<int, vector<Production>> productions, map<int, set<string>> first_sets, map<int, set<string>> follow_sets) {
     this->non_terminals = non_terminals;
+    this->terminals = terminals;
     this->productions = productions;
     this-> first_sets = first_sets;
     this->follow_sets = follow_sets;
@@ -55,6 +56,8 @@ void Parser_table::setNonTerminals(map<string, int> nonTerminals) {
 }
 
 void Parser_table::printTable() {
+    if (terminals.size() == 0 || non_terminals.size() == 0)
+        return;
     string terminals_sorted[terminals.size()];
 
     map<string, int>::iterator it;
@@ -90,7 +93,7 @@ string Parser_table::printHelper(const string x, const int width) {
     return ss.str();
 }
 
-void Parser_table::build_table(){
+Parser_table Parser_table::build_table(){
     Symbol *synch = new Symbol("synch", true);
     Symbol *eps = new Symbol("epsilon", true);
     map<string,int>::iterator it = non_terminals.begin();
@@ -127,4 +130,5 @@ void Parser_table::build_table(){
         }
         it++;
     }
+    return *this;
 }

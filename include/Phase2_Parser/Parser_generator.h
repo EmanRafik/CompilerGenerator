@@ -10,44 +10,31 @@
 #include<map>
 #include<set>
 #include"Phase2_Parser/Production.h"
+#include "Parser_table.h"
 
 using namespace std;
 
 class Parser_generator {
 public:
     Parser_generator();
-
-    void read_rules(string file_name);
-
-    void generate_parser();
-
-    void read_cfg(string file_name);
-
-    void convert_grammar_to_LL1();
+    Parser_table generate_parser(string file_name);
 
 private:
     string handleLHS(string s);
-
     void handleRHS(string s, string from);
-
     void handleToken(string s, string from);
-
     void performLeftRecursion();
-
     void performLeftFactoring();
-
     void leftRecursion(set<string> &updated, set<string> &epsilonSet, Symbol symbol, int i);
-
     bool checkEqualProductions(Production p1, Production p2);
-
+    void read_cfg(string file_name);
+    void convert_grammar_to_LL1();
     void compute_first_and_follow();
+    Parser_table construct_parser_table();
+
 
     set<string> non_terminal_first(int non_terminal, vector<Production> productions, bool computed[]);
-
     set<string> non_terminal_follow(string non_terminal, int non_terminal_mapping, bool computed[]);
-
-    void construct_parser_table();
-
     vector<Production> grammar;
     set<string> terminals;
     map<string, int> non_terminals_map;

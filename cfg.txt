@@ -1,4 +1,6 @@
-#A = 'a' 'd' | 'a' | 'a' 'b' | 'a' 'b' 'c' | 'b'
+# bexpr = bexpr 'or' bterm | bterm
+# bterm = bterm 'and' bfactor | bfactor
+# bfactor = 'not' bfactor | '(' bexpr ')' | 'false'
 
 
 
