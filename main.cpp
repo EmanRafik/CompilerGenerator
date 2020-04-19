@@ -144,7 +144,9 @@ int main()
     }*/
 
    Parser_generator *generator = new Parser_generator();
-   generator->generate_parser("cfg.txt").build_table().printTable();
+   Parser_table tab = generator->generate_parser("cfg.txt");
+   tab.build_table();
+   //tab.printTable();
 
     return 0;
 }
