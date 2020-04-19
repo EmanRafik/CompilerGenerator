@@ -94,8 +94,6 @@ string Parser_table::printHelper(const string x, const int width) {
 }
 
 Parser_table Parser_table::build_table(){
-    Symbol *synch = new Symbol("synch", true);
-    Symbol *eps = new Symbol("epsilon", true);
     map<string,int>::iterator it = non_terminals.begin();
     while(it!=non_terminals.end()){
         int i = it->second;
@@ -104,18 +102,22 @@ Parser_table Parser_table::build_table(){
         set<string> first = first_sets[i];
         vector<Production> pro = productions[i];
         set<string>::iterator follow_it = follow.begin();
+        Symbol *synch = new Symbol("synch", true);
+        Symbol *eps = new Symbol("epsilon", true);
         if(first.count("epsilon")){
+            Production *p = new Production(s);
+            p->addSymbol(*eps);
             while(follow_it!=follow.end()){
-                Production *p = new Production(s);
-                p->addSymbol(*eps);
-                table[i][non_terminals[*follow_it]] = *p;
+                table[i][terminals[*follow_it]] = *p;
+                cout << s << " " << *follow_it << " = " << p->getTo().at(0).getSymbol()<<endl;
                 follow_it++;
             }
         }else{
+            Production *p = new Production(s);
+            p->addSymbol(*synch);
             while(follow_it!=follow.end()){
-                Production *p = new Production(s);
-                p->addSymbol(*synch);
-                table[i][non_terminals[*follow_it]] = *p;
+                table[i][terminals[*follow_it]] = *p;
+                cout << s << " " << *follow_it << " = " << p->getTo().at(0).getSymbol()<<endl;
                 follow_it++;
             }
         }
@@ -124,7 +126,8 @@ Parser_table Parser_table::build_table(){
             set<string> f = p.get_first();
             set<string>::iterator first_it = f.begin();
             while(first_it!=f.end()){
-                table[i][non_terminals[*first_it]] = p;
+                table[i][terminals[*first_it]] = p;
+                cout << s << " " << *first_it << " = " << p.getTo().at(0).getSymbol()<<endl;
                 first_it++;
             }
         }
