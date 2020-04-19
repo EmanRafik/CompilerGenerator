@@ -206,7 +206,7 @@ void Parser_generator::performLeftRecursion() {
                     Production p;
                     p.setFrom(from);
                     p.setTo(newVector);
-                    grammar.insert(grammar.begin() + i, p);
+                    grammar.insert(grammar.begin() + (i - 1), p);
                     //test the newly substituted production for left recursion
                     if (p.getFrom() == p.getTo()[0].getSymbol()) {
                         leftRecursion(updated, epsilonSet, symbol, i);

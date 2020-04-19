@@ -7,6 +7,8 @@
 #include "Production.h"
 #include "Parser_table.h"
 
+const int print_item_width = 13;
+
 Parser_table::Parser_table() {
 }
 
@@ -64,21 +66,21 @@ void Parser_table::printTable() {
     for ( it = terminals.begin(); it != terminals.end(); it++ ) {
         terminals_sorted[it->second] = it->first;
     }
-    cout << printHelper(" ", 15);
+    cout << printHelper(" ", print_item_width);
     for (int i = 0; i < terminals.size(); i++) {
-        cout << printHelper(terminals_sorted[i], 15);
+        cout << printHelper(terminals_sorted[i], print_item_width);
     }
     cout << endl;
 
     string production = "";
     for (int i = 0; i < non_terminals.size(); i++) {
-        cout << printHelper(table[i][0].getFrom(), 14) << " : ";
+        cout << printHelper(table[i][0].getFrom(), print_item_width-1) << " : ";
         for (int j = 0; j < terminals.size(); j++) {
             production = "";
             for (int k = 0; k < table[i][j].getTo().size(); k++) {
                 production += table[i][j].getTo().at(k).getSymbol();
             }
-            cout << printHelper(production, 15);
+            cout << printHelper(production, print_item_width);
         }
         cout << endl;
     }
