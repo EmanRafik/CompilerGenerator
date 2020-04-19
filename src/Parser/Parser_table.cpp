@@ -4,10 +4,11 @@
 
 #include <iostream>
 #include <sstream>
+#include <fstream>
 #include "Production.h"
 #include "Parser_table.h"
 
-const int print_item_width = 13;
+const int print_item_width = 60;
 
 Parser_table::Parser_table() {
 }
@@ -58,32 +59,43 @@ void Parser_table::setNonTerminals(map<string, int> nonTerminals) {
 }
 
 void Parser_table::printTable() {
-    if (terminals.size() == 0 || non_terminals.size() == 0)
-        return;
-    string terminals_sorted[terminals.size()];
+    ofstream file;
+    file.open("parser_table.txt", std::ofstream::trunc);
+    if (file.is_open()) {
+        if (terminals.size() == 0 || non_terminals.size() == 0)
+            return;
+        string terminals_sorted[terminals.size()];
 
-    map<string, int>::iterator it;
-    for ( it = terminals.begin(); it != terminals.end(); it++ ) {
-        terminals_sorted[it->second] = it->first;
-    }
-    cout << printHelper(" ", print_item_width);
-    for (int i = 0; i < terminals.size(); i++) {
-        cout << printHelper(terminals_sorted[i], print_item_width);
-    }
-    cout << endl;
-
-    string production = "";
-    for (int i = 0; i < non_terminals.size(); i++) {
-        cout << printHelper(table[i][0].getFrom(), print_item_width-1) << " : ";
-        for (int j = 0; j < terminals.size(); j++) {
-            production = "";
-            for (int k = 0; k < table[i][j].getTo().size(); k++) {
-                production += table[i][j].getTo().at(k).getSymbol();
-            }
-            cout << printHelper(production, print_item_width);
+        map<string, int>::iterator it;
+        for ( it = terminals.begin(); it != terminals.end(); it++ ) {
+            terminals_sorted[it->second] = it->first;
+        }
+        cout << printHelper(" ", print_item_width);
+        file << printHelper(" ", print_item_width);
+        for (int i = 0; i < terminals.size(); i++) {
+            cout << printHelper(terminals_sorted[i], print_item_width);
+            file << printHelper(terminals_sorted[i], print_item_width);
         }
         cout << endl;
+        file << endl;
+
+        string production = "";
+        for (int i = 0; i < non_terminals.size(); i++) {
+            cout << printHelper(table[i][0].getFrom(), print_item_width-1) << " : ";
+            file << printHelper(table[i][0].getFrom(), print_item_width-1) << " : ";
+            for (int j = 0; j < terminals.size(); j++) {
+                production = "";
+                for (int k = 0; k < table[i][j].getTo().size(); k++) {
+                    production += table[i][j].getTo().at(k).getSymbol();
+                }
+                cout << printHelper(production, print_item_width);
+                file << printHelper(production, print_item_width);
+            }
+            cout << endl;
+            file << endl;
+        }
     }
+    file.close();
 }
 
 string Parser_table::printHelper(const string x, const int width) {

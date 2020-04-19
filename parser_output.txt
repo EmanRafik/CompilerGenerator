@@ -1,0 +1,35 @@
+METHOD_BODY --> STATEMENT_LIST
+STATEMENT_LIST --> STATEMENTSTATEMENT_LIST~
+STATEMENT --> DECLARATION
+DECLARATION --> PRIMITIVE_TYPEid;
+PRIMITIVE_TYPE --> int
+match 'int'
+match 'id'
+match ';'
+STATEMENT_LIST~ --> ASSIGNMENTSTATEMENT_LIST~
+ASSIGNMENT --> id=EXPRESSION;
+match 'id'
+match '='
+error
+EXPRESSION --> epsilon
+match ';'
+STATEMENT_LIST~ --> if(EXPRESSION){STATEMENT}else{STATEMENT}STATEMENT_LIST~
+match 'if'
+match '('
+error
+error
+error
+EXPRESSION --> epsilon
+match ')'
+match '{'
+STATEMENT --> DECLARATION
+synch
+matching id failed
+matching = failed
+matching num failed
+error
+synch
+match '}'
+STATEMENT_LIST~ --> epsilon
+match '$'
+parsing done successfully

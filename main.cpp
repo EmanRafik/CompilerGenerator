@@ -1,18 +1,14 @@
-#include <iostream>
 #include "Phase1_LexicalAnalyzer/DFA.h"
 #include"Phase1_LexicalAnalyzer/Lexical_analyzer_generator.h"
 #include"Phase1_LexicalAnalyzer/Lexical_analyzer.h"
-#include "Phase1_LexicalAnalyzer/NFA.h"
 #include <vector>
 #include "Phase2_Parser/MyParser.h"
 #include "Phase2_Parser/Parser_table.h"
-#include "Production.h"
 #include "Symbol.h"
 #include "Parser_generator.h"
 
 
 using namespace std;
-void printNFA(NFA nfa);
 int main() {
 
     Lexical_analyzer_generator *generator = new Lexical_analyzer_generator();
