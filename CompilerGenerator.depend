@@ -1,14 +1,11 @@
 # depslib dependency file v1.0
-1587317519 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\main.cpp
-	<iostream>
+1587335534 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\main.cpp
 	"Phase1_LexicalAnalyzer/DFA.h"
 	"Phase1_LexicalAnalyzer/Lexical_analyzer_generator.h"
 	"Phase1_LexicalAnalyzer/Lexical_analyzer.h"
-	"Phase1_LexicalAnalyzer/NFA.h"
 	<vector>
 	"Phase2_Parser/MyParser.h"
 	"Phase2_Parser/Parser_table.h"
-	"Production.h"
 	"Symbol.h"
 	"Parser_generator.h"
 
@@ -88,7 +85,7 @@
 	<sstream>
 	"Phase1_LexicalAnalyzer/DFA.h"
 
-1587036439 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexicalanalyzer\lexical_analyzer.cpp
+1587335534 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\lexicalanalyzer\lexical_analyzer.cpp
 	"Phase1_LexicalAnalyzer/Lexical_analyzer.h"
 	"Phase1_LexicalAnalyzer/DFA.h"
 	<fstream>
@@ -155,8 +152,9 @@
 	"Phase1_LexicalAnalyzer/Token.h"
 	<string>
 
-1587148338 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\myparser.cpp
+1587335534 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\myparser.cpp
 	<iostream>
+	<fstream>
 	"Phase2_Parser/Parser_table.h"
 	"Phase2_Parser/Symbol.h"
 	"Phase2_Parser/MyParser.h"
@@ -178,9 +176,10 @@
 	<cctype>
 	<locale>
 
-1587317519 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\parser_table.cpp
+1587335534 source:d:\csed21\thirdyear\secondterm\compilers\project\compilergenerator\src\parser\parser_table.cpp
 	<iostream>
 	<sstream>
+	<fstream>
 	"Production.h"
 	"Parser_table.h"
 
