@@ -49,8 +49,8 @@ bool MyParser::parse(Token token) {
                 cout << production.getFrom() << " --> ";
                 file << production.getFrom() << " --> ";
                 for (int i = 0; i < production.getTo().size(); i++) {
-                    cout << production.getTo().at(i).getSymbol();
-                    file << production.getTo().at(i).getSymbol();
+                    cout << production.getTo().at(i).getSymbol() << " ";
+                    file << production.getTo().at(i).getSymbol() << " ";
                 }
                 for (int i = production.getTo().size()-1; i >= 0; i--) {
                     stack.push(production.getTo().at(i));
