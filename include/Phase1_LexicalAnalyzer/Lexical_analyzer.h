@@ -22,8 +22,6 @@ class Lexical_analyzer {
         vector<string> symbol_table;
         int current_token_index;
         DFA *dfa;
-
-
 };
 
 #endif // LEXICAL_ANALYZER_H

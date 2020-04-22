@@ -21,18 +21,13 @@ public:
     vector<Symbol> getTo() ;
     set<string> get_first();
     void add_first(set<string> s);
-
-private:
-    string from;
-public:
+    void setTo(const vector<Symbol> &to);
     void setFrom(const string &from);
 
 private:
+    string from;
     vector<Symbol> to;
     set<string> first;
-public:
-    void setTo(const vector<Symbol> &to);
-
 };
 
 #endif //COMPILERGENERATOR_PRODUCTION_H

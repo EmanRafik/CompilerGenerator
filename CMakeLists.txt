@@ -16,7 +16,7 @@ add_executable(compilergenerator
         include/Phase1_LexicalAnalyzer/Regular_definition.h
         include/Phase1_LexicalAnalyzer/Regular_expression.h
         include/Phase1_LexicalAnalyzer/Token.h
-        include/Phase2_Parser/MyParser.h
+        include/Phase2_Parser/Parser.h
         include/Phase2_Parser/Parser_generator.h
         include/Phase2_Parser/Parser_table.h
         include/Phase2_Parser/Production.h
@@ -29,7 +29,7 @@ add_executable(compilergenerator
         src/LexicalAnalyzer/Regular_definition.cpp
         src/LexicalAnalyzer/Regular_expression.cpp
         src/LexicalAnalyzer/Token.cpp
-        src/Parser/MyParser.cpp
+        src/Parser/Parser.cpp
         src/Parser/Parser_generator.cpp
         src/Parser/Parser_table.cpp
         src/Parser/Production.cpp

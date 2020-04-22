@@ -6,10 +6,10 @@
 #include <fstream>
 #include "Phase2_Parser/Parser_table.h"
 #include "Phase2_Parser/Symbol.h"
-#include "Phase2_Parser/MyParser.h"
+#include "Phase2_Parser/Parser.h"
 #include "Phase2_Parser/Production.h"
 
-MyParser::MyParser(Parser_table parser_table, Symbol start_symbol) {
+Parser::Parser(Parser_table parser_table, Symbol start_symbol) {
     this->parser_table = parser_table;
     stack.push(*new Symbol("$", true));
     stack.push(start_symbol);
@@ -19,7 +19,7 @@ MyParser::MyParser(Parser_table parser_table, Symbol start_symbol) {
     ofs.close();
 }
 
-bool MyParser::parse(Token token) {
+bool Parser::parse(Token token) {
     ofstream file;
     file.open("parser_output.txt", std::ios_base::app);
     if (file.is_open()) {

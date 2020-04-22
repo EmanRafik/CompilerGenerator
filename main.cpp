@@ -2,7 +2,7 @@
 #include"Phase1_LexicalAnalyzer/Lexical_analyzer_generator.h"
 #include"Phase1_LexicalAnalyzer/Lexical_analyzer.h"
 #include <vector>
-#include "Phase2_Parser/MyParser.h"
+#include "Phase2_Parser/Parser.h"
 #include "Phase2_Parser/Parser_table.h"
 #include "Symbol.h"
 #include "Parser_generator.h"
@@ -10,7 +10,6 @@
 
 using namespace std;
 int main() {
-
     Lexical_analyzer_generator *generator = new Lexical_analyzer_generator();
     generator->read_lexical_rules("rules.txt");
     generator->generate_lexical_analyzer();
@@ -22,8 +21,7 @@ int main() {
     Parser_table parserTable = parserGenerator->generate_parser("cfg.txt");
     parserTable.build_table().printTable();
 
-    MyParser *myParser = new MyParser(parserTable.build_table(), parserGenerator->getFirstNonTerminal());
-
+    Parser *myParser = new Parser(parserTable.build_table(), parserGenerator->getFirstNonTerminal());
     Token t = lexical->getNextToken();
     bool error_flag = false;
     while (t.getValue() != "$") {
@@ -37,6 +35,5 @@ int main() {
     while (!error_flag) {
         error_flag = !myParser->parse(t);
     }
-
     return 0;
 }

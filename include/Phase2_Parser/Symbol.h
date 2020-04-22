@@ -15,17 +15,12 @@ public:
     Symbol(string symbol, bool isTerminal);
     string getSymbol();
     bool isTerminal();
-
-private:
-    string symbol;
-public:
     void setSymbol(const string &symbol);
-
     void setIsTerminal(bool isTerminal);
 
 private:
+    string symbol;
     bool is_terminal;
-
 };
 
 #endif //COMPILERGENERATOR_SYMBOL_H

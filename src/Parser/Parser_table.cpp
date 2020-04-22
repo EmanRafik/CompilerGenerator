@@ -8,7 +8,7 @@
 #include "Production.h"
 #include "Parser_table.h"
 
-const int print_item_width = 60;
+int print_item_width = 60;
 
 Parser_table::Parser_table() {
 }
@@ -70,9 +70,11 @@ void Parser_table::printTable() {
         for ( it = terminals.begin(); it != terminals.end(); it++ ) {
             terminals_sorted[it->second] = it->first;
         }
-        cout << printHelper(" ", print_item_width);
-        file << printHelper(" ", print_item_width);
+        cout << printHelper(" ", 30);
+        file << printHelper(" ", 30);
         for (int i = 0; i < terminals.size(); i++) {
+            if (terminals_sorted[i] == "if" || terminals_sorted[i] == "while") print_item_width = 60;
+            else print_item_width = 35;
             cout << printHelper(terminals_sorted[i], print_item_width);
             file << printHelper(terminals_sorted[i], print_item_width);
         }
@@ -81,13 +83,15 @@ void Parser_table::printTable() {
 
         string production = "";
         for (int i = 0; i < non_terminals.size(); i++) {
-            cout << printHelper(table[i][0].getFrom(), print_item_width-1) << " : ";
-            file << printHelper(table[i][0].getFrom(), print_item_width-1) << " : ";
+            cout << printHelper(table[i][0].getFrom(), 29) << " : ";
+            file << printHelper(table[i][0].getFrom(), 29) << " : ";
             for (int j = 0; j < terminals.size(); j++) {
                 production = "";
                 for (int k = 0; k < table[i][j].getTo().size(); k++) {
                     production += table[i][j].getTo().at(k).getSymbol();
                 }
+                if (terminals_sorted[j] == "if" || terminals_sorted[j] == "while") print_item_width = 60;
+                else print_item_width = 35;
                 cout << printHelper(production, print_item_width);
                 file << printHelper(production, print_item_width);
             }

@@ -3,7 +3,6 @@
 #include <fstream>
 #include<string>
 #include<iostream>
-#include <Phase1_LexicalAnalyzer/Lexical_analyzer.h>
 
 using namespace std;
 
@@ -85,12 +84,7 @@ void Lexical_analyzer::analyze(vector<char> input_code) {
 
                 // add the recognized token to the vector of tokens
                 Token *t = new Token();
-                if (last_accepted_output == "assign") {
-                    t->setValue("=");
-                } else {
-                    t->setValue(last_accepted_output);
-                }
-
+                t->setValue(last_accepted_output);
                 tokens.push_back(*t);
                 //add the matched ids to a symbol table
                 if (dfa->getAcceptStates()[current_state].getToken_class() == "id") {
