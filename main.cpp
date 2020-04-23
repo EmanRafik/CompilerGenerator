@@ -19,9 +19,13 @@ int main() {
 
     Parser_generator *parserGenerator = new Parser_generator();
     Parser_table parserTable = parserGenerator->generate_parser("cfg.txt");
-    parserTable.build_table().printTable();
+    bool ambig = parserTable.build_table();
+    if(!ambig){
+        return 0;
+    }
+    parserTable.printTable();
 
-    Parser *myParser = new Parser(parserTable.build_table(), parserGenerator->getFirstNonTerminal());
+    Parser *myParser = new Parser(parserTable, parserGenerator->getFirstNonTerminal());
     Token t = lexical->getNextToken();
     bool error_flag = false;
     while (t.getValue() != "$") {

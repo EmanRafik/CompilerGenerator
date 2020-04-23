@@ -111,7 +111,7 @@ string Parser_table::printHelper(const string x, const int width) {
     return ss.str();
 }
 
-Parser_table Parser_table::build_table(){
+bool Parser_table::build_table(){
     map<string,int>::iterator it = non_terminals.begin();
     while(it!=non_terminals.end()){
         int i = it->second;
@@ -142,11 +142,16 @@ Parser_table Parser_table::build_table(){
             set<string> f = p.get_first();
             set<string>::iterator first_it = f.begin();
             while(first_it!=f.end()){
+                string s = table[i][terminals[*first_it]].getTo().at(0).getSymbol();
+                if(s!="error" && s!="synch"){
+                    cout<<"AMIGUOUS GRAMMAR"<<endl;
+                    return false;
+                }
                 table[i][terminals[*first_it]] = p;
                 first_it++;
             }
         }
         it++;
     }
-    return *this;
+    return true;
 }

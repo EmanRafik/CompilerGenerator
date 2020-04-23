@@ -44,7 +44,7 @@
 		<Unit filename="include/Phase1_LexicalAnalyzer/Regular_definition.h" />
 		<Unit filename="include/Phase1_LexicalAnalyzer/Regular_expression.h" />
 		<Unit filename="include/Phase1_LexicalAnalyzer/Token.h" />
-		<Unit filename="include/Phase2_Parser/MyParser.h" />
+		<Unit filename="include/Phase2_Parser/Parser.h" />
 		<Unit filename="include/Phase2_Parser/Parser_generator.h" />
 		<Unit filename="include/Phase2_Parser/Parser_table.h" />
 		<Unit filename="include/Phase2_Parser/Production.h" />
@@ -58,7 +58,7 @@
 		<Unit filename="src/LexicalAnalyzer/Regular_definition.cpp" />
 		<Unit filename="src/LexicalAnalyzer/Regular_expression.cpp" />
 		<Unit filename="src/LexicalAnalyzer/Token.cpp" />
-		<Unit filename="src/Parser/MyParser.cpp" />
+		<Unit filename="src/Parser/Parser.cpp" />
 		<Unit filename="src/Parser/Parser_generator.cpp" />
 		<Unit filename="src/Parser/Parser_table.cpp" />
 		<Unit filename="src/Parser/Production.cpp" />
