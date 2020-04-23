@@ -28,7 +28,7 @@ public:
     void setNonTerminals(map<string, int> nonTerminals);
     void printTable();
     string printHelper(const string x, const int width);
-    Parser_table build_table();
+    bool build_table();
 
 private:
     Production **table;
