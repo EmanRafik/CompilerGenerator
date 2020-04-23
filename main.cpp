@@ -19,8 +19,8 @@ int main() {
 
     Parser_generator *parserGenerator = new Parser_generator();
     Parser_table parserTable = parserGenerator->generate_parser("cfg.txt");
-    bool b = parserTable.build_table();
-    if(!b){
+    bool ambig = parserTable.build_table();
+    if(!ambig){
         return 0;
     }
     parserTable.printTable();
