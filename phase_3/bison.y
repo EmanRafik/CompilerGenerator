@@ -31,16 +31,9 @@ void yyerror(char * s)
 int main(void)  
 {
   FILE *f;
-  f = fopen("program.txt", "r");
+  f = fopen("input.txt", "r");
   yyin = f;
   return yyparse(); 
 }
 
-vector<int> *make_list(int index){
-vector<int> *vec = new vector<int>());
-vec.push_back(index);
-return vec;
-}
-
-vector<int> *merge())
 
