@@ -27,7 +27,7 @@ void yyerror(char * s)
 int main(void)  
 {
   FILE *f;
-  f = fopen("program.txt", "r");
+  f = fopen("input.txt", "r");
   yyin = f;
   return yyparse(); 
 }   
