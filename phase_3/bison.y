@@ -13,27 +13,27 @@
 	vector<int> *false_list
 }
 
-%% 
+%%
 
 Line : Line EX | EX ;
 EX : ID '+' ID {printf("line")};
 ID : ;
 %%
 
-#include "lex.yy.c"  
-   
-void yyerror(char * s) 
-/* yacc error handler */
-{    
- fprintf (stderr, "%s\n", s); 
-}  
+#include "lex.yy.c"
 
-int main(void)  
+void yyerror(char * s)
+/* yacc error handler */
+{
+ fprintf (stderr, "%s\n", s);
+}
+
+int main(void)
 {
   FILE *f;
   f = fopen("input.txt", "r");
   yyin = f;
-  return yyparse(); 
+  return yyparse();
 }
 
 
