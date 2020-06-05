@@ -37,7 +37,7 @@ void print_output();
 	bool boolean_val;
 }
 
-%token <id_val> id
+%token <id_val> identifier
 %token <int_val> int
 %token <float_val> float
 %token <boolean_val> boolean
