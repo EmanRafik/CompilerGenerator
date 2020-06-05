@@ -71,14 +71,14 @@ bool isInteger(float val);
 %type <operation> sign
 
 %%
-method_body: statement_list
+method_body: statement_list;
 
-statement_list: statement_list statement
+statement_list: statement_list statement;
 
 statement: declaration 
-| if {$$.next_list = $1.next_list};
-| while {$$.next_list = $1.next_list}; 
-| assignment
+| if {$$.next_list = $1.next_list}
+| while {$$.next_list = $1.next_list} 
+| assignment;
 
 primitive_type:
 	int_word {$$ = INT_TYPE;}
@@ -204,7 +204,7 @@ expression: simple_expression
 //| simple_expression relop simple_expression
 
 simple_expression: 
-term {$$.type = $1.type};
+term {$$.type = $1.type}
 | sign term {
 	$$.type = $2.type;
 	if (strcmp($1,"-")==0)
@@ -218,7 +218,7 @@ term {$$.type = $1.type};
 			addLine("fneg");
 		}
 	}
-};
+}
 | simple_expression addop term
 {
 	if ($1.type == FLOAT_TYPE || $3.type == FLOAT_TYPE)
@@ -250,7 +250,7 @@ term {$$.type = $1.type};
 term: 
 	factor {
 		$$.type = $1.type;
-	};
+	}
 | term mulop factor {
 	if ($1.type == FLOAT_TYPE || $3.type == FLOAT_TYPE)
 	{
@@ -277,7 +277,7 @@ term:
 		}
 	}
 	
-};
+}
 
 factor: 
 	identifier {
@@ -300,7 +300,7 @@ factor:
 			string error = id_str + " isn't declared in this scope";
             yyerror(error.c_str());
 		}
-	};
+	}
 	| num {
 		if (isInteger(atof(num))) 
 		{
@@ -311,14 +311,14 @@ factor:
 			$$.type = FLOAT_TYPE;
 		}
 		addLine("ldc " + $1)
-	};
+	}
 	| '(' expression ')' {$$.type = $2.type};
 
 create_label: {
 $$ = javaByteCode.size();
 };
 
-sign: '+' | '-'
+sign: '+' | '-';
 %%
 
 void yyerror(char * s)
