@@ -1,9 +1,8 @@
 %{
-#include <stdio.h>
-#include <bits/stdc++.h>
+#include "stdc++.h"
 #include <unistd.h>
-#include <vector>
-#include <map>
+//#include <vector>
+//#include <map>
 using namespace std;
 
 int id_counter = 1;
@@ -19,6 +18,11 @@ void addLine(string s);
 void print_output();
 bool isInteger(float val);
 %}
+
+%code requires {
+	#include <vector>
+	using namespace std;
+}
 
 %start method_body
 
@@ -331,7 +335,8 @@ int main(void)
   FILE *f;
   f = fopen("input.txt", "r");
   yyin = f;
-  return yyparse();
+  yyparse();
+  print_output();
 }
 
 //makelist --> creates and returns a new list that only contains an index to an instruction

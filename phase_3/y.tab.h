@@ -39,6 +39,16 @@
 #if YYDEBUG
 extern int yydebug;
 #endif
+/* "%code requires" blocks.  */
+/* Line 2058 of yacc.c  */
+#line 22 "bison.y"
+
+	#include <vector>
+	using namespace std;
+
+
+/* Line 2058 of yacc.c  */
+#line 52 "y.tab.h"
 
 /* Tokens.  */
 #ifndef YYTOKENTYPE
@@ -84,7 +94,7 @@ extern int yydebug;
 typedef union YYSTYPE
 {
 /* Line 2058 of yacc.c  */
-#line 25 "bison.y"
+#line 29 "bison.y"
 
 	int int_val;
 	float float_val;
@@ -105,7 +115,7 @@ typedef union YYSTYPE
 
 
 /* Line 2058 of yacc.c  */
-#line 109 "y.tab.h"
+#line 119 "y.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
