@@ -22,29 +22,31 @@ void print_output()
 %start declaration
 
 %union{
-	int int_type;
-	float float_type;
-	char * id_type;
+	int int_val;
+	float float_val;
+	char * id_val;
 	struct bool_expression {
 		vector<int> *true_list;
 		vector<int> *false_list;
 	};
 	struct expression {
-        	int val;
+        	int type;
         };
+        int id_type
 	char* operation;
-	bool boolean_type;
+	bool boolean_val;
 }
 
-%token <id_type> id
-%token <int_type> int
-%token <float_type> float
-%token <boolean_type> boolean
+%token <id_val> id
+%token <int_val> int
+%token <float_val> float
+%token <boolean_val> boolean
 %token <operation> relop
 %token <operation> boolean_op //and, or , not
 %token semi_colon
 %token equals
 
+%type <id_type> primitive_type
 %type <bool_expression> boolean_expression
 %type <expression> expression
 
@@ -105,11 +107,11 @@ assignment:
 	id equals expression semi_colon {
 		string id_str($1);
                 if(is_valid_id(id_str)){
-			if($3.sType == symbol_table[id_str].second) {
-				if($3.sType == INT_TYPE) {
+			if($3.type == symbol_table[id_str].second) {
+				if($3.type == INT_TYPE) {
 					addLine("istore " + to_string(symbol_table[id_str].first));
 				}
-				else if ($3.sType == FLOAT_TYPE) {
+				else if ($3.type == FLOAT_TYPE) {
 					addLine("fstore " + to_string(symbol_table[id_str].first));
 				}
 			} else {
