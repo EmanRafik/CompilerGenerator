@@ -54,6 +54,7 @@ bool isInteger(float val);
 %token boolean_word
 %token <operation> mulop
 %token <operation> addop
+%token <float_val> num
 
 %type <id_type> primitive_type
 %type <bool_expression> boolean_expression
@@ -66,6 +67,7 @@ bool isInteger(float val);
 %type <statement_type> while
 %type <statement_type> if
 %type <int_type> create_label
+%type <operation> sign
 
 %%
 method_body: statement_list
@@ -203,6 +205,7 @@ expression: simple_expression
 simple_expression: 
 term {$$.type = $1.type};
 | sign term {
+	$$.type = $2.type;
 	if (strcmp($1,"-")==0)
 	{
 		if ($2.type == INT_TYPE)
@@ -276,7 +279,7 @@ term:
 };
 
 factor: 
-	id {
+	identifier {
 		string id_str($1);
 		if (is_valid_id(id_str)) 
 		{
@@ -310,7 +313,7 @@ factor:
 	};
 	| '(' expression ')' {$$.type = $2.type};
 
-create_labe: {
+create_label: {
 $$ = javaByteCode.size();
 };
 
