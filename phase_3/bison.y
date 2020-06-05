@@ -6,6 +6,7 @@
 
 using namespace std;
 
+int id_counter = 1;
 typedef enum {INT_TYPE, FLOAT_TYPE} type;
 map<string, pair<int,type>> symbol_table;
 
@@ -16,7 +17,13 @@ void back_patch(vector<int> *p, int index);
 void addLine(String s)
 }%
 
-%start boolean_expression
+%code requires {
+	#include <vector>
+	using namespace std;
+}
+
+%start declaration
+
 %union{
 	int int_type;
 	float float_type;
@@ -30,7 +37,9 @@ void addLine(String s)
         };
 	char* operation;
 	bool boolean_type;
+	int id_enum
 }
+
 %token Line
 %token Ex
 %token ID
@@ -45,8 +54,19 @@ void addLine(String s)
 
 %type <bool_expression> boolean_expression
 %type <expression> expression
+%type <id_enum> primitive_type
 
-%% 
+%%
+declaration:
+	primitive_type identifier semi_colon {
+		string id_str($2);
+		if($1 == INT_TYPE){
+			declare_variable (id_str, INT_TYPE);
+		} else if ($1 == FLOAT_TYPE){
+			declare_variable (id_str, FLOAT_TYPE);
+		}
+	};
+
 boolean_expression :
 //case of AND, OR
  boolean_expression boolean_op create_label boolean_expression {  //create label is still not ready
@@ -60,23 +80,23 @@ boolean_expression :
 		$$.true_list = $4.true_list;
 		$$.false_list = merge($1.false_list, $4.false_list);
 	}
-};
+}
 //case of NOT
 | bool_op boolean_expression{
 	$$.true_list = $2.false_list;
 	$$.false_list = $2.true_list;
-};
+}
 | boolean_expression{
 	$$.true_list = $1.true_list;
 	$$.false_list = $1.false_list;
-};
+}
 //case of RELOP
 | expression relop expression {
 	$$.true_list = make_list(javaByteCode.size());
 	$$.false_list = make_list(javaByteCode.size()+1);
 	// add line and go here if condition is true
 	addLine("goto ")
-};
+}
 //case of TRUE and FALSE
 | boolean{
 	if($1){
@@ -115,20 +135,19 @@ EX : ID '+' ID {printf("line")};
 ID : ;
 %%
 
-#include "lex.yy.c"  
    
-void yyerror(char * s) 
+void yyerror(char * s)
 /* yacc error handler */
-{    
- fprintf (stderr, "%s\n", s); 
-}  
+{
+ fprintf (stderr, "%s\n", s);
+}
 
-int main(void)  
+int main(void)
 {
   FILE *f;
   f = fopen("input.txt", "r");
   yyin = f;
-  return yyparse(); 
+  return yyparse();
 }
 
 //makelist --> creates and returns a new list that only contains an index to an instruction
@@ -179,4 +198,16 @@ bool is_valid_id(String id) {
 	return (symbol_table.find(id) != symbol_table.end());
 }
 
-
+void declare_variable (string id_str, int id_type) {
+ 	if (is_valid_id(id_str)) {
+		string error = id_str + " was declared before";
+		yyerror(error.c_str());
+	} else {
+		if (id_type == INT_TYPE) {
+			addLine("iconst_0\nistore " + to_string(id_counter));
+		} else if (id_type == FLOAT_TYPE) {
+			addLine("iconst_0\nistore " + to_string(id_counter));
+		}
+		symbol_table[id_str] = make_pair (id_counter++, (type)id_type);
+	}
+}
