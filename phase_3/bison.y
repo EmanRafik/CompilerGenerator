@@ -1,20 +1,21 @@
 %{
-#include<stdio.h>
+#include <stdio.h>
 #include <bits/stdc++.h>
 #include <unistd.h>
-
 
 using namespace std;
 
 int id_counter = 1;
 typedef enum {INT_TYPE, FLOAT_TYPE} type;
 map<string, pair<int,type>> symbol_table;
+ofstream outFile("javaByteCode.j");
 
 vector<string> javaByteCode;
 vector<int> *make_list(int index);
 vector<int> *merge(vector<int> *p1, vector<int> *p2);
 void back_patch(vector<int> *p, int index);
-void addLine(String s)
+void addLine(string s)
+void print_output()
 }%
 
 %code requires {
@@ -37,12 +38,8 @@ void addLine(String s)
         };
 	char* operation;
 	bool boolean_type;
-	int id_enum
 }
 
-%token Line
-%token Ex
-%token ID
 %token <id_type> id
 %token <int_type> int
 %token <float_type> float
@@ -54,7 +51,6 @@ void addLine(String s)
 
 %type <bool_expression> boolean_expression
 %type <expression> expression
-%type <id_enum> primitive_type
 
 %%
 declaration:
@@ -137,7 +133,6 @@ ID : ;
 
    
 void yyerror(char * s)
-/* yacc error handler */
 {
  fprintf (stderr, "%s\n", s);
 }
@@ -152,50 +147,49 @@ int main(void)
 
 //makelist --> creates and returns a new list that only contains an index to an instruction
 vector<int> *make_list(int index){
-vector<int> *vec = new vector<int>());
-vec.push_back(index);
-return vec;
+  vector<int> *vec = new vector<int>());
+  vec.push_back(index);
+  return vec;
 }
 
 //merge --> concatenates p1 and p2 and returns the concatenated list
 vector<int> *merge(vector<int> *p1, vector<int> *p2){
-if(p1 == null && p2 == null){
-vector<int> *vec = new vector<int>();
-return vec;
-}
-else if(p1 == null){
-return p2;
-}
-else if(p2 == null){
-return p1;
-}
-else{
-vector<int> *vec = new vector<int>(p1);
-vec->insert(vec->end(),p2->begin(),p2->end());
-return vec;
-}
+  if(p1 == null && p2 == null){
+    vector<int> *vec = new vector<int>();
+    return vec;
+  }
+  else if(p1 == null){
+    return p2;
+  }
+  else if(p2 == null){
+    return p1;
+  }
+  else{
+    vector<int> *vec = new vector<int>(p1);
+    vec->insert(vec->end(),p2->begin(),p2->end());
+    return vec;
+  }
 }
 
 //backpatch --> inserts index as target label for each instruction in p
 void back_patch(vector<int> *p, int index){
-if(p == null){
-return;
-}
-for(int i=0; i<p->size(); i++){
-	inst_val = (*p)[i];
-	javaByteCode[inst_val] = javaByteCode[inst_val] + "label_"+ to_string(index);
-}
-
+  if(p == null){
+    return;
+  }
+  for(int i=0; i<p->size(); i++){
+    inst_val = (*p)[i];
+    javaByteCode[inst_val] = javaByteCode[inst_val] + "label_"+ to_string(index);
+  }
 }
 
 //adds a new line in the javaByteCode list
-void addLine(String s){
-javaByteCode.push_back(s);
+void addLine(string s){
+  javaByteCode.push_back(s);
 }
 
 //checks if the id is already identified or not
-bool is_valid_id(String id) {
-	return (symbol_table.find(id) != symbol_table.end());
+bool is_valid_id(string id) {
+  return (symbol_table.find(id) != symbol_table.end());
 }
 
 void declare_variable (string id_str, int id_type) {
@@ -211,3 +205,12 @@ void declare_variable (string id_str, int id_type) {
 		symbol_table[id_str] = make_pair (id_counter++, (type)id_type);
 	}
 }
+
+//print java byte code
+void print_output(){
+  for ( int i = 0 ; i < javaByteCode.size() ; i++)
+  {
+    outFile<<javaByteCode[i]<<endl;
+  }
+}
+
