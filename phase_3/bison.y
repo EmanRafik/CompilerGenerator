@@ -84,7 +84,7 @@ boolean_expression :
 	}
 }
 //case of NOT
-| bool_op boolean_expression{
+| boolean_op boolean_expression{
 	$$.true_list = $2.false_list;
 	$$.false_list = $2.true_list;
 }

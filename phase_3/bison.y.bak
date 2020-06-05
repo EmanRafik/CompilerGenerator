@@ -7,7 +7,7 @@
 using namespace std;
 
 int id_counter = 1;
-typedef enum {INT_TYPE, FLOAT_TYPE} type;
+typedef enum {INT_TYPE, FLOAT_TYPE, BOOLEAN_TYPE} type;
 map<string, pair<int,type>> symbol_table;
 ofstream outFile("javaByteCode.j");
 
@@ -17,38 +17,48 @@ vector<int> *merge(vector<int> *p1, vector<int> *p2);
 void back_patch(vector<int> *p, int index);
 void addLine(string s);
 void print_output();
-}%
+%}
 
 %start declaration
 
 %union{
-	int int_type;
-	float float_type;
-	char * id_type;
+	int int_val;
+	float float_val;
+	char * id_val;
 	struct bool_expression {
 		vector<int> *true_list;
 		vector<int> *false_list;
 	};
 	struct expression {
-        	int val;
+        	int type;
         };
+        int id_type
 	char* operation;
-	bool boolean_type;
+	bool boolean_val;
 }
 
-%token <id_type> id
-%token <int_type> int
-%token <float_type> float
-%token <boolean_type> boolean
+%token <id_val> identifier
+%token <int_val> int_value
+%token <float_val> float_value
+%token <boolean_val> boolean
 %token <operation> relop
 %token <operation> boolean_op //and, or , not
 %token semi_colon
 %token equals
+%token int_word
+%token float_word
+%token boolean_word
 
+%type <id_type> primitive_type
 %type <bool_expression> boolean_expression
 %type <expression> expression
 
 %%
+primitive_type:
+	int_word {$$ = INT_TYPE;}
+	| float_word {$$ = FLOAT_TYPE;}
+	| boolean_word {$$ = BOOLEAN_TYPE;};
+
 declaration:
 	primitive_type identifier semi_colon {
 		string id_str($2);
@@ -102,14 +112,14 @@ boolean_expression :
 };
 
 assignment:
-	id equals expression semi_colon {
+	identifier equals expression semi_colon {
 		string id_str($1);
                 if(is_valid_id(id_str)){
-			if($3.sType == symbol_table[id_str].second) {
-				if($3.sType == INT_TYPE) {
+			if($3.type == symbol_table[id_str].second) {
+				if($3.type == INT_TYPE) {
 					addLine("istore " + to_string(symbol_table[id_str].first));
 				}
-				else if ($3.sType == FLOAT_TYPE) {
+				else if ($3.type == FLOAT_TYPE) {
 					addLine("fstore " + to_string(symbol_table[id_str].first));
 				}
 			} else {
@@ -123,7 +133,6 @@ assignment:
 	};
 
 %%
-
 
 void yyerror(char * s)
 {
@@ -185,12 +194,12 @@ void addLine(string s)
 }
 
 //checks if the id is already identified or not
-bool is_valid_id(string id) 
+bool is_valid_id(string id)
 {
   return (symbol_table.find(id) != symbol_table.end());
 }
 
-void declare_variable (string id_str, int id_type) 
+void declare_variable (string id_str, int id_type)
 {
  	if (is_valid_id(id_str)) {
 		string error = id_str + " was declared before";
