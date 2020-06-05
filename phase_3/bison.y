@@ -15,9 +15,9 @@ vector<string> javaByteCode;
 vector<int> *make_list(int index);
 vector<int> *merge(vector<int> *p1, vector<int> *p2);
 void back_patch(vector<int> *p, int index);
-void addLine(string s)
-void print_output()
-}%
+void addLine(string s);
+void print_output();
+%}
 
 %start declaration
 
@@ -122,11 +122,7 @@ assignment:
                 }
 	};
 
-Line : Line EX | EX ;
-EX : ID '+' ID {printf("line")};
-ID : ;
 %%
-
 
 void yyerror(char * s)
 {
@@ -142,14 +138,16 @@ int main(void)
 }
 
 //makelist --> creates and returns a new list that only contains an index to an instruction
-vector<int> *make_list(int index){
+vector<int> *make_list(int index)
+{
   vector<int> *vec = new vector<int>());
   vec.push_back(index);
   return vec;
 }
 
 //merge --> concatenates p1 and p2 and returns the concatenated list
-vector<int> *merge(vector<int> *p1, vector<int> *p2){
+vector<int> *merge(vector<int> *p1, vector<int> *p2)
+{
   if(p1 == null && p2 == null){
     vector<int> *vec = new vector<int>();
     return vec;
@@ -168,7 +166,8 @@ vector<int> *merge(vector<int> *p1, vector<int> *p2){
 }
 
 //backpatch --> inserts index as target label for each instruction in p
-void back_patch(vector<int> *p, int index){
+void back_patch(vector<int> *p, int index)
+{
   if(p == null){
     return;
   }
@@ -179,16 +178,19 @@ void back_patch(vector<int> *p, int index){
 }
 
 //adds a new line in the javaByteCode list
-void addLine(string s){
+void addLine(string s)
+{
   javaByteCode.push_back(s);
 }
 
 //checks if the id is already identified or not
-bool is_valid_id(string id) {
+bool is_valid_id(string id)
+{
   return (symbol_table.find(id) != symbol_table.end());
 }
 
-void declare_variable (string id_str, int id_type) {
+void declare_variable (string id_str, int id_type)
+{
  	if (is_valid_id(id_str)) {
 		string error = id_str + " was declared before";
 		yyerror(error.c_str());
@@ -203,10 +205,10 @@ void declare_variable (string id_str, int id_type) {
 }
 
 //print java byte code
-void print_output(){
+void print_output()
+{
   for ( int i = 0 ; i < javaByteCode.size() ; i++)
   {
     outFile<<javaByteCode[i]<<endl;
   }
 }
-

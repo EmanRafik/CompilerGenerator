@@ -2,21 +2,25 @@
 #include <stdio.h>
 #include <bits/stdc++.h>
 #include <unistd.h>
-
+#include <vector>
+#include <map>
 using namespace std;
 
+int id_counter = 1;
 typedef enum {INT_TYPE, FLOAT_TYPE} type;
 map<string, pair<int,type>> symbol_table;
+ofstream outFile("javaByteCode.j");
 
 vector<string> javaByteCode;
 vector<int> *make_list(int index);
 vector<int> *merge(vector<int> *p1, vector<int> *p2);
 void back_patch(vector<int> *p, int index);
-void addLine(string s)
-void print_output()
+void addLine(string s);
+void print_output();
 }%
 
-%start boolean_expression
+%start declaration
+
 %union{
 	int int_type;
 	float float_type;
@@ -44,7 +48,16 @@ void print_output()
 %type <bool_expression> boolean_expression
 %type <expression> expression
 
-%% 
+%%
+declaration:
+	primitive_type identifier semi_colon {
+		string id_str($2);
+		if($1 == INT_TYPE){
+			declare_variable (id_str, INT_TYPE);
+		} else if ($1 == FLOAT_TYPE){
+			declare_variable (id_str, FLOAT_TYPE);
+		}
+	};
 
 boolean_expression :
 //case of AND, OR
@@ -59,23 +72,23 @@ boolean_expression :
 		$$.true_list = $4.true_list;
 		$$.false_list = merge($1.false_list, $4.false_list);
 	}
-};
+}
 //case of NOT
 | bool_op boolean_expression{
 	$$.true_list = $2.false_list;
 	$$.false_list = $2.true_list;
-};
+}
 | boolean_expression{
 	$$.true_list = $1.true_list;
 	$$.false_list = $1.false_list;
-};
+}
 //case of RELOP
 | expression relop expression {
 	$$.true_list = make_list(javaByteCode.size());
 	$$.false_list = make_list(javaByteCode.size()+1);
 	// add line and go here if condition is true
 	addLine("goto ")
-};
+}
 //case of TRUE and FALSE
 | boolean{
 	if($1){
@@ -111,14 +124,13 @@ assignment:
 
 %%
 
-#include "lex.yy.c"
-   
-void yyerror(char * s) 
-{    
- fprintf (stderr, "%s\n", s); 
-}  
 
-int main(void)  
+void yyerror(char * s)
+{
+ fprintf (stderr, "%s\n", s);
+}
+
+int main(void)
 {
   FILE *f;
   f = fopen("input.txt", "r");
@@ -127,14 +139,16 @@ int main(void)
 }
 
 //makelist --> creates and returns a new list that only contains an index to an instruction
-vector<int> *make_list(int index){
+vector<int> *make_list(int index)
+{
   vector<int> *vec = new vector<int>());
   vec.push_back(index);
   return vec;
 }
 
 //merge --> concatenates p1 and p2 and returns the concatenated list
-vector<int> *merge(vector<int> *p1, vector<int> *p2){
+vector<int> *merge(vector<int> *p1, vector<int> *p2)
+{
   if(p1 == null && p2 == null){
     vector<int> *vec = new vector<int>();
     return vec;
@@ -153,7 +167,8 @@ vector<int> *merge(vector<int> *p1, vector<int> *p2){
 }
 
 //backpatch --> inserts index as target label for each instruction in p
-void back_patch(vector<int> *p, int index){
+void back_patch(vector<int> *p, int index)
+{
   if(p == null){
     return;
   }
@@ -164,13 +179,37 @@ void back_patch(vector<int> *p, int index){
 }
 
 //adds a new line in the javaByteCode list
-void addLine(string s){
+void addLine(string s)
+{
   javaByteCode.push_back(s);
 }
 
 //checks if the id is already identified or not
-bool is_valid_id(string id) {
+bool is_valid_id(string id) 
+{
   return (symbol_table.find(id) != symbol_table.end());
 }
 
+void declare_variable (string id_str, int id_type) 
+{
+ 	if (is_valid_id(id_str)) {
+		string error = id_str + " was declared before";
+		yyerror(error.c_str());
+	} else {
+		if (id_type == INT_TYPE) {
+			addLine("iconst_0\nistore " + to_string(id_counter));
+		} else if (id_type == FLOAT_TYPE) {
+			addLine("iconst_0\nistore " + to_string(id_counter));
+		}
+		symbol_table[id_str] = make_pair (id_counter++, (type)id_type);
+	}
+}
 
+//print java byte code
+void print_output()
+{
+  for ( int i = 0 ; i < javaByteCode.size() ; i++)
+  {
+    outFile<<javaByteCode[i]<<endl;
+  }
+}
