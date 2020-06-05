@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <bits/stdc++.h>
 #include <unistd.h>
-
+#include <vector>
+#include <map>
 using namespace std;
 
 int id_counter = 1;
@@ -17,11 +18,6 @@ void back_patch(vector<int> *p, int index);
 void addLine(string s)
 void print_output()
 }%
-
-%code requires {
-	#include <vector>
-	using namespace std;
-}
 
 %start declaration
 
@@ -131,7 +127,7 @@ EX : ID '+' ID {printf("line")};
 ID : ;
 %%
 
-   
+
 void yyerror(char * s)
 {
  fprintf (stderr, "%s\n", s);
