@@ -36,7 +36,7 @@ void addLine(String s)
 %% 
 boolean_expression :
 //case of AND, OR
- boolean_expression boolean_op create_label boolean_expression {
+ boolean_expression boolean_op create_label boolean_expression {  //create label is still not ready
 	if(strcmp($2,"||") == 0){
 		backpatch($1.false_list, $3);
 		$$.true_list = merge($1.true_list, $4.true_list);
@@ -63,7 +63,7 @@ boolean_expression :
 	$$.false_list = make_list(javaByteCode.size()+1);
 	// add line and go here if condition is true
 	addLine("goto ")
-}
+};
 //case of TRUE and FALSE
 | boolean{
 	if($1){
@@ -74,9 +74,8 @@ boolean_expression :
 		$$.false_list = make_list(javaByteCode.size());
 		addLine("goto ");
 	}
-}
+};
 
-}
 Line : Line EX | EX ;
 EX : ID '+' ID {printf("line")};
 ID : ;
