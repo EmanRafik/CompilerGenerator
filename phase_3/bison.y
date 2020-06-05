@@ -37,7 +37,9 @@ bool isInteger(double val);
 	char* operation;
 	bool boolean_val;
 	int sType;
-	vector<int< *next_list;
+	struct statement_type{
+	vector<int> *next_list;
+	};
 }
 
 %token <id_val> identifier
@@ -57,11 +59,12 @@ bool isInteger(double val);
 %type <id_type> primitive_type
 %type <bool_expression> boolean_expression
 %type <sType> expression
-%type <sType< simple_expression
+%type <sType> simple_expression
 %type <sType> term
 %type <sType> factor
-%type <statement> next_list
+%type <statement_type> statement
 %type <while> next_list
+%type <int_type> create_label
 
 %%
 method_body: statement_list
@@ -115,7 +118,26 @@ boolean_expression :
 | expression relop expression {
 	$$.true_list = make_list(javaByteCode.size());
 	$$.false_list = make_list(javaByteCode.size()+1);
-	// add line and go here if condition is true
+	string op_type= "";
+        if(strcmp($2,"==")){
+        op_type = icmpeq;
+        }
+        else if(strcmp($2,">=")){
+        op_type = icmpge;
+        }
+        else if(strcmp($2, ">")){
+        op_type = icmpgt;
+        }
+        else if(strcmp($2, "<=")){
+        op_type = icmple;
+        }
+        else if(strcmp($2, "<")){
+        op_type = icmplt;
+        }
+        else if (strcmp($2, "!=")){
+        op_type = icmpne;
+        }
+        addLine("if_"+op_type+" ");
 	addLine("goto ")
 }
 //case of TRUE and FALSE
@@ -130,12 +152,26 @@ boolean_expression :
 	}
 };
 
-while: 'while' '(' M expression ')' '{' M statement '}'
+while: 'while' '(' create_label expression ')' '{' create_label statement '}'
 {
 	back_patch($4.true_list, $7);
 	back_patch($8.next_list, $3);
 	$$.next_list = $4.false_list;
 	addLine("goto " + to_string($3));
+};
+
+if: 'if' '(' boolean_expression ')' '{' create_label statement '}' N 'else' '{' create_label statement '}'
+{
+backpatch($3.true_list,$6);
+backpatch($3.true_list,$12);
+vector<int> *temp;
+temp = merge($7.next_list,$9.next_list);
+$$.next_list = merge(temp,$13.next_list);
+};
+
+N: {
+$$.next_list = make_list(javaByteCode.size())
+addLine("goto ");
 };
 
 assignment:
@@ -273,6 +309,10 @@ factor:
 	};
 	| '(' expression ')' {$$.sType = $2.sType};
 
+create_labe: {
+$$ = javaByteCode.size();
+};
+
 sign: '+' | '-'
 %%
 
@@ -371,3 +411,6 @@ bool isInteger(double val)
     int truncated = (int)val;
     return (val == truncated);
 }
+
+
+
