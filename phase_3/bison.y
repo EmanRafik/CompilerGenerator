@@ -17,7 +17,7 @@ vector<int> *merge(vector<int> *p1, vector<int> *p2);
 void back_patch(vector<int> *p, int index);
 void addLine(string s);
 void print_output();
-bool isInteger(double val);
+bool isInteger(float val);
 %}
 
 %start method_body
@@ -407,7 +407,7 @@ void print_output()
 }
 
 //check if number is integer
-bool isInteger(double val)
+bool isInteger(float val)
 {
     int truncated = (int)val;
     return (val == truncated);
