@@ -6,24 +6,24 @@
 
 %%
 
-"if" {printf("if");}
-"else" {printf("else");}
-"while" {printf("while");}
-"boolean" {printf("boolean");}
-"int" {printf("int");}
-"float" {printf("float");}
-[a-zA-Z][a-zA-z|0-9]* {printf("Identifier");}
-[0-9]* {printf("Number");}
-"=="|"!="|">="|"<="|"^"|"<"|">" {printf("relop");}
-"*"|"/" {printf("mulop");}
-"+"|"" {printf("addop");}
-"(" {printf("(");}
-")" {printf(")");}
-"{" {printf("{");}
-"}" {printf("}");}
-";" {printf(";");}
-"," {printf(",");}
-"=" {printf("assign");}
+//"if"         {return if;}
+//"else"       {printf("else");}
+//"while"      {return while;}
+//"boolean"    {printf("boolean");}
+//"int"        {printf("int");}
+//"float"      {printf("float");}
+[a-zA-Z][a-zA-z|0-9]*      {return identifier;}
+[0-9]*       {printf("Number");}
+"=="|"!="|">="|"<="|"^"|"<"|">"       {return relop;}
+"*"|"/"      {return mulop;}
+"+"|"-"       {return addop;}
+"("          {printf("(");}
+")"          {printf(")");}
+"{"          {printf("{");}
+"}"          {printf("}");}
+";"          {printf(";");}
+","          {printf(",");}
+"="          {return equals;}
 
 %%
 
