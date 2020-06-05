@@ -7,6 +7,7 @@ using namespace std;
 
 typedef enum {INT_TYPE, FLOAT_TYPE} type;
 map<string, pair<int,type>> symbol_table;
+ofstream outFile("javaByteCode.j");
 
 vector<string> javaByteCode;
 vector<int> *make_list(int index);
@@ -173,4 +174,11 @@ bool is_valid_id(string id) {
   return (symbol_table.find(id) != symbol_table.end());
 }
 
+//print java byte code
+void print_output(){
+  for ( int i = 0 ; i < javaByteCode.size() ; i++)
+  {
+    outFile<<javaByteCode[i]<<endl;
+  }
+}
 
