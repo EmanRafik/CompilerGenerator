@@ -153,7 +153,7 @@ boolean_expression :
 	}
 };
 
-while: 'while' '(' create_label expression ')' '{' create_label statement '}'
+while: 'while' '(' create_label boolean_expression ')' '{' create_label statement '}'
 {
 	back_patch($4.true_list, $7);
 	back_patch($8.next_list, $3);
@@ -198,7 +198,7 @@ assignment:
 	
 expression: simple_expression 
 {$$.type = $1.type};
-| simple_expression relop simple_expression
+//| simple_expression relop simple_expression
 
 simple_expression: 
 term {$$.type = $1.type};
