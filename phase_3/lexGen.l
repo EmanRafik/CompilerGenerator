@@ -1,7 +1,11 @@
 %{
-#include<stdio.h>
+#include <stdio.h>
+#include <bits/stdc++.h>
+#include "y.tab.h"
 %}
+
 %%
+
 "if" {printf("if");}
 "else" {printf("else");}
 "while" {printf("while");}
@@ -20,13 +24,11 @@
 ";" {printf(";");}
 "," {printf(",");}
 "=" {printf("assign");}
+
 %%
+
 int yywrap()
 {
 return 1;
 }
-main()
-{
-printf("Enter a string of code\n");
-yylex();
-}
+
