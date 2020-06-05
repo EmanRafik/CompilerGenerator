@@ -66,6 +66,7 @@ bool isInteger(float val);
 %type <statement_type> statement
 %type <statement_type> while
 %type <statement_type> if
+%type <statement_type> N
 %type <int_type> create_label
 %type <operation> sign
 
