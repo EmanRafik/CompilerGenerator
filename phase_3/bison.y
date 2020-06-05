@@ -49,7 +49,7 @@ void addLine(String s)
 %% 
 boolean_expression :
 //case of AND, OR
- boolean_expression boolean_op create_label boolean_expression {
+ boolean_expression boolean_op create_label boolean_expression {  //create label is still not ready
 	if(strcmp($2,"||") == 0){
 		backpatch($1.false_list, $3);
 		$$.true_list = merge($1.true_list, $4.true_list);
@@ -76,7 +76,7 @@ boolean_expression :
 	$$.false_list = make_list(javaByteCode.size()+1);
 	// add line and go here if condition is true
 	addLine("goto ")
-}
+};
 //case of TRUE and FALSE
 | boolean{
 	if($1){
@@ -171,7 +171,7 @@ for(int i=0; i<p->size(); i++){
 
 //adds a new line in the javaByteCode list
 void addLine(String s){
-	javaByteCode.push_back(s);
+javaByteCode.push_back(s);
 }
 
 //checks if the id is already identified or not
