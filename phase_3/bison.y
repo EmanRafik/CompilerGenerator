@@ -17,6 +17,7 @@ vector<int> *merge(vector<int> *p1, vector<int> *p2);
 void back_patch(vector<int> *p, int index);
 void addLine(string s);
 void print_output();
+bool isInteger(double val);
 %}
 
 %start declaration
@@ -35,6 +36,8 @@ void print_output();
         int id_type
 	char* operation;
 	bool boolean_val;
+	int sType;
+	vector<int< *next_list;
 }
 
 %token <id_val> identifier
@@ -48,12 +51,28 @@ void print_output();
 %token int_word
 %token float_word
 %token boolean_word
+%token mulop
+%token addop
 
 %type <id_type> primitive_type
 %type <bool_expression> boolean_expression
-%type <expression> expression
+%type <sType> expression
+%type <sType< simple_expression
+%type <sType> term
+%type <sType> factor
+%type <statement> next_list
+%type <while> next_list
 
 %%
+method_body: statement_list
+
+statement_list: statement_list statement
+
+statement: declaration 
+| if 
+| while {$$.next_list = $1.next_list}; 
+| assignment
+
 primitive_type:
 	int_word {$$ = INT_TYPE;}
 	| float_word {$$ = FLOAT_TYPE;}
@@ -111,6 +130,14 @@ boolean_expression :
 	}
 };
 
+while: 'while' '(' M expression ')' '{' M statement '}'
+{
+	back_patch($4.true_list, $7);
+	back_patch($8.next_list, $3);
+	$$.next_list = $4.false_list;
+	addLine("goto " + to_string($3));
+};
+
 assignment:
 	identifier equals expression semi_colon {
 		string id_str($1);
@@ -131,7 +158,122 @@ assignment:
                         yyerror(error.c_str());
                 }
 	};
+	
+expression: simple_expression 
+{$$.sType = $1.sType};
+| simple_expression relop simple_expression
 
+simple_expression: 
+term {$$.sType = $1.sType};
+| sign term {
+	if (strcmp($1,"-")==0)
+	{
+		if ($2.sType == INT_TYPE)
+		{
+			addLine("ineg");
+		}
+		else
+		{
+			addLine("fneg");
+		}
+	}
+};
+| simple_expression addop term
+{
+	if ($1.sType == FLOAT_TYPE || $3.sType == FLOAT_TYPE)
+	{
+		$$.sType = FLOAT_TYPE;
+		if (strcmp($2,"+")==0)
+		{
+			addLine("fadd");
+		}
+		else if (strcmp($2,"-")==0)
+		{
+			addLine("fsub");
+		}
+	}
+	else
+	{
+		$$.sType = INT_TYPE;
+		if (strcmp($2,"+")==0)
+		{
+			addLine("iadd");
+		}
+		else if (strcmp($2,"-")==0)
+		{
+			addLine("isub");
+		}
+	}
+};
+
+term: 
+	factor {
+		$$.sType = $1.sType;
+	};
+| term mulop factor {
+	if ($1.sType == FLOAT_TYPE || $3.sType == FLOAT_TYPE)
+	{
+		$$.sType = FLOAT_TYPE;
+		if (strcmp($2,"*")==0)
+		{
+			addLine("fmul");
+		}
+		else if (strcmp($2,"/")==0)
+		{
+			addLine("fdiv");
+		}
+	}
+	else
+	{
+		$$.sType = INT_TYPE;
+		if (strcmp($2,"*")==0)
+		{
+			addLine("imul");
+		}
+		else if (strcmp($2,"/")==0)
+		{
+			addLine("idiv");
+		}
+	}
+	
+};
+
+factor: 
+	id {
+		string id_str($1);
+		if (is_valid_id(id_str)) 
+		{
+			if (symbol_table[id_str].second == INT_TYPE)
+			{
+				$$.sType = INT_TYPE;
+				addLine("iload " + to_string(symbol_table[id_str].first));
+			}
+			else
+			{
+				$$.sType = FLOAT_TYPE;
+				addLine("fload " + to_string(symbol_table[id_str].first));
+			}
+		}
+		else
+		{
+			string error = id_str + " isn't declared in this scope";
+            yyerror(error.c_str());
+		}
+	};
+	| num {
+		if (isInteger(atof(num))) 
+		{
+			$$.sType = INT_TYPE;
+		}
+		else
+		{
+			$$.sType = FLOAT_TYPE;
+		}
+		addLine("ldc " + $1)
+	};
+	| '(' expression ')' {$$.sType = $2.sType};
+
+sign: '+' | '-'
 %%
 
 void yyerror(char * s)
@@ -221,4 +363,11 @@ void print_output()
   {
     outFile<<javaByteCode[i]<<endl;
   }
+}
+
+//check if number is integer
+bool isInteger(double val)
+{
+    int truncated = (int)val;
+    return (val == truncated);
 }
