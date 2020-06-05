@@ -73,7 +73,7 @@ bool isInteger(float val);
 %%
 method_body: statement_list;
 
-statement_list: statement_list statement;
+statement_list: statement_list statement | statement;
 
 statement: declaration 
 | if {$$.next_list = $1.next_list}
