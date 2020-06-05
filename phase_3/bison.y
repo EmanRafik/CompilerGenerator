@@ -112,7 +112,7 @@ boolean_expression :
 };
 
 assignment:
-	id equals expression semi_colon {
+	identifier equals expression semi_colon {
 		string id_str($1);
                 if(is_valid_id(id_str)){
 			if($3.type == symbol_table[id_str].second) {
