@@ -76,7 +76,7 @@ method_body: statement_list
 statement_list: statement_list statement
 
 statement: declaration 
-| if {$$.next_list = $1.next_list}; 
+| if {$$.next_list = $1.next_list};
 | while {$$.next_list = $1.next_list}; 
 | assignment
 
@@ -370,7 +370,7 @@ void back_patch(vector<int> *p, int index)
   }
   for(int i=0; i<p->size(); i++){
     inst_val = (*p)[i];
-    javaByteCode[inst_val] = javaByteCode[inst_val] + "label_"+ to_string(index);
+    javaByteCode[inst_val] = javaByteCode[inst_val] + to_string(index);
   }
 }
 
