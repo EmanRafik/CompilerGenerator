@@ -156,7 +156,7 @@ boolean_expression :
 	}
 };
 
-while: 'while' '(' create_label boolean_expression ')' '{' create_label statement '}'
+while: "while" "(" create_label boolean_expression ")" "{" create_label statement "}"
 {
 	back_patch($4.true_list, $7);
 	back_patch($8.next_list, $3);
@@ -164,7 +164,7 @@ while: 'while' '(' create_label boolean_expression ')' '{' create_label statemen
 	addLine("goto " + to_string($3));
 };
 
-if: 'if' '(' boolean_expression ')' '{' create_label statement '}' N 'else' '{' create_label statement '}'
+if: "if" "(" boolean_expression ")" "{" create_label statement "}" N "else" "{" create_label statement "}"
 {
 backpatch($3.true_list,$6);
 backpatch($3.true_list,$12);
