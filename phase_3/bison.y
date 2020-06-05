@@ -20,7 +20,7 @@ void print_output();
 bool isInteger(double val);
 %}
 
-%start declaration
+%start method_body
 
 %union{
 	int int_val;
@@ -30,13 +30,12 @@ bool isInteger(double val);
 		vector<int> *true_list;
 		vector<int> *false_list;
 	};
-	struct expression {
+	struct expression_type {
         	int type;
         };
-        int id_type
+        int id_type;
 	char* operation;
 	bool boolean_val;
-	int sType;
 	struct statement_type{
 	vector<int> *next_list;
 	};
@@ -53,17 +52,19 @@ bool isInteger(double val);
 %token int_word
 %token float_word
 %token boolean_word
-%token mulop
-%token addop
+%token <operation> mulop
+%token <operation> addop
 
 %type <id_type> primitive_type
 %type <bool_expression> boolean_expression
-%type <sType> expression
-%type <sType> simple_expression
-%type <sType> term
-%type <sType> factor
+%type <expression_type> expression
+%type <expression_type> simple_expression
+%type <expression_type> term
+%type <expression_type> factor
+%type <statement_type> statement_list
 %type <statement_type> statement
-%type <while> next_list
+%type <statement_type> while
+%type <statement_type> if
 %type <int_type> create_label
 
 %%
@@ -196,15 +197,15 @@ assignment:
 	};
 	
 expression: simple_expression 
-{$$.sType = $1.sType};
+{$$.type = $1.type};
 | simple_expression relop simple_expression
 
 simple_expression: 
-term {$$.sType = $1.sType};
+term {$$.type = $1.type};
 | sign term {
 	if (strcmp($1,"-")==0)
 	{
-		if ($2.sType == INT_TYPE)
+		if ($2.type == INT_TYPE)
 		{
 			addLine("ineg");
 		}
@@ -216,9 +217,9 @@ term {$$.sType = $1.sType};
 };
 | simple_expression addop term
 {
-	if ($1.sType == FLOAT_TYPE || $3.sType == FLOAT_TYPE)
+	if ($1.type == FLOAT_TYPE || $3.type == FLOAT_TYPE)
 	{
-		$$.sType = FLOAT_TYPE;
+		$$.type = FLOAT_TYPE;
 		if (strcmp($2,"+")==0)
 		{
 			addLine("fadd");
@@ -230,7 +231,7 @@ term {$$.sType = $1.sType};
 	}
 	else
 	{
-		$$.sType = INT_TYPE;
+		$$.type = INT_TYPE;
 		if (strcmp($2,"+")==0)
 		{
 			addLine("iadd");
@@ -244,12 +245,12 @@ term {$$.sType = $1.sType};
 
 term: 
 	factor {
-		$$.sType = $1.sType;
+		$$.type = $1.type;
 	};
 | term mulop factor {
-	if ($1.sType == FLOAT_TYPE || $3.sType == FLOAT_TYPE)
+	if ($1.type == FLOAT_TYPE || $3.type == FLOAT_TYPE)
 	{
-		$$.sType = FLOAT_TYPE;
+		$$.type = FLOAT_TYPE;
 		if (strcmp($2,"*")==0)
 		{
 			addLine("fmul");
@@ -261,7 +262,7 @@ term:
 	}
 	else
 	{
-		$$.sType = INT_TYPE;
+		$$.type = INT_TYPE;
 		if (strcmp($2,"*")==0)
 		{
 			addLine("imul");
@@ -281,12 +282,12 @@ factor:
 		{
 			if (symbol_table[id_str].second == INT_TYPE)
 			{
-				$$.sType = INT_TYPE;
+				$$.type = INT_TYPE;
 				addLine("iload " + to_string(symbol_table[id_str].first));
 			}
 			else
 			{
-				$$.sType = FLOAT_TYPE;
+				$$.type = FLOAT_TYPE;
 				addLine("fload " + to_string(symbol_table[id_str].first));
 			}
 		}
@@ -299,15 +300,15 @@ factor:
 	| num {
 		if (isInteger(atof(num))) 
 		{
-			$$.sType = INT_TYPE;
+			$$.type = INT_TYPE;
 		}
 		else
 		{
-			$$.sType = FLOAT_TYPE;
+			$$.type = FLOAT_TYPE;
 		}
 		addLine("ldc " + $1)
 	};
-	| '(' expression ')' {$$.sType = $2.sType};
+	| '(' expression ')' {$$.type = $2.type};
 
 create_labe: {
 $$ = javaByteCode.size();
