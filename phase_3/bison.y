@@ -7,12 +7,14 @@ using namespace std;
 
 typedef enum {INT_TYPE, FLOAT_TYPE} type;
 map<string, pair<int,type>> symbol_table;
+ofstream outFile("javaByteCode.j");
 
 vector<string> javaByteCode;
 vector<int> *make_list(int index);
 vector<int> *merge(vector<int> *p1, vector<int> *p2);
 void back_patch(vector<int> *p, int index);
-void addLine(String s)
+void addLine(string s)
+void print_output()
 }%
 
 %start boolean_expression
@@ -30,9 +32,7 @@ void addLine(String s)
 	char* operation;
 	bool boolean_type;
 }
-%token Line
-%token Ex
-%token ID
+
 %token <id_type> id
 %token <int_type> int
 %token <float_type> float
@@ -110,12 +110,9 @@ assignment:
                 }
 	};
 
-Line : Line EX | EX ;
-EX : ID '+' ID {printf("line")};
-ID : ;
 %%
 
-#include "lex.yy.c"  
+#include "lex.yy.c"
    
 void yyerror(char * s) 
 {    
@@ -127,7 +124,7 @@ int main(void)
   FILE *f;
   f = fopen("input.txt", "r");
   yyin = f;
-  return yyparse(); 
+  return yyparse();
 }
 
 //makelist --> creates and returns a new list that only contains an index to an instruction
@@ -168,13 +165,20 @@ void back_patch(vector<int> *p, int index){
 }
 
 //adds a new line in the javaByteCode list
-void addLine(String s){
+void addLine(string s){
   javaByteCode.push_back(s);
 }
 
 //checks if the id is already identified or not
-bool is_valid_id(String id) {
+bool is_valid_id(string id) {
   return (symbol_table.find(id) != symbol_table.end());
 }
 
+//print java byte code
+void print_output(){
+  for ( int i = 0 ; i < javaByteCode.size() ; i++)
+  {
+    outFile<<javaByteCode[i]<<endl;
+  }
+}
 
