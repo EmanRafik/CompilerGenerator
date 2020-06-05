@@ -7,7 +7,7 @@
 using namespace std;
 
 int id_counter = 1;
-typedef enum {INT_TYPE, FLOAT_TYPE} type;
+typedef enum {INT_TYPE, FLOAT_TYPE, BOOLEAN_TYPE} type;
 map<string, pair<int,type>> symbol_table;
 ofstream outFile("javaByteCode.j");
 
@@ -38,19 +38,27 @@ void print_output();
 }
 
 %token <id_val> identifier
-%token <int_val> int
-%token <float_val> float
+%token <int_val> int_value
+%token <float_val> float_value
 %token <boolean_val> boolean
 %token <operation> relop
 %token <operation> boolean_op //and, or , not
 %token semi_colon
 %token equals
+%token int_word
+%token float_word
+%token boolean_word
 
 %type <id_type> primitive_type
 %type <bool_expression> boolean_expression
 %type <expression> expression
 
 %%
+primitive_type:
+	int_word {$$ = INT_TYPE;}
+	| float_word {$$ = FLOAT_TYPE;}
+	| boolean_word {$$ = BOOLEAN_TYPE;};
+
 declaration:
 	primitive_type identifier semi_colon {
 		string id_str($2);
