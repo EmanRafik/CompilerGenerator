@@ -176,7 +176,7 @@ javaByteCode.push_back(s);
 
 //checks if the id is already identified or not
 bool is_valid_id(String id) {
-
+	return (symbol_table.find(id) != symbol_table.end());
 }
 
 
