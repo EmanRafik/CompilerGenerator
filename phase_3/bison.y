@@ -76,7 +76,7 @@ method_body: statement_list
 statement_list: statement_list statement
 
 statement: declaration 
-| if 
+| if {$$.next_list = $1.next_list}; 
 | while {$$.next_list = $1.next_list}; 
 | assignment
 
