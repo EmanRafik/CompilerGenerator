@@ -34,13 +34,13 @@ void print_output();
 	int int_val;
 	float float_val;
 	char * id_val;
-	struct bool_expression {
+	struct {
 		vector<int> *true_list;
 		vector<int> *false_list;
-	};
-	struct expression_type {
+	} bool_expression;
+	struct {
         	int type;
-        };
+        } expression_type;
         int id_type;
 	char* operation;
 	bool boolean_val;
