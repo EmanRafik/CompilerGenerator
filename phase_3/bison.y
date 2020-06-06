@@ -173,7 +173,7 @@ while: "while" "(" M boolean_expression ")" "{" M statement "}"
 
 if: if_term round_open boolean_expression round_close curly_open M statement curly_close{
 back_patch($3.true_list, $6);
-$$.next_list = merge($3.false_list,7.next_list);
+$$.next_list = merge($3.false_list,$7.next_list);
 }
 | if_term round_open boolean_expression round_close curly_open M statement curly_close N else_term curly_open M statement curly_close
 {
@@ -378,8 +378,10 @@ void back_patch(vector<int> *p, int index)
   if(p == NULL){
     return;
   }
+  cout<<"JVC size is: "javaByteCode->size();
   for(int i=0; i<p->size(); i++){
     int int_val = (*p)[i];
+    cout<<int_val;
     javaByteCode[int_val] = javaByteCode[int_val] + to_string(index);
   }
 }
