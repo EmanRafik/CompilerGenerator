@@ -44,9 +44,9 @@ void print_output();
         int id_type;
 	char* operation;
 	bool boolean_val;
-	struct statement_type{
+	struct {
 	vector<int> *next_list;
-	};
+	} statement_type;
 }
 
 %token <id_val> identifier
