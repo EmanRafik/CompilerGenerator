@@ -123,15 +123,6 @@ boolean_expression :
 		$$.false_list = merge($1.false_list, $4.false_list);
 	}
 }
-//case of NOT
-| boolean_op boolean_expression{
-	$$.true_list = $2.false_list;
-	$$.false_list = $2.true_list;
-}
-| boolean_expression{
-	$$.true_list = $1.true_list;
-	$$.false_list = $1.false_list;
-}
 //case of RELOP
 | expression relop expression {
 	$$.true_list = make_list(javaByteCode.size());
