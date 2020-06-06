@@ -160,7 +160,7 @@ boolean_expression :
 		addLine("goto ");
 	}
 	else{
-		$$.trueList = new vector<int> ();
+		$$.true_list = new vector<int> ();
 		$$.false_list = make_list(javaByteCode.size());
 		addLine("goto ");
 	}
