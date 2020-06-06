@@ -9,7 +9,7 @@ extern FILE *yyin;
 void yyerror(const char * s);
 
 int id_counter = 1;
-typedef enum {INT_TYPE, FLOAT_TYPE, BOOLEAN_TYPE} type;
+typedef enum {INT_TYPE, FLOAT_TYPE} type;
 map<string, pair<int,type>> symbol_table;
 ofstream outFile("output.txt");
 
@@ -96,8 +96,7 @@ statement: declaration
 
 primitive_type:
 	int_word {$$ = INT_TYPE;}
-	| float_word {$$ = FLOAT_TYPE;}
-	| boolean_word {$$ = BOOLEAN_TYPE;};
+	| float_word {$$ = FLOAT_TYPE;};
 
 declaration:
 	primitive_type identifier semi_colon {
