@@ -171,7 +171,11 @@ while: "while" "(" M boolean_expression ")" "{" M statement "}"
 	addLine("goto " + to_string($3));
 };
 
-if: if_term round_open boolean_expression round_close curly_open M statement curly_close N else_term curly_open M statement curly_close
+if: if_term round_open boolean_expression round_close curly_open M statement curly_close{
+back_patch($3.true_list, $6);
+$$.next_list = merge($3.false_list,7.next_list);
+}
+| if_term round_open boolean_expression round_close curly_open M statement curly_close N else_term curly_open M statement curly_close
 {
 back_patch($3.true_list,$6);
 back_patch($3.true_list,$12);
