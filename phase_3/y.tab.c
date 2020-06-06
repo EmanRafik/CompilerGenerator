@@ -77,7 +77,7 @@ void yyerror(const char * s);
 int id_counter = 1;
 typedef enum {INT_TYPE, FLOAT_TYPE, BOOLEAN_TYPE} type;
 map<string, pair<int,type>> symbol_table;
-ofstream outFile("javaByteCode.j");
+ofstream outFile("output.txt");
 
 vector<string> javaByteCode;
 vector<int> *make_list(int index);

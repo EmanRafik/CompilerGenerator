@@ -1,0 +1,6 @@
+iconst_0
+istore 1
+iconst_0
+istore 2
+ldc 5
+istore 1
