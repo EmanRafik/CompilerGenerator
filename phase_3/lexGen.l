@@ -11,6 +11,7 @@ num [0-9]+
 "float"                                    {return float_word;}
 "if"                                       {return if_term;}
 "else"                                     {return else_term;}
+"while"									   {return while_token;}
 "true"|"false"                             {if(!strcmp(yytext,"true")){
                                                 yylval.boolean_val = 1;
                                               } else {
