@@ -75,7 +75,7 @@ bool is_valid_id(string id);
 %type <statement_type> while
 %type <statement_type> if
 %type <statement_type> N
-%type <int_val> create_label
+%type <int_val> M
 %type <operation> sign
 
 %%
@@ -105,7 +105,7 @@ declaration:
 
 boolean_expression :
 //case of AND, OR
- boolean_expression boolean_op create_label boolean_expression {  //create label is still not ready
+ boolean_expression boolean_op M boolean_expression {  //create label is still not ready
 	if(strcmp($2,"||") == 0){
 		back_patch($1.false_list, $3);
 		$$.true_list = merge($1.true_list, $4.true_list);
@@ -164,7 +164,7 @@ boolean_expression :
 	}
 };
 
-while: "while" "(" create_label boolean_expression ")" "{" create_label statement "}"
+while: "while" "(" M boolean_expression ")" "{" M statement "}"
 {
 	back_patch($4.true_list, $7);
 	back_patch($8.next_list, $3);
@@ -172,7 +172,7 @@ while: "while" "(" create_label boolean_expression ")" "{" create_label statemen
 	addLine("goto " + to_string($3));
 };
 
-if: "if" "(" boolean_expression ")" "{" create_label statement "}" N "else" "{" create_label statement "}"
+if: "if" "(" boolean_expression ")" "{" M statement "}" N "else" "{" M statement "}"
 {
 back_patch($3.true_list,$6);
 back_patch($3.true_list,$12);
@@ -320,7 +320,7 @@ factor:
 	}
 	| '(' expression ')' {$$.type = $2.type;};
 
-create_label: {
+M: {
 $$ = javaByteCode.size();
 };
 
