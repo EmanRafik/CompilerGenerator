@@ -11,9 +11,9 @@ num [0-9]+
 "float"                                    {return float_word;}
 
 "true"|"false"                             {if(!strcmp(yytext,"true")){
-                                                yylval.boolean_val = true;
+                                                yylval.boolean_val = 1;
                                               } else {
-                                                yylval.boolean_val = false;
+                                                yylval.boolean_val = 0;
                                               }
                                               return boolean;
                                             }

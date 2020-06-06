@@ -44,7 +44,7 @@ bool is_valid_id(string id);
         } expression_type;
         int id_type;
 	char* operation;
-	bool boolean_val;
+	int boolean_val;
 	struct {
 	vector<int> *next_list;
 	} statement_type;
