@@ -17,6 +17,7 @@ vector<string> javaByteCode;
 vector<int> *make_list(int index);
 vector<int> *merge(vector<int> *p1, vector<int> *p2);
 void back_patch(vector<int> *p, int index);
+void declare_variable (string id_str, int id_type);
 void addLine(string s);
 void print_output();
 bool isInteger(float val);
