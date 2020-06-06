@@ -20,6 +20,7 @@ void back_patch(vector<int> *p, int index);
 void declare_variable (string id_str, int id_type);
 void addLine(string s);
 void print_output();
+bool is_valid_id(string id);
 %}
 
 %code requires {
@@ -44,9 +45,9 @@ void print_output();
         int id_type;
 	char* operation;
 	bool boolean_val;
-	struct statement_type{
+	struct {
 	vector<int> *next_list;
-	};
+	} statement_type;
 }
 
 %token <id_val> identifier
@@ -74,7 +75,7 @@ void print_output();
 %type <statement_type> while
 %type <statement_type> if
 %type <statement_type> N
-%type <int_val> create_label
+%type <int_val> M
 %type <operation> sign
 
 %%
@@ -83,8 +84,8 @@ method_body: statement_list;
 statement_list: statement_list statement | statement;
 
 statement: declaration 
-| if {$$.next_list = $1.next_list}
-| while {$$.next_list = $1.next_list} 
+| if {$$.next_list = $1.next_list;}
+| while {$$.next_list = $1.next_list;}
 | assignment;
 
 primitive_type:
@@ -104,7 +105,7 @@ declaration:
 
 boolean_expression :
 //case of AND, OR
- boolean_expression boolean_op create_label boolean_expression {  //create label is still not ready
+ boolean_expression boolean_op M boolean_expression {  //create label is still not ready
 	if(strcmp($2,"||") == 0){
 		back_patch($1.false_list, $3);
 		$$.true_list = merge($1.true_list, $4.true_list);
@@ -150,7 +151,7 @@ boolean_expression :
         }
         addLine("if_"+op_type+" ");
 	addLine("goto ")
-}
+;}
 //case of TRUE and FALSE
 | boolean{
 	if($1){
@@ -163,7 +164,7 @@ boolean_expression :
 	}
 };
 
-while: "while" "(" create_label boolean_expression ")" "{" create_label statement "}"
+while: "while" "(" M boolean_expression ")" "{" M statement "}"
 {
 	back_patch($4.true_list, $7);
 	back_patch($8.next_list, $3);
@@ -171,7 +172,7 @@ while: "while" "(" create_label boolean_expression ")" "{" create_label statemen
 	addLine("goto " + to_string($3));
 };
 
-if: "if" "(" boolean_expression ")" "{" create_label statement "}" N "else" "{" create_label statement "}"
+if: "if" "(" boolean_expression ")" "{" M statement "}" N "else" "{" M statement "}"
 {
 back_patch($3.true_list,$6);
 back_patch($3.true_list,$12);
@@ -181,7 +182,7 @@ $$.next_list = merge(temp,$13.next_list);
 };
 
 N: {
-$$.next_list = make_list(javaByteCode.size())
+$$.next_list = make_list(javaByteCode.size());
 addLine("goto ");
 };
 
@@ -207,11 +208,10 @@ assignment:
 	};
 	
 expression: simple_expression 
-{$$.type = $1.type};
-//| simple_expression relop simple_expression
+{$$.type = $1.type;};
 
 simple_expression: 
-term {$$.type = $1.type}
+term {$$.type = $1.type;}
 | sign term {
 	$$.type = $2.type;
 	if (strcmp($1,"-")==0)
@@ -311,20 +311,20 @@ factor:
 	| int_value 
 	{
 		$$.type = INT_TYPE;
-		addLine("ldc " + to_string($1))
+		addLine("ldc " + to_string($1));
 	}	
 	| float_value 
 	{
 		$$.type = FLOAT_TYPE;
-		addLine("ldc " + to_string($1))
+		addLine("ldc " + to_string($1));
 	}
-	| '(' expression ')' {$$.type = $2.type};
+	| '(' expression ')' {$$.type = $2.type;};
 
-create_label: {
+M: {
 $$ = javaByteCode.size();
 };
 
-sign: '+' | '-';
+sign: addop;
 %%
 
 void yyerror(char * s)
@@ -344,7 +344,7 @@ int main(void)
 //makelist --> creates and returns a new list that only contains an index to an instruction
 vector<int> *make_list(int index)
 {
-  vector<int> *vec = new vector<int>());
+  vector<int> *vec = new vector<int>();
   vec->push_back(index);
   return vec;
 }
@@ -376,8 +376,8 @@ void back_patch(vector<int> *p, int index)
     return;
   }
   for(int i=0; i<p->size(); i++){
-    int_val = (*p)[i];
-    javaByteCode[inst_val] = javaByteCode[inst_val] + to_string(index);
+    int int_val = (*p)[i];
+    javaByteCode[int_val] = javaByteCode[inst_val] + to_string(index);
   }
 }
 
