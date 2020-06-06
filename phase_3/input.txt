@@ -2,6 +2,9 @@ int count;
 int pass;
 pass = 1;
 count = pass * 2;
-while ( pass != 10 ){
+if( pass != 1 ){
 	pass = pass + 1;
+}else{
+	pass = pass + 2;
 }
+count = pass * 2;

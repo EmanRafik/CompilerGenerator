@@ -1,6 +1,27 @@
-iconst_0
-istore 1
-iconst_0
-istore 2
-ldc 5
-istore 1
+1 iconst_0
+2 istore 1
+3 iconst_0
+4 istore 2
+5 ldc 1
+6 istore 2
+7 iload 2
+8 ldc 2
+9 imul
+10 istore 1
+11 iload 2
+12 ldc 1
+13 if_icmpeq 15
+14 goto 20
+15 iload 2
+16 ldc 1
+17 iadd
+18 istore 2
+19 goto 
+20 iload 2
+21 ldc 2
+22 iadd
+23 istore 2
+24 iload 2
+25 ldc 2
+26 imul
+27 istore 1

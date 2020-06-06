@@ -126,8 +126,8 @@ boolean_expression :
 }
 //case of RELOP
 | expression relop expression {
-	$$.true_list = make_list(code_counter+1);
-	$$.false_list = make_list(code_counter+2);
+	$$.true_list = make_list(code_counter);
+	$$.false_list = make_list(code_counter+1);
 	string op_type= "";
         if(strcmp($2,"==")){
         op_type = "icmpeq";
@@ -167,6 +167,7 @@ boolean_expression :
 while: while_token round_open M boolean_expression round_close curly_open M statement curly_close
 {
 	back_patch($4.true_list, $7);
+	back_patch($4.false_list, code_counter+2);
 	back_patch($8.next_list, $3);
 	$$.next_list = $4.false_list;
 	addLine("goto " + to_string($3));
@@ -182,7 +183,7 @@ cout<<3<<endl;
 | if_term round_open boolean_expression round_close curly_open M statement curly_close N else_term curly_open M statement curly_close
 {
 back_patch($3.true_list,$6);
-back_patch($3.true_list,$12);
+back_patch($3.false_list,$12);
 vector<int> *temp = new vector<int>();
 temp = merge($7.next_list,$9.next_list);
 $$.next_list = merge(temp,$13.next_list);
