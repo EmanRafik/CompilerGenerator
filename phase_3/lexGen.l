@@ -10,7 +10,7 @@ num [0-9]+
 "int"                                      {return int_word;}
 "float"                                    {return float_word;}
 
-"true"|"false"                             {{if(!strcmp(yytext,"true")){
+"true"|"false"                             {if(!strcmp(yytext,"true")){
                                                 yylval.boolean_val = true;
                                               } else {
                                                 yylval.boolean_val = false;
