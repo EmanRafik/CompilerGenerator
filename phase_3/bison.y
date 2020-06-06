@@ -374,7 +374,9 @@ vector<int> *merge(vector<int> *p1, vector<int> *p2)
     count<<"before vec"<<endl;
     vector<int> *vec = new vector<int>(*p1);
     count<<"after vec"<<endl;
-    vec->insert(vec->end(),p2->begin(),p2->end());
+    for(int i=0; i<p2->size();i++){
+    	vec->push_back((*p2)[i]);
+    }
     count<<"after merge"<<endl;
     return vec;
   }
