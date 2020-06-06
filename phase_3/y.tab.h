@@ -41,7 +41,7 @@ extern int yydebug;
 #endif
 /* "%code requires" blocks.  */
 /* Line 2058 of yacc.c  */
-#line 25 "bison.y"
+#line 26 "bison.y"
 
 	#include <vector>
 	#include <map>
@@ -69,8 +69,7 @@ extern int yydebug;
      float_word = 267,
      boolean_word = 268,
      mulop = 269,
-     addop = 270,
-     num = 271
+     addop = 270
    };
 #endif
 /* Tokens.  */
@@ -87,7 +86,6 @@ extern int yydebug;
 #define boolean_word 268
 #define mulop 269
 #define addop 270
-#define num 271
 
 
 
@@ -95,28 +93,28 @@ extern int yydebug;
 typedef union YYSTYPE
 {
 /* Line 2058 of yacc.c  */
-#line 33 "bison.y"
+#line 34 "bison.y"
 
 	int int_val;
 	float float_val;
 	char * id_val;
-	struct bool_expression {
+	struct {
 		vector<int> *true_list;
 		vector<int> *false_list;
-	};
-	struct expression_type {
+	} bool_expression;
+	struct {
         	int type;
-        };
+        } expression_type;
         int id_type;
 	char* operation;
 	bool boolean_val;
-	struct statement_type{
+	struct {
 	vector<int> *next_list;
-	};
+	} statement_type;
 
 
 /* Line 2058 of yacc.c  */
-#line 120 "y.tab.h"
+#line 118 "y.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

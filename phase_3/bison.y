@@ -327,7 +327,7 @@ $$ = javaByteCode.size();
 sign: addop;
 %%
 
-void yyerror(char * s)
+void yyerror(const char * s)
 {
  fprintf (stderr, "%s\n", s);
 }
@@ -377,7 +377,7 @@ void back_patch(vector<int> *p, int index)
   }
   for(int i=0; i<p->size(); i++){
     int int_val = (*p)[i];
-    javaByteCode[int_val] = javaByteCode[inst_val] + to_string(index);
+    javaByteCode[int_val] = javaByteCode[int_val] + to_string(index);
   }
 }
 
