@@ -1,9 +1,12 @@
 %{
-#include "stdc++.h"
 #include <unistd.h>
-//#include <vector>
-//#include <map>
+#include "stdc++.h"
+
 using namespace std;
+
+extern int yylex();
+extern FILE *yyin;
+void yyerror(const char * s);
 
 int id_counter = 1;
 typedef enum {INT_TYPE, FLOAT_TYPE, BOOLEAN_TYPE} type;
@@ -21,6 +24,7 @@ bool isInteger(float val);
 
 %code requires {
 	#include <vector>
+	#include <map>
 	using namespace std;
 }
 

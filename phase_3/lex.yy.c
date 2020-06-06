@@ -399,10 +399,8 @@ char *yytext;
 #line 1 "lexGen.l"
 #define INITIAL 0
 #line 2 "lexGen.l"
-#include <stdio.h>
-#include "stdc++.h"
 #include "y.tab.h"
-#line 406 "lex.yy.c"
+#line 404 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -553,9 +551,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 9 "lexGen.l"
+#line 7 "lexGen.l"
 
-#line 559 "lex.yy.c"
+#line 557 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -640,75 +638,75 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 10 "lexGen.l"
+#line 8 "lexGen.l"
 {return boolean_word;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 11 "lexGen.l"
+#line 9 "lexGen.l"
 {return int_word;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 12 "lexGen.l"
+#line 10 "lexGen.l"
 {return float_word;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 13 "lexGen.l"
+#line 11 "lexGen.l"
 {return boolean;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 14 "lexGen.l"
+#line 12 "lexGen.l"
 {return identifier;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 15 "lexGen.l"
+#line 13 "lexGen.l"
 {return int_value;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 16 "lexGen.l"
+#line 14 "lexGen.l"
 {return float_value;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 17 "lexGen.l"
+#line 15 "lexGen.l"
 {return relop;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 18 "lexGen.l"
+#line 16 "lexGen.l"
 {return boolean_op;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 19 "lexGen.l"
+#line 17 "lexGen.l"
 {return mulop;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 20 "lexGen.l"
+#line 18 "lexGen.l"
 {return addop;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 21 "lexGen.l"
+#line 19 "lexGen.l"
 {return semi_colon;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 22 "lexGen.l"
+#line 20 "lexGen.l"
 {return equals;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 24 "lexGen.l"
+#line 22 "lexGen.l"
 ECHO;
 	YY_BREAK
-#line 712 "lex.yy.c"
+#line 710 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1594,7 +1592,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 24 "lexGen.l"
+#line 22 "lexGen.l"
 
 
 int yywrap()

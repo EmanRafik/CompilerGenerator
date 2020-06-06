@@ -1,6 +1,4 @@
 %{
-#include <stdio.h>
-#include "stdc++.h"
 #include "y.tab.h"
 %}
 

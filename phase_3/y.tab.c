@@ -65,11 +65,14 @@
 /* Line 371 of yacc.c  */
 #line 1 "bison.y"
 
-#include "stdc++.h"
 #include <unistd.h>
-//#include <vector>
-//#include <map>
+#include "stdc++.h"
+
 using namespace std;
+
+extern int yylex();
+extern FILE *yyin;
+void yyerror(const char * s);
 
 int id_counter = 1;
 typedef enum {INT_TYPE, FLOAT_TYPE, BOOLEAN_TYPE} type;
@@ -85,7 +88,7 @@ void print_output();
 bool isInteger(float val);
 
 /* Line 371 of yacc.c  */
-#line 89 "y.tab.c"
+#line 92 "y.tab.c"
 
 # ifndef YY_NULL
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -116,14 +119,15 @@ extern int yydebug;
 #endif
 /* "%code requires" blocks.  */
 /* Line 387 of yacc.c  */
-#line 22 "bison.y"
+#line 25 "bison.y"
 
 	#include <vector>
+	#include <map>
 	using namespace std;
 
 
 /* Line 387 of yacc.c  */
-#line 127 "y.tab.c"
+#line 131 "y.tab.c"
 
 /* Tokens.  */
 #ifndef YYTOKENTYPE
@@ -169,7 +173,7 @@ extern int yydebug;
 typedef union YYSTYPE
 {
 /* Line 387 of yacc.c  */
-#line 29 "bison.y"
+#line 33 "bison.y"
 
 	int int_val;
 	float float_val;
@@ -190,7 +194,7 @@ typedef union YYSTYPE
 
 
 /* Line 387 of yacc.c  */
-#line 194 "y.tab.c"
+#line 198 "y.tab.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -218,7 +222,7 @@ int yyparse ();
 /* Copy the second part of user declarations.  */
 
 /* Line 390 of yacc.c  */
-#line 222 "y.tab.c"
+#line 226 "y.tab.c"
 
 #ifdef short
 # undef short
@@ -519,10 +523,10 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,    78,    78,    80,    80,    82,    83,    84,    85,    88,
-      89,    90,    93,   104,   117,   121,   126,   152,   163,   171,
-     180,   186,   206,   211,   212,   226,   255,   258,   287,   308,
-     319,   321,   325,   325
+       0,    82,    82,    84,    84,    86,    87,    88,    89,    92,
+      93,    94,    97,   108,   121,   125,   130,   156,   167,   175,
+     184,   190,   210,   215,   216,   230,   259,   262,   291,   312,
+     323,   325,   329,   329
 };
 #endif
 
@@ -1457,37 +1461,37 @@ yyreduce:
     {
         case 6:
 /* Line 1792 of yacc.c  */
-#line 83 "bison.y"
+#line 87 "bison.y"
     {(yyval.statement_type).next_list = (yyvsp[(1) - (1)].statement_type).next_list}
     break;
 
   case 7:
 /* Line 1792 of yacc.c  */
-#line 84 "bison.y"
+#line 88 "bison.y"
     {(yyval.statement_type).next_list = (yyvsp[(1) - (1)].statement_type).next_list}
     break;
 
   case 9:
 /* Line 1792 of yacc.c  */
-#line 88 "bison.y"
+#line 92 "bison.y"
     {(yyval.id_type) = INT_TYPE;}
     break;
 
   case 10:
 /* Line 1792 of yacc.c  */
-#line 89 "bison.y"
+#line 93 "bison.y"
     {(yyval.id_type) = FLOAT_TYPE;}
     break;
 
   case 11:
 /* Line 1792 of yacc.c  */
-#line 90 "bison.y"
+#line 94 "bison.y"
     {(yyval.id_type) = BOOLEAN_TYPE;}
     break;
 
   case 12:
 /* Line 1792 of yacc.c  */
-#line 93 "bison.y"
+#line 97 "bison.y"
     {
 		string id_str((yyvsp[(2) - (3)].id_val));
 		if((yyvsp[(1) - (3)].id_type) == INT_TYPE){
@@ -1500,7 +1504,7 @@ yyreduce:
 
   case 13:
 /* Line 1792 of yacc.c  */
-#line 104 "bison.y"
+#line 108 "bison.y"
     {  //create label is still not ready
 	if(strcmp((yyvsp[(2) - (4)].operation),"||") == 0){
 		backpatch((yyvsp[(1) - (4)].bool_expression).false_list, (yyvsp[(3) - (4)].int_type));
@@ -1517,7 +1521,7 @@ yyreduce:
 
   case 14:
 /* Line 1792 of yacc.c  */
-#line 117 "bison.y"
+#line 121 "bison.y"
     {
 	(yyval.bool_expression).true_list = (yyvsp[(2) - (2)].bool_expression).false_list;
 	(yyval.bool_expression).false_list = (yyvsp[(2) - (2)].bool_expression).true_list;
@@ -1526,7 +1530,7 @@ yyreduce:
 
   case 15:
 /* Line 1792 of yacc.c  */
-#line 121 "bison.y"
+#line 125 "bison.y"
     {
 	(yyval.bool_expression).true_list = (yyvsp[(1) - (1)].bool_expression).true_list;
 	(yyval.bool_expression).false_list = (yyvsp[(1) - (1)].bool_expression).false_list;
@@ -1535,7 +1539,7 @@ yyreduce:
 
   case 16:
 /* Line 1792 of yacc.c  */
-#line 126 "bison.y"
+#line 130 "bison.y"
     {
 	(yyval.bool_expression).true_list = make_list(javaByteCode.size());
 	(yyval.bool_expression).false_list = make_list(javaByteCode.size()+1);
@@ -1565,7 +1569,7 @@ yyreduce:
 
   case 17:
 /* Line 1792 of yacc.c  */
-#line 152 "bison.y"
+#line 156 "bison.y"
     {
 	if((yyvsp[(1) - (1)].boolean_val)){
 		(yyval.bool_expression).true_list = make_list(javaByteCode.size());
@@ -1580,7 +1584,7 @@ yyreduce:
 
   case 18:
 /* Line 1792 of yacc.c  */
-#line 164 "bison.y"
+#line 168 "bison.y"
     {
 	back_patch((yyvsp[(4) - (9)].bool_expression).true_list, (yyvsp[(7) - (9)].int_type));
 	back_patch((yyvsp[(8) - (9)].statement_type).next_list, (yyvsp[(3) - (9)].int_type));
@@ -1591,7 +1595,7 @@ yyreduce:
 
   case 19:
 /* Line 1792 of yacc.c  */
-#line 172 "bison.y"
+#line 176 "bison.y"
     {
 backpatch((yyvsp[(3) - (14)].bool_expression).true_list,(yyvsp[(6) - (14)].int_type));
 backpatch((yyvsp[(3) - (14)].bool_expression).true_list,(yyvsp[(12) - (14)].int_type));
@@ -1603,7 +1607,7 @@ temp = merge((yyvsp[(7) - (14)].statement_type).next_list,(yyvsp[(9) - (14)].sta
 
   case 20:
 /* Line 1792 of yacc.c  */
-#line 180 "bison.y"
+#line 184 "bison.y"
     {
 (yyval.statement_type).next_list = make_list(javaByteCode.size())
 addLine("goto ");
@@ -1612,7 +1616,7 @@ addLine("goto ");
 
   case 21:
 /* Line 1792 of yacc.c  */
-#line 186 "bison.y"
+#line 190 "bison.y"
     {
 		string id_str((yyvsp[(1) - (4)].id_val));
                 if(is_valid_id(id_str)){
@@ -1636,19 +1640,19 @@ addLine("goto ");
 
   case 22:
 /* Line 1792 of yacc.c  */
-#line 207 "bison.y"
+#line 211 "bison.y"
     {(yyval.expression_type).type = (yyvsp[(1) - (1)].expression_type).type}
     break;
 
   case 23:
 /* Line 1792 of yacc.c  */
-#line 211 "bison.y"
+#line 215 "bison.y"
     {(yyval.expression_type).type = (yyvsp[(1) - (1)].expression_type).type}
     break;
 
   case 24:
 /* Line 1792 of yacc.c  */
-#line 212 "bison.y"
+#line 216 "bison.y"
     {
 	(yyval.expression_type).type = (yyvsp[(2) - (2)].expression_type).type;
 	if (strcmp((yyvsp[(1) - (2)].operation),"-")==0)
@@ -1667,7 +1671,7 @@ addLine("goto ");
 
   case 25:
 /* Line 1792 of yacc.c  */
-#line 227 "bison.y"
+#line 231 "bison.y"
     {
 	if ((yyvsp[(1) - (3)].expression_type).type == FLOAT_TYPE || (yyvsp[(3) - (3)].expression_type).type == FLOAT_TYPE)
 	{
@@ -1698,7 +1702,7 @@ addLine("goto ");
 
   case 26:
 /* Line 1792 of yacc.c  */
-#line 255 "bison.y"
+#line 259 "bison.y"
     {
 		(yyval.expression_type).type = (yyvsp[(1) - (1)].expression_type).type;
 	}
@@ -1706,7 +1710,7 @@ addLine("goto ");
 
   case 27:
 /* Line 1792 of yacc.c  */
-#line 258 "bison.y"
+#line 262 "bison.y"
     {
 	if ((yyvsp[(1) - (3)].expression_type).type == FLOAT_TYPE || (yyvsp[(3) - (3)].expression_type).type == FLOAT_TYPE)
 	{
@@ -1738,7 +1742,7 @@ addLine("goto ");
 
   case 28:
 /* Line 1792 of yacc.c  */
-#line 287 "bison.y"
+#line 291 "bison.y"
     {
 		string id_str((yyvsp[(1) - (1)].id_val));
 		if (is_valid_id(id_str)) 
@@ -1764,7 +1768,7 @@ addLine("goto ");
 
   case 29:
 /* Line 1792 of yacc.c  */
-#line 308 "bison.y"
+#line 312 "bison.y"
     {
 		if (isInteger(atof(num))) 
 		{
@@ -1780,13 +1784,13 @@ addLine("goto ");
 
   case 30:
 /* Line 1792 of yacc.c  */
-#line 319 "bison.y"
+#line 323 "bison.y"
     {(yyval.expression_type).type = (yyvsp[(2) - (3)].expression_type).type}
     break;
 
   case 31:
 /* Line 1792 of yacc.c  */
-#line 321 "bison.y"
+#line 325 "bison.y"
     {
 (yyval.int_type) = javaByteCode.size();
 }
@@ -1794,7 +1798,7 @@ addLine("goto ");
 
 
 /* Line 1792 of yacc.c  */
-#line 1798 "y.tab.c"
+#line 1802 "y.tab.c"
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -2026,7 +2030,7 @@ yyreturn:
 
 
 /* Line 2055 of yacc.c  */
-#line 326 "bison.y"
+#line 330 "bison.y"
 
 
 void yyerror(char * s)
