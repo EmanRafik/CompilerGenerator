@@ -172,10 +172,9 @@ while: while_token round_open M boolean_expression round_close curly_open M stat
 	addLine("goto " + to_string($3));
 };
 
-if: if_term round_open boolean_expression round_close curly_open M statement M curly_close{
+if: if_term round_open boolean_expression round_close curly_open M statement curly_close{
 cout<<1<<endl;
 back_patch($3.true_list, $6);
-back_patch($3.false_list, $8);
 cout<<2<<endl;
 $$.next_list = merge($3.false_list,$7.next_list);
 cout<<3<<endl;
@@ -417,9 +416,11 @@ void declare_variable (string id_str, int id_type)
 		yyerror(error.c_str());
 	} else {
 		if (id_type == INT_TYPE) {
-			addLine("iconst_0\nistore " + to_string(id_counter));
+			addLine("iconst_0);
+			addLine("istore " + to_string(id_counter));
 		} else if (id_type == FLOAT_TYPE) {
-			addLine("iconst_0\nistore " + to_string(id_counter));
+			addLine("iconst_0);
+			addLine("istore " + to_string(id_counter));
 		}
 		symbol_table[id_str] = make_pair (id_counter++, (type)id_type);
 	}
