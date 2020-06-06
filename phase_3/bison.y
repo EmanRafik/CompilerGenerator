@@ -84,8 +84,8 @@ method_body: statement_list;
 statement_list: statement_list statement | statement;
 
 statement: declaration 
-| if {$$.next_list = $1.next_list}
-| while {$$.next_list = $1.next_list} 
+| if {$$.next_list = $1.next_list;}
+| while {$$.next_list = $1.next_list;}
 | assignment;
 
 primitive_type:
@@ -151,7 +151,7 @@ boolean_expression :
         }
         addLine("if_"+op_type+" ");
 	addLine("goto ")
-}
+;}
 //case of TRUE and FALSE
 | boolean{
 	if($1){
@@ -182,7 +182,7 @@ $$.next_list = merge(temp,$13.next_list);
 };
 
 N: {
-$$.next_list = make_list(javaByteCode.size())
+$$.next_list = make_list(javaByteCode.size());
 addLine("goto ");
 };
 
