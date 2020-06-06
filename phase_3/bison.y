@@ -20,6 +20,7 @@ void back_patch(vector<int> *p, int index);
 void declare_variable (string id_str, int id_type);
 void addLine(string s);
 void print_output();
+bool is_valid_id(string id);
 %}
 
 %code requires {
@@ -207,11 +208,10 @@ assignment:
 	};
 	
 expression: simple_expression 
-{$$.type = $1.type};
-//| simple_expression relop simple_expression
+{$$.type = $1.type;};
 
 simple_expression: 
-term {$$.type = $1.type}
+term {$$.type = $1.type;}
 | sign term {
 	$$.type = $2.type;
 	if (strcmp($1,"-")==0)
@@ -311,20 +311,20 @@ factor:
 	| int_value 
 	{
 		$$.type = INT_TYPE;
-		addLine("ldc " + to_string($1))
+		addLine("ldc " + to_string($1));
 	}	
 	| float_value 
 	{
 		$$.type = FLOAT_TYPE;
-		addLine("ldc " + to_string($1))
+		addLine("ldc " + to_string($1));
 	}
-	| '(' expression ')' {$$.type = $2.type};
+	| '(' expression ')' {$$.type = $2.type;};
 
 create_label: {
 $$ = javaByteCode.size();
 };
 
-sign: '+' | '-';
+sign: addop;
 %%
 
 void yyerror(char * s)
