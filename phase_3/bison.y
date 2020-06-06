@@ -359,17 +359,23 @@ vector<int> *merge(vector<int> *p1, vector<int> *p2)
 {
   if(p1 == NULL && p2 == NULL){
     vector<int> *vec = new vector<int>();
+    count<<"both empty"<<endl;
     return vec;
   }
   else if(p1 == NULL){
+  count<<"1 is empty"<<endl;
     return p2;
   }
   else if(p2 == NULL){
+  count<<"2 is empty"<<endl;
     return p1;
   }
   else{
+    count<<"before vec"<<endl;
     vector<int> *vec = new vector<int>(*p1);
+    count<<"after vec"<<endl;
     vec->insert(vec->end(),p2->begin(),p2->end());
+    count<<"after merge"<<endl;
     return vec;
   }
 }
