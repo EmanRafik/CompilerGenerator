@@ -9,7 +9,8 @@ num [0-9]+
 "boolean"                                  {return boolean_word;}
 "int"                                      {return int_word;}
 "float"                                    {return float_word;}
-
+"if"                                       {return if_term;}
+"else"                                     {return else_term;}
 "true"|"false"                             {if(!strcmp(yytext,"true")){
                                                 yylval.boolean_val = 1;
                                               } else {
@@ -45,6 +46,11 @@ num [0-9]+
 ")"
 "{"
 "}"
+
+'('
+')'
+'{'
+'}'
 
 %%
 
