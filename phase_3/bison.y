@@ -359,10 +359,10 @@ vector<int> *merge(vector<int> *p1, vector<int> *p2)
     vector<int> *vec = new vector<int>();
     return vec;
   }
-  else if(p1 == null){
+  else if(p1 == NULL){
     return p2;
   }
-  else if(p2 == null){
+  else if(p2 == NULL){
     return p1;
   }
   else{
@@ -375,7 +375,7 @@ vector<int> *merge(vector<int> *p1, vector<int> *p2)
 //backpatch --> inserts index as target label for each instruction in p
 void back_patch(vector<int> *p, int index)
 {
-  if(p == null){
+  if(p == NULL){
     return;
   }
   for(int i=0; i<p->size(); i++){
