@@ -9,6 +9,7 @@ extern FILE *yyin;
 void yyerror(const char * s);
 
 int id_counter = 1;
+int code_counter = 0;
 typedef enum {INT_TYPE, FLOAT_TYPE} type;
 map<string, pair<int,type>> symbol_table;
 ofstream outFile("output.txt");
@@ -125,8 +126,8 @@ boolean_expression :
 }
 //case of RELOP
 | expression relop expression {
-	$$.true_list = make_list(javaByteCode.size());
-	$$.false_list = make_list(javaByteCode.size()+1);
+	$$.true_list = make_list(code_counter+1);
+	$$.false_list = make_list(code_counter+2);
 	string op_type= "";
         if(strcmp($2,"==")){
         op_type = "icmpeq";
@@ -152,13 +153,13 @@ boolean_expression :
 //case of TRUE and FALSE
 | boolean{
 	if($1){
-		$$.true_list = make_list(javaByteCode.size());
+		$$.true_list = make_list(code_counter+1);
 		$$.false_list = new vector<int>();
 		addLine("goto ");
 	}
 	else{
 		$$.true_list = new vector<int> ();
-		$$.false_list = make_list(javaByteCode.size());
+		$$.false_list = make_list(code_counter+1);
 		addLine("goto ");
 	}
 };
@@ -188,7 +189,7 @@ $$.next_list = merge(temp,$13.next_list);
 };
 
 N: {
-$$.next_list = make_list(javaByteCode.size());
+$$.next_list = make_list(code_counter+1);
 addLine("goto ");
 };
 
@@ -327,7 +328,7 @@ factor:
 	| '(' expression ')' {$$.type = $2.type;};
 
 M: {
-$$ = javaByteCode.size();
+$$ = code_counter+1;
 };
 
 sign: addop;
@@ -399,6 +400,7 @@ void back_patch(vector<int> *p, int index)
 void addLine(string s)
 {
   javaByteCode.push_back(s);
+  code_counter++;
 }
 
 //checks if the id is already identified or not
@@ -427,7 +429,7 @@ void print_output()
 {
   for ( int i = 0 ; i < javaByteCode.size() ; i++)
   {
-    outFile<<javaByteCode[i]<<endl;
+    outFile<< to_string(i+1) << " " << javaByteCode[i]<<endl;
   }
 }
 
