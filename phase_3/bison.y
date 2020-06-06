@@ -65,6 +65,10 @@ bool is_valid_id(string id);
 %token <operation> addop
 %token if_term
 %token else_term
+%token round_open
+%token round_close
+%token curly_open
+%token curly_close
 
 %type <id_type> primitive_type
 %type <bool_expression> boolean_expression
@@ -176,7 +180,7 @@ while: "while" "(" M boolean_expression ")" "{" M statement "}"
 	addLine("goto " + to_string($3));
 };
 
-if: if_term '(' boolean_expression ')' '{' M statement '}' N else_term '{' M statement '}'
+if: if_term round_open boolean_expression round_close curly_open M statement curly_close N else_term curly_open M statement curly_close
 {
 back_patch($3.true_list,$6);
 back_patch($3.true_list,$12);
