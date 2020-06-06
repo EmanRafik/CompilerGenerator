@@ -122,15 +122,6 @@ boolean_expression :
 		$$.false_list = merge($1.false_list, $4.false_list);
 	}
 }
-//case of NOT
-| boolean_op boolean_expression{
-	$$.true_list = $2.false_list;
-	$$.false_list = $2.true_list;
-}
-| boolean_expression{
-	$$.true_list = $1.true_list;
-	$$.false_list = $1.false_list;
-}
 //case of RELOP
 | expression relop expression {
 	$$.true_list = make_list(javaByteCode.size());
@@ -179,11 +170,18 @@ while: "while" "(" M boolean_expression ")" "{" M statement "}"
 	addLine("goto " + to_string($3));
 };
 
-if: if_term round_open boolean_expression round_close curly_open M statement curly_close N else_term curly_open M statement curly_close
+if: if_term round_open boolean_expression round_close curly_open M statement curly_close{
+cout<<1<<endl;
+back_patch($3.true_list, $6);
+cout<<2<<endl;
+$$.next_list = merge($3.false_list,$7.next_list);
+cout<<3<<endl;
+}
+| if_term round_open boolean_expression round_close curly_open M statement curly_close N else_term curly_open M statement curly_close
 {
 back_patch($3.true_list,$6);
 back_patch($3.true_list,$12);
-vector<int> *temp;
+vector<int> *temp = new vector<int>();
 temp = merge($7.next_list,$9.next_list);
 $$.next_list = merge(temp,$13.next_list);
 };
