@@ -89,10 +89,10 @@ method_body: statement_list;
 
 statement_list: statement_list statement | statement;
 
-statement: declaration 
+statement: declaration {$$.next_list = new vector<int>();}
 | if {$$.next_list = $1.next_list;}
 | while {$$.next_list = $1.next_list;}
-| assignment;
+| assignment {$$.next_list = new vector<int>();};
 
 primitive_type:
 	int_word {$$ = INT_TYPE;}
@@ -359,25 +359,25 @@ vector<int> *merge(vector<int> *p1, vector<int> *p2)
 {
   if(p1 == NULL && p2 == NULL){
     vector<int> *vec = new vector<int>();
-    count<<"both empty"<<endl;
+    cout<<"both empty"<<endl;
     return vec;
   }
   else if(p1 == NULL){
-  count<<"1 is empty"<<endl;
+  cout<<"1 is empty"<<endl;
     return p2;
   }
   else if(p2 == NULL){
-  count<<"2 is empty"<<endl;
+  cout<<"2 is empty"<<endl;
     return p1;
   }
   else{
-    count<<"before vec"<<endl;
+    cout<<"before vec"<<endl;
     vector<int> *vec = new vector<int>(*p1);
-    count<<"after vec"<<endl;
+    cout<<"after vec"<<endl;
     for(int i=0; i<p2->size();i++){
     	vec->push_back((*p2)[i]);
     }
-    count<<"after merge"<<endl;
+    cout<<"after merge"<<endl;
     return vec;
   }
 }
