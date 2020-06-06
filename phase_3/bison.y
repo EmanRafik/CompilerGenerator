@@ -344,7 +344,7 @@ int main(void)
 //makelist --> creates and returns a new list that only contains an index to an instruction
 vector<int> *make_list(int index)
 {
-  vector<int> *vec = new vector<int>());
+  vector<int> *vec = new vector<int>();
   vec->push_back(index);
   return vec;
 }
@@ -376,8 +376,8 @@ void back_patch(vector<int> *p, int index)
     return;
   }
   for(int i=0; i<p->size(); i++){
-    int_val = (*p)[i];
-    javaByteCode[inst_val] = javaByteCode[inst_val] + to_string(index);
+    int int_val = (*p)[i];
+    javaByteCode[int_val] = javaByteCode[inst_val] + to_string(index);
   }
 }
 
