@@ -42,15 +42,10 @@ num [0-9]+
 
 ";"                                        {return semi_colon;}
 "="                                        {return equals;}
-"("
-")"
-"{"
-"}"
-
-'('
-')'
-'{'
-'}'
+"("                                        {return round_open;}
+")"                                        {return round_close;}
+"{"                                        {return curly_open;}
+"}"                                        {return curly_close;}
 
 %%
 
