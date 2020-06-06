@@ -20,7 +20,6 @@ void back_patch(vector<int> *p, int index);
 void declare_variable (string id_str, int id_type);
 void addLine(string s);
 void print_output();
-bool isInteger(float val);
 %}
 
 %code requires {
@@ -63,7 +62,6 @@ bool isInteger(float val);
 %token boolean_word
 %token <operation> mulop
 %token <operation> addop
-%token <float_val> num
 
 %type <id_type> primitive_type
 %type <bool_expression> boolean_expression
@@ -76,7 +74,7 @@ bool isInteger(float val);
 %type <statement_type> while
 %type <statement_type> if
 %type <statement_type> N
-%type <int_type> create_label
+%type <int_val> create_label
 %type <operation> sign
 
 %%
@@ -310,16 +308,15 @@ factor:
             yyerror(error.c_str());
 		}
 	}
-	| num {
-		if (isInteger(atof(num))) 
-		{
-			$$.type = INT_TYPE;
-		}
-		else
-		{
-			$$.type = FLOAT_TYPE;
-		}
-		addLine("ldc " + $1)
+	| int_value 
+	{
+		$$.type = INT_TYPE;
+		addLine("ldc " + to_string($1))
+	}	
+	| float_value 
+	{
+		$$.type = FLOAT_TYPE;
+		addLine("ldc " + to_string($1))
 	}
 	| '(' expression ')' {$$.type = $2.type};
 
@@ -419,13 +416,4 @@ void print_output()
     outFile<<javaByteCode[i]<<endl;
   }
 }
-
-//check if number is integer
-bool isInteger(float val)
-{
-    int truncated = (int)val;
-    return (val == truncated);
-}
-
-
 
