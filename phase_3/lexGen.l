@@ -1,5 +1,6 @@
 %{
 #include "y.tab.h"
+#include <bits/stdc++.h>
 %}
 
 num [0-9]+
