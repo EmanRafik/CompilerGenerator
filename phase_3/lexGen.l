@@ -15,8 +15,8 @@ num [0-9]+
                                               } else {
                                                 yylval.boolean_val = false;
                                               }
-                                              return BOOL;}
-                                            return boolean;}
+                                              return boolean;
+                                            }
 
 [a-zA-Z][a-zA-z|0-9]*                      {yylval.id_val = strdup(yytext)
                                             return identifier;}
