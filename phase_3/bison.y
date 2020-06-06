@@ -92,8 +92,10 @@ method_body: statement_list;
 statement_list: statement_list statement | statement;
 
 statement: declaration {$$.next_list = new vector<int>();}
-| if {$$.next_list = $1.next_list;}
-| while {$$.next_list = $1.next_list;}
+| if {$$.next_list = $1.next_list;
+back_patch($$.next_list, code_counter+1);}
+| while {$$.next_list = $1.next_list;
+back_patch($$.next_list, code_counter+1);}
 | assignment {$$.next_list = new vector<int>();};
 
 primitive_type:
@@ -167,7 +169,7 @@ boolean_expression :
 while: while_token round_open M boolean_expression round_close curly_open M statement curly_close
 {
 	back_patch($4.true_list, $7);
-	back_patch($4.false_list, code_counter+2);
+	//back_patch($4.false_list, code_counter+2);
 	back_patch($8.next_list, $3);
 	$$.next_list = $4.false_list;
 	addLine("goto " + to_string($3));
