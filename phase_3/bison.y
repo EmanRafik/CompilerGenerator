@@ -156,9 +156,11 @@ boolean_expression :
 | boolean{
 	if($1){
 		$$.true_list = make_list(javaByteCode.size());
+		$$.false_list = new vector<int>();
 		addLine("goto ");
 	}
 	else{
+		$$.trueList = new vector<int> ();
 		$$.false_list = make_list(javaByteCode.size());
 		addLine("goto ");
 	}
