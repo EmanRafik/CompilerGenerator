@@ -8,14 +8,36 @@ num [0-9]+
 "boolean"                                  {return boolean_word;}
 "int"                                      {return int_word;}
 "float"                                    {return float_word;}
-"true"|"false"                             {return boolean;}
-[a-zA-Z][a-zA-z|0-9]*                      {return identifier;}
-"-"?{num}                                  {return int_value;}
-"-"?{num}.{num}("E"{num})?                 {return float_value;}
-"=="|"!="|">="|"<="|"^"|"<"|">"            {return relop;}
-"&&"|"||"|"!"                              {return boolean_op;}
-"*"|"/"                                    {return mulop;}
-"+"|"-"                                    {return addop;}
+
+"true"|"false"                             {{if(!strcmp(yytext,"true")){
+                                                yylval.boolean_val = true;
+                                              } else {
+                                                yylval.boolean_val = false;
+                                              }
+                                              return BOOL;}
+                                            return boolean;}
+
+[a-zA-Z][a-zA-z|0-9]*                      {yylval.id_val = strdup(yytext)
+                                            return identifier;}
+
+"-"?{num}                                  {yylval.int_val = atoi(yytext);
+                                            return int_value;}
+
+"-"?{num}.{num}("E"{num})?                 {yylval.float_val = atof(yytext);
+                                            return float_value;}
+
+"=="|"!="|">="|"<="|"^"|"<"|">"            {yylval.operation = strdup(yytext);
+                                            return relop;}
+
+"&&"|"||"|"!"                              {yylval.operation = strdup(yytext);
+                                            return boolean_op;}
+
+"*"|"/"                                    {yylval.operation = strdup(yytext);
+                                            return mulop;}
+
+"+"|"-"                                    {yylval.operation = strdup(yytext);
+                                            return addop;}
+
 ";"                                        {return semi_colon;}
 "="                                        {return equals;}
 
