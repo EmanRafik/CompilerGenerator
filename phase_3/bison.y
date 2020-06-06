@@ -416,9 +416,11 @@ void declare_variable (string id_str, int id_type)
 		yyerror(error.c_str());
 	} else {
 		if (id_type == INT_TYPE) {
-			addLine("iconst_0\nistore " + to_string(id_counter));
+			addLine("iconst_0");
+			addLine("istore " + to_string(id_counter));
 		} else if (id_type == FLOAT_TYPE) {
-			addLine("iconst_0\nistore " + to_string(id_counter));
+			addLine("fconst_0");
+			addLine("fstore " + to_string(id_counter));
 		}
 		symbol_table[id_str] = make_pair (id_counter++, (type)id_type);
 	}
