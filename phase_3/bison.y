@@ -69,6 +69,7 @@ bool is_valid_id(string id);
 %token round_close
 %token curly_open
 %token curly_close
+%token while_token
 
 %type <id_type> primitive_type
 %type <bool_expression> boolean_expression
@@ -162,7 +163,7 @@ boolean_expression :
 	}
 };
 
-while: "while" "(" M boolean_expression ")" "{" M statement "}"
+while: while_token round_open M boolean_expression round_close curly_open M statement curly_close
 {
 	back_patch($4.true_list, $7);
 	back_patch($8.next_list, $3);
