@@ -172,9 +172,10 @@ while: while_token round_open M boolean_expression round_close curly_open M stat
 	addLine("goto " + to_string($3));
 };
 
-if: if_term round_open boolean_expression round_close curly_open M statement curly_close{
+if: if_term round_open boolean_expression round_close curly_open M statement M curly_close{
 cout<<1<<endl;
 back_patch($3.true_list, $6);
+back_patch($3.false_list, $8);
 cout<<2<<endl;
 $$.next_list = merge($3.false_list,$7.next_list);
 cout<<3<<endl;
@@ -182,7 +183,7 @@ cout<<3<<endl;
 | if_term round_open boolean_expression round_close curly_open M statement curly_close N else_term curly_open M statement curly_close
 {
 back_patch($3.true_list,$6);
-back_patch($3.true_list,$12);
+back_patch($3.false_list,$12);
 vector<int> *temp = new vector<int>();
 temp = merge($7.next_list,$9.next_list);
 $$.next_list = merge(temp,$13.next_list);
