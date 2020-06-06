@@ -40,6 +40,10 @@ num [0-9]+
 
 ";"                                        {return semi_colon;}
 "="                                        {return equals;}
+"("
+")"
+"{"
+"}"
 
 %%
 
