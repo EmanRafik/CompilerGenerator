@@ -107,12 +107,12 @@ boolean_expression :
 //case of AND, OR
  boolean_expression boolean_op create_label boolean_expression {  //create label is still not ready
 	if(strcmp($2,"||") == 0){
-		backpatch($1.false_list, $3);
+		back_patch($1.false_list, $3);
 		$$.true_list = merge($1.true_list, $4.true_list);
 		$$.false_list = $4.false_list;
 	}
 	else if(strcmp($2,"&&") == 0){
-		backpatch($1.true_list,$3);
+		back_patch($1.true_list,$3);
 		$$.true_list = $4.true_list;
 		$$.false_list = merge($1.false_list, $4.false_list);
 	}
@@ -132,22 +132,22 @@ boolean_expression :
 	$$.false_list = make_list(javaByteCode.size()+1);
 	string op_type= "";
         if(strcmp($2,"==")){
-        op_type = icmpeq;
+        op_type = "icmpeq";
         }
         else if(strcmp($2,">=")){
-        op_type = icmpge;
+        op_type = "icmpge";
         }
         else if(strcmp($2, ">")){
-        op_type = icmpgt;
+        op_type = "icmpgt";
         }
         else if(strcmp($2, "<=")){
-        op_type = icmple;
+        op_type = "icmple";
         }
         else if(strcmp($2, "<")){
-        op_type = icmplt;
+        op_type = "icmplt";
         }
         else if (strcmp($2, "!=")){
-        op_type = icmpne;
+        op_type = "icmpne";
         }
         addLine("if_"+op_type+" ");
 	addLine("goto ")
@@ -174,8 +174,8 @@ while: "while" "(" create_label boolean_expression ")" "{" create_label statemen
 
 if: "if" "(" boolean_expression ")" "{" create_label statement "}" N "else" "{" create_label statement "}"
 {
-backpatch($3.true_list,$6);
-backpatch($3.true_list,$12);
+back_patch($3.true_list,$6);
+back_patch($3.true_list,$12);
 vector<int> *temp;
 temp = merge($7.next_list,$9.next_list);
 $$.next_list = merge(temp,$13.next_list);
@@ -347,14 +347,14 @@ int main(void)
 vector<int> *make_list(int index)
 {
   vector<int> *vec = new vector<int>());
-  vec.push_back(index);
+  vec->push_back(index);
   return vec;
 }
 
 //merge --> concatenates p1 and p2 and returns the concatenated list
 vector<int> *merge(vector<int> *p1, vector<int> *p2)
 {
-  if(p1 == null && p2 == null){
+  if(p1 == NULL && p2 == NULL){
     vector<int> *vec = new vector<int>();
     return vec;
   }
@@ -365,7 +365,7 @@ vector<int> *merge(vector<int> *p1, vector<int> *p2)
     return p1;
   }
   else{
-    vector<int> *vec = new vector<int>(p1);
+    vector<int> *vec = new vector<int>(*p1);
     vec->insert(vec->end(),p2->begin(),p2->end());
     return vec;
   }
@@ -378,7 +378,7 @@ void back_patch(vector<int> *p, int index)
     return;
   }
   for(int i=0; i<p->size(); i++){
-    inst_val = (*p)[i];
+    int_val = (*p)[i];
     javaByteCode[inst_val] = javaByteCode[inst_val] + to_string(index);
   }
 }
