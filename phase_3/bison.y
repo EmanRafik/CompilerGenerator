@@ -192,7 +192,7 @@ $$.next_list = merge(temp,$13.next_list);
 };
 
 N: {
-$$.next_list = make_list(code_counter+1);
+$$.next_list = make_list(code_counter);
 addLine("goto ");
 };
 

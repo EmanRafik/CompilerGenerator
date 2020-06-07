@@ -16,12 +16,10 @@
 16 ldc 1
 17 iadd
 18 istore 2
-19 goto 
+19 goto 11
 20 iload 2
 21 ldc 2
-22 iadd
-23 istore 2
-24 iload 2
-25 ldc 2
-26 imul
-27 istore 1
+22 imul
+23 ldc 5
+24 iadd
+25 istore 1

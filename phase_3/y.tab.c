@@ -537,10 +537,10 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,    90,    90,    92,    92,    94,    95,    96,    97,   100,
-     101,   104,   115,   128,   154,   167,   176,   183,   192,   198,
-     218,   222,   223,   237,   266,   269,   298,   319,   324,   329,
-     331,   335
+       0,    90,    90,    92,    92,    94,    95,    97,    99,   102,
+     103,   106,   117,   130,   156,   169,   178,   185,   194,   200,
+     220,   224,   225,   239,   268,   271,   300,   321,   326,   331,
+     333,   337
 };
 #endif
 
@@ -1482,36 +1482,38 @@ yyreduce:
   case 6:
 /* Line 1792 of yacc.c  */
 #line 95 "bison.y"
-    {(yyval.statement_type).next_list = (yyvsp[(1) - (1)].statement_type).next_list;}
+    {(yyval.statement_type).next_list = (yyvsp[(1) - (1)].statement_type).next_list;
+back_patch((yyval.statement_type).next_list, code_counter+1);}
     break;
 
   case 7:
 /* Line 1792 of yacc.c  */
-#line 96 "bison.y"
-    {(yyval.statement_type).next_list = (yyvsp[(1) - (1)].statement_type).next_list;}
+#line 97 "bison.y"
+    {(yyval.statement_type).next_list = (yyvsp[(1) - (1)].statement_type).next_list;
+back_patch((yyval.statement_type).next_list, code_counter+1);}
     break;
 
   case 8:
 /* Line 1792 of yacc.c  */
-#line 97 "bison.y"
+#line 99 "bison.y"
     {(yyval.statement_type).next_list = new vector<int>();}
     break;
 
   case 9:
 /* Line 1792 of yacc.c  */
-#line 100 "bison.y"
+#line 102 "bison.y"
     {(yyval.id_type) = INT_TYPE;}
     break;
 
   case 10:
 /* Line 1792 of yacc.c  */
-#line 101 "bison.y"
+#line 103 "bison.y"
     {(yyval.id_type) = FLOAT_TYPE;}
     break;
 
   case 11:
 /* Line 1792 of yacc.c  */
-#line 104 "bison.y"
+#line 106 "bison.y"
     {
 		string id_str((yyvsp[(2) - (3)].id_val));
 		if((yyvsp[(1) - (3)].id_type) == INT_TYPE){
@@ -1524,7 +1526,7 @@ yyreduce:
 
   case 12:
 /* Line 1792 of yacc.c  */
-#line 115 "bison.y"
+#line 117 "bison.y"
     {  //create label is still not ready
 	if(strcmp((yyvsp[(2) - (4)].operation),"||") == 0){
 		back_patch((yyvsp[(1) - (4)].bool_expression).false_list, (yyvsp[(3) - (4)].int_val));
@@ -1541,7 +1543,7 @@ yyreduce:
 
   case 13:
 /* Line 1792 of yacc.c  */
-#line 128 "bison.y"
+#line 130 "bison.y"
     {
 	(yyval.bool_expression).true_list = make_list(code_counter);
 	(yyval.bool_expression).false_list = make_list(code_counter+1);
@@ -1571,7 +1573,7 @@ yyreduce:
 
   case 14:
 /* Line 1792 of yacc.c  */
-#line 154 "bison.y"
+#line 156 "bison.y"
     {
 	if((yyvsp[(1) - (1)].boolean_val)){
 		(yyval.bool_expression).true_list = make_list(code_counter+1);
@@ -1588,10 +1590,10 @@ yyreduce:
 
   case 15:
 /* Line 1792 of yacc.c  */
-#line 168 "bison.y"
+#line 170 "bison.y"
     {
 	back_patch((yyvsp[(4) - (9)].bool_expression).true_list, (yyvsp[(7) - (9)].int_val));
-	back_patch((yyvsp[(4) - (9)].bool_expression).false_list, code_counter+2);
+	//back_patch($4.false_list, code_counter+2);
 	back_patch((yyvsp[(8) - (9)].statement_type).next_list, (yyvsp[(3) - (9)].int_val));
 	(yyval.statement_type).next_list = (yyvsp[(4) - (9)].bool_expression).false_list;
 	addLine("goto " + to_string((yyvsp[(3) - (9)].int_val)));
@@ -1600,7 +1602,7 @@ yyreduce:
 
   case 16:
 /* Line 1792 of yacc.c  */
-#line 176 "bison.y"
+#line 178 "bison.y"
     {
 cout<<1<<endl;
 back_patch((yyvsp[(3) - (8)].bool_expression).true_list, (yyvsp[(6) - (8)].int_val));
@@ -1612,7 +1614,7 @@ cout<<3<<endl;
 
   case 17:
 /* Line 1792 of yacc.c  */
-#line 184 "bison.y"
+#line 186 "bison.y"
     {
 back_patch((yyvsp[(3) - (14)].bool_expression).true_list,(yyvsp[(6) - (14)].int_val));
 back_patch((yyvsp[(3) - (14)].bool_expression).false_list,(yyvsp[(12) - (14)].int_val));
@@ -1624,16 +1626,16 @@ temp = merge((yyvsp[(7) - (14)].statement_type).next_list,(yyvsp[(9) - (14)].sta
 
   case 18:
 /* Line 1792 of yacc.c  */
-#line 192 "bison.y"
+#line 194 "bison.y"
     {
-(yyval.statement_type).next_list = make_list(code_counter+1);
+(yyval.statement_type).next_list = make_list(code_counter);
 addLine("goto ");
 }
     break;
 
   case 19:
 /* Line 1792 of yacc.c  */
-#line 198 "bison.y"
+#line 200 "bison.y"
     {
 		string id_str((yyvsp[(1) - (4)].id_val));
                 if(is_valid_id(id_str)){
@@ -1657,19 +1659,19 @@ addLine("goto ");
 
   case 20:
 /* Line 1792 of yacc.c  */
-#line 219 "bison.y"
+#line 221 "bison.y"
     {(yyval.expression_type).type = (yyvsp[(1) - (1)].expression_type).type;}
     break;
 
   case 21:
 /* Line 1792 of yacc.c  */
-#line 222 "bison.y"
+#line 224 "bison.y"
     {(yyval.expression_type).type = (yyvsp[(1) - (1)].expression_type).type;}
     break;
 
   case 22:
 /* Line 1792 of yacc.c  */
-#line 223 "bison.y"
+#line 225 "bison.y"
     {
 	(yyval.expression_type).type = (yyvsp[(2) - (2)].expression_type).type;
 	if (strcmp((yyvsp[(1) - (2)].operation),"-")==0)
@@ -1688,7 +1690,7 @@ addLine("goto ");
 
   case 23:
 /* Line 1792 of yacc.c  */
-#line 238 "bison.y"
+#line 240 "bison.y"
     {
 	if ((yyvsp[(1) - (3)].expression_type).type == FLOAT_TYPE || (yyvsp[(3) - (3)].expression_type).type == FLOAT_TYPE)
 	{
@@ -1719,7 +1721,7 @@ addLine("goto ");
 
   case 24:
 /* Line 1792 of yacc.c  */
-#line 266 "bison.y"
+#line 268 "bison.y"
     {
 		(yyval.expression_type).type = (yyvsp[(1) - (1)].expression_type).type;
 	}
@@ -1727,7 +1729,7 @@ addLine("goto ");
 
   case 25:
 /* Line 1792 of yacc.c  */
-#line 269 "bison.y"
+#line 271 "bison.y"
     {
 	if ((yyvsp[(1) - (3)].expression_type).type == FLOAT_TYPE || (yyvsp[(3) - (3)].expression_type).type == FLOAT_TYPE)
 	{
@@ -1759,7 +1761,7 @@ addLine("goto ");
 
   case 26:
 /* Line 1792 of yacc.c  */
-#line 298 "bison.y"
+#line 300 "bison.y"
     {
 		string id_str((yyvsp[(1) - (1)].id_val));
 		if (is_valid_id(id_str)) 
@@ -1785,7 +1787,7 @@ addLine("goto ");
 
   case 27:
 /* Line 1792 of yacc.c  */
-#line 320 "bison.y"
+#line 322 "bison.y"
     {
 		(yyval.expression_type).type = INT_TYPE;
 		addLine("ldc " + to_string((yyvsp[(1) - (1)].int_val)));
@@ -1794,7 +1796,7 @@ addLine("goto ");
 
   case 28:
 /* Line 1792 of yacc.c  */
-#line 325 "bison.y"
+#line 327 "bison.y"
     {
 		(yyval.expression_type).type = FLOAT_TYPE;
 		addLine("ldc " + to_string((yyvsp[(1) - (1)].float_val)));
@@ -1803,13 +1805,13 @@ addLine("goto ");
 
   case 29:
 /* Line 1792 of yacc.c  */
-#line 329 "bison.y"
+#line 331 "bison.y"
     {(yyval.expression_type).type = (yyvsp[(2) - (3)].expression_type).type;}
     break;
 
   case 30:
 /* Line 1792 of yacc.c  */
-#line 331 "bison.y"
+#line 333 "bison.y"
     {
 (yyval.int_val) = code_counter+1;
 }
@@ -1817,7 +1819,7 @@ addLine("goto ");
 
 
 /* Line 1792 of yacc.c  */
-#line 1821 "y.tab.c"
+#line 1823 "y.tab.c"
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -2049,7 +2051,7 @@ yyreturn:
 
 
 /* Line 2055 of yacc.c  */
-#line 336 "bison.y"
+#line 338 "bison.y"
 
 
 void yyerror(const char * s)
